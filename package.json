@@ -41,6 +41,7 @@
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^2.0.2",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "8.7.0",
     "eslint-config-next": "^12.0.9",
     "eslint-config-prettier": "^8.3.0",
@@ -61,5 +62,10 @@
       "yarn lint --fix",
       "yarn test --findRelatedTests --bail"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
