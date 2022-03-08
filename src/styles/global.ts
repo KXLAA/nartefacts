@@ -2,22 +2,38 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
+*, *::before, *::after {
     box-sizing: border-box;
   }
-
-  html {
-    font-size: 62.5%;
+  * {
+    margin: 0;
   }
-
-  html, body, #__next {
+  html, body {
     height: 100%;
   }
-
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    font-family: 'HeliosExt', sans-serif;
+    background: #191919;
+    color: #e5e5e5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  a {
+  color: inherit;
+  text-decoration: none;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
   }
 `
 
