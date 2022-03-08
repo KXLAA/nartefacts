@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'HeliosExt';
+  src: url('../../public/fonts/HeliosExt-Bold.eot');
+  src: local('../../public/fonts/HeliosExt Bold'),
+    local('../../public/fonts/HeliosExt-Bold'),
+    url('../../public/fonts/HeliosExt-Bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../../public/fonts/HeliosExt-Bold.woff2') format('woff2'),
+    url('../../public/fonts/HeliosExt-Bold.woff') format('woff'),
+    url('../../public/fonts/HeliosExt-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HeliosExt';
+  src: url('../../public/fonts/HeliosExt.eot');
+  src: local('../../public/fonts/HeliosExt'),
+    url('../../public/fonts/HeliosExt.eot?#iefix') format('embedded-opentype'),
+    url('../../public/fonts/HeliosExt.woff2') format('woff2'),
+    url('../../public/fonts/HeliosExt.woff') format('woff'),
+    url('../../public/fonts/HeliosExt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
