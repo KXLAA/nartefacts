@@ -1,20 +1,21 @@
 import { gql } from 'apollo-server-micro'
 
-export const typeDefs = gql`
+const typeDefs = gql`
   type Query {
-    albums: [Album!]!
-    album(id: ID!): Album
-    albumType(type: String): Album
+    allAlbums: [Album!]!
+    oneAlbum(id: ID!): Album
+    albumsByType(type: String): [Album!]!
     artistAlbums(artist: String): [Album!]!
   }
 
-  type Mutation {
-    addToLike(id: ID!): Album!
-    removeFromLike(id: ID!): Album!
-    addAlbum(input: AlbumInput): Album
-    deleteAlbum(id: ID!): Boolean!
-    updateAlbum(id: ID!, input: AlbumInput): Album!
-  }
+  # type Mutation {
+  #   addToLike(id: ID!): Album!
+  #   removeFromLike(id: ID!): Album!
+  #   addAlbum(input: AlbumInput): Album
+  #   deleteAlbum(id: ID!): Boolean!
+  #   updateAlbum(id: ID!, input: AlbumInput): Album!
+  #   generateColors(imageUrl: String): Colors
+  # }
 
   type Album {
     id: ID!
@@ -41,10 +42,10 @@ export const typeDefs = gql`
     colors: [String!]!
   }
 
-  #   type Colors {
-  #     colors: [String!]!
-  #     gradient: String
-  #   }
+  type Colors {
+    colors: [String!]!
+    # gradient: String
+  }
 
   type Artist {
     id: ID!
@@ -60,3 +61,4 @@ export const typeDefs = gql`
     biography: String
   }
 `
+export default typeDefs

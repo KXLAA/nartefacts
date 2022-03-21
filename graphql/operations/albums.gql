@@ -1,0 +1,22 @@
+query GET_ALL_ALBUMS {
+  allAlbums {
+    id
+    title
+    type
+    artist {
+      id
+      name
+      photoUrl
+      biography
+      albums {
+        id
+      }
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
