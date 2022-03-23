@@ -1,5 +1,75 @@
-query GET_ALL_ALBUMS {
+query Albums {
   allAlbums {
+    id
+    title
+    type
+    artist {
+      id
+      name
+      photoUrl
+      biography
+      albums {
+        id
+      }
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+
+query Album($id: ID!) {
+  oneAlbum(id: $id) {
+    id
+    title
+    type
+    artist {
+      id
+      name
+      photoUrl
+      biography
+      albums {
+        id
+      }
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+
+
+query AlbumsByType($type: String) {
+  albumsByType(type: $type) {
+    id
+    title
+    type
+    artist {
+      id
+      name
+      photoUrl
+      biography
+      albums {
+        id
+      }
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+
+query AlbumsByArtist($artist: String) {
+  artistAlbums(artist: $artist) {
     id
     title
     type

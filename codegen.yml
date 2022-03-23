@@ -7,3 +7,9 @@ generates:
       - 'typescript'
       - 'typescript-operations'
       - 'typescript-react-apollo'
+      - 'typescript-resolvers'
+    config:
+      withHooks: true
+      withHOC: false
+      withComponent: false
+      skipTypename: true

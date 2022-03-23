@@ -1,14 +1,15 @@
 import { PrismaClient } from '@prisma/client'
+import { Resolvers } from './generated/graphql'
 const prisma = new PrismaClient()
 
-export const resolvers = {
+export const resolvers: Resolvers = {
   Query: {
     allAlbums: async () => {
       const albums = prisma.album.findMany()
       return albums
     },
 
-    oneAlbum: async (_: any, { id }: any) => {
+    oneAlbum: async (_, { id }) => {
       const album = prisma.album.findUnique({
         where: {
           id: id,
@@ -17,23 +18,21 @@ export const resolvers = {
       return album
     },
 
-    albumsByType: async (_: any, { type }: any) => {
+    albumsByType: async (_, { type }) => {
       const albums = prisma.album.findMany({
         where: {
-          type: type,
+          type: type!,
         },
       })
       return albums
     },
 
-    artistAlbums: async (_: any, { artist }: any) => {
-      const artistInDb = prisma.artist.findUnique({
-        where: {
-          name: artist,
-        },
-      })
-      const albums = artistInDb.Albums
-      return albums
-    },
+    // artistAlbums: async (_, { artist }) => {
+    //   const artistInDb = prisma.artist.findUnique({
+    //     where: {
+    //       name: artist!,
+    //     },
+    //   })
+    // },
   },
 }
