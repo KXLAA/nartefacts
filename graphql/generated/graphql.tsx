@@ -68,10 +68,12 @@ export type Colors = {
 export type Mutation = {
   addAlbum: Album;
   addArtist?: Maybe<Artist>;
+  addToLike: Album;
   authenticate: Scalars['String'];
   deleteAlbum: Scalars['Boolean'];
   deleteArtist: Scalars['Boolean'];
   generateColors?: Maybe<Colors>;
+  removeFromLike: Album;
   updateAlbum: Album;
   updateArtist?: Maybe<Artist>;
 };
@@ -84,6 +86,11 @@ export type MutationAddAlbumArgs = {
 
 export type MutationAddArtistArgs = {
   input?: InputMaybe<ArtistInput>;
+};
+
+
+export type MutationAddToLikeArgs = {
+  albumID: Scalars['ID'];
 };
 
 
@@ -105,6 +112,11 @@ export type MutationDeleteArtistArgs = {
 
 export type MutationGenerateColorsArgs = {
   imageUrl?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MutationRemoveFromLikeArgs = {
+  albumID: Scalars['ID'];
 };
 
 
@@ -551,10 +563,12 @@ export type ColorsResolvers<ContextType = any, ParentType extends ResolversParen
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   addAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, Partial<MutationAddAlbumArgs>>;
   addArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, Partial<MutationAddArtistArgs>>;
+  addToLike?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationAddToLikeArgs, 'albumID'>>;
   authenticate?: Resolver<ResolversTypes['String'], ParentType, ContextType, RequireFields<MutationAuthenticateArgs, 'password'>>;
   deleteAlbum?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteAlbumArgs, 'albumID'>>;
   deleteArtist?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteArtistArgs, 'artistID'>>;
   generateColors?: Resolver<Maybe<ResolversTypes['Colors']>, ParentType, ContextType, Partial<MutationGenerateColorsArgs>>;
+  removeFromLike?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationRemoveFromLikeArgs, 'albumID'>>;
   updateAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationUpdateAlbumArgs, 'albumID'>>;
   updateArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, RequireFields<MutationUpdateArtistArgs, 'artistID'>>;
 };

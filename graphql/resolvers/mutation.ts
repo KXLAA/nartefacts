@@ -132,6 +132,35 @@ const Mutation: MutationResolvers = {
     })
     return deleteAlbum ? true : false
   },
+
+  //Social
+  addToLike: async (_, { albumID }) => {
+    const updateAlbum = await prisma.album.update({
+      where: {
+        id: albumID,
+      },
+      data: {
+        likeCount: {
+          increment: 1,
+        },
+      },
+    })
+    return updateAlbum
+  },
+
+  removeFromLike: async (_, { albumID }) => {
+    const updateAlbum = await prisma.album.update({
+      where: {
+        id: albumID,
+      },
+      data: {
+        likeCount: {
+          decrement: 1,
+        },
+      },
+    })
+    return updateAlbum
+  },
 }
 
 export default Mutation
