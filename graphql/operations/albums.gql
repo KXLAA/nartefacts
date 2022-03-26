@@ -95,3 +95,103 @@ mutation GenerateColors($imageUrl: String) {
     colors
   }
 }
+
+mutation AddToLike($albumId: ID!) {
+  addToLike(albumID: $albumId) {
+    id
+    title
+    type
+    artist {
+      id
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+
+mutation RemoveFromLike($albumId: ID!) {
+  removeFromLike(albumID: $albumId) {
+    id
+    title
+    type
+    artist {
+      id
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+
+mutation AddAlbum($input: AlbumInput) {
+  addAlbum(input: $input) {
+    id
+    title
+    type
+    artist {
+      id
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+
+mutation UpdateAlbum($albumId: ID!, $input: AlbumInput) {
+  updateAlbum(albumID: $albumId, input: $input) {
+    id
+    title
+    type
+    artist {
+      id
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+
+mutation DeleteAlbum($albumId: ID!) {
+  deleteAlbum(albumID: $albumId)
+}
+
+mutation AddArtist($input: ArtistInput) {
+  addArtist(input: $input) {
+    id
+    name
+    photoUrl
+    biography
+    albums {
+      id
+    }
+  }
+}
+
+mutation UpdateArtist($artistId: ID!, $input: ArtistInput) {
+  updateArtist(artistID: $artistId, input: $input) {
+    id
+    name
+    photoUrl
+    biography
+    albums {
+      id
+    }
+  }
+}
+
+mutation DeleteArtist($artistId: ID!) {
+  deleteArtist(artistID: $artistId)
+}
