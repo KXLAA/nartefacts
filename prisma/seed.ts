@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client'
 import { ALBUMS, ARTISTS } from '../data'
-
-const prisma = new PrismaClient()
+import { prisma } from '../lib/prisma'
 
 const main = async () => {
   await prisma.artist.createMany({
