@@ -33,8 +33,8 @@ const Mutation: MutationResolvers = {
     const artist = await prisma.artist.create({
       data: {
         name: input?.name || '',
-        biography: input?.biography,
-        photoUrl: input?.photoUrl,
+        biography: input?.biography || '',
+        photoUrl: input?.photoUrl || '',
       },
     })
     return artist
@@ -47,8 +47,8 @@ const Mutation: MutationResolvers = {
       },
       data: {
         name: input?.name || '',
-        biography: input?.biography,
-        photoUrl: input?.photoUrl,
+        biography: input?.biography || '',
+        photoUrl: input?.photoUrl || '',
       },
     })
 
