@@ -17,6 +17,11 @@ export type Scalars = {
   Float: number;
 };
 
+export type Admin = {
+  email?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+};
+
 export type Album = {
   albumArt: Scalars['String'];
   apple?: Maybe<Scalars['String']>;
@@ -33,7 +38,7 @@ export type Album = {
 export type AlbumInput = {
   albumArt: Scalars['String'];
   apple?: InputMaybe<Scalars['String']>;
-  artist?: InputMaybe<ArtistInput>;
+  artistName: Scalars['String'];
   colors: Array<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   likeCount?: InputMaybe<Scalars['Int']>;
@@ -53,7 +58,7 @@ export type Artist = {
 export type ArtistInput = {
   biography?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
-  photoURL?: InputMaybe<Scalars['String']>;
+  photoUrl?: InputMaybe<Scalars['String']>;
 };
 
 export type Colors = {
@@ -61,12 +66,69 @@ export type Colors = {
 };
 
 export type Mutation = {
-  generateColors?: Maybe<Array<Maybe<Scalars['String']>>>;
+  addAlbum: Album;
+  addArtist?: Maybe<Artist>;
+  addToLike: Album;
+  authenticate: Scalars['String'];
+  deleteAlbum: Scalars['Boolean'];
+  deleteArtist: Scalars['Boolean'];
+  generateColors?: Maybe<Colors>;
+  removeFromLike: Album;
+  updateAlbum: Album;
+  updateArtist?: Maybe<Artist>;
+};
+
+
+export type MutationAddAlbumArgs = {
+  input?: InputMaybe<AlbumInput>;
+};
+
+
+export type MutationAddArtistArgs = {
+  input?: InputMaybe<ArtistInput>;
+};
+
+
+export type MutationAddToLikeArgs = {
+  albumID: Scalars['ID'];
+};
+
+
+export type MutationAuthenticateArgs = {
+  email?: InputMaybe<Scalars['String']>;
+  password: Scalars['String'];
+};
+
+
+export type MutationDeleteAlbumArgs = {
+  albumID: Scalars['ID'];
+};
+
+
+export type MutationDeleteArtistArgs = {
+  artistID: Scalars['ID'];
 };
 
 
 export type MutationGenerateColorsArgs = {
   imageUrl?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MutationRemoveFromLikeArgs = {
+  albumID: Scalars['ID'];
+};
+
+
+export type MutationUpdateAlbumArgs = {
+  albumID: Scalars['ID'];
+  input?: InputMaybe<AlbumInput>;
+};
+
+
+export type MutationUpdateArtistArgs = {
+  artistID: Scalars['ID'];
+  input?: InputMaybe<ArtistInput>;
 };
 
 export type Query = {
@@ -116,6 +178,13 @@ export type AlbumsByArtistQueryVariables = Exact<{
 
 
 export type AlbumsByArtistQuery = { artistAlbums: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string } | null> | null } | null }> };
+
+export type GenerateColorsMutationVariables = Exact<{
+  imageUrl?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GenerateColorsMutation = { generateColors?: { colors: Array<string> } | null };
 
 
 export const AlbumsDocument = gql`
@@ -325,6 +394,39 @@ export function useAlbumsByArtistLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type AlbumsByArtistQueryHookResult = ReturnType<typeof useAlbumsByArtistQuery>;
 export type AlbumsByArtistLazyQueryHookResult = ReturnType<typeof useAlbumsByArtistLazyQuery>;
 export type AlbumsByArtistQueryResult = Apollo.QueryResult<AlbumsByArtistQuery, AlbumsByArtistQueryVariables>;
+export const GenerateColorsDocument = gql`
+    mutation GenerateColors($imageUrl: String) {
+  generateColors(imageUrl: $imageUrl) {
+    colors
+  }
+}
+    `;
+export type GenerateColorsMutationFn = Apollo.MutationFunction<GenerateColorsMutation, GenerateColorsMutationVariables>;
+
+/**
+ * __useGenerateColorsMutation__
+ *
+ * To run a mutation, you first call `useGenerateColorsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useGenerateColorsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [generateColorsMutation, { data, loading, error }] = useGenerateColorsMutation({
+ *   variables: {
+ *      imageUrl: // value for 'imageUrl'
+ *   },
+ * });
+ */
+export function useGenerateColorsMutation(baseOptions?: Apollo.MutationHookOptions<GenerateColorsMutation, GenerateColorsMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<GenerateColorsMutation, GenerateColorsMutationVariables>(GenerateColorsDocument, options);
+      }
+export type GenerateColorsMutationHookResult = ReturnType<typeof useGenerateColorsMutation>;
+export type GenerateColorsMutationResult = Apollo.MutationResult<GenerateColorsMutation>;
+export type GenerateColorsMutationOptions = Apollo.BaseMutationOptions<GenerateColorsMutation, GenerateColorsMutationVariables>;
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -394,6 +496,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
+  Admin: ResolverTypeWrapper<Admin>;
   Album: ResolverTypeWrapper<Album>;
   AlbumInput: AlbumInput;
   Artist: ResolverTypeWrapper<Artist>;
@@ -409,6 +512,7 @@ export type ResolversTypes = {
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
+  Admin: Admin;
   Album: Album;
   AlbumInput: AlbumInput;
   Artist: Artist;
@@ -420,6 +524,12 @@ export type ResolversParentTypes = {
   Mutation: {};
   Query: {};
   String: Scalars['String'];
+};
+
+export type AdminResolvers<ContextType = any, ParentType extends ResolversParentTypes['Admin'] = ResolversParentTypes['Admin']> = {
+  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type AlbumResolvers<ContextType = any, ParentType extends ResolversParentTypes['Album'] = ResolversParentTypes['Album']> = {
@@ -451,7 +561,16 @@ export type ColorsResolvers<ContextType = any, ParentType extends ResolversParen
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  generateColors?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType, Partial<MutationGenerateColorsArgs>>;
+  addAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, Partial<MutationAddAlbumArgs>>;
+  addArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, Partial<MutationAddArtistArgs>>;
+  addToLike?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationAddToLikeArgs, 'albumID'>>;
+  authenticate?: Resolver<ResolversTypes['String'], ParentType, ContextType, RequireFields<MutationAuthenticateArgs, 'password'>>;
+  deleteAlbum?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteAlbumArgs, 'albumID'>>;
+  deleteArtist?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteArtistArgs, 'artistID'>>;
+  generateColors?: Resolver<Maybe<ResolversTypes['Colors']>, ParentType, ContextType, Partial<MutationGenerateColorsArgs>>;
+  removeFromLike?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationRemoveFromLikeArgs, 'albumID'>>;
+  updateAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationUpdateAlbumArgs, 'albumID'>>;
+  updateArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, RequireFields<MutationUpdateArtistArgs, 'artistID'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
@@ -462,6 +581,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type Resolvers<ContextType = any> = {
+  Admin?: AdminResolvers<ContextType>;
   Album?: AlbumResolvers<ContextType>;
   Artist?: ArtistResolvers<ContextType>;
   Colors?: ColorsResolvers<ContextType>;
