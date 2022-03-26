@@ -14,7 +14,7 @@ const typeDefs = gql`
     # addAlbum(input: AlbumInput): Album
     # deleteAlbum(id: ID!): Boolean!
     # updateAlbum(id: ID!, input: AlbumInput): Album!
-    generateColors(imageUrl: String): [String]
+    generateColors(imageUrl: String): Colors
   }
 
   type Album {
