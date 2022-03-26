@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import { MutationResolvers } from '../generated/graphql'
 import ColorThief from 'colorthief'
-import { ApolloError } from 'apollo-server-errors'
+import { ApolloError, UserInputError } from 'apollo-server-errors'
 const prisma = new PrismaClient()
 
 const Mutation: MutationResolvers = {
@@ -40,6 +40,21 @@ const Mutation: MutationResolvers = {
     return artist
   },
 
+  updateArtist: async (_, { artistID, input }) => {
+    const updateArtist = await prisma.artist.update({
+      where: {
+        id: artistID,
+      },
+      data: {
+        name: input?.name || '',
+        biography: input?.biography,
+        photoUrl: input?.photoUrl,
+      },
+    })
+
+    return updateArtist
+  },
+
   deleteArtist: async (_, { artistID }) => {
     const deleteArtist = await prisma.artist.delete({
       where: {
@@ -47,6 +62,75 @@ const Mutation: MutationResolvers = {
       },
     })
     return deleteArtist ? true : false
+  },
+
+  //Album
+  addAlbum: async (_, { input }) => {
+    const artist = await prisma.artist.findUnique({
+      where: {
+        name: input?.artistName,
+      },
+    })
+    if (!artist) {
+      throw new UserInputError('cannot find artist', {
+        argumentName: 'artistName',
+      })
+    }
+    const album = await prisma.album.create({
+      data: {
+        title: input?.title || '',
+        type: input?.type || '',
+        artistId: artist?.id,
+        albumArt: input?.albumArt || '',
+        likeCount: input?.likeCount || 0,
+        description: input?.description || '',
+        spotify: input?.spotify || '',
+        apple: input?.apple || '',
+        colors: input?.colors,
+      },
+    })
+
+    return album
+  },
+
+  updateAlbum: async (_, { albumID, input }) => {
+    const artist = await prisma.artist.findUnique({
+      where: {
+        name: input?.artistName,
+      },
+    })
+    if (!artist) {
+      throw new UserInputError('cannot find artist', {
+        argumentName: 'artistName',
+      })
+    }
+
+    const updateAlbum = await prisma.album.update({
+      where: {
+        id: albumID,
+      },
+      data: {
+        title: input?.title || '',
+        type: input?.type || '',
+        artistId: artist?.id,
+        albumArt: input?.albumArt || '',
+        likeCount: input?.likeCount || 0,
+        description: input?.description || '',
+        spotify: input?.spotify || '',
+        apple: input?.apple || '',
+        colors: input?.colors,
+      },
+    })
+    return updateAlbum
+  },
+
+  deleteAlbum: async (_, { albumID }) => {
+    const deleteAlbum = await prisma.album.delete({
+      where: {
+        id: albumID,
+      },
+    })
+    return deleteAlbum ? true : false
   },
 }
 

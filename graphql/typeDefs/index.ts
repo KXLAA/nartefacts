@@ -11,12 +11,15 @@ const typeDefs = gql`
   type Mutation {
     # addToLike(id: ID!): Album!
     # removeFromLike(id: ID!): Album!
-    # addAlbum(input: AlbumInput): Album
-    # deleteAlbum(id: ID!): Boolean!
-    # updateAlbum(id: ID!, input: AlbumInput): Album!
+    addAlbum(input: AlbumInput): Album!
+    updateAlbum(albumID: ID!, input: AlbumInput): Album!
+    deleteAlbum(albumID: ID!): Boolean!
     generateColors(imageUrl: String): Colors
     addArtist(input: ArtistInput): Artist
+    updateArtist(artistID: ID!, input: ArtistInput): Artist
     deleteArtist(artistID: ID!): Boolean!
+
+    authenticate(email: String, password: String!): String!
   }
 
   type Album {
@@ -32,10 +35,15 @@ const typeDefs = gql`
     colors: [String!]!
   }
 
+  type Admin {
+    id: ID!
+    email: String
+  }
+
   input AlbumInput {
     title: String!
     type: String!
-    artist: String!
+    artistName: String!
     albumArt: String!
     likeCount: Int
     description: String

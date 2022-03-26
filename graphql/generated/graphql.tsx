@@ -17,6 +17,11 @@ export type Scalars = {
   Float: number;
 };
 
+export type Admin = {
+  email?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+};
+
 export type Album = {
   albumArt: Scalars['String'];
   apple?: Maybe<Scalars['String']>;
@@ -33,7 +38,7 @@ export type Album = {
 export type AlbumInput = {
   albumArt: Scalars['String'];
   apple?: InputMaybe<Scalars['String']>;
-  artist?: InputMaybe<ArtistInput>;
+  artistName: Scalars['String'];
   colors: Array<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   likeCount?: InputMaybe<Scalars['Int']>;
@@ -61,14 +66,35 @@ export type Colors = {
 };
 
 export type Mutation = {
+  addAlbum: Album;
   addArtist?: Maybe<Artist>;
+  authenticate: Scalars['String'];
+  deleteAlbum: Scalars['Boolean'];
   deleteArtist: Scalars['Boolean'];
   generateColors?: Maybe<Colors>;
+  updateAlbum: Album;
+  updateArtist?: Maybe<Artist>;
+};
+
+
+export type MutationAddAlbumArgs = {
+  input?: InputMaybe<AlbumInput>;
 };
 
 
 export type MutationAddArtistArgs = {
   input?: InputMaybe<ArtistInput>;
+};
+
+
+export type MutationAuthenticateArgs = {
+  email?: InputMaybe<Scalars['String']>;
+  password: Scalars['String'];
+};
+
+
+export type MutationDeleteAlbumArgs = {
+  albumID: Scalars['ID'];
 };
 
 
@@ -79,6 +105,18 @@ export type MutationDeleteArtistArgs = {
 
 export type MutationGenerateColorsArgs = {
   imageUrl?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MutationUpdateAlbumArgs = {
+  albumID: Scalars['ID'];
+  input?: InputMaybe<AlbumInput>;
+};
+
+
+export type MutationUpdateArtistArgs = {
+  artistID: Scalars['ID'];
+  input?: InputMaybe<ArtistInput>;
 };
 
 export type Query = {
@@ -446,6 +484,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
+  Admin: ResolverTypeWrapper<Admin>;
   Album: ResolverTypeWrapper<Album>;
   AlbumInput: AlbumInput;
   Artist: ResolverTypeWrapper<Artist>;
@@ -461,6 +500,7 @@ export type ResolversTypes = {
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
+  Admin: Admin;
   Album: Album;
   AlbumInput: AlbumInput;
   Artist: Artist;
@@ -472,6 +512,12 @@ export type ResolversParentTypes = {
   Mutation: {};
   Query: {};
   String: Scalars['String'];
+};
+
+export type AdminResolvers<ContextType = any, ParentType extends ResolversParentTypes['Admin'] = ResolversParentTypes['Admin']> = {
+  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type AlbumResolvers<ContextType = any, ParentType extends ResolversParentTypes['Album'] = ResolversParentTypes['Album']> = {
@@ -503,9 +549,14 @@ export type ColorsResolvers<ContextType = any, ParentType extends ResolversParen
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  addAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, Partial<MutationAddAlbumArgs>>;
   addArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, Partial<MutationAddArtistArgs>>;
+  authenticate?: Resolver<ResolversTypes['String'], ParentType, ContextType, RequireFields<MutationAuthenticateArgs, 'password'>>;
+  deleteAlbum?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteAlbumArgs, 'albumID'>>;
   deleteArtist?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteArtistArgs, 'artistID'>>;
   generateColors?: Resolver<Maybe<ResolversTypes['Colors']>, ParentType, ContextType, Partial<MutationGenerateColorsArgs>>;
+  updateAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationUpdateAlbumArgs, 'albumID'>>;
+  updateArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, RequireFields<MutationUpdateArtistArgs, 'artistID'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
@@ -516,6 +567,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type Resolvers<ContextType = any> = {
+  Admin?: AdminResolvers<ContextType>;
   Album?: AlbumResolvers<ContextType>;
   Artist?: ArtistResolvers<ContextType>;
   Colors?: ColorsResolvers<ContextType>;

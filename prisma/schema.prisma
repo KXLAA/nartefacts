@@ -36,3 +36,8 @@ model Artist {
   biography String?
   Albums    Album[]
 }
+
+model Admin {
+  id    String @id @default(uuid())
+  email String @unique
+}
