@@ -8,14 +8,14 @@ const typeDefs = gql`
     artistAlbums(artist: String): [Album!]!
   }
 
-  # type Mutation {
-  #   addToLike(id: ID!): Album!
-  #   removeFromLike(id: ID!): Album!
-  #   addAlbum(input: AlbumInput): Album
-  #   deleteAlbum(id: ID!): Boolean!
-  #   updateAlbum(id: ID!, input: AlbumInput): Album!
-  #   generateColors(imageUrl: String): Colors
-  # }
+  type Mutation {
+    # addToLike(id: ID!): Album!
+    # removeFromLike(id: ID!): Album!
+    # addAlbum(input: AlbumInput): Album
+    # deleteAlbum(id: ID!): Boolean!
+    # updateAlbum(id: ID!, input: AlbumInput): Album!
+    generateColors(imageUrl: String): [String]
+  }
 
   type Album {
     id: ID!
