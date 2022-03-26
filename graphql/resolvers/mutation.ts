@@ -1,8 +1,10 @@
-import { PrismaClient } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { MutationResolvers } from '../generated/graphql'
 import ColorThief from 'colorthief'
 import { ApolloError, UserInputError } from 'apollo-server-errors'
-const prisma = new PrismaClient()
+import * as argon from 'argon2'
+import jwt from 'jsonwebtoken'
+import { prisma } from '../../lib/prisma'
 
 const Mutation: MutationResolvers = {
   generateColors: async (_, { imageUrl }) => {
@@ -160,6 +162,47 @@ const Mutation: MutationResolvers = {
       },
     })
     return updateAlbum
+  },
+
+  //Auth
+  signUp: async (_, { username, password }) => {
+    //Generate password hash
+    const hash = await argon.hash(password)
+    try {
+      const admin = await prisma.admin.create({
+        data: {
+          username: username!,
+          hash,
+        },
+      })
+      //Return admin username
+      return admin.username
+    } catch (error) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        console.log('Credentials taken')
+      }
+      throw error
+    }
+  },
+
+  logIn: async (_, { username, password }) => {
+    // find the admin by email
+    const admin = await prisma.admin.findUnique({
+      where: {
+        username: username!,
+      },
+    })
+    // if user does not exist throw exception
+    if (!admin) throw new UserInputError('Credentials incorrect')
+
+    // compare password
+    const passwordMatch = await argon.verify(admin.hash, password)
+
+    // if password does not match
+    if (!passwordMatch) throw new UserInputError('Credentials incorrect')
+
+    // create and return the json web token
+    return jwt.sign({ id: admin?.id }, process.env.JWT_SECRET!)
   },
 }
 

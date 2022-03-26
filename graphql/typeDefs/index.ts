@@ -5,6 +5,8 @@ const typeDefs = gql`
     allAlbums: [Album!]!
     oneAlbum(id: ID!): Album
     albumsByType(type: String): [Album!]!
+    albumsByName(name: String): [Album!]!
+    albumsByArtist(name: String): [Album!]!
     artistAlbums(artist: String): [Album!]!
   }
 
@@ -22,7 +24,8 @@ const typeDefs = gql`
     updateArtist(artistID: ID!, input: ArtistInput): Artist
     deleteArtist(artistID: ID!): Boolean!
 
-    authenticate(email: String, password: String!): String!
+    signUp(username: String!, password: String!): String!
+    logIn(username: String!, password: String!): String!
   }
 
   type Album {

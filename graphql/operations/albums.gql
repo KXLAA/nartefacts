@@ -195,3 +195,7 @@ mutation UpdateArtist($artistId: ID!, $input: ArtistInput) {
 mutation DeleteArtist($artistId: ID!) {
   deleteArtist(artistID: $artistId)
 }
+
+mutation LogIn($password: String!, $username: String!) {
+  logIn(password: $password, username: $username)
+}
