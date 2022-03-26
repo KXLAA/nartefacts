@@ -1,8 +1,8 @@
-// import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 import { MutationResolvers } from '../generated/graphql'
 import ColorThief from 'colorthief'
 import { ApolloError } from 'apollo-server-errors'
-// const prisma = new PrismaClient()
+const prisma = new PrismaClient()
 
 const Mutation: MutationResolvers = {
   generateColors: async (_, { imageUrl }) => {
@@ -26,6 +26,27 @@ const Mutation: MutationResolvers = {
     }
     const colors = await getColors()
     return { colors: colors! }
+  },
+
+  //Artist
+  addArtist: async (_, { input }) => {
+    const artist = await prisma.artist.create({
+      data: {
+        name: input?.name || '',
+        biography: input?.biography,
+        photoUrl: input?.photoUrl,
+      },
+    })
+    return artist
+  },
+
+  deleteArtist: async (_, { artistID }) => {
+    const deleteArtist = await prisma.artist.delete({
+      where: {
+        id: artistID,
+      },
+    })
+    return deleteArtist ? true : false
   },
 }
 

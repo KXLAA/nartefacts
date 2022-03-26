@@ -32,7 +32,7 @@ model Artist {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String   @unique
-  photoUrl  String
+  photoUrl  String?
   biography String?
   Albums    Album[]
 }

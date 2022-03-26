@@ -15,6 +15,8 @@ const typeDefs = gql`
     # deleteAlbum(id: ID!): Boolean!
     # updateAlbum(id: ID!, input: AlbumInput): Album!
     generateColors(imageUrl: String): Colors
+    addArtist(input: ArtistInput): Artist
+    deleteArtist(artistID: ID!): Boolean!
   }
 
   type Album {
@@ -33,7 +35,7 @@ const typeDefs = gql`
   input AlbumInput {
     title: String!
     type: String!
-    artist: ArtistInput
+    artist: String!
     albumArt: String!
     likeCount: Int
     description: String
@@ -57,7 +59,7 @@ const typeDefs = gql`
 
   input ArtistInput {
     name: String
-    photoURL: String
+    photoUrl: String
     biography: String
   }
 `
