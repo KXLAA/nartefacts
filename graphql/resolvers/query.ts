@@ -30,14 +30,26 @@ const Query: QueryResolvers = {
     return albums
   },
 
-  // artistAlbums: async (_, { artist }) => {
-  //   const artistInDb = prisma.artist.findUnique({
-  //     where: {
-  //       name: artist!,
-  //     },
-  //   })
-  //   return artistInDb
-  // },
+  albumsByTitle: async (_, { title }) => {
+    const albums = prisma.album.findMany({
+      where: {
+        title: title!,
+      },
+    })
+    return albums
+  },
+
+  albumsByArtist: async (_, { artist }) => {
+    const albums = prisma.album.findMany({
+      where: {
+        artist: {
+          name: artist!,
+        },
+      },
+    })
+
+    return albums
+  },
 }
 
 export default Query
