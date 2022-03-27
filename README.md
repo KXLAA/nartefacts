@@ -1,13 +1,20 @@
-# NextJS Boilerplate
+# nartefacts
 
-This is a simple boilerplate with TypeScript, React, NextJS and Styled Components.
+This is a rewrite of my nartefacts application with a bunch of new technologies and improvements based of what i have learnt since the first version. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/).
 
-## Create your Own Project
+## Demo
 
-<p align="center">
+<!-- <p align="center">
   <img height="300" src="https://media.giphy.com/media/WXraj8aJHXUP7kRDbJ/giphy.gif" />
-</p>
+</p> -->
 
+## Technologies used
+
+### What has Changed since v1 ?
+
+## Learnings and potential improvements & future features
+
+<!--
 Execute the following command to create your project:
 
 ```bash
@@ -49,4 +56,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
