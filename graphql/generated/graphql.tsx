@@ -139,32 +139,26 @@ export type MutationUpdateArtistArgs = {
 };
 
 export type Query = {
-  albumsByArtist: Array<Album>;
-  albumsByName: Array<Album>;
-  albumsByType: Array<Album>;
+  albumsByArtist?: Maybe<Array<Maybe<Album>>>;
+  albumsByTitle?: Maybe<Array<Maybe<Album>>>;
+  albumsByType?: Maybe<Array<Maybe<Album>>>;
   allAlbums: Array<Album>;
-  artistAlbums: Array<Album>;
   oneAlbum?: Maybe<Album>;
 };
 
 
 export type QueryAlbumsByArtistArgs = {
-  name?: InputMaybe<Scalars['String']>;
+  artist?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryAlbumsByNameArgs = {
-  name?: InputMaybe<Scalars['String']>;
+export type QueryAlbumsByTitleArgs = {
+  title?: InputMaybe<Scalars['String']>;
 };
 
 
 export type QueryAlbumsByTypeArgs = {
   type?: InputMaybe<Scalars['String']>;
-};
-
-
-export type QueryArtistAlbumsArgs = {
-  artist?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -189,14 +183,21 @@ export type AlbumsByTypeQueryVariables = Exact<{
 }>;
 
 
-export type AlbumsByTypeQuery = { albumsByType: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string } | null> | null } | null }> };
+export type AlbumsByTypeQuery = { albumsByType?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string } | null> | null } | null } | null> | null };
+
+export type AlbumsByTitleQueryVariables = Exact<{
+  title?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type AlbumsByTitleQuery = { albumsByTitle?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string } | null> | null } | null } | null> | null };
 
 export type AlbumsByArtistQueryVariables = Exact<{
   artist?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type AlbumsByArtistQuery = { artistAlbums: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string } | null> | null } | null }> };
+export type AlbumsByArtistQuery = { albumsByArtist?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string } | null> | null } | null } | null> | null };
 
 export type GenerateColorsMutationVariables = Exact<{
   imageUrl?: InputMaybe<Scalars['String']>;
@@ -427,9 +428,61 @@ export function useAlbumsByTypeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type AlbumsByTypeQueryHookResult = ReturnType<typeof useAlbumsByTypeQuery>;
 export type AlbumsByTypeLazyQueryHookResult = ReturnType<typeof useAlbumsByTypeLazyQuery>;
 export type AlbumsByTypeQueryResult = Apollo.QueryResult<AlbumsByTypeQuery, AlbumsByTypeQueryVariables>;
+export const AlbumsByTitleDocument = gql`
+    query AlbumsByTitle($title: String) {
+  albumsByTitle(title: $title) {
+    id
+    title
+    type
+    artist {
+      id
+      name
+      photoUrl
+      biography
+      albums {
+        id
+      }
+    }
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+    `;
+
+/**
+ * __useAlbumsByTitleQuery__
+ *
+ * To run a query within a React component, call `useAlbumsByTitleQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAlbumsByTitleQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAlbumsByTitleQuery({
+ *   variables: {
+ *      title: // value for 'title'
+ *   },
+ * });
+ */
+export function useAlbumsByTitleQuery(baseOptions?: Apollo.QueryHookOptions<AlbumsByTitleQuery, AlbumsByTitleQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AlbumsByTitleQuery, AlbumsByTitleQueryVariables>(AlbumsByTitleDocument, options);
+      }
+export function useAlbumsByTitleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AlbumsByTitleQuery, AlbumsByTitleQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AlbumsByTitleQuery, AlbumsByTitleQueryVariables>(AlbumsByTitleDocument, options);
+        }
+export type AlbumsByTitleQueryHookResult = ReturnType<typeof useAlbumsByTitleQuery>;
+export type AlbumsByTitleLazyQueryHookResult = ReturnType<typeof useAlbumsByTitleLazyQuery>;
+export type AlbumsByTitleQueryResult = Apollo.QueryResult<AlbumsByTitleQuery, AlbumsByTitleQueryVariables>;
 export const AlbumsByArtistDocument = gql`
     query AlbumsByArtist($artist: String) {
-  artistAlbums(artist: $artist) {
+  albumsByArtist(artist: $artist) {
     id
     title
     type
@@ -1010,11 +1063,10 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  albumsByArtist?: Resolver<Array<ResolversTypes['Album']>, ParentType, ContextType, Partial<QueryAlbumsByArtistArgs>>;
-  albumsByName?: Resolver<Array<ResolversTypes['Album']>, ParentType, ContextType, Partial<QueryAlbumsByNameArgs>>;
-  albumsByType?: Resolver<Array<ResolversTypes['Album']>, ParentType, ContextType, Partial<QueryAlbumsByTypeArgs>>;
+  albumsByArtist?: Resolver<Maybe<Array<Maybe<ResolversTypes['Album']>>>, ParentType, ContextType, Partial<QueryAlbumsByArtistArgs>>;
+  albumsByTitle?: Resolver<Maybe<Array<Maybe<ResolversTypes['Album']>>>, ParentType, ContextType, Partial<QueryAlbumsByTitleArgs>>;
+  albumsByType?: Resolver<Maybe<Array<Maybe<ResolversTypes['Album']>>>, ParentType, ContextType, Partial<QueryAlbumsByTypeArgs>>;
   allAlbums?: Resolver<Array<ResolversTypes['Album']>, ParentType, ContextType>;
-  artistAlbums?: Resolver<Array<ResolversTypes['Album']>, ParentType, ContextType, Partial<QueryArtistAlbumsArgs>>;
   oneAlbum?: Resolver<Maybe<ResolversTypes['Album']>, ParentType, ContextType, RequireFields<QueryOneAlbumArgs, 'id'>>;
 };
 

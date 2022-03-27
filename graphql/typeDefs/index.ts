@@ -4,10 +4,9 @@ const typeDefs = gql`
   type Query {
     allAlbums: [Album!]!
     oneAlbum(id: ID!): Album
-    albumsByType(type: String): [Album!]!
-    albumsByName(name: String): [Album!]!
-    albumsByArtist(name: String): [Album!]!
-    artistAlbums(artist: String): [Album!]!
+    albumsByType(type: String): [Album]
+    albumsByTitle(title: String): [Album]
+    albumsByArtist(artist: String): [Album]
   }
 
   type Mutation {

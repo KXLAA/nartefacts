@@ -20,7 +20,7 @@ export const ALBUMS = [
       '#eecc6c',
     ],
     likeCount: 1,
-    artistId: 'bcd30fa8-73d3-4c9c-944f-1431e984a4c0',
+    artistId: '95bf8004-ffa2-44df-8335-5255a6dbb8f7',
   },
 
   {
@@ -44,7 +44,7 @@ export const ALBUMS = [
       '#8f888e',
     ],
     likeCount: 1,
-    artistId: 'c8b33414-a053-46d5-8595-6f3d735c95f4',
+    artistId: 'b50581aa-3591-47ca-af3c-944928b3768b',
   },
 
   {
@@ -67,7 +67,7 @@ export const ALBUMS = [
       '#acb6b9',
     ],
     likeCount: 1,
-    artistId: '8d5cbb9a-df89-429f-b890-a82619e562b5',
+    artistId: '039cf03f-6c69-4d75-a148-5801046b170a',
   },
 ]
 

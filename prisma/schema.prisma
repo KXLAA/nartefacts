@@ -18,13 +18,14 @@ model Album {
   title       String
   type        String
   artist      Artist   @relation(fields: [artistId], references: [id])
+  artistId    String
   albumArt    String
   likeCount   Int
   description String?
   spotify     String
   apple       String
   colors      String[]
-  artistId    String
+
 }
 
 model Artist {
@@ -34,7 +35,7 @@ model Artist {
   name      String   @unique
   photoUrl  String?
   biography String?
-  Albums    Album[]
+  albums    Album[]
 }
 
 model Admin {
