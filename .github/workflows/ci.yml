@@ -29,6 +29,8 @@ jobs:
 
       - name: Test
         run: yarn test
+        env: 
+          DATABASE_URL: ${{ secrets.DATABASE_URL }} 
 
       - name: Build
         run: yarn build
