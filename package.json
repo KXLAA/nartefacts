@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "type-check": "tsc",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src --max-warnings=0",
-    "format": "prettier --write .",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"  --max-warnings=0",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
@@ -84,7 +85,8 @@
   "lint-staged": {
     "src/**/*": [
       "yarn lint --fix",
-      "yarn test --findRelatedTests --bail"
+      "yarn test --findRelatedTests --bail",
+      "yarn format"
     ]
   },
   "config": {
