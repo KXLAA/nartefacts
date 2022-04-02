@@ -2,11 +2,11 @@ import { gql } from 'apollo-server-micro'
 
 const typeDefs = gql`
   type Query {
-    allAlbums(first: Int, after: String): AlbumResponse
+    allAlbums(first: Int, after: String): AlbumsConnection
     oneAlbum(id: ID!): Album
-    albumsByType(type: String!, first: Int, after: String): AlbumResponse
-    albumsByTitle(title: String!, first: Int, after: String): AlbumResponse
-    albumsByArtist(artist: String!, first: Int, after: String): AlbumResponse
+    albumsByType(type: String!, first: Int, after: String): AlbumsConnection
+    albumsByTitle(title: String!, first: Int, after: String): AlbumsConnection
+    albumsByArtist(artist: String!, first: Int, after: String): AlbumsConnection
   }
 
   type Mutation {
@@ -87,8 +87,9 @@ const typeDefs = gql`
     hasNextPage: Boolean
   }
 
-  type AlbumResponse {
+  type AlbumsConnection {
     edges: [AlbumEdges]
+    node: [Album]
     pageInfo: AlbumPageInfo
   }
 `

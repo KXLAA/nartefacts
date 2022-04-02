@@ -35,6 +35,7 @@ const paginate = (
       cursor: data.id,
       node: data,
     })),
+    node: paginatedData,
     pageInfo: {
       endCursor: lastPaginatedData.id,
       hasNextPage: offset + first < dataToPaginate.length,
