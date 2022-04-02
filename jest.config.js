@@ -5,5 +5,5 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.ts(x)?', '!src/**/stories.tsx'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   //https://github.com/vercel/next.js/discussions/16270
-  globalSetup: '/.jest/setup.ts',
+  globalSetup: '/home/runner/work/nartefacts/nartefacts/.jest/setup.ts',
 }
