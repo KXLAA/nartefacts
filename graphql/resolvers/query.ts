@@ -20,7 +20,6 @@ const paginate = (
   const index = dataToPaginate.findIndex(
     (item: { id: string }) => item.id === after,
   )
-
   //Then we increase that index by one indicating that we want to fetch from the next item in the array
   const offset: number = index + 1
 
@@ -32,14 +31,19 @@ const paginate = (
   const lastPaginatedData = paginatedData[paginatedData.length - 1]
 
   return {
-    edges: paginatedData,
-    endCursor: lastPaginatedData.id,
-    hasNextPage: offset + first < dataToPaginate.length,
+    edges: paginatedData.map((data) => ({
+      cursor: data.id,
+      node: data,
+    })),
+    pageInfo: {
+      endCursor: lastPaginatedData.id,
+      hasNextPage: offset + first < dataToPaginate.length,
+    },
   }
 }
 
 const Query: QueryResolvers = {
-  allAlbums: async (_, args) => {
+  allAlbums: async (_, { first, after }) => {
     //Get all the album data from the database
     const albums = await prisma.album.findMany({
       include: {
@@ -47,107 +51,55 @@ const Query: QueryResolvers = {
       },
     })
 
-    const { edges, endCursor, hasNextPage } = paginate(
-      args.first!,
-      args.after!,
-      albums,
-    )
+    const paginated = paginate(first!, after!, albums)
 
-    return {
-      edges: edges.map((album) => ({
-        cursor: album.id,
-        node: album,
-      })),
-      pageInfo: {
-        endCursor: endCursor,
-        hasNextPage: hasNextPage,
-      },
-    }
+    return paginated
   },
 
-  oneAlbum: async (_, args) => {
+  oneAlbum: async (_, { id }) => {
     const album = prisma.album.findUnique({
       where: {
-        id: args.id,
+        id: id,
       },
     })
     return album
   },
 
-  albumsByType: async (_, args) => {
+  albumsByType: async (_, { first, after, type }) => {
     const albums = await prisma.album.findMany({
       where: {
-        type: args.type!,
+        type: type!,
       },
     })
 
-    const { edges, endCursor, hasNextPage } = paginate(
-      args.first!,
-      args.after!,
-      albums,
-    )
+    const paginated = paginate(first!, after!, albums)
 
-    return {
-      edges: edges.map((album) => ({
-        cursor: album.id,
-        node: album,
-      })),
-      pageInfo: {
-        endCursor: endCursor,
-        hasNextPage: hasNextPage,
-      },
-    }
+    return paginated
   },
 
-  albumsByTitle: async (_, args) => {
+  albumsByTitle: async (_, { first, after, title }) => {
     const albums = await prisma.album.findMany({
       where: {
-        title: args.title!,
+        title: title!,
       },
     })
 
-    const { edges, endCursor, hasNextPage } = paginate(
-      args.first!,
-      args.after!,
-      albums,
-    )
+    const paginated = paginate(first!, after!, albums)
 
-    return {
-      edges: edges.map((album) => ({
-        cursor: album.id,
-        node: album,
-      })),
-      pageInfo: {
-        endCursor: endCursor,
-        hasNextPage: hasNextPage,
-      },
-    }
+    return paginated
   },
 
-  albumsByArtist: async (_, args) => {
+  albumsByArtist: async (_, { first, after, artist }) => {
     const albums = await prisma.album.findMany({
       where: {
         artist: {
-          name: args.artist!,
+          name: artist!,
         },
       },
     })
-    const { edges, endCursor, hasNextPage } = paginate(
-      args.first!,
-      args.after!,
-      albums,
-    )
+    const paginated = paginate(first!, after!, albums)
 
-    return {
-      edges: edges.map((album) => ({
-        cursor: album.id,
-        node: album,
-      })),
-      pageInfo: {
-        endCursor: endCursor,
-        hasNextPage: hasNextPage,
-      },
-    }
+    return paginated
   },
 }
 
