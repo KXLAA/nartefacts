@@ -2,11 +2,11 @@ import { gql } from 'apollo-server-micro'
 
 const typeDefs = gql`
   type Query {
-    allAlbums: [Album!]!
+    allAlbums(first: Int, after: String): AlbumResponse
     oneAlbum(id: ID!): Album
-    albumsByType(type: String): [Album]
-    albumsByTitle(title: String): [Album]
-    albumsByArtist(artist: String): [Album]
+    albumsByType(type: String!, first: Int, after: String): AlbumResponse
+    albumsByTitle(title: String!, first: Int, after: String): AlbumResponse
+    albumsByArtist(artist: String!, first: Int, after: String): AlbumResponse
   }
 
   type Mutation {
@@ -74,6 +74,22 @@ const typeDefs = gql`
     name: String
     photoUrl: String
     biography: String
+  }
+
+  # Defining paginated relationships using the cursor connections specification
+  type AlbumEdges {
+    cursor: String
+    node: Album
+  }
+
+  type AlbumPageInfo {
+    endCursor: String
+    hasNextPage: Boolean
+  }
+
+  type AlbumResponse {
+    edges: [AlbumEdges]
+    pageInfo: AlbumPageInfo
   }
 `
 export default typeDefs

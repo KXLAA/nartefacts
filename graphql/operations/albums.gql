@@ -1,23 +1,32 @@
-query Albums {
-  allAlbums {
-    id
-    title
-    type
-    artist {
-      id
-      name
-      photoUrl
-      biography
-      albums {
+query Albums($first: Int, $after: String) {
+  allAlbums(first: $first, after: $after) {
+    edges {
+      cursor
+      node {
         id
+        title
+        type
+        artist {
+          id
+          name
+          photoUrl
+          biography
+          albums {
+            id
+          }
+        }
+        albumArt
+        likeCount
+        description
+        spotify
+        apple
+        colors
       }
     }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
   }
 }
 
@@ -44,72 +53,99 @@ query Album($id: ID!) {
   }
 }
 
-query AlbumsByType($type: String) {
-  albumsByType(type: $type) {
-    id
-    title
-    type
-    artist {
-      id
-      name
-      photoUrl
-      biography
-      albums {
+query AlbumsByType($type: String!, $first: Int, $after: String) {
+  albumsByType(type: $type, first: $first, after: $after) {
+    edges {
+      cursor
+      node {
         id
+        title
+        type
+        artist {
+          id
+          name
+          photoUrl
+          biography
+          albums {
+            id
+          }
+        }
+        albumArt
+        likeCount
+        description
+        spotify
+        apple
+        colors
       }
     }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
   }
 }
 
-query AlbumsByTitle($title: String) {
-  albumsByTitle(title: $title) {
-    id
-    title
-    type
-    artist {
-      id
-      name
-      photoUrl
-      biography
-      albums {
+query AlbumsByTitle($title: String!, $first: Int, $after: String) {
+  albumsByTitle(title: $title, first: $first, after: $after) {
+    edges {
+      cursor
+      node {
         id
+        title
+        type
+        artist {
+          id
+          name
+          photoUrl
+          biography
+          albums {
+            id
+          }
+        }
+        albumArt
+        likeCount
+        description
+        spotify
+        apple
+        colors
       }
     }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
   }
 }
 
-query AlbumsByArtist($artist: String) {
-  albumsByArtist(artist: $artist) {
-    id
-    title
-    type
-    artist {
-      id
-      name
-      photoUrl
-      biography
-      albums {
+query AlbumsByArtist($artist: String!, $first: Int, $after: String) {
+  albumsByArtist(artist: $artist, first: $first, after: $after) {
+    edges {
+      cursor
+      node {
         id
+        title
+        type
+        artist {
+          id
+          name
+          photoUrl
+          biography
+          albums {
+            id
+          }
+        }
+        albumArt
+        likeCount
+        description
+        spotify
+        apple
+        colors
       }
     }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
   }
 }
 
