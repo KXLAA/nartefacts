@@ -1,4 +1,4 @@
-import { rgbToHex } from './../resolvers/mutation'
+import { rgbToHex } from './../resolvers/utils'
 
 it('returns an array of Hex colors', async () => {
   const colors = [

@@ -5,11 +5,7 @@ import { ApolloError, UserInputError } from 'apollo-server-errors'
 import * as argon from 'argon2'
 import jwt from 'jsonwebtoken'
 import { prisma } from '../../lib/prisma'
-
-//Helper function to covert rgb color codes to HEX color codes
-export const rgbToHex = (arr: number[]) => {
-  return '#' + arr.map((v) => ('0' + v.toString()).slice(-2)).join('')
-}
+import { rgbToHex } from './utils'
 
 const Mutation: MutationResolvers = {
   generateColors: async (_, { imageUrl }) => {

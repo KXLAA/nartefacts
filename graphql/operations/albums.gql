@@ -1,4 +1,4 @@
-query Albums($first: Int, $after: String) {
+query AllAlbums($first: Int, $after: String) {
   allAlbums(first: $first, after: $after) {
     edges {
       cursor
@@ -13,6 +13,14 @@ query Albums($first: Int, $after: String) {
           biography
           albums {
             id
+            title
+            type
+            albumArt
+            likeCount
+            description
+            spotify
+            apple
+            colors
           }
         }
         albumArt
@@ -22,6 +30,34 @@ query Albums($first: Int, $after: String) {
         apple
         colors
       }
+    }
+    node {
+      id
+      title
+      type
+      artist {
+        id
+        name
+        photoUrl
+        biography
+        albums {
+          id
+          title
+          type
+          albumArt
+          likeCount
+          description
+          spotify
+          apple
+          colors
+        }
+      }
+      albumArt
+      likeCount
+      description
+      spotify
+      apple
+      colors
     }
     pageInfo {
       endCursor
@@ -68,6 +104,14 @@ query AlbumsByType($type: String!, $first: Int, $after: String) {
           biography
           albums {
             id
+            title
+            type
+            albumArt
+            likeCount
+            description
+            spotify
+            apple
+            colors
           }
         }
         albumArt
@@ -77,6 +121,34 @@ query AlbumsByType($type: String!, $first: Int, $after: String) {
         apple
         colors
       }
+    }
+    node {
+      id
+      title
+      type
+      artist {
+        id
+        name
+        photoUrl
+        biography
+        albums {
+          id
+          title
+          type
+          albumArt
+          likeCount
+          description
+          spotify
+          apple
+          colors
+        }
+      }
+      albumArt
+      likeCount
+      description
+      spotify
+      apple
+      colors
     }
     pageInfo {
       endCursor
@@ -100,6 +172,14 @@ query AlbumsByTitle($title: String!, $first: Int, $after: String) {
           biography
           albums {
             id
+            title
+            type
+            albumArt
+            likeCount
+            description
+            spotify
+            apple
+            colors
           }
         }
         albumArt
@@ -109,6 +189,34 @@ query AlbumsByTitle($title: String!, $first: Int, $after: String) {
         apple
         colors
       }
+    }
+    node {
+      id
+      title
+      type
+      artist {
+        id
+        name
+        photoUrl
+        biography
+        albums {
+          id
+          title
+          type
+          albumArt
+          likeCount
+          description
+          spotify
+          apple
+          colors
+        }
+      }
+      albumArt
+      likeCount
+      description
+      spotify
+      apple
+      colors
     }
     pageInfo {
       endCursor
@@ -132,6 +240,14 @@ query AlbumsByArtist($artist: String!, $first: Int, $after: String) {
           biography
           albums {
             id
+            title
+            type
+            albumArt
+            likeCount
+            description
+            spotify
+            apple
+            colors
           }
         }
         albumArt
@@ -141,6 +257,34 @@ query AlbumsByArtist($artist: String!, $first: Int, $after: String) {
         apple
         colors
       }
+    }
+    node {
+      id
+      title
+      type
+      artist {
+        id
+        name
+        photoUrl
+        biography
+        albums {
+          id
+          title
+          type
+          albumArt
+          likeCount
+          description
+          spotify
+          apple
+          colors
+        }
+      }
+      albumArt
+      likeCount
+      description
+      spotify
+      apple
+      colors
     }
     pageInfo {
       endCursor
