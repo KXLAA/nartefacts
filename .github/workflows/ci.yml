@@ -20,10 +20,12 @@ jobs:
         run: yarn lint
       
       - name: Create env file
+        env: DATABASE_URL=${{ secrets.DATABASE_URL }}
         run: |
           touch .env
-          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
-          cat .env
+          echo DATABASE_URL="$DATABASE_URL" >> .env
+          echo "cat .env"
+          echo "ls -a ."
 
       - name: Test
         run: yarn test
