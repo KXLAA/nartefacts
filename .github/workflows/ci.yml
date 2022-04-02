@@ -18,6 +18,12 @@ jobs:
 
       - name: Linting
         run: yarn lint
+      
+      - name: Create env file
+        run: |
+          touch .env
+          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
+          cat .env
 
       - name: Test
         run: yarn test
