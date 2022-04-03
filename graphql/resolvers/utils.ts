@@ -1,7 +1,7 @@
 import { Album } from '@prisma/client'
 
 //Helper function to covert rgb color codes to HEX color codes
-export const rgbToHex = (arr: number[]) => {
+export const rgbToHex = (arr: [number, number, number]): string => {
   return '#' + arr.map((v) => ('0' + v.toString()).slice(-2)).join('')
 }
 

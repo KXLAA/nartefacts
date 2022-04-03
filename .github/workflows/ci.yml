@@ -7,17 +7,25 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 14.x
 
-      - name: Install dependencies
-        run: yarn install
+      - name: Install dependencies (with cache)
+        uses: bahmutov/npm-install@HEAD
+      
+      - name: Check types
+        run: yarn type-check
 
       - name: Linting
         run: yarn lint
+
+      - name: Check commits messages
+        uses: wagoid/commitlint-github-action@v4
       
       - name: Create env file
         run: |
