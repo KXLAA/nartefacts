@@ -12,7 +12,7 @@ const Mutation: MutationResolvers = {
     //Function to get a set of 8 colors from an image url
     const getColors = async () => {
       try {
-        //This function returns an array of rgb color codes in this format - [number, number,number],[number, number, number][]
+        //This function returns an array of rgb color codes in this format - [red: number, green: number, blue: number][]
         const colors = await ColorThief.getPalette(imageUrl!, 8)
         //Converting the rgb color codes to HEX color codes
         const palette: string[] = colors.map((color) => rgbToHex(color))
