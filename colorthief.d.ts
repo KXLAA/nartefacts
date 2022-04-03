@@ -3,5 +3,5 @@ declare module 'colorthief' {
     sourceImage: string,
     colorCount?: number,
     quality?: number,
-  ) => Promise<[number, number, number][]>
+  ) => Promise<[red: number, green: number, blue: number][]>
 }
