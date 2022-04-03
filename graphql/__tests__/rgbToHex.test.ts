@@ -1,7 +1,7 @@
 import { rgbToHex } from './../resolvers/utils'
 
 it('returns an array of Hex colors', async () => {
-  const colors = [
+  const colors: [number, number, number][] = [
     [206, 209, 216],
     [33, 37, 38],
     [85, 96, 150],
