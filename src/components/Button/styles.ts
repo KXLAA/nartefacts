@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { ButtonProps } from '.'
-import { colors } from '../../styles'
+import { colors } from 'styles/global'
 
 const { grayPrimary, blackSecondary } = colors
 

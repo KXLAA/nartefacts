@@ -1,5 +1,5 @@
 import * as S from './styles'
-import { capitalize } from '../../utils'
+import { capitalize } from 'utils/utils'
 
 export type ButtonProps = {
   text?: string

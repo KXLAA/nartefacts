@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { colors, testColors } from '../../../styles'
+import { colors, testColors } from 'styles/global'
 const { grayPrimary, blackSecondary } = colors
 const { black, white } = testColors
 
