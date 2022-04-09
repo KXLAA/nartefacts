@@ -17,7 +17,7 @@
     "seed": "npx prisma db seed",
     "studio": "npx prisma studio",
     "db:push": "npx prisma db push",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
