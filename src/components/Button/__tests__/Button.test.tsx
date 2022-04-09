@@ -16,6 +16,11 @@ describe('<Button />', () => {
     })
   })
 
+  it('should render the Button correctly', () => {
+    const { container } = render(<Button />)
+    expect(container.firstChild).toMatchSnapshot()
+  })
+
   it('should render the button with correct values based on props', () => {
     const props = {
       buttonColor: black,
