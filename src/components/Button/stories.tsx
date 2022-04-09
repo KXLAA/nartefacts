@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import { colors } from 'styles/global'
 const { grayPrimary, blackSecondary } = colors
 
-import Button from '.'
+import { Button } from '.'
 
 export default {
   component: Button,

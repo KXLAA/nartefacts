@@ -3,7 +3,7 @@ import { colors, testColors } from 'styles/global'
 const { grayPrimary, blackSecondary } = colors
 const { black, white } = testColors
 
-import Button from '..'
+import { Button } from '..'
 
 describe('<Button />', () => {
   it('should render the button with default values & styles', () => {
