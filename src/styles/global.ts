@@ -1,7 +1,19 @@
 /* istanbul ignore file */
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyles = createGlobalStyle`
+export const colors = {
+  blackPrimary: '#191919',
+  blackSecondary: '#202020',
+  grayPrimary: '#5A5A5A',
+  graySecondary: '#363636',
+}
+
+export const testColors = {
+  black: '#231651',
+  white: '#FFFFFF',
+}
+
+export const GlobalStyles = createGlobalStyle`
 *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -15,7 +27,6 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     font-family: 'HeliosExt', sans-serif;
     background: #191919;
-    color: #e5e5e5;
     -webkit-font-smoothing: antialiased;
   }
   img, picture, video, canvas, svg {
@@ -36,5 +47,3 @@ const GlobalStyles = createGlobalStyle`
     isolation: isolate;
   }
 `
-
-export default GlobalStyles
