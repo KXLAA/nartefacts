@@ -10,8 +10,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addToLike(albumID: ID!): Album!
-    removeFromLike(albumID: ID!): Album!
+    addToLike(albumID: ID!): Boolean
+    removeFromLike(albumID: ID!): Boolean
 
     generateColors(imageUrl: String): Colors
 

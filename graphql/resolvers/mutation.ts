@@ -9,7 +9,6 @@ import { rgbToHex } from './utils'
 
 const Mutation: MutationResolvers = {
   generateColors: async (_, { imageUrl }) => {
-    //Function to get a set of 8 colors from an image url
     const getColors = async () => {
       try {
         //This function returns an array of rgb color codes in this format - [red: number, green: number, blue: number][]
@@ -144,7 +143,7 @@ const Mutation: MutationResolvers = {
         },
       },
     })
-    return updateAlbum
+    return updateAlbum ? true : false
   },
 
   removeFromLike: async (_, { albumID }) => {
@@ -158,7 +157,7 @@ const Mutation: MutationResolvers = {
         },
       },
     })
-    return updateAlbum
+    return updateAlbum ? true : false
   },
 
   //Auth
