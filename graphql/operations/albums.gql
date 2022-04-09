@@ -1,63 +1,46 @@
+fragment ArtistItem on Artist {
+  id
+  name
+  photoUrl
+  biography
+  albums {
+    id
+    title
+    type
+    albumArt
+    likeCount
+    description
+    spotify
+    apple
+    colors
+  }
+}
+
+fragment AlbumItem on Album {
+  id
+  title
+  type
+  artist {
+    ...ArtistItem
+  }
+  albumArt
+  likeCount
+  description
+  spotify
+  apple
+  colors
+}
+
 query AllAlbums($first: Int, $after: String) {
   allAlbums(first: $first, after: $after) {
     edges {
       cursor
       node {
-        id
-        title
-        type
-        artist {
-          id
-          name
-          photoUrl
-          biography
-          albums {
-            id
-            title
-            type
-            albumArt
-            likeCount
-            description
-            spotify
-            apple
-            colors
-          }
-        }
-        albumArt
-        likeCount
-        description
-        spotify
-        apple
-        colors
+        ...AlbumItem
       }
     }
     node {
-      id
-      title
-      type
-      artist {
-        id
-        name
-        photoUrl
-        biography
-        albums {
-          id
-          title
-          type
-          albumArt
-          likeCount
-          description
-          spotify
-          apple
-          colors
-        }
-      }
-      albumArt
-      likeCount
-      description
-      spotify
-      apple
-      colors
+      ...AlbumItem
     }
     pageInfo {
       endCursor
@@ -68,24 +51,7 @@ query AllAlbums($first: Int, $after: String) {
 
 query Album($id: ID!) {
   oneAlbum(id: $id) {
-    id
-    title
-    type
-    artist {
-      id
-      name
-      photoUrl
-      biography
-      albums {
-        id
-      }
-    }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
+    ...AlbumItem
   }
 }
 
@@ -94,61 +60,11 @@ query AlbumsByType($type: String!, $first: Int, $after: String) {
     edges {
       cursor
       node {
-        id
-        title
-        type
-        artist {
-          id
-          name
-          photoUrl
-          biography
-          albums {
-            id
-            title
-            type
-            albumArt
-            likeCount
-            description
-            spotify
-            apple
-            colors
-          }
-        }
-        albumArt
-        likeCount
-        description
-        spotify
-        apple
-        colors
+        ...AlbumItem
       }
     }
     node {
-      id
-      title
-      type
-      artist {
-        id
-        name
-        photoUrl
-        biography
-        albums {
-          id
-          title
-          type
-          albumArt
-          likeCount
-          description
-          spotify
-          apple
-          colors
-        }
-      }
-      albumArt
-      likeCount
-      description
-      spotify
-      apple
-      colors
+      ...AlbumItem
     }
     pageInfo {
       endCursor
@@ -162,61 +78,11 @@ query AlbumsByTitle($title: String!, $first: Int, $after: String) {
     edges {
       cursor
       node {
-        id
-        title
-        type
-        artist {
-          id
-          name
-          photoUrl
-          biography
-          albums {
-            id
-            title
-            type
-            albumArt
-            likeCount
-            description
-            spotify
-            apple
-            colors
-          }
-        }
-        albumArt
-        likeCount
-        description
-        spotify
-        apple
-        colors
+        ...AlbumItem
       }
     }
     node {
-      id
-      title
-      type
-      artist {
-        id
-        name
-        photoUrl
-        biography
-        albums {
-          id
-          title
-          type
-          albumArt
-          likeCount
-          description
-          spotify
-          apple
-          colors
-        }
-      }
-      albumArt
-      likeCount
-      description
-      spotify
-      apple
-      colors
+      ...AlbumItem
     }
     pageInfo {
       endCursor
@@ -230,61 +96,11 @@ query AlbumsByArtist($artist: String!, $first: Int, $after: String) {
     edges {
       cursor
       node {
-        id
-        title
-        type
-        artist {
-          id
-          name
-          photoUrl
-          biography
-          albums {
-            id
-            title
-            type
-            albumArt
-            likeCount
-            description
-            spotify
-            apple
-            colors
-          }
-        }
-        albumArt
-        likeCount
-        description
-        spotify
-        apple
-        colors
+        ...AlbumItem
       }
     }
     node {
-      id
-      title
-      type
-      artist {
-        id
-        name
-        photoUrl
-        biography
-        albums {
-          id
-          title
-          type
-          albumArt
-          likeCount
-          description
-          spotify
-          apple
-          colors
-        }
-      }
-      albumArt
-      likeCount
-      description
-      spotify
-      apple
-      colors
+      ...AlbumItem
     }
     pageInfo {
       endCursor
@@ -300,70 +116,22 @@ mutation GenerateColors($imageUrl: String) {
 }
 
 mutation AddToLike($albumId: ID!) {
-  addToLike(albumID: $albumId) {
-    id
-    title
-    type
-    artist {
-      id
-    }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
-  }
+  addToLike(albumID: $albumId)
 }
 
 mutation RemoveFromLike($albumId: ID!) {
-  removeFromLike(albumID: $albumId) {
-    id
-    title
-    type
-    artist {
-      id
-    }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
-  }
+  removeFromLike(albumID: $albumId)
 }
 
 mutation AddAlbum($input: AlbumInput) {
   addAlbum(input: $input) {
-    id
-    title
-    type
-    artist {
-      id
-    }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
+    ...AlbumItem
   }
 }
 
 mutation UpdateAlbum($albumId: ID!, $input: AlbumInput) {
   updateAlbum(albumID: $albumId, input: $input) {
-    id
-    title
-    type
-    artist {
-      id
-    }
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
+    ...AlbumItem
   }
 }
 
@@ -373,25 +141,13 @@ mutation DeleteAlbum($albumId: ID!) {
 
 mutation AddArtist($input: ArtistInput) {
   addArtist(input: $input) {
-    id
-    name
-    photoUrl
-    biography
-    albums {
-      id
-    }
+    ...ArtistItem
   }
 }
 
 mutation UpdateArtist($artistId: ID!, $input: ArtistInput) {
   updateArtist(artistID: $artistId, input: $input) {
-    id
-    name
-    photoUrl
-    biography
-    albums {
-      id
-    }
+    ...ArtistItem
   }
 }
 
