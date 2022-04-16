@@ -2,6 +2,8 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { GlobalStyles } from 'styles/global'
+import { ApolloProvider } from '@apollo/client'
+import apolloClient from '../../lib/apollo'
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -59,8 +61,10 @@ function App({ Component, pageProps }: AppProps) {
           content="https://ucarecdn.com/85a59495-37d7-4fd0-b128-482cdbf43445/OGIMAGE.png"
         />
       </Head>
-      <GlobalStyles />
-      <Component {...pageProps} />
+      <ApolloProvider client={apolloClient}>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </ApolloProvider>
     </>
   )
 }
