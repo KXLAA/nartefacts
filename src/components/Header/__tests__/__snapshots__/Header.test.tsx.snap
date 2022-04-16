@@ -122,24 +122,24 @@ exports[`<Header /> should render the entire header correctly 1`] = `
   <nav
     class="c1"
   >
-    <button
+    <a
       class="c2"
-      role="button"
+      href="/create"
     >
       Create
-    </button>
-    <button
+    </a>
+    <a
       class="c3"
-      role="button"
+      href="/likes"
     >
       Likes
-    </button>
-    <button
+    </a>
+    <a
       class="c2"
-      role="button"
+      href="/info"
     >
-      Switch
-    </button>
+      Info
+    </a>
   </nav>
 </header>
 `;
