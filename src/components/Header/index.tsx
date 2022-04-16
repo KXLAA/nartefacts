@@ -1,7 +1,8 @@
 import * as S from './styles'
 import { Logo } from 'components/Logo'
-import { Button } from 'components/Button'
+import { ButtonLink } from 'components/Button'
 import { colors } from 'styles/global'
+import Link from 'next/link'
 
 export const Header = () => {
   return (
@@ -9,13 +10,21 @@ export const Header = () => {
       <Logo />
 
       <S.Nav>
-        <Button text="create" />
-        <Button
-          text="likes"
-          buttonColor={colors.blackSecondary}
-          textColor={colors.grayPrimary}
-        />
-        <Button text="switch" />
+        <Link href="/create" passHref>
+          <ButtonLink text="create" />
+        </Link>
+
+        <Link href="/likes" passHref>
+          <ButtonLink
+            text="likes"
+            buttonColor={colors.blackSecondary}
+            textColor={colors.grayPrimary}
+          />
+        </Link>
+
+        <Link href="/info" passHref>
+          <ButtonLink text="info" />
+        </Link>
       </S.Nav>
     </S.Layout>
   )
