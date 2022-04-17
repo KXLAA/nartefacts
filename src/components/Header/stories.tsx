@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react'
-
 import { Header } from '.'
-import { Layout } from 'components/common/Layout'
+import * as Layout from 'components/common/Layout'
 
 export default {
   component: Header,
@@ -9,7 +8,7 @@ export default {
 } as Meta
 
 export const Basic: Story = () => (
-  <Layout>
+  <Layout.Main>
     <Header />
-  </Layout>
+  </Layout.Main>
 )
