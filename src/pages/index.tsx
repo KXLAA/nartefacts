@@ -2,12 +2,11 @@ import { Header } from 'components/Header'
 import { Card } from 'components/Card'
 import * as Layout from 'components/common/Layout'
 import { useAllAlbumsQuery } from '../../graphql/generated/graphql'
-import { prisma } from '../../lib/prisma'
 
 export default function Home() {
-  const { data, loading, error } = useAllAlbumsQuery()
+  const { data, loading } = useAllAlbumsQuery()
   const albums = data?.allAlbums?.node
-  console.log(albums)
+  console.log(data)
 
   return (
     <Layout.Main>
@@ -32,17 +31,3 @@ export default function Home() {
     </Layout.Main>
   )
 }
-
-// export const getServerSideProps = async () => {
-//   const albums = await prisma.album.findMany({
-//     include: {
-//       artist: true,
-//     },
-//   })
-
-//   return {
-//     props: {
-//       albums,
-//     },
-//   }
-// }
