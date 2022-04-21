@@ -56,7 +56,7 @@ function createApolloClient() {
     ssrMode: typeof window === 'undefined',
     link: createIsomorphLink(),
     cache: new InMemoryCache(),
-    defaultOptions,
+    // defaultOptions,
   })
 }
 

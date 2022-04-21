@@ -7,6 +7,7 @@ export default function Home() {
   const { data, loading } = useAllAlbumsQuery()
   const albums = data?.allAlbums?.node
   console.log(data)
+  console.log(loading)
 
   return (
     <Layout.Main>
