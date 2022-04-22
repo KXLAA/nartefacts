@@ -23,38 +23,34 @@ export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
-function createIsomorphLink() {
-  return new HttpLink({
-    uri: 'http://localhost:3000/api/graphql',
-    credentials: 'same-origin',
-  })
-}
-
 function createApolloClient() {
-  let defaultOptions: DefaultOptions
+  // let defaultOptions: DefaultOptions
 
-  if (typeof window === 'undefined') {
-    //We don't want any cache to be stored server side
-    defaultOptions = {
-      watchQuery: {
-        fetchPolicy: 'no-cache',
-        errorPolicy: 'all',
-      },
-    }
-  } else {
-    //We immediately show results, but check in the background if any changes occurred, and eventually update the view
-    defaultOptions = {
-      watchQuery: {
-        fetchPolicy: 'cache-and-network',
-        errorPolicy: 'all',
-        notifyOnNetworkStatusChange: true,
-      },
-    }
-  }
+  // if (typeof window === 'undefined') {
+  //   //We don't want any cache to be stored server side
+  //   defaultOptions = {
+  //     watchQuery: {
+  //       fetchPolicy: 'no-cache',
+  //       errorPolicy: 'all',
+  //     },
+  //   }
+  // } else {
+  //   //We immediately show results, but check in the background if any changes occurred, and eventually update the view
+  //   defaultOptions = {
+  //     watchQuery: {
+  //       fetchPolicy: 'cache-and-network',
+  //       errorPolicy: 'all',
+  //       notifyOnNetworkStatusChange: true,
+  //     },
+  //   }
+  // }
 
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: createIsomorphLink(),
+    link: new HttpLink({
+      uri: 'http://localhost:3000/api/graphql',
+      credentials: 'same-origin',
+    }),
     cache: new InMemoryCache(),
     // defaultOptions,
   })
