@@ -3,10 +3,10 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { GlobalStyles } from 'styles/global'
 import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '../../lib/apollo'
+import { getApolloClient } from '../../lib/apollo'
 
 function App({ Component, pageProps }: AppProps) {
-  const apolloClient = useApollo(pageProps)
+  const client = getApolloClient()
 
   return (
     <>
@@ -63,7 +63,7 @@ function App({ Component, pageProps }: AppProps) {
           content="https://ucarecdn.com/85a59495-37d7-4fd0-b128-482cdbf43445/OGIMAGE.png"
         />
       </Head>
-      <ApolloProvider client={apolloClient}>
+      <ApolloProvider client={client}>
         <GlobalStyles />
         <Component {...pageProps} />
       </ApolloProvider>
