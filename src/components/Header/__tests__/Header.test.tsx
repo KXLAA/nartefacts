@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import { createMockRouter } from 'utils'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 
@@ -6,8 +6,9 @@ import { Header } from '..'
 
 describe('<Header />', () => {
   it('should render the header', () => {
-    render(<Header />)
-    expect(screen.getByRole('banner')).toBeInTheDocument()
+    const { getByRole } = render(<Header />)
+    const header = getByRole('banner')
+    expect(header).toBeInTheDocument()
   })
 
   it('should render the entire header correctly', () => {
@@ -16,19 +17,24 @@ describe('<Header />', () => {
   })
 
   it('should render the nav', () => {
-    render(<Header />)
-    expect(screen.getByRole('navigation')).toBeInTheDocument()
+    const { getByRole } = render(<Header />)
+    const navigation = getByRole('navigation')
+    expect(navigation).toBeInTheDocument()
   })
 
   it('should render the navigation buttons', () => {
     const { getByText } = render(<Header />)
-    expect(getByText(/info/i)).toBeInTheDocument()
-    expect(getByText(/likes/i)).toBeInTheDocument()
-    expect(getByText(/create/i)).toBeInTheDocument()
+    const infoLink = getByText(/info/i)
+    const likesLink = getByText(/likes/i)
+    const createLink = getByText(/create/i)
+
+    expect(infoLink).toBeInTheDocument()
+    expect(likesLink).toBeInTheDocument()
+    expect(createLink).toBeInTheDocument()
   })
 
   it('has navigation button links with the correct href attributes', () => {
-    render(
+    const { getByText } = render(
       <RouterContext.Provider
         value={createMockRouter({ query: { id: '33' }, pathname: 'kola' })}
       >
@@ -36,12 +42,13 @@ describe('<Header />', () => {
       </RouterContext.Provider>,
     )
 
-    // /info
-    expect(screen.getByText(/info/i)).toHaveAttribute('href', '/info')
-    // /likes
-    expect(screen.getByText(/likes/i)).toHaveAttribute('href', '/likes')
-    // /likes
-    expect(screen.getByText(/create/i)).toHaveAttribute('href', '/create')
+    const infoLink = getByText(/info/i)
+    const likesLink = getByText(/likes/i)
+    const createLink = getByText(/create/i)
+
+    expect(infoLink).toHaveAttribute('href', '/info')
+    expect(likesLink).toHaveAttribute('href', '/likes')
+    expect(createLink).toHaveAttribute('href', '/create')
   })
 
   it('has navigation buttons that work', () => {
@@ -50,13 +57,15 @@ describe('<Header />', () => {
       pathname: 'kola',
     })
 
-    render(
+    const { getByRole } = render(
       <RouterContext.Provider value={router}>
         <Header />
       </RouterContext.Provider>,
     )
 
-    fireEvent.click(screen.getByRole('link', { name: /info/i }))
+    const infoLink = getByRole('link', { name: /info/i })
+
+    fireEvent.click(infoLink)
     expect(router.push).toHaveBeenCalledWith('/info', '/info', {
       locale: undefined,
       scroll: undefined,
