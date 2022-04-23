@@ -2,21 +2,21 @@ import * as S from './styles'
 import Image from 'next/image'
 
 export type CardProps = {
-  image?: string | null
-  colors?: string[] | null
-  likeCount?: number | null
-  textColor?: string | null
-  albumArt?: string | null
-  spotify?: string | null
-  apple?: string | null
-  type?: string | null
-  description?: string | null
-  title?: string | null
+  image?: string
+  colors?: string[]
+  likeCount?: number
+  textColor?: string
+  albumArt?: string
+  spotify?: string
+  apple?: string
+  type?: string
+  description?: string
+  title?: string
   artist?: {
-    name?: string | null
-    photoUrl?: string | null
-    biography?: string | null
-  } | null
+    name?: string
+    photoUrl?: string
+    biography?: string
+  }
 }
 
 export const Card: React.FC<CardProps> = ({ albumArt }) => {
