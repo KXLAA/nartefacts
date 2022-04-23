@@ -8,7 +8,11 @@ const Query: QueryResolvers = {
     //Get all the album data from the database
     const albums = await prisma.album.findMany({
       include: {
-        artist: true,
+        artist: {
+          include: {
+            albums: true,
+          },
+        },
       },
     })
 
