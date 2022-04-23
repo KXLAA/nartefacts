@@ -1,13 +1,14 @@
 import { Header } from 'components/Header'
 import { Card } from 'components/Card'
 import * as Layout from 'components/common/Layout'
-import { useAllAlbumsQuery } from '../../graphql/generated/graphql'
+import {
+  AllAlbumsQueryResult,
+  AllAlbumsDocument,
+} from '../../graphql/generated/graphql'
+import { initializeApollo } from '../../lib/apollo'
 
-export default function Home() {
-  const { data, loading } = useAllAlbumsQuery()
+export default function Home({ data }: AllAlbumsQueryResult) {
   const albums = data?.allAlbums?.node
-  console.log(data)
-  console.log(loading)
 
   return (
     <Layout.Main>
@@ -31,4 +32,23 @@ export default function Home() {
       </Layout.Cards>
     </Layout.Main>
   )
+}
+
+//A draw back to this approach is query duplication.
+export async function getServerSideProps() {
+  const apolloClient = initializeApollo()
+
+  const { data } = await apolloClient.query<AllAlbumsQueryResult>({
+    query: AllAlbumsDocument,
+    variables: {
+      first: 10,
+      after: null,
+    },
+  })
+
+  return {
+    props: {
+      data,
+    },
+  }
 }
