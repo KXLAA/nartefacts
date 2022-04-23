@@ -25,7 +25,10 @@ let apolloClient: ApolloClient<NormalizedCacheObject>
 
 function createIsomorphLink() {
   return new HttpLink({
-    uri: process.env.GRAPHQL_ENDPOINT,
+    uri:
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000/api/graphql'
+        : `${process.env.VERCEL_URL}/api/graphql`,
     credentials: 'same-origin',
   })
 }
