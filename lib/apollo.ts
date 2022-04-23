@@ -28,7 +28,7 @@ function createIsomorphLink() {
     uri:
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000/api/graphql'
-        : `${process.env.VERCEL_URL}/api/graphql`,
+        : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/graphql`,
     credentials: 'same-origin',
   })
 }
