@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { colors, testColors } from 'styles/global'
 const { grayPrimary, blackSecondary } = colors
 const { black, white } = testColors
@@ -9,10 +9,11 @@ import { ButtonLink } from '..'
 
 describe('<Button />', () => {
   it('should render the button with default values & styles', () => {
-    render(<Button />)
+    const { getByRole } = render(<Button />)
+    const button = getByRole('button', { name: /Button/i })
 
-    expect(screen.getByRole('button', { name: /Button/i })).toBeInTheDocument()
-    expect(screen.getByRole('button')).toHaveStyle({
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveStyle({
       'background-color': grayPrimary,
       color: blackSecondary,
     })
@@ -29,24 +30,27 @@ describe('<Button />', () => {
       text: 'PROPS',
       textColor: white,
     }
-    render(<Button {...props} />)
+    const { getByRole } = render(<Button {...props} />)
+    const button = getByRole('button', { name: /Props/i })
 
-    expect(screen.getByRole('button', { name: /Props/i })).toBeInTheDocument()
-    expect(screen.getByRole('button')).toHaveStyle({
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveStyle({
       'background-color': black,
       color: white,
     })
   })
 
   it('Button Link should render as an <a> tag with href attribute', () => {
-    render(
+    const { getByRole } = render(
       <RouterContext.Provider
         value={createMockRouter({ query: { id: '33' }, pathname: 'kola' })}
       >
         <ButtonLink href="/test" />
       </RouterContext.Provider>,
     )
-    expect(screen.getByRole('link', { name: /button/i })).toBeInTheDocument()
-    expect(screen.getByRole('link')).toHaveAttribute('href', '/test')
+
+    const buttonLink = getByRole('link', { name: /button/i })
+    expect(buttonLink).toBeInTheDocument()
+    expect(buttonLink).toHaveAttribute('href', '/test')
   })
 })

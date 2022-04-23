@@ -1,13 +1,14 @@
 import { Header } from 'components/Header'
 import { Card } from 'components/Card'
 import * as Layout from 'components/common/Layout'
-import { useAllAlbumsQuery } from '../../graphql/generated/graphql'
-import { prisma } from '../../lib/prisma'
+import {
+  AllAlbumsQueryResult,
+  AllAlbumsDocument,
+} from '../../graphql/generated/graphql'
+import { initializeApollo } from '../../lib/apollo'
 
-export default function Home() {
-  const { data, loading, error } = useAllAlbumsQuery()
+export default function Home({ data }: AllAlbumsQueryResult) {
   const albums = data?.allAlbums?.node
-  console.log(albums)
 
   return (
     <Layout.Main>
@@ -33,16 +34,21 @@ export default function Home() {
   )
 }
 
-// export const getServerSideProps = async () => {
-//   const albums = await prisma.album.findMany({
-//     include: {
-//       artist: true,
-//     },
-//   })
+//A draw back to this approach is query duplication.
+export async function getServerSideProps() {
+  const apolloClient = initializeApollo()
 
-//   return {
-//     props: {
-//       albums,
-//     },
-//   }
-// }
+  const { data } = await apolloClient.query<AllAlbumsQueryResult>({
+    query: AllAlbumsDocument,
+    variables: {
+      first: 10,
+      after: null,
+    },
+  })
+
+  return {
+    props: {
+      data,
+    },
+  }
+}

@@ -14,7 +14,11 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 
 ## Learnings and potential improvements & future features
 
+<!-- https://github.com/vercel/next.js/tree/canary/examples/with-apollo -->
+<!-- https://medium.com/@zhamdi/server-side-rendering-ssr-using-apollo-and-next-js-ac0b2e3ea461 -->
+<!-- https://github.com/apollographql/apollo-client/issues/3130#issuecomment-478409066 -->
 <!--
+https://stackoverflow.com/questions/57472440/how-do-i-correctly-type-the-apollo-client-defaultoptions
 Execute the following command to create your project:
 
 ```bash

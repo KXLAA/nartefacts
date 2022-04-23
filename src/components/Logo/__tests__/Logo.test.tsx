@@ -1,11 +1,12 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import { Logo } from '..'
 
 describe('<Logo />', () => {
   it('should render the logo', () => {
-    render(<Logo />)
-    expect(screen.getByTitle('Logo')).toBeInTheDocument()
+    const { getByTitle } = render(<Logo />)
+    const logo = getByTitle(/logo/i)
+    expect(logo).toBeInTheDocument()
   })
 
   it('should render Logo correctly', () => {
