@@ -12,7 +12,7 @@ export default function Home({ data }: AllAlbumsQueryResult) {
 
   return (
     <Layout.Main>
-      <Header />
+      <Header primary />
 
       <Layout.Cards>
         {albums?.map((album) => (
