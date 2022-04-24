@@ -7,6 +7,7 @@ export const Box = styled.div`
   align-items: center;
   justify-content: center;
   color: ${colors.grayPrimary};
+  padding-bottom: 48px;
 `
 
 export const Heading = styled.h1`
@@ -18,6 +19,6 @@ export const Heading = styled.h1`
 export const Description = styled.p`
   font-size: 36px;
   font-weight: bold;
-  width: 70%;
+  max-width: 800px;
   text-align: center;
 `

@@ -5,12 +5,11 @@ import {
   ArrowUpCircle,
 } from 'lucide-react'
 import { ForwardRefRenderFunction, forwardRef } from 'react'
+import { IconProps } from '..'
 import styles from './arrow.module.scss'
 
-export type ArrowProps = {
+export interface ArrowProps extends IconProps {
   position: 'left' | 'right' | 'up' | 'down'
-  color?: string
-  size?: number
   onClick?: () => void
   href?: string
 }
