@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import Dropzone from '.'
+import { Dropzone } from '.'
 
 export default {
   component: Dropzone,
