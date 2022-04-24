@@ -3,10 +3,9 @@
 exports[`<Logo /> should render Logo correctly 1`] = `
 <svg
   aria-roledescription="logo"
+  class="logo"
   fill="none"
-  height="150"
   viewBox="0 0 1206 150"
-  width="1200"
   xmlns="http://www.w3.org/2000/svg"
 >
   <title>

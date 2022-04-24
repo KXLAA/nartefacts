@@ -1,12 +1,30 @@
-export const Logo: React.FC<{ color?: string }> = ({ color }) => {
+import { ForwardRefRenderFunction, forwardRef } from 'react'
+import styles from './logo.module.scss'
+
+export type LogoProps = {
+  color?: string
+  width?: string | '1200'
+  height?: string | '150'
+  onClick?: () => void
+  href?: string
+}
+
+const Base: ForwardRefRenderFunction<SVGSVGElement, LogoProps> = (
+  { color, width, height, href, onClick },
+  ref,
+) => {
   return (
     <svg
       aria-roledescription="logo"
-      width="1200"
-      height="150"
+      width={width}
+      height={height}
+      href={href}
+      onClick={onClick}
+      ref={ref}
       viewBox="0 0 1206 150"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={styles.logo}
     >
       <title>Logo</title>
       <path
@@ -16,3 +34,5 @@ export const Logo: React.FC<{ color?: string }> = ({ color }) => {
     </svg>
   )
 }
+
+export const Logo = forwardRef(Base)
