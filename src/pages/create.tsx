@@ -3,9 +3,8 @@ import { Header } from 'components/Header'
 import { Title } from 'components/Title'
 import { Dropzone } from 'components/Dropzone'
 import { useState } from 'react'
-import { Palette } from 'components/Palette'
-import Image from 'next/image'
 import { colorsTuple } from 'components/Palette'
+import { Preview } from 'components/Preview'
 
 export default function Create() {
   const [imageUrl, setImageUrl] = useState<undefined | string>()
@@ -37,8 +36,11 @@ from your own images "
         />
       ) : (
         <>
-          <Image src={imageUrl!} height={800} width={800} alt={'album art'} />
-          <Palette colors={colors as colorsTuple} />
+          <Preview
+            imageUrl={imageUrl}
+            colors={colors as colorsTuple}
+            setImageUrl={setImageUrl}
+          />
         </>
       )}
     </Layout.Main>
