@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+import { testColors } from './__tests__/Palette.test'
 
 import { Palette } from '.'
 
@@ -7,4 +8,4 @@ export default {
   title: 'Palette',
 } as Meta
 
-export const Basic: Story = () => <Palette colors={[]} />
+export const Basic: Story = () => <Palette colors={testColors} />

@@ -3,7 +3,7 @@ import { colorsTuple } from 'components/Palette'
 
 import { Palette } from '..'
 
-const testColors: colorsTuple = [
+export const testColors: colorsTuple = [
   '#095525',
   '#673636',
   '#379273',
