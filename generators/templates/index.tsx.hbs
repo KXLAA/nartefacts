@@ -4,10 +4,10 @@ export type {{pascalCase name}}Props = {
   heading?: string
 } 
 
-export const {{pascalCase name}}: React.FC<{{pascalCase name}}Props> = ({heading}) => {
+export const {{pascalCase name}}: React.FC<{{pascalCase name}}Props>  = ({ heading }) => {
   return (
     <S.Wrapper>
-      <h1>{heading} || {{pascalCase name}}</h1>
+      <h1>{heading || `{{pascalCase name}}`} </h1>
     </S.Wrapper>
   )
 }
