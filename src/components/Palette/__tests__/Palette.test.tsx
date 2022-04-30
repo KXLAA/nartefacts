@@ -40,7 +40,6 @@ describe('<Palette />', () => {
     const invalidColors: colorsTuple = Object.assign([], testColors, {
       0: '0955',
     })
-
     const { getAllByTitle } = render(<Palette colors={invalidColors} />)
     const colors = getAllByTitle(/color/i)
     expect(colors).toHaveLength(testColors.length)

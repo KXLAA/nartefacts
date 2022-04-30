@@ -14,5 +14,5 @@ export const Color = styled.div<{ color: string }>`
   background: ${({ color }) =>
     color.match(/^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i)
       ? color
-      : '#fff'};
+      : '#202020'};
 `
