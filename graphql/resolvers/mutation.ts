@@ -6,16 +6,17 @@ import * as argon from 'argon2'
 import jwt from 'jsonwebtoken'
 import { prisma } from '../../lib/prisma'
 import { rgbToHex } from './utils'
+import { colorsTuple } from 'components/Palette'
 
 const Mutation: MutationResolvers = {
   generateColors: async (_, { imageUrl }) => {
-    const getColors = async () => {
+    const getColors = async (): Promise<colorsTuple | undefined> => {
       try {
         //This function returns an array of rgb color codes in this format - [red: number, green: number, blue: number][]
         const colors = await ColorThief.getPalette(imageUrl!, 8)
         //Converting the rgb color codes to HEX color codes
-        const palette: string[] = colors.map((color) => rgbToHex(color))
-        return palette
+        const palette = colors.map((color) => rgbToHex(color))
+        return palette as colorsTuple
       } catch (error: unknown) {
         if (error as Error) {
           throw new ApolloError('Oops, something went wrong')
