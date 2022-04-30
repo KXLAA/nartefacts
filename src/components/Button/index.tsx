@@ -8,15 +8,22 @@ export type ButtonProps = {
   textColor?: string
   onClick?: () => void
   href?: string
+  icon?: Element
 }
 
 export const Button: React.FC<ButtonProps> = ({
   buttonColor,
   text,
   textColor,
+  onClick,
 }) => {
   return (
-    <S.Button buttonColor={buttonColor} textColor={textColor} role="button">
+    <S.Button
+      buttonColor={buttonColor}
+      textColor={textColor}
+      role="button"
+      onClick={onClick}
+    >
       {capitalize(text!) || 'Button'}
     </S.Button>
   )

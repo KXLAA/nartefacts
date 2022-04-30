@@ -1,18 +1,26 @@
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import * as S from './styles'
-import { UploadPlus } from 'components/Icons'
+import { UploadPlus } from '../Icons'
 import { useS3Upload } from 'next-s3-upload'
 import { useGenerateColorsMutation } from '../../../graphql/generated/graphql'
 import { RotatingLines } from 'react-loader-spinner'
 
-export const Dropzone = () => {
-  const { uploadToS3 } = useS3Upload()
-  const [imageUrl, setImageUrl] = useState<undefined | string>()
-  const [loading, setLoading] = useState<boolean>()
-  const [colors, setColors] = useState<string[] | null | undefined>([])
-  const [generateColors] = useGenerateColorsMutation()
+export type DropzoneProps = {
+  setImageUrl: React.Dispatch<React.SetStateAction<string | undefined>>
+  setColors?: React.Dispatch<React.SetStateAction<string[] | null | undefined>>
+  loading: boolean
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
 
+export const Dropzone: React.FC<DropzoneProps> = ({
+  setImageUrl,
+  setColors,
+  loading,
+  setLoading,
+}) => {
+  const { uploadToS3 } = useS3Upload()
+  const [generateColors] = useGenerateColorsMutation()
   const onDrop = useCallback(async (acceptedFiles) => {
     setLoading(true)
     const { url } = await uploadToS3(acceptedFiles[0])
@@ -24,7 +32,7 @@ export const Dropzone = () => {
           imageUrl: url,
         },
       })
-      setColors(data?.generateColors?.colors)
+      setColors && setColors(data?.generateColors?.colors)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
