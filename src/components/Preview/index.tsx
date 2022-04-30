@@ -18,7 +18,10 @@ export const Preview: React.FC<PreviewProps> = ({
   return (
     <S.Wrapper title="Preview">
       <Button text="refresh" onClick={reset ? reset : undefined} />
-      <Image src={imageUrl!} height={800} width={800} alt={'album art'} />
+      <S.ImageWrapper>
+        <Image src={imageUrl!} height={800} width={800} alt={'album art'} />
+      </S.ImageWrapper>
+
       <Palette colors={colors as colorsTuple} />
     </S.Wrapper>
   )
