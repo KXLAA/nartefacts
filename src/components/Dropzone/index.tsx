@@ -11,6 +11,8 @@ export type DropzoneProps = {
   setColors?: React.Dispatch<React.SetStateAction<string[] | null | undefined>>
   loading: boolean
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  setError: React.Dispatch<React.SetStateAction<string | null>>
+  error: string | null
 }
 
 export const Dropzone: React.FC<DropzoneProps> = ({
@@ -18,22 +20,31 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   setColors,
   loading,
   setLoading,
+  setError,
+  error,
 }) => {
   const { uploadToS3 } = useS3Upload()
   const [generateColors] = useGenerateColorsMutation()
   const onDrop = useCallback(async (acceptedFiles) => {
     setLoading(true)
-    const { url } = await uploadToS3(acceptedFiles[0])
-    setImageUrl(url)
-    if (url) {
-      setLoading(false)
-      const { data } = await generateColors({
-        variables: {
-          imageUrl: url,
-        },
-      })
-      setColors && setColors(data?.generateColors?.colors)
+    try {
+      const { url } = await uploadToS3(acceptedFiles[0])
+      setImageUrl(url)
+      if (url) {
+        setLoading(false)
+        const { data } = await generateColors({
+          variables: {
+            imageUrl: url,
+          },
+        })
+        setColors && setColors(data?.generateColors?.colors)
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message)
+      }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -48,22 +59,27 @@ export const Dropzone: React.FC<DropzoneProps> = ({
       <S.Drop>
         <input {...getInputProps()} />
         <h1>Dropzone</h1>
+        {!error ? (
+          <S.Content>
+            {loading ? (
+              <RotatingLines width="100" strokeColor="#FF5733" />
+            ) : (
+              <>
+                <UploadPlus size={72} strokeWidth={0.5} color="#5A5A5A" />
 
-        <S.Content>
-          {loading ? (
-            <RotatingLines width="100" strokeColor="#FF5733" />
-          ) : (
-            <>
-              <UploadPlus size={72} strokeWidth={0.5} color="#5A5A5A" />
-
-              {isDragActive ? (
-                <p>drop the files here ...</p>
-              ) : (
-                <p>drag {'n'} drop your image here, or click to select files</p>
-              )}
-            </>
-          )}
-        </S.Content>
+                {isDragActive ? (
+                  <p>drop the files here ...</p>
+                ) : (
+                  <p>
+                    drag {'n'} drop your image here, or click to select files
+                  </p>
+                )}
+              </>
+            )}
+          </S.Content>
+        ) : (
+          <p>{error}</p>
+        )}
       </S.Drop>
     </S.Wrapper>
   )
