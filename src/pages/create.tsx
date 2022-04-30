@@ -14,7 +14,11 @@ export default function Create() {
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
 
-  console.log(colors)
+  const reset = () => {
+    setImageUrl(undefined)
+    setColors(undefined)
+    setLoading(false)
+  }
 
   return (
     <Layout.Main>
@@ -39,7 +43,7 @@ from your own images "
           <Preview
             imageUrl={imageUrl}
             colors={colors as colorsTuple}
-            setImageUrl={setImageUrl}
+            reset={reset}
           />
         </>
       )}
