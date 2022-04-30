@@ -7,4 +7,4 @@ export default {
   title: 'Palette',
 } as Meta
 
-export const Basic: Story = () => <Palette />
+export const Basic: Story = () => <Palette colors={[]} />
