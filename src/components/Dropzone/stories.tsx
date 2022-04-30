@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { Meta } from '@storybook/react'
 
 import { Dropzone } from '.'
 
@@ -7,4 +7,4 @@ export default {
   title: 'Dropzone',
 } as Meta
 
-export const Basic: Story = () => <Dropzone />
+// export const Basic: Story = () => <Dropzone />
