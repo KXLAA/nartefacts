@@ -1,19 +1,26 @@
 import * as S from './styles'
 
+export type colorsTuple = [
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+]
+
 export type PaletteProps = {
-  colors: string[]
+  colors: colorsTuple
 }
 
 export const Palette: React.FC<PaletteProps> = ({ colors }) => {
   return (
-    <>
-      <h1>Palette</h1>
-
-      <S.Wrapper>
-        {colors.map((color) => (
-          <S.Color key={color} color={color} />
-        ))}
-      </S.Wrapper>
-    </>
+    <S.Wrapper title="Palette">
+      {colors.map((color) => (
+        <S.Color key={color} color={color} title="Color" />
+      ))}
+    </S.Wrapper>
   )
 }
