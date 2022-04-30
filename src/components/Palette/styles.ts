@@ -11,5 +11,8 @@ export const Wrapper = styled.div`
 export const Color = styled.div<{ color: string }>`
   height: 130px;
   border-radius: 8px;
-  background: ${({ color }) => color};
+  background: ${({ color }) =>
+    color.match(/^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i)
+      ? color
+      : '#fff'};
 `

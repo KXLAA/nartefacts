@@ -35,4 +35,15 @@ describe('<Palette />', () => {
       expect(color).toHaveStyle(`background: ${testColors[index]}`)
     })
   })
+
+  it('should render the default color if invalid color is passed', () => {
+    const invalidColors: colorsTuple = Object.assign([], testColors, {
+      0: '0955',
+    })
+
+    const { getAllByTitle } = render(<Palette colors={invalidColors} />)
+    const colors = getAllByTitle(/color/i)
+    expect(colors).toHaveLength(testColors.length)
+    expect(colors[0]).toHaveStyle(`background: #202020`)
+  })
 })
