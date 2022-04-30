@@ -5,10 +5,13 @@ import { UploadPlus } from '../Icons'
 import { useS3Upload } from 'next-s3-upload'
 import { useGenerateColorsMutation } from '../../../graphql/generated/graphql'
 import { RotatingLines } from 'react-loader-spinner'
+import { colorsTuple } from 'components/Palette'
 
 export type DropzoneProps = {
   setImageUrl: React.Dispatch<React.SetStateAction<string | undefined>>
-  setColors?: React.Dispatch<React.SetStateAction<string[] | null | undefined>>
+  setColors?: React.Dispatch<
+    React.SetStateAction<colorsTuple | null | undefined>
+  >
   loading: boolean
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
   setError: React.Dispatch<React.SetStateAction<string | null>>
@@ -37,7 +40,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
             imageUrl: url,
           },
         })
-        setColors && setColors(data?.generateColors?.colors)
+        setColors && setColors(data?.generateColors?.colors as colorsTuple)
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -58,7 +61,6 @@ export const Dropzone: React.FC<DropzoneProps> = ({
     <S.Wrapper {...getRootProps()}>
       <S.Drop>
         <input {...getInputProps()} />
-        <h1>Dropzone</h1>
         {!error ? (
           <S.Content>
             {loading ? (
