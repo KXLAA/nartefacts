@@ -5,7 +5,7 @@ import { Dropzone } from 'components/Dropzone'
 import { useState } from 'react'
 import { colorsTuple } from 'components/Palette'
 import { Preview } from 'components/Preview'
-import { useCreatedStore } from '../../lib/store'
+// import { useCreatedStore } from '../../lib/store'
 
 export default function Create() {
   const [imageUrl, setImageUrl] = useState<undefined | string>()
@@ -14,9 +14,7 @@ export default function Create() {
   )
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
-  const store = useCreatedStore()
-
-  console.log(store.generatedColors)
+  // const store = useCreatedStore()
 
   const reset = () => {
     setImageUrl(undefined)

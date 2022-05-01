@@ -1,7 +1,7 @@
 import { colorsTuple } from 'components/Palette'
 import create from 'zustand'
 import { v4 as uuidv4 } from 'uuid'
-// import { persist } from 'zustand/middleware'
+import { persist } from 'zustand/middleware'
 
 type GeneratedColors = {
   id: string
@@ -15,22 +15,32 @@ type CreatedStore = {
   removeGeneratedColor: (id: string) => void
 }
 
-export const useCreatedStore = create<CreatedStore>((set) => ({
-  // initial state
-  generatedColors: [],
+export const useCreatedStore = create(
+  persist<CreatedStore>(
+    (set) => ({
+      // initial state
+      generatedColors: [],
 
-  // actions
-  addGeneratedColor: (image: string, colors: colorsTuple) => {
-    set((state) => ({
-      generatedColors: [
-        ...state.generatedColors,
-        { id: uuidv4(), image, colors } as GeneratedColors,
-      ],
-    }))
-  },
-  removeGeneratedColor: (id: string) => {
-    set((state) => ({
-      generatedColors: state.generatedColors.filter((color) => color.id !== id),
-    }))
-  },
-}))
+      // actions
+      addGeneratedColor: (image: string, colors: colorsTuple) => {
+        set((state) => ({
+          generatedColors: [
+            ...state.generatedColors,
+            { id: uuidv4(), image, colors } as GeneratedColors,
+          ],
+        }))
+      },
+      removeGeneratedColor: (id: string) => {
+        set((state) => ({
+          generatedColors: state.generatedColors.filter(
+            (color) => color.id !== id,
+          ),
+        }))
+      },
+    }),
+    // persist options
+    {
+      name: 'generatedColors',
+    },
+  ),
+)
