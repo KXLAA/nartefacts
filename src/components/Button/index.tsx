@@ -6,6 +6,7 @@ export type ButtonProps = {
   text?: string
   buttonColor?: string
   textColor?: string
+  fullWidth?: boolean
   onClick?: () => void
   href?: string
   icon?: Element
@@ -16,6 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   text,
   textColor,
   onClick,
+  fullWidth,
 }) => {
   return (
     <S.Button
@@ -23,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
       textColor={textColor}
       role="button"
       onClick={onClick}
+      fullWidth={fullWidth}
     >
       {capitalize(text!) || 'Button'}
     </S.Button>

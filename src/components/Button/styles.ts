@@ -4,11 +4,14 @@ import { colors } from 'styles/global'
 
 const { grayPrimary, blackSecondary } = colors
 
-type StyledButtonProps = Pick<ButtonProps, 'buttonColor' | 'textColor'>
+type StyledButtonProps = Pick<
+  ButtonProps,
+  'buttonColor' | 'textColor' | 'fullWidth'
+>
 
 export const Button = styled.button<StyledButtonProps>`
   display: flex;
-  max-width: 301px;
+  max-width: ${({ fullWidth }) => (fullWidth ? '100%' : '301px')};
   width: 100%;
   height: 82px;
   align-items: center;

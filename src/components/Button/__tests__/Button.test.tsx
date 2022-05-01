@@ -29,6 +29,7 @@ describe('<Button />', () => {
       buttonColor: black,
       text: 'PROPS',
       textColor: white,
+      fullWidth: true,
     }
     const { getByRole } = render(<Button {...props} />)
     const button = getByRole('button', { name: /Props/i })
@@ -37,6 +38,7 @@ describe('<Button />', () => {
     expect(button).toHaveStyle({
       'background-color': black,
       color: white,
+      'max-width': '100%',
     })
   })
 
