@@ -1,110 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Palette /> should render the pallette correctly 1`] = `
+exports[`<Preview /> should render the component correctly 1`] = `
 .c0 {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 0.5rem;
   width: 100%;
   max-width: 800px;
-}
-
-.c1 {
-  height: 130px;
-  border-radius: 8px;
-  background: #095525;
-}
-
-.c2 {
-  height: 130px;
-  border-radius: 8px;
-  background: #673636;
-}
-
-.c3 {
-  height: 130px;
-  border-radius: 8px;
-  background: #379273;
+  gap: 2rem;
+  margin: 0 auto;
 }
 
 .c4 {
-  height: 130px;
-  border-radius: 8px;
-  background: #136407;
+  border: 4px solid #363636;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  padding: 0;
 }
 
-.c5 {
-  height: 130px;
-  border-radius: 8px;
-  background: #573227;
+.c4 span {
+  border-radius: 4px;
 }
 
-.c6 {
-  height: 130px;
-  border-radius: 8px;
-  background: #547820;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  gap: 1rem;
 }
 
-.c7 {
-  height: 130px;
-  border-radius: 8px;
-  background: #163598;
-}
-
-.c8 {
-  height: 130px;
-  border-radius: 8px;
-  background: #682052;
-}
-
-<div
-  class="c0"
-  title="Palette"
->
-  <div
-    class="c1"
-    color="#095525"
-    title="Color"
-  />
-  <div
-    class="c2"
-    color="#673636"
-    title="Color"
-  />
-  <div
-    class="c3"
-    color="#379273"
-    title="Color"
-  />
-  <div
-    class="c4"
-    color="#136407"
-    title="Color"
-  />
-  <div
-    class="c5"
-    color="#573227"
-    title="Color"
-  />
-  <div
-    class="c6"
-    color="#547820"
-    title="Color"
-  />
-  <div
-    class="c7"
-    color="#163598"
-    title="Color"
-  />
-  <div
-    class="c8"
-    color="#682052"
-    title="Color"
-  />
-</div>
-`;
-
-exports[`<Preview /> should render the component correctly 1`] = `
 .c5 {
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -159,42 +91,6 @@ exports[`<Preview /> should render the component correctly 1`] = `
   height: 130px;
   border-radius: 8px;
   background: #682052;
-}
-
-.c0 {
-  width: 100%;
-  max-width: 800px;
-  gap: 2rem;
-  margin: 0 auto;
-}
-
-.c4 {
-  border: 4px solid #363636;
-  border-radius: 4px;
-  margin-bottom: 2rem;
-  padding: 0;
-}
-
-.c4 span {
-  border-radius: 4px;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-bottom: 2rem;
-  gap: 1rem;
 }
 
 .c2 {

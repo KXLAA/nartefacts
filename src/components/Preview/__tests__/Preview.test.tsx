@@ -1,14 +1,11 @@
 import { render } from '@testing-library/react'
-import { testColors } from 'components/Palette/__tests__/Palette.test'
-
+import { imageUrl, colors } from 'components/utils'
 import { Preview } from '..'
 
-export const testImageUrl =
-  'https://nartefact-upload.s3.eu-west-2.amazonaws.com/next-s3-uploads/fae5d6ed-1298-412a-b0ce-edac6c043f29/Colour.jpg'
 describe('<Preview />', () => {
   it('should render the component', () => {
     const { getByTitle } = render(
-      <Preview colors={testColors} imageUrl={testImageUrl} />,
+      <Preview colors={colors} imageUrl={imageUrl} />,
     )
     const preview = getByTitle(/preview/i)
 
@@ -17,7 +14,7 @@ describe('<Preview />', () => {
 
   it('should render the component correctly', () => {
     const { container } = render(
-      <Preview colors={testColors} imageUrl={testImageUrl} />,
+      <Preview colors={colors} imageUrl={imageUrl} />,
     )
     expect(container.firstChild).toMatchSnapshot()
   })

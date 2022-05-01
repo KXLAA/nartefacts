@@ -1,18 +1,8 @@
 import { render } from '@testing-library/react'
 import { colorsTuple } from 'components/Palette'
+import { colors as testColors } from 'components/utils'
 
 import { Palette } from '..'
-
-export const testColors: colorsTuple = [
-  '#095525',
-  '#673636',
-  '#379273',
-  '#136407',
-  '#573227',
-  '#547820',
-  '#163598',
-  '#682052',
-]
 
 describe('<Palette />', () => {
   it('should render the pallette', () => {
