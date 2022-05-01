@@ -1,8 +1,8 @@
-import { PlusCircle } from 'lucide-react'
+import { PlusCircle as Icon } from 'lucide-react'
 import { IconProps } from '.'
 
 const UploadPlus: React.FC<IconProps> = ({ color, size, strokeWidth }) => {
-  return <PlusCircle color={color} size={size} strokeWidth={strokeWidth} />
+  return <Icon color={color} size={size} strokeWidth={strokeWidth} />
 }
 
 export default UploadPlus
