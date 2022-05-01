@@ -17,9 +17,19 @@ export const Preview: React.FC<PreviewProps> = ({
 }) => {
   return (
     <S.Wrapper title="Preview">
-      <Button text="refresh" onClick={reset ? reset : undefined} />
+      <S.Buttons>
+        <Button text="refresh" onClick={reset ? reset : undefined} fullWidth />
+        <Button text="save" onClick={reset ? reset : undefined} fullWidth />
+      </S.Buttons>
+
       <S.ImageWrapper>
-        <Image src={imageUrl!} height={800} width={800} alt={'album art'} />
+        <Image
+          src={imageUrl!}
+          height={800}
+          width={800}
+          alt={'album art'}
+          layout="responsive"
+        />
       </S.ImageWrapper>
 
       <Palette colors={colors as colorsTuple} />

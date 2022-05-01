@@ -105,7 +105,7 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 `;
 
 exports[`<Preview /> should render the component correctly 1`] = `
-.c2 {
+.c4 {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 0.5rem;
@@ -113,71 +113,70 @@ exports[`<Preview /> should render the component correctly 1`] = `
   max-width: 800px;
 }
 
-.c3 {
+.c5 {
   height: 130px;
   border-radius: 8px;
   background: #095525;
 }
 
-.c4 {
+.c6 {
   height: 130px;
   border-radius: 8px;
   background: #673636;
 }
 
-.c5 {
+.c7 {
   height: 130px;
   border-radius: 8px;
   background: #379273;
 }
 
-.c6 {
+.c8 {
   height: 130px;
   border-radius: 8px;
   background: #136407;
 }
 
-.c7 {
+.c9 {
   height: 130px;
   border-radius: 8px;
   background: #573227;
 }
 
-.c8 {
+.c10 {
   height: 130px;
   border-radius: 8px;
   background: #547820;
 }
 
-.c9 {
+.c11 {
   height: 130px;
   border-radius: 8px;
   background: #163598;
 }
 
-.c10 {
+.c12 {
   height: 130px;
   border-radius: 8px;
   background: #682052;
 }
 
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 800px;
   gap: 2rem;
+  margin: 0 auto;
+}
+
+.c3 {
+  border: 4px solid #363636;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  padding: 0;
+}
+
+.c3 span {
+  border-radius: 4px;
 }
 
 .c1 {
@@ -185,7 +184,25 @@ exports[`<Preview /> should render the component correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-width: 301px;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  gap: 1rem;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
   width: 100%;
   height: 82px;
   -webkit-align-items: center;
@@ -208,11 +225,11 @@ exports[`<Preview /> should render the component correctly 1`] = `
   transition: all 0.3s ease;
 }
 
-.c1:hover {
+.c2:hover {
   background-color: #dddddd;
 }
 
-.c1:active {
+.c2:active {
   -webkit-transform: translateX(0rem) translateY(0.125rem);
   -ms-transform: translateX(0rem) translateY(0.125rem);
   transform: translateX(0rem) translateY(0.125rem);
@@ -222,75 +239,82 @@ exports[`<Preview /> should render the component correctly 1`] = `
   class="c0"
   title="Preview"
 >
-  <button
+  <div
     class="c1"
-    role="button"
   >
-    Refresh
-  </button>
-  <span
-    style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+    <button
+      class="c2"
+      role="button"
+    >
+      Refresh
+    </button>
+    <button
+      class="c2"
+      role="button"
+    >
+      Save
+    </button>
+  </div>
+  <div
+    class="c3"
   >
     <span
-      style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
     >
-      <img
-        alt=""
-        aria-hidden="true"
-        src="data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 version=%271.1%27 width=%27800%27 height=%27800%27/%3e"
-        style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+      <span
+        style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
       />
+      <img
+        alt="album art"
+        data-nimg="responsive"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+      />
+      <noscript />
     </span>
-    <img
-      alt="album art"
-      data-nimg="intrinsic"
-      decoding="async"
-      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-      style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-    />
-    <noscript />
-  </span>
+  </div>
   <div
-    class="c2"
+    class="c4"
     title="Palette"
   >
     <div
-      class="c3"
+      class="c5"
       color="#095525"
       title="Color"
     />
     <div
-      class="c4"
+      class="c6"
       color="#673636"
       title="Color"
     />
     <div
-      class="c5"
+      class="c7"
       color="#379273"
       title="Color"
     />
     <div
-      class="c6"
+      class="c8"
       color="#136407"
       title="Color"
     />
     <div
-      class="c7"
+      class="c9"
       color="#573227"
       title="Color"
     />
     <div
-      class="c8"
+      class="c10"
       color="#547820"
       title="Color"
     />
     <div
-      class="c9"
+      class="c11"
       color="#163598"
       title="Color"
     />
     <div
-      class="c10"
+      class="c12"
       color="#682052"
       title="Color"
     />
