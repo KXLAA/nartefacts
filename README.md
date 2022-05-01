@@ -20,7 +20,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 
 ### Create Page
 
-- [ ] Add toast notification when a user generates a color pallette
+- [x] Add toast notification when a user generates a color pallette
 - [ ] Modal pop up to name generated palettes
 - [ ] Disable button state
 - [ ] Improve tests, replace getByTitle with getByTestId in preview component
