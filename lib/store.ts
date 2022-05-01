@@ -9,11 +9,25 @@ type GeneratedColors = {
   colors: colorsTuple
 }
 
+// type LikedColors = {
+//   id: string
+//   image: string
+//   colors: colorsTuple
+// }
+
 type CreatedStore = {
   generatedColors: GeneratedColors[]
   addGeneratedColor: (image: string, colors: colorsTuple) => void
   removeGeneratedColor: (id: string) => void
+  clearAllGeneratedColors: () => void
 }
+
+// type LikedStore = {
+//   likedColors: LikedColors[]
+//   addLikedColor: (image: string, colors: colorsTuple) => void
+//   removeLikedColor: (id: string) => void
+//   clearAllLikedColors: () => void
+// }
 
 export const useCreatedStore = create(
   persist<CreatedStore>(
@@ -35,6 +49,11 @@ export const useCreatedStore = create(
           generatedColors: state.generatedColors.filter(
             (color) => color.id !== id,
           ),
+        }))
+      },
+      clearAllGeneratedColors: () => {
+        set(() => ({
+          generatedColors: [],
         }))
       },
     }),
