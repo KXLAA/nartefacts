@@ -18,8 +18,18 @@ export const Preview: React.FC<PreviewProps> = ({
   return (
     <S.Wrapper title="Preview">
       <S.Buttons>
-        <Button text="refresh" onClick={reset ? reset : undefined} fullWidth />
-        <Button text="save" onClick={reset ? reset : undefined} fullWidth />
+        <Button
+          buttonType="primary"
+          text="refresh"
+          onClick={reset ? reset : undefined}
+          fullWidth
+        />
+        <Button
+          text="save"
+          onClick={reset ? reset : undefined}
+          fullWidth
+          buttonType="secondary"
+        />
       </S.Buttons>
 
       <S.ImageWrapper>

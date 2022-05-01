@@ -1,11 +1,9 @@
 import { render } from '@testing-library/react'
-import { colors, testColors } from 'styles/global'
+import { colors } from 'styles/global'
 const { grayPrimary, blackSecondary } = colors
-const { black, white } = testColors
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 import { createMockRouter } from 'utils'
 import { Button } from '..'
-import { ButtonLink } from '..'
 
 describe('<Button />', () => {
   it('should render the button with default values & styles', () => {
@@ -25,19 +23,15 @@ describe('<Button />', () => {
   })
 
   it('should render the button with correct values based on props', () => {
-    const props = {
-      buttonColor: black,
-      text: 'PROPS',
-      textColor: white,
-      fullWidth: true,
-    }
-    const { getByRole } = render(<Button {...props} />)
-    const button = getByRole('button', { name: /Props/i })
+    const { getByRole } = render(
+      <Button buttonType="secondary" text="Props" fullWidth />,
+    )
+    const button = getByRole('button', { name: /props/i })
 
     expect(button).toBeInTheDocument()
     expect(button).toHaveStyle({
-      'background-color': black,
-      color: white,
+      'background-color': blackSecondary,
+      color: grayPrimary,
       'max-width': '100%',
     })
   })
@@ -47,7 +41,7 @@ describe('<Button />', () => {
       <RouterContext.Provider
         value={createMockRouter({ query: { id: '33' }, pathname: 'kola' })}
       >
-        <ButtonLink href="/test" />
+        <Button buttonType="link-primary" href="/test" />
       </RouterContext.Provider>,
     )
 

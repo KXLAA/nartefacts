@@ -6,7 +6,7 @@ const { grayPrimary, blackSecondary } = colors
 
 type StyledButtonProps = Pick<
   ButtonProps,
-  'buttonColor' | 'textColor' | 'fullWidth'
+  'buttonColor' | 'textColor' | 'fullWidth' | 'buttonType'
 >
 
 export const Button = styled.button<StyledButtonProps>`
@@ -17,11 +17,14 @@ export const Button = styled.button<StyledButtonProps>`
   align-items: center;
   justify-content: center;
   padding: 16px 20px;
-  background-color: ${({ buttonColor }) => buttonColor || grayPrimary};
+  background: ${({ buttonColor }) => (buttonColor ? buttonColor : 'none')};
   font-size: 36px;
-  border: none;
+  border: ${({ buttonType, textColor }) =>
+    buttonType === 'link-outline' || buttonType === 'outline'
+      ? `solid 4px ${textColor}`
+      : 'none'};
   border-radius: 8px;
-  color: ${({ textColor }) => textColor || blackSecondary};
+  color: ${({ textColor }) => textColor};
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
