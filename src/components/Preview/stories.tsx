@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { testImageUrl } from './__tests__/Preview.test'
-import { testColors } from 'components/Palette/__tests__/Palette.test'
+import { colors, imageUrl } from 'components/utils'
 
 import { Preview } from '.'
 
@@ -10,5 +9,5 @@ export default {
 } as Meta
 
 export const Basic: Story = () => (
-  <Preview imageUrl={testImageUrl} colors={testColors} />
+  <Preview imageUrl={imageUrl} colors={colors} />
 )

@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import { testColors } from './__tests__/Palette.test'
+import { colors as testColors } from 'components/utils'
 
 import { Palette } from '.'
 
