@@ -2,6 +2,8 @@ import * as S from './styles'
 import Image from 'next/image'
 import { colorsTuple, Palette } from 'components/Palette'
 import { Button } from 'components/Button'
+import { useCreatedStore } from '../../../lib/store'
+import { useState } from 'react'
 
 export type PreviewProps = {
   heading?: string
@@ -15,6 +17,14 @@ export const Preview: React.FC<PreviewProps> = ({
   colors,
   reset,
 }) => {
+  const store = useCreatedStore()
+  const [disable, setDisable] = useState<boolean>(false)
+
+  const save = () => {
+    setDisable(true)
+    store.addGeneratedColor(imageUrl, colors)
+  }
+
   return (
     <S.Wrapper title="Preview">
       <S.Buttons>
@@ -26,9 +36,10 @@ export const Preview: React.FC<PreviewProps> = ({
         />
         <Button
           text="save"
-          onClick={reset ? reset : undefined}
+          onClick={save}
           fullWidth
           buttonType="secondary"
+          disabled={disable}
         />
       </S.Buttons>
 

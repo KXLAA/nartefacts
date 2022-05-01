@@ -10,6 +10,7 @@ export type ButtonProps = {
   onClick?: () => void
   href?: string
   icon?: Element
+  disabled?: boolean
   buttonType?:
     | 'primary'
     | 'secondary'
@@ -44,6 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
   fullWidth,
   buttonType,
   href,
+  disabled,
 }) => {
   switch (buttonType) {
     case 'primary':
@@ -54,6 +56,7 @@ export const Button: React.FC<ButtonProps> = ({
           role="button"
           onClick={onClick}
           fullWidth={fullWidth}
+          disabled={disabled}
         >
           {capitalize(text!) || 'Button'}
         </S.Button>
@@ -66,6 +69,7 @@ export const Button: React.FC<ButtonProps> = ({
           role="button"
           onClick={onClick}
           fullWidth={fullWidth}
+          disabled={disabled}
         >
           {capitalize(text!) || 'Button'}
         </S.Button>
@@ -78,6 +82,7 @@ export const Button: React.FC<ButtonProps> = ({
           onClick={onClick}
           buttonType="outline"
           fullWidth={fullWidth}
+          disabled={disabled}
         >
           {capitalize(text!) || 'Button'}
         </S.Button>
