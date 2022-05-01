@@ -14,6 +14,7 @@ export default function Create() {
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
 
+  console.log(colors)
   const reset = () => {
     setImageUrl(null)
     setColors(null)
