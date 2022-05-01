@@ -38,7 +38,7 @@ export const useCreatedStore = create(
         }))
       },
     }),
-    // persist options
+    // persist generatedColors in local storage
     {
       name: 'generatedColors',
     },
