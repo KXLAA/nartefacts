@@ -1,12 +1,43 @@
 # nartefacts
 
-This is a rewrite of my nartefacts application with a bunch of new technologies and improvements based of what i have learnt since the first version. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/).
+This is a rewrite of my nartefacts application with a bunch of new technologies and improvements based of what i have learnt since V1. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/).
+
+## Todos
+
+### Admin Page
+
+- [ ] Implement infinite scroll
+- [ ] add details to albums
+- [ ] add like an unlike interaction
+- [ ] add footer
+- [ ] add gradients
+
+### Home Page
+
+- [ ] Design admin page on Figma
+- [ ] Implement admin page
+- [ ] connect admin page to next auth on the front end
+
+### Create Page
+
+- [ ] Add toast notification when a user generates a color pallette
+- [ ] Modal pop up to name generated palettes
+- [ ] Disable button state
+- [ ] Improve tests, replace getByTitle with getByTestId in preview component
+- [ ] Limit amount user can create and store in local storage, im thinking 50 items ?
+- [ ] write stories for components on this route
+- [ ] Gradient component (i want to do shaders ? idk may take longer)
+- [ ] Copy to clipboard for individual colors and entire pallette
 
 ## Demo
 
 <!-- <p align="center">
   <img height="300" src="https://media.giphy.com/media/WXraj8aJHXUP7kRDbJ/giphy.gif" />
 </p> -->
+
+<!-- Local Storage
+https://github.com/pmndrs/zustand/issues/245#issue-749551108
+https://github.com/pmndrs/zustand/pull/248 -->
 
 ## Technologies used
 
