@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Toast /> should render the component correctly 1`] = `
+.c0 {
+  width: 100%;
+  max-width: 400px;
+  background-color: #202020;
+  border: solid 0.8px #5a5a5a;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.c0 span {
+  border-radius: 4px;
+}
+
+.c1 {
+  color: #5a5a5a;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 4px;
+}
+
+<div
+  class="c0"
+>
+  <span
+    style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+  >
+    <span
+      style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+    />
+    <img
+      alt="image uploaded by a user to generate color palettes"
+      data-nimg="responsive"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+    />
+    <noscript />
+  </span>
+  <p
+    class="c1"
+  >
+    Saved
+  </p>
+</div>
+`;
