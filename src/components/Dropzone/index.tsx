@@ -8,10 +8,8 @@ import { RotatingLines } from 'react-loader-spinner'
 import { colorsTuple } from 'components/Palette'
 
 export type DropzoneProps = {
-  setImageUrl: React.Dispatch<React.SetStateAction<string | undefined>>
-  setColors?: React.Dispatch<
-    React.SetStateAction<colorsTuple | null | undefined>
-  >
+  setImageUrl: React.Dispatch<React.SetStateAction<string | null>>
+  setColors?: React.Dispatch<React.SetStateAction<colorsTuple | null>>
   loading: boolean
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
   setError: React.Dispatch<React.SetStateAction<string | null>>
@@ -33,6 +31,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
     try {
       const { url } = await uploadToS3(acceptedFiles[0])
       setImageUrl(url)
+      console.log(url)
       if (url) {
         setLoading(false)
         const { data } = await generateColors({
