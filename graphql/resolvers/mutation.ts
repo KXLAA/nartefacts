@@ -13,7 +13,7 @@ const Mutation: MutationResolvers = {
     const getColors = async (): Promise<colorsTuple | undefined> => {
       try {
         //This function returns an array of rgb color codes in this format - [red: number, green: number, blue: number][]
-        const colors = await ColorThief.getPalette(imageUrl!, 8, 20)
+        const colors = await ColorThief.getPalette(imageUrl!, 8, 10)
         //Converting the rgb color codes to HEX color codes
         const palette = colors.map((color) => rgbToHex(color))
         return palette as colorsTuple
