@@ -5,6 +5,7 @@ import { Dropzone } from 'components/Dropzone'
 import { useState } from 'react'
 import { colorsTuple } from 'components/Palette'
 import { Preview } from 'components/Preview'
+import { Counter } from 'components/Counter'
 
 export default function Create() {
   const [imageUrl, setImageUrl] = useState<null | string>(null)
@@ -47,6 +48,8 @@ export default function Create() {
           />
         </>
       )}
+
+      <Counter />
     </Layout.Main>
   )
 }
