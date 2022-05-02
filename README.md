@@ -27,7 +27,8 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] Limit amount user can create and store in local storage, im thinking 50 items ?
 - [ ] write stories for components on this route
 - [ ] Gradient component (i want to do shaders ? idk may take longer)
-- [ ] Copy to clipboard for individual colors and entire pallette
+- [x] Copy to clipboard for individual colors and entire pallette
+- [ ] Add counter to track number of generated pallettes
 
 ## Demo
 
