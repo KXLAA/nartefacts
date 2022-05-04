@@ -109,6 +109,19 @@ query AlbumsByArtist($artist: String!, $first: Int, $after: String) {
   }
 }
 
+query Analytics($id: ID) {
+  analytics(id: $id) {
+    generatedPalettes
+  }
+}
+
+mutation UpdateAnalytics($id: ID) {
+  updateAnalytics(id: $id) {
+    id
+    generatedPalettes
+  }
+}
+
 mutation GenerateColors($imageUrl: String) {
   generateColors(imageUrl: $imageUrl) {
     colors
