@@ -8,7 +8,7 @@ export const Counter: React.FC<CounterProps> = ({ count }) => {
   return (
     <S.Wrapper>
       <S.Counter>
-        <p>{`${count} Gradients Generated`} </p>
+        <p>{`${count || 0} Gradients Generated`} </p>
       </S.Counter>
     </S.Wrapper>
   )

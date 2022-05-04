@@ -5,7 +5,7 @@ import { Counter } from '..'
 describe('<Counter />', () => {
   it('should render the component', () => {
     const { getByText } = render(<Counter />)
-    const counter = getByText(/500 gradients generated/i)
+    const counter = getByText(/gradients generated/i)
 
     expect(counter).toBeInTheDocument()
   })

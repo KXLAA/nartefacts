@@ -15,12 +15,13 @@ exports[`<Counter /> should render the component correctly 1`] = `
 
 .c1 {
   background-color: #202020;
+  font-weight: bold;
   width: 100%;
   border: solid 2px #363636;
   border-radius: 8px;
   max-width: 500px;
   margin-top: 2rem;
-  font-size: 0.7rem;
+  font-size: 24px;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
   color: #5a5a5a;
@@ -33,7 +34,7 @@ exports[`<Counter /> should render the component correctly 1`] = `
     class="c1"
   >
     <p>
-      500 Gradients Generated
+      0 Gradients Generated
        
     </p>
   </div>
