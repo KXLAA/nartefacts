@@ -109,20 +109,21 @@ query AlbumsByArtist($artist: String!, $first: Int, $after: String) {
   }
 }
 
-query Analytics($id: ID) {
-  analytics(id: $id) {
+query Analytics {
+  analytics {
+    id
     generatedPalettes
   }
 }
 
-mutation UpdateAnalytics($id: ID) {
+mutation UpdateAnalytics($id: ID!) {
   updateAnalytics(id: $id) {
     id
     generatedPalettes
   }
 }
 
-mutation GenerateColors($imageUrl: String) {
+mutation GenerateColors($imageUrl: String!) {
   generateColors(imageUrl: $imageUrl) {
     colors
   }
@@ -158,7 +159,7 @@ mutation AddArtist($input: ArtistInput) {
   }
 }
 
-mutation UpdateArtist($artistId: ID!, $input: ArtistInput) {
+mutation UpdateArtist($artistId: ID!, $input: ArtistInput!) {
   updateArtist(artistID: $artistId, input: $input) {
     ...ArtistItem
   }

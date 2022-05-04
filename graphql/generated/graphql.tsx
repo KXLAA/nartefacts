@@ -37,7 +37,7 @@ export type Album = {
 
 export type AlbumEdges = {
   cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<Album>;
+  node: Album;
 };
 
 export type AlbumInput = {
@@ -58,8 +58,8 @@ export type AlbumPageInfo = {
 };
 
 export type AlbumsConnection = {
-  edges?: Maybe<Array<Maybe<AlbumEdges>>>;
-  node?: Maybe<Array<Maybe<Album>>>;
+  edges: Array<AlbumEdges>;
+  node: Array<Album>;
   pageInfo?: Maybe<AlbumPageInfo>;
 };
 
@@ -69,7 +69,7 @@ export type Analytics = {
 };
 
 export type Artist = {
-  albums?: Maybe<Array<Maybe<Album>>>;
+  albums?: Maybe<Array<Album>>;
   biography?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   name?: Maybe<Scalars['String']>;
@@ -88,7 +88,7 @@ export type Colors = {
 
 export type Mutation = {
   addAlbum: Album;
-  addArtist?: Maybe<Artist>;
+  addArtist: Artist;
   addToLike?: Maybe<Scalars['Boolean']>;
   deleteAlbum: Scalars['Boolean'];
   deleteArtist: Scalars['Boolean'];
@@ -98,7 +98,7 @@ export type Mutation = {
   signUp: Scalars['String'];
   updateAlbum: Album;
   updateAnalytics?: Maybe<Analytics>;
-  updateArtist?: Maybe<Artist>;
+  updateArtist: Artist;
 };
 
 
@@ -128,7 +128,7 @@ export type MutationDeleteArtistArgs = {
 
 
 export type MutationGenerateColorsArgs = {
-  imageUrl?: InputMaybe<Scalars['String']>;
+  imageUrl: Scalars['String'];
 };
 
 
@@ -156,7 +156,7 @@ export type MutationUpdateAlbumArgs = {
 
 
 export type MutationUpdateAnalyticsArgs = {
-  id?: InputMaybe<Scalars['ID']>;
+  id: Scalars['ID'];
 };
 
 
@@ -170,7 +170,7 @@ export type Query = {
   albumsByTitle?: Maybe<AlbumsConnection>;
   albumsByType?: Maybe<AlbumsConnection>;
   allAlbums?: Maybe<AlbumsConnection>;
-  analytics?: Maybe<Analytics>;
+  analytics: Array<Analytics>;
   oneAlbum?: Maybe<Album>;
 };
 
@@ -202,18 +202,13 @@ export type QueryAllAlbumsArgs = {
 };
 
 
-export type QueryAnalyticsArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
 export type QueryOneAlbumArgs = {
   id: Scalars['ID'];
 };
 
-export type ArtistItemFragment = { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null };
+export type ArtistItemFragment = { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null };
 
-export type AlbumItemFragment = { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null };
+export type AlbumItemFragment = { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null };
 
 export type AllAlbumsQueryVariables = Exact<{
   first?: InputMaybe<Scalars['Int']>;
@@ -221,14 +216,14 @@ export type AllAlbumsQueryVariables = Exact<{
 }>;
 
 
-export type AllAlbumsQuery = { allAlbums?: { edges?: Array<{ cursor?: string | null, node?: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null } | null> | null, node?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null> | null, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
+export type AllAlbumsQuery = { allAlbums?: { edges: Array<{ cursor?: string | null, node: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null } }>, node: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null }>, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
 
 export type AlbumQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
 
 
-export type AlbumQuery = { oneAlbum?: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null };
+export type AlbumQuery = { oneAlbum?: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null } | null };
 
 export type AlbumsByTypeQueryVariables = Exact<{
   type: Scalars['String'];
@@ -237,7 +232,7 @@ export type AlbumsByTypeQueryVariables = Exact<{
 }>;
 
 
-export type AlbumsByTypeQuery = { albumsByType?: { edges?: Array<{ cursor?: string | null, node?: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null } | null> | null, node?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null> | null, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
+export type AlbumsByTypeQuery = { albumsByType?: { edges: Array<{ cursor?: string | null, node: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null } }>, node: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null }>, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
 
 export type AlbumsByTitleQueryVariables = Exact<{
   title: Scalars['String'];
@@ -246,7 +241,7 @@ export type AlbumsByTitleQueryVariables = Exact<{
 }>;
 
 
-export type AlbumsByTitleQuery = { albumsByTitle?: { edges?: Array<{ cursor?: string | null, node?: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null } | null> | null, node?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null> | null, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
+export type AlbumsByTitleQuery = { albumsByTitle?: { edges: Array<{ cursor?: string | null, node: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null } }>, node: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null }>, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
 
 export type AlbumsByArtistQueryVariables = Exact<{
   artist: Scalars['String'];
@@ -255,24 +250,22 @@ export type AlbumsByArtistQueryVariables = Exact<{
 }>;
 
 
-export type AlbumsByArtistQuery = { albumsByArtist?: { edges?: Array<{ cursor?: string | null, node?: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null } | null> | null, node?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null> | null, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
+export type AlbumsByArtistQuery = { albumsByArtist?: { edges: Array<{ cursor?: string | null, node: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null } }>, node: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null }>, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
 
-export type AnalyticsQueryVariables = Exact<{
-  id?: InputMaybe<Scalars['ID']>;
-}>;
+export type AnalyticsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AnalyticsQuery = { analytics?: { generatedPalettes?: number | null } | null };
+export type AnalyticsQuery = { analytics: Array<{ id: string, generatedPalettes?: number | null }> };
 
 export type UpdateAnalyticsMutationVariables = Exact<{
-  id?: InputMaybe<Scalars['ID']>;
+  id: Scalars['ID'];
 }>;
 
 
 export type UpdateAnalyticsMutation = { updateAnalytics?: { id: string, generatedPalettes?: number | null } | null };
 
 export type GenerateColorsMutationVariables = Exact<{
-  imageUrl?: InputMaybe<Scalars['String']>;
+  imageUrl: Scalars['String'];
 }>;
 
 
@@ -297,7 +290,7 @@ export type AddAlbumMutationVariables = Exact<{
 }>;
 
 
-export type AddAlbumMutation = { addAlbum: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } };
+export type AddAlbumMutation = { addAlbum: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null } };
 
 export type UpdateAlbumMutationVariables = Exact<{
   albumId: Scalars['ID'];
@@ -305,7 +298,7 @@ export type UpdateAlbumMutationVariables = Exact<{
 }>;
 
 
-export type UpdateAlbumMutation = { updateAlbum: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } };
+export type UpdateAlbumMutation = { updateAlbum: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } | null } };
 
 export type DeleteAlbumMutationVariables = Exact<{
   albumId: Scalars['ID'];
@@ -319,15 +312,15 @@ export type AddArtistMutationVariables = Exact<{
 }>;
 
 
-export type AddArtistMutation = { addArtist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null };
+export type AddArtistMutation = { addArtist: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } };
 
 export type UpdateArtistMutationVariables = Exact<{
   artistId: Scalars['ID'];
-  input?: InputMaybe<ArtistInput>;
+  input: ArtistInput;
 }>;
 
 
-export type UpdateArtistMutation = { updateArtist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null };
+export type UpdateArtistMutation = { updateArtist: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> }> | null } };
 
 export type DeleteArtistMutationVariables = Exact<{
   artistId: Scalars['ID'];
@@ -610,8 +603,9 @@ export type AlbumsByArtistQueryHookResult = ReturnType<typeof useAlbumsByArtistQ
 export type AlbumsByArtistLazyQueryHookResult = ReturnType<typeof useAlbumsByArtistLazyQuery>;
 export type AlbumsByArtistQueryResult = Apollo.QueryResult<AlbumsByArtistQuery, AlbumsByArtistQueryVariables>;
 export const AnalyticsDocument = gql`
-    query Analytics($id: ID) {
-  analytics(id: $id) {
+    query Analytics {
+  analytics {
+    id
     generatedPalettes
   }
 }
@@ -629,7 +623,6 @@ export const AnalyticsDocument = gql`
  * @example
  * const { data, loading, error } = useAnalyticsQuery({
  *   variables: {
- *      id: // value for 'id'
  *   },
  * });
  */
@@ -645,7 +638,7 @@ export type AnalyticsQueryHookResult = ReturnType<typeof useAnalyticsQuery>;
 export type AnalyticsLazyQueryHookResult = ReturnType<typeof useAnalyticsLazyQuery>;
 export type AnalyticsQueryResult = Apollo.QueryResult<AnalyticsQuery, AnalyticsQueryVariables>;
 export const UpdateAnalyticsDocument = gql`
-    mutation UpdateAnalytics($id: ID) {
+    mutation UpdateAnalytics($id: ID!) {
   updateAnalytics(id: $id) {
     id
     generatedPalettes
@@ -679,7 +672,7 @@ export type UpdateAnalyticsMutationHookResult = ReturnType<typeof useUpdateAnaly
 export type UpdateAnalyticsMutationResult = Apollo.MutationResult<UpdateAnalyticsMutation>;
 export type UpdateAnalyticsMutationOptions = Apollo.BaseMutationOptions<UpdateAnalyticsMutation, UpdateAnalyticsMutationVariables>;
 export const GenerateColorsDocument = gql`
-    mutation GenerateColors($imageUrl: String) {
+    mutation GenerateColors($imageUrl: String!) {
   generateColors(imageUrl: $imageUrl) {
     colors
   }
@@ -905,7 +898,7 @@ export type AddArtistMutationHookResult = ReturnType<typeof useAddArtistMutation
 export type AddArtistMutationResult = Apollo.MutationResult<AddArtistMutation>;
 export type AddArtistMutationOptions = Apollo.BaseMutationOptions<AddArtistMutation, AddArtistMutationVariables>;
 export const UpdateArtistDocument = gql`
-    mutation UpdateArtist($artistId: ID!, $input: ArtistInput) {
+    mutation UpdateArtist($artistId: ID!, $input: ArtistInput!) {
   updateArtist(artistID: $artistId, input: $input) {
     ...ArtistItem
   }
@@ -1130,7 +1123,7 @@ export type AlbumResolvers<ContextType = any, ParentType extends ResolversParent
 
 export type AlbumEdgesResolvers<ContextType = any, ParentType extends ResolversParentTypes['AlbumEdges'] = ResolversParentTypes['AlbumEdges']> = {
   cursor?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  node?: Resolver<Maybe<ResolversTypes['Album']>, ParentType, ContextType>;
+  node?: Resolver<ResolversTypes['Album'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1141,8 +1134,8 @@ export type AlbumPageInfoResolvers<ContextType = any, ParentType extends Resolve
 };
 
 export type AlbumsConnectionResolvers<ContextType = any, ParentType extends ResolversParentTypes['AlbumsConnection'] = ResolversParentTypes['AlbumsConnection']> = {
-  edges?: Resolver<Maybe<Array<Maybe<ResolversTypes['AlbumEdges']>>>, ParentType, ContextType>;
-  node?: Resolver<Maybe<Array<Maybe<ResolversTypes['Album']>>>, ParentType, ContextType>;
+  edges?: Resolver<Array<ResolversTypes['AlbumEdges']>, ParentType, ContextType>;
+  node?: Resolver<Array<ResolversTypes['Album']>, ParentType, ContextType>;
   pageInfo?: Resolver<Maybe<ResolversTypes['AlbumPageInfo']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -1154,7 +1147,7 @@ export type AnalyticsResolvers<ContextType = any, ParentType extends ResolversPa
 };
 
 export type ArtistResolvers<ContextType = any, ParentType extends ResolversParentTypes['Artist'] = ResolversParentTypes['Artist']> = {
-  albums?: Resolver<Maybe<Array<Maybe<ResolversTypes['Album']>>>, ParentType, ContextType>;
+  albums?: Resolver<Maybe<Array<ResolversTypes['Album']>>, ParentType, ContextType>;
   biography?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1169,17 +1162,17 @@ export type ColorsResolvers<ContextType = any, ParentType extends ResolversParen
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   addAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, Partial<MutationAddAlbumArgs>>;
-  addArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, Partial<MutationAddArtistArgs>>;
+  addArtist?: Resolver<ResolversTypes['Artist'], ParentType, ContextType, Partial<MutationAddArtistArgs>>;
   addToLike?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationAddToLikeArgs, 'albumID'>>;
   deleteAlbum?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteAlbumArgs, 'albumID'>>;
   deleteArtist?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteArtistArgs, 'artistID'>>;
-  generateColors?: Resolver<Maybe<ResolversTypes['Colors']>, ParentType, ContextType, Partial<MutationGenerateColorsArgs>>;
+  generateColors?: Resolver<Maybe<ResolversTypes['Colors']>, ParentType, ContextType, RequireFields<MutationGenerateColorsArgs, 'imageUrl'>>;
   logIn?: Resolver<ResolversTypes['String'], ParentType, ContextType, RequireFields<MutationLogInArgs, 'password' | 'username'>>;
   removeFromLike?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationRemoveFromLikeArgs, 'albumID'>>;
   signUp?: Resolver<ResolversTypes['String'], ParentType, ContextType, RequireFields<MutationSignUpArgs, 'password' | 'username'>>;
   updateAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationUpdateAlbumArgs, 'albumID'>>;
-  updateAnalytics?: Resolver<Maybe<ResolversTypes['Analytics']>, ParentType, ContextType, Partial<MutationUpdateAnalyticsArgs>>;
-  updateArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, RequireFields<MutationUpdateArtistArgs, 'artistID'>>;
+  updateAnalytics?: Resolver<Maybe<ResolversTypes['Analytics']>, ParentType, ContextType, RequireFields<MutationUpdateAnalyticsArgs, 'id'>>;
+  updateArtist?: Resolver<ResolversTypes['Artist'], ParentType, ContextType, RequireFields<MutationUpdateArtistArgs, 'artistID'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
@@ -1187,7 +1180,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   albumsByTitle?: Resolver<Maybe<ResolversTypes['AlbumsConnection']>, ParentType, ContextType, RequireFields<QueryAlbumsByTitleArgs, 'title'>>;
   albumsByType?: Resolver<Maybe<ResolversTypes['AlbumsConnection']>, ParentType, ContextType, RequireFields<QueryAlbumsByTypeArgs, 'type'>>;
   allAlbums?: Resolver<Maybe<ResolversTypes['AlbumsConnection']>, ParentType, ContextType, Partial<QueryAllAlbumsArgs>>;
-  analytics?: Resolver<Maybe<ResolversTypes['Analytics']>, ParentType, ContextType, Partial<QueryAnalyticsArgs>>;
+  analytics?: Resolver<Array<ResolversTypes['Analytics']>, ParentType, ContextType>;
   oneAlbum?: Resolver<Maybe<ResolversTypes['Album']>, ParentType, ContextType, RequireFields<QueryOneAlbumArgs, 'id'>>;
 };
 
