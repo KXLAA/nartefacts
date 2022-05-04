@@ -35,6 +35,15 @@ export const Button = styled.button<StyledButtonProps>`
   &:active {
     transform: translateX(0rem) translateY(0.125rem);
   }
+
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:active {
+    background-color: ${grayPrimary};
+    color: ${blackSecondary};
+    cursor: not-allowed;
+    transform: none;
+  }
 `
 
 export const Link = styled.a<StyledButtonProps>`

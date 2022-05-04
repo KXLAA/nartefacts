@@ -22,7 +22,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 
 - [x] Add toast notification when a user generates a color pallette
 - [ ] Modal pop up to name generated palettes
-- [ ] Disable button state
+- [x] Disable button state
 - [ ] Improve tests, replace getByTitle with getByTestId in preview component
 - [ ] Limit amount user can create and store in local storage, im thinking 50 items ?
 - [ ] write stories for components on this route

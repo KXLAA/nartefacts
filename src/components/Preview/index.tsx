@@ -43,17 +43,17 @@ export const Preview: React.FC<PreviewProps> = ({
       />
       <S.Buttons>
         <Button
-          buttonType="primary"
-          text="refresh"
-          onClick={reset ? reset : undefined}
-          fullWidth
-        />
-        <Button
           text="save"
+          buttonType="primary"
           onClick={save}
           fullWidth
-          buttonType="secondary"
           disabled={disable}
+        />
+        <Button
+          text="refresh"
+          fullWidth
+          buttonType="secondary"
+          onClick={reset ? reset : undefined}
         />
       </S.Buttons>
 
