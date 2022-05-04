@@ -201,6 +201,23 @@ const Mutation: MutationResolvers = {
     // create and return the json web token
     return jwt.sign({ id: admin?.id }, process.env.JWT_SECRET!)
   },
+
+  updateAnalytics: async (
+    _,
+    { id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d' },
+  ) => {
+    const updateAnalytics = await prisma.analytics.update({
+      where: {
+        id: id as string,
+      },
+      data: {
+        generatedPalettes: {
+          increment: 1,
+        },
+      },
+    })
+    return updateAnalytics
+  },
 }
 
 export default Mutation

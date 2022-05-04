@@ -7,6 +7,7 @@ const typeDefs = gql`
     albumsByType(type: String!, first: Int, after: String): AlbumsConnection
     albumsByTitle(title: String!, first: Int, after: String): AlbumsConnection
     albumsByArtist(artist: String!, first: Int, after: String): AlbumsConnection
+    analytics(id: ID): Analytics
   }
 
   type Mutation {
@@ -25,6 +26,8 @@ const typeDefs = gql`
 
     signUp(username: String!, password: String!): String!
     logIn(username: String!, password: String!): String!
+
+    updateAnalytics(id: ID): Analytics
   }
 
   type Album {
@@ -68,6 +71,11 @@ const typeDefs = gql`
     photoUrl: String
     biography: String
     albums: [Album]
+  }
+
+  type Analytics {
+    id: ID!
+    generatedPalettes: Int
   }
 
   input ArtistInput {

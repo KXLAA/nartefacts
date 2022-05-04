@@ -63,6 +63,11 @@ export type AlbumsConnection = {
   pageInfo?: Maybe<AlbumPageInfo>;
 };
 
+export type Analytics = {
+  generatedPalettes?: Maybe<Scalars['Int']>;
+  id: Scalars['ID'];
+};
+
 export type Artist = {
   albums?: Maybe<Array<Maybe<Album>>>;
   biography?: Maybe<Scalars['String']>;
@@ -92,6 +97,7 @@ export type Mutation = {
   removeFromLike?: Maybe<Scalars['Boolean']>;
   signUp: Scalars['String'];
   updateAlbum: Album;
+  updateAnalytics?: Maybe<Analytics>;
   updateArtist?: Maybe<Artist>;
 };
 
@@ -149,6 +155,11 @@ export type MutationUpdateAlbumArgs = {
 };
 
 
+export type MutationUpdateAnalyticsArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
 export type MutationUpdateArtistArgs = {
   artistID: Scalars['ID'];
   input?: InputMaybe<ArtistInput>;
@@ -159,6 +170,7 @@ export type Query = {
   albumsByTitle?: Maybe<AlbumsConnection>;
   albumsByType?: Maybe<AlbumsConnection>;
   allAlbums?: Maybe<AlbumsConnection>;
+  analytics?: Maybe<Analytics>;
   oneAlbum?: Maybe<Album>;
 };
 
@@ -187,6 +199,11 @@ export type QueryAlbumsByTypeArgs = {
 export type QueryAllAlbumsArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryAnalyticsArgs = {
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 
@@ -239,6 +256,20 @@ export type AlbumsByArtistQueryVariables = Exact<{
 
 
 export type AlbumsByArtistQuery = { albumsByArtist?: { edges?: Array<{ cursor?: string | null, node?: { id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null } | null> | null, node?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string>, artist?: { id: string, name?: string | null, photoUrl?: string | null, biography?: string | null, albums?: Array<{ id: string, title: string, type: string, albumArt: string, likeCount?: number | null, description?: string | null, spotify?: string | null, apple?: string | null, colors: Array<string> } | null> | null } | null } | null> | null, pageInfo?: { endCursor?: string | null, hasNextPage?: boolean | null } | null } | null };
+
+export type AnalyticsQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']>;
+}>;
+
+
+export type AnalyticsQuery = { analytics?: { generatedPalettes?: number | null } | null };
+
+export type UpdateAnalyticsMutationVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']>;
+}>;
+
+
+export type UpdateAnalyticsMutation = { updateAnalytics?: { id: string, generatedPalettes?: number | null } | null };
 
 export type GenerateColorsMutationVariables = Exact<{
   imageUrl?: InputMaybe<Scalars['String']>;
@@ -578,6 +609,75 @@ export function useAlbumsByArtistLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type AlbumsByArtistQueryHookResult = ReturnType<typeof useAlbumsByArtistQuery>;
 export type AlbumsByArtistLazyQueryHookResult = ReturnType<typeof useAlbumsByArtistLazyQuery>;
 export type AlbumsByArtistQueryResult = Apollo.QueryResult<AlbumsByArtistQuery, AlbumsByArtistQueryVariables>;
+export const AnalyticsDocument = gql`
+    query Analytics($id: ID) {
+  analytics(id: $id) {
+    generatedPalettes
+  }
+}
+    `;
+
+/**
+ * __useAnalyticsQuery__
+ *
+ * To run a query within a React component, call `useAnalyticsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAnalyticsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAnalyticsQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useAnalyticsQuery(baseOptions?: Apollo.QueryHookOptions<AnalyticsQuery, AnalyticsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AnalyticsQuery, AnalyticsQueryVariables>(AnalyticsDocument, options);
+      }
+export function useAnalyticsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AnalyticsQuery, AnalyticsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AnalyticsQuery, AnalyticsQueryVariables>(AnalyticsDocument, options);
+        }
+export type AnalyticsQueryHookResult = ReturnType<typeof useAnalyticsQuery>;
+export type AnalyticsLazyQueryHookResult = ReturnType<typeof useAnalyticsLazyQuery>;
+export type AnalyticsQueryResult = Apollo.QueryResult<AnalyticsQuery, AnalyticsQueryVariables>;
+export const UpdateAnalyticsDocument = gql`
+    mutation UpdateAnalytics($id: ID) {
+  updateAnalytics(id: $id) {
+    id
+    generatedPalettes
+  }
+}
+    `;
+export type UpdateAnalyticsMutationFn = Apollo.MutationFunction<UpdateAnalyticsMutation, UpdateAnalyticsMutationVariables>;
+
+/**
+ * __useUpdateAnalyticsMutation__
+ *
+ * To run a mutation, you first call `useUpdateAnalyticsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAnalyticsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAnalyticsMutation, { data, loading, error }] = useUpdateAnalyticsMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useUpdateAnalyticsMutation(baseOptions?: Apollo.MutationHookOptions<UpdateAnalyticsMutation, UpdateAnalyticsMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateAnalyticsMutation, UpdateAnalyticsMutationVariables>(UpdateAnalyticsDocument, options);
+      }
+export type UpdateAnalyticsMutationHookResult = ReturnType<typeof useUpdateAnalyticsMutation>;
+export type UpdateAnalyticsMutationResult = Apollo.MutationResult<UpdateAnalyticsMutation>;
+export type UpdateAnalyticsMutationOptions = Apollo.BaseMutationOptions<UpdateAnalyticsMutation, UpdateAnalyticsMutationVariables>;
 export const GenerateColorsDocument = gql`
     mutation GenerateColors($imageUrl: String) {
   generateColors(imageUrl: $imageUrl) {
@@ -976,6 +1076,7 @@ export type ResolversTypes = {
   AlbumInput: AlbumInput;
   AlbumPageInfo: ResolverTypeWrapper<AlbumPageInfo>;
   AlbumsConnection: ResolverTypeWrapper<AlbumsConnection>;
+  Analytics: ResolverTypeWrapper<Analytics>;
   Artist: ResolverTypeWrapper<Artist>;
   ArtistInput: ArtistInput;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
@@ -995,6 +1096,7 @@ export type ResolversParentTypes = {
   AlbumInput: AlbumInput;
   AlbumPageInfo: AlbumPageInfo;
   AlbumsConnection: AlbumsConnection;
+  Analytics: Analytics;
   Artist: Artist;
   ArtistInput: ArtistInput;
   Boolean: Scalars['Boolean'];
@@ -1045,6 +1147,12 @@ export type AlbumsConnectionResolvers<ContextType = any, ParentType extends Reso
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type AnalyticsResolvers<ContextType = any, ParentType extends ResolversParentTypes['Analytics'] = ResolversParentTypes['Analytics']> = {
+  generatedPalettes?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type ArtistResolvers<ContextType = any, ParentType extends ResolversParentTypes['Artist'] = ResolversParentTypes['Artist']> = {
   albums?: Resolver<Maybe<Array<Maybe<ResolversTypes['Album']>>>, ParentType, ContextType>;
   biography?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -1070,6 +1178,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   removeFromLike?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationRemoveFromLikeArgs, 'albumID'>>;
   signUp?: Resolver<ResolversTypes['String'], ParentType, ContextType, RequireFields<MutationSignUpArgs, 'password' | 'username'>>;
   updateAlbum?: Resolver<ResolversTypes['Album'], ParentType, ContextType, RequireFields<MutationUpdateAlbumArgs, 'albumID'>>;
+  updateAnalytics?: Resolver<Maybe<ResolversTypes['Analytics']>, ParentType, ContextType, Partial<MutationUpdateAnalyticsArgs>>;
   updateArtist?: Resolver<Maybe<ResolversTypes['Artist']>, ParentType, ContextType, RequireFields<MutationUpdateArtistArgs, 'artistID'>>;
 };
 
@@ -1078,6 +1187,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   albumsByTitle?: Resolver<Maybe<ResolversTypes['AlbumsConnection']>, ParentType, ContextType, RequireFields<QueryAlbumsByTitleArgs, 'title'>>;
   albumsByType?: Resolver<Maybe<ResolversTypes['AlbumsConnection']>, ParentType, ContextType, RequireFields<QueryAlbumsByTypeArgs, 'type'>>;
   allAlbums?: Resolver<Maybe<ResolversTypes['AlbumsConnection']>, ParentType, ContextType, Partial<QueryAllAlbumsArgs>>;
+  analytics?: Resolver<Maybe<ResolversTypes['Analytics']>, ParentType, ContextType, Partial<QueryAnalyticsArgs>>;
   oneAlbum?: Resolver<Maybe<ResolversTypes['Album']>, ParentType, ContextType, RequireFields<QueryOneAlbumArgs, 'id'>>;
 };
 
@@ -1087,6 +1197,7 @@ export type Resolvers<ContextType = any> = {
   AlbumEdges?: AlbumEdgesResolvers<ContextType>;
   AlbumPageInfo?: AlbumPageInfoResolvers<ContextType>;
   AlbumsConnection?: AlbumsConnectionResolvers<ContextType>;
+  Analytics?: AnalyticsResolvers<ContextType>;
   Artist?: ArtistResolvers<ContextType>;
   Colors?: ColorsResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
