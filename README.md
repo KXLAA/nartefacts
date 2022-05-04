@@ -21,8 +21,10 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 ### Create Page
 
 - [x] Add toast notification when a user generates a color pallette
-- [ ] Modal pop up to name generated palettes
+- [x] Copy to clipboard for individual colors and entire pallette
+- [x] Add counter to track number of generated pallettes
 - [x] Disable button state
+- [ ] Modal pop up to name generated palettes
 - [ ] Improve tests, replace getByTitle with getByTestId in preview component
 - [ ] Limit amount user can create and store in local storage, im thinking 50 items ?
 - [ ] Generate palettes from Links
@@ -30,8 +32,6 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] Increase or reduce number of pallettes
 - [ ] write stories for components on this route
 - [ ] Gradient component (i want to do shaders ? idk may take longer)
-- [x] Copy to clipboard for individual colors and entire pallette
-- [ ] Add counter to track number of generated pallettes
 
 ## Demo
 

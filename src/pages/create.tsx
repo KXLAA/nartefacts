@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { colorsTuple } from 'components/Palette'
 import { Preview } from 'components/Preview'
 import { Counter } from 'components/Counter'
+import { useAnalyticsQuery } from '../../graphql/generated/graphql'
 
 export default function Create() {
   const [imageUrl, setImageUrl] = useState<null | string>(null)
@@ -14,8 +15,8 @@ export default function Create() {
   )
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+  const { data: count } = useAnalyticsQuery()
 
-  console.log(colors)
   const reset = () => {
     setImageUrl(null)
     setColors(null)
@@ -39,17 +40,16 @@ export default function Create() {
           setColors={setColors}
           setImageUrl={setImageUrl}
         />
-      ) : (
-        <>
-          <Preview
-            imageUrl={imageUrl}
-            colors={colors as colorsTuple}
-            reset={reset}
-          />
-        </>
-      )}
+      ) : null}
+      {colors && imageUrl ? (
+        <Preview
+          imageUrl={imageUrl}
+          colors={colors as colorsTuple}
+          reset={reset}
+        />
+      ) : null}
 
-      <Counter />
+      <Counter count={count?.analytics[0]?.generatedPalettes} />
     </Layout.Main>
   )
 }

@@ -3,7 +3,10 @@ import { useDropzone } from 'react-dropzone'
 import * as S from './styles'
 import { UploadPlus } from '../Icons'
 import { useS3Upload } from 'next-s3-upload'
-import { useGenerateColorsMutation } from '../../../graphql/generated/graphql'
+import {
+  useGenerateColorsMutation,
+  useUpdateAnalyticsMutation,
+} from '../../../graphql/generated/graphql'
 import { RotatingLines } from 'react-loader-spinner'
 import { colorsTuple } from 'components/Palette'
 
@@ -26,17 +29,30 @@ export const Dropzone: React.FC<DropzoneProps> = ({
 }) => {
   const { uploadToS3 } = useS3Upload()
   const [generateColors] = useGenerateColorsMutation()
+  const [updateAnalytics] = useUpdateAnalyticsMutation()
+
   const onDrop = useCallback(async (acceptedFiles) => {
     setLoading(true)
     try {
       const { url } = await uploadToS3(acceptedFiles[0])
+      const id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
       setImageUrl(url)
-      console.log(url)
       if (url) {
         setLoading(false)
         const { data } = await generateColors({
           variables: {
             imageUrl: url,
+          },
+        })
+        await updateAnalytics({
+          variables: {
+            id: id,
+          },
+          optimisticResponse: {
+            updateAnalytics: {
+              id: id,
+              generatedPalettes: 1,
+            },
           },
         })
         setColors && setColors(data?.generateColors?.colors as colorsTuple)
