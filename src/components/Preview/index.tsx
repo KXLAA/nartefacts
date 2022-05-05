@@ -29,7 +29,7 @@ export const Preview: React.FC<PreviewProps> = ({
   }
 
   return (
-    <S.Wrapper title="Preview">
+    <S.Wrapper data-testid="Preview">
       <Toaster
         position="top-right"
         reverseOrder={true}

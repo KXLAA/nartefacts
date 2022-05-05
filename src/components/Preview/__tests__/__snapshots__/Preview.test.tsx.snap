@@ -291,6 +291,17 @@ exports[`<Preview /> should render the component correctly 1`] = `
   transform: translateX(0rem) translateY(0.125rem);
 }
 
+.c2:disabled,
+.c2:disabled:hover,
+.c2:disabled:active {
+  background-color: #5A5A5A;
+  color: #202020;
+  cursor: not-allowed;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
 .c3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -329,9 +340,20 @@ exports[`<Preview /> should render the component correctly 1`] = `
   transform: translateX(0rem) translateY(0.125rem);
 }
 
+.c3:disabled,
+.c3:disabled:hover,
+.c3:disabled:active {
+  background-color: #5A5A5A;
+  color: #202020;
+  cursor: not-allowed;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
 <div
   class="c0"
-  title="Preview"
+  data-testid="Preview"
 >
   <div
     style="position: fixed; z-index: 9999; top: 16px; left: 16px; right: 16px; bottom: 16px; pointer-events: none;"
@@ -343,13 +365,13 @@ exports[`<Preview /> should render the component correctly 1`] = `
       class="c2"
       role="button"
     >
-      Refresh
+      Save
     </button>
     <button
       class="c3"
       role="button"
     >
-      Save
+      Refresh
     </button>
   </div>
   <div

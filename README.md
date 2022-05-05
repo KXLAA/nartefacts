@@ -10,6 +10,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] add loading transitions
 - [ ] responsive design
 - [ ] move all images used on the home page to s3 from uploadcare
+- [ ] E2E tests with Cypress
 
 ### Home Page
 

@@ -39,6 +39,17 @@ exports[`<Button /> should render the Button correctly 1`] = `
   transform: translateX(0rem) translateY(0.125rem);
 }
 
+.c0:disabled,
+.c0:disabled:hover,
+.c0:disabled:active {
+  background-color: #5A5A5A;
+  color: #202020;
+  cursor: not-allowed;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
 <button
   class="c0"
   role="button"

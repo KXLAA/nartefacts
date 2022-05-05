@@ -4,10 +4,10 @@ import { Preview } from '..'
 
 describe('<Preview />', () => {
   it('should render the component', () => {
-    const { getByTitle } = render(
+    const { getByTestId } = render(
       <Preview colors={colors} imageUrl={imageUrl} />,
     )
-    const preview = getByTitle(/preview/i)
+    const preview = getByTestId(/preview/i)
 
     expect(preview).toBeInTheDocument()
   })
