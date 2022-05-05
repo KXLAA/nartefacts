@@ -62,7 +62,7 @@ export const Preview: React.FC<PreviewProps> = ({
           src={imageUrl!}
           height={800}
           width={800}
-          alt={'album art'}
+          alt={'user uploaded image'}
           layout="responsive"
         />
       </S.ImageWrapper>

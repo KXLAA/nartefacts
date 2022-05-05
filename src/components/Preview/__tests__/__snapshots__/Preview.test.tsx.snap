@@ -384,7 +384,7 @@ exports[`<Preview /> should render the component correctly 1`] = `
         style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
       />
       <img
-        alt="album art"
+        alt="user uploaded image"
         data-nimg="responsive"
         decoding="async"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
