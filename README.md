@@ -4,15 +4,23 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 
 ## Todos
 
-### Admin Page
+### General
+
+- [ ] Add Framer motion page transitions
+- [ ] add loading transitions
+- [ ] responsive design
+- [ ] move all images used on the home page to s3 from uploadcare
+
+### Home Page
 
 - [ ] Implement infinite scroll
 - [ ] add details to albums
-- [ ] add like an unlike interaction
-- [ ] add footer
+- [ ] add like & unlike interaction with optimistic updates
+- [ ] add global footer with info & link to portfolio
 - [ ] add gradients
+- [ ] Modal for more info about album
 
-### Home Page
+### Admin Page
 
 - [ ] Design admin page on Figma
 - [ ] Implement admin page
@@ -24,12 +32,13 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [x] Copy to clipboard for individual colors and entire pallette
 - [x] Add counter to track number of generated pallettes
 - [x] Disable button state
-- [ ] Modal pop up to name generated palettes
+- [ ] Need to fix copy colors to clipboard functionality, it's a bit buggy
+- [ ] Modal pop up to name generated palettes w react hook form
+- [ ] Generate palettes from Links
 - [ ] Improve tests, replace getByTitle with getByTestId in preview component
 - [ ] Limit amount user can create and store in local storage, im thinking 50 items ?
-- [ ] Generate palettes from Links
 - [ ] A way to edit pallettes after they are generated
-- [ ] Increase or reduce number of pallettes
+- [ ] Increase or reduce number of colors in pallettes ?
 - [ ] write stories for components on this route
 - [ ] Gradient component (i want to do shaders ? idk may take longer)
 
