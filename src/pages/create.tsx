@@ -17,12 +17,6 @@ export default function Create() {
   const [error, setError] = useState<string | null>(null)
   const { data: count } = useAnalyticsQuery()
 
-  const reset = () => {
-    setImageUrl(null)
-    setColors(null)
-    setLoading(false)
-  }
-
   return (
     <Layout.Main>
       <Header secondary />
@@ -45,7 +39,11 @@ export default function Create() {
         <Preview
           imageUrl={imageUrl}
           colors={colors as colorsTuple}
-          reset={reset}
+          reset={() => {
+            setImageUrl(null)
+            setColors(null)
+            setLoading(false)
+          }}
         />
       ) : null}
 
