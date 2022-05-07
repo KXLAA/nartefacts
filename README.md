@@ -33,10 +33,10 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [x] Copy to clipboard for individual colors and entire pallette
 - [x] Add counter to track number of generated pallettes
 - [x] Disable button state
+- [x] Improve tests, replace getByTitle with getByTestId in preview component
 - [ ] Need to fix copy colors to clipboard functionality, it's a bit buggy
 - [ ] Modal pop up to name generated palettes w react hook form
-- [ ] Generate palettes from Links
-- [ ] Improve tests, replace getByTitle with getByTestId in preview component
+- [ ] ~~Generate palettes from Links~~
 - [ ] Limit amount user can create and store in local storage, im thinking 50 items ?
 - [ ] A way to edit pallettes after they are generated
 - [ ] Increase or reduce number of colors in pallettes ?
