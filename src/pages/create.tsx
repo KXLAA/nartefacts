@@ -23,29 +23,31 @@ export default function Create() {
         description="Generate color pallettes or gradients from your own images "
       />
 
-      {!imageUrl ? (
-        <Dropzone
-          setError={setError}
-          error={error}
-          loading={loading}
-          setLoading={setLoading}
-          setColors={setColors}
-          setImageUrl={setImageUrl}
-        />
-      ) : null}
-      {colors && imageUrl ? (
-        <Preview
-          imageUrl={imageUrl}
-          colors={colors as colorsTuple}
-          reset={() => {
-            setImageUrl(null)
-            setColors(null)
-            setLoading(false)
-          }}
-        />
-      ) : null}
+      <Layout.Secondary mw="800px">
+        {!imageUrl ? (
+          <Dropzone
+            setError={setError}
+            error={error}
+            loading={loading}
+            setLoading={setLoading}
+            setColors={setColors}
+            setImageUrl={setImageUrl}
+          />
+        ) : null}
+        {colors && imageUrl ? (
+          <Preview
+            imageUrl={imageUrl}
+            colors={colors as colorsTuple}
+            reset={() => {
+              setImageUrl(null)
+              setColors(null)
+              setLoading(false)
+            }}
+          />
+        ) : null}
 
-      <Counter count={count?.analytics[0]?.generatedPalettes} />
+        <Counter count={count?.analytics[0]?.generatedPalettes} />
+      </Layout.Secondary>
     </Layout.Main>
   )
 }

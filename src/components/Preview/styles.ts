@@ -3,7 +3,6 @@ import { colors } from 'styles/global'
 
 export const Wrapper = styled.div`
   width: 100%;
-  max-width: 800px;
   gap: 2rem;
   margin: 0 auto;
 `

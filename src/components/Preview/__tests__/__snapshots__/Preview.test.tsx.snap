@@ -3,7 +3,6 @@
 exports[`<Preview /> should render the component correctly 1`] = `
 .c0 {
   width: 100%;
-  max-width: 800px;
   gap: 2rem;
   margin: 0 auto;
 }
