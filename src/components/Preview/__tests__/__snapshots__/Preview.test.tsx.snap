@@ -364,12 +364,14 @@ exports[`<Preview /> should render the component correctly 1`] = `
     <button
       class="c2"
       role="button"
+      type="button"
     >
       Save
     </button>
     <button
       class="c3"
       role="button"
+      type="button"
     >
       Refresh
     </button>
