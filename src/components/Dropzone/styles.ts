@@ -1,19 +1,11 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
 export const Drop = styled.div`
   background: #202020;
   border: 1px dashed #363636;
   box-sizing: border-box;
   border-radius: 8px;
   width: 100%;
-  max-width: 800px;
   height: 800px;
   padding: 24px;
   cursor: pointer;

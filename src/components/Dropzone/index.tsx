@@ -73,31 +73,27 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   })
 
   return (
-    <S.Wrapper {...getRootProps()}>
-      <S.Drop>
-        <input {...getInputProps()} />
-        {!error ? (
-          <S.Content>
-            {loading ? (
-              <RotatingLines width="100" strokeColor="#FF5733" />
-            ) : (
-              <>
-                <UploadPlus size={72} strokeWidth={0.5} color="#5A5A5A" />
+    <S.Drop {...getRootProps()}>
+      <input {...getInputProps()} />
+      {!error ? (
+        <S.Content>
+          {loading ? (
+            <RotatingLines width="100" strokeColor="#FF5733" />
+          ) : (
+            <>
+              <UploadPlus size={72} strokeWidth={0.5} color="#5A5A5A" />
 
-                {isDragActive ? (
-                  <p>drop the files here ...</p>
-                ) : (
-                  <p>
-                    drag {'n'} drop your image here, or click to select files
-                  </p>
-                )}
-              </>
-            )}
-          </S.Content>
-        ) : (
-          <p>{error}</p>
-        )}
-      </S.Drop>
-    </S.Wrapper>
+              {isDragActive ? (
+                <p>drop the files here ...</p>
+              ) : (
+                <p>drag {'n'} drop your image here, or click to select files</p>
+              )}
+            </>
+          )}
+        </S.Content>
+      ) : (
+        <p>{error}</p>
+      )}
+    </S.Drop>
   )
 }
