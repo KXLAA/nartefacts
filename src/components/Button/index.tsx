@@ -18,6 +18,7 @@ export type ButtonProps = {
     | 'link-outline'
     | 'link-primary'
     | 'link-secondary'
+  type?: 'button' | 'submit' | 'reset'
 }
 
 const Link: ForwardRefRenderFunction<HTMLAnchorElement, ButtonProps> = (
@@ -46,6 +47,7 @@ export const Button: React.FC<ButtonProps> = ({
   buttonType,
   href,
   disabled,
+  type = 'button',
 }) => {
   switch (buttonType) {
     case 'primary':
@@ -57,6 +59,7 @@ export const Button: React.FC<ButtonProps> = ({
           onClick={onClick}
           fullWidth={fullWidth}
           disabled={disabled}
+          type={type}
         >
           {capitalize(text!) || 'Button'}
         </S.Button>
@@ -70,6 +73,7 @@ export const Button: React.FC<ButtonProps> = ({
           onClick={onClick}
           fullWidth={fullWidth}
           disabled={disabled}
+          type={type}
         >
           {capitalize(text!) || 'Button'}
         </S.Button>
@@ -83,6 +87,7 @@ export const Button: React.FC<ButtonProps> = ({
           buttonType="outline"
           fullWidth={fullWidth}
           disabled={disabled}
+          type={type}
         >
           {capitalize(text!) || 'Button'}
         </S.Button>
