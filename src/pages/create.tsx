@@ -1,18 +1,16 @@
 import * as Layout from 'components/common/Layout'
 import { Header } from 'components/Header'
 import { Title } from 'components/Title'
-import { Dropzone } from 'components/Dropzone'
 import { useState } from 'react'
 import { colorsTuple } from 'components/Palette'
 import { Preview } from 'components/Preview'
 import { Counter } from 'components/Counter'
 import { useAnalyticsQuery } from '../../graphql/generated/graphql'
+import { Dropzone } from 'components/Dropzone'
 
 export default function Create() {
   const [imageUrl, setImageUrl] = useState<null | string>(null)
-  const [colors, setColors] = useState<colorsTuple | null>(
-    [] as unknown as colorsTuple,
-  )
+  const [colors, setColors] = useState<colorsTuple | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const { data: count } = useAnalyticsQuery()
