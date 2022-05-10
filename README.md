@@ -6,7 +6,9 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 
 ### General
 
-- [ ] Add Framer motion page transitions
+- [ ] Add Framer motion page transitions and regular transitions
+- [ ] Add proper stories
+- [ ] fix path name issue
 - [ ] add loading transitions
 - [ ] responsive design
 - [ ] move all images used on the home page to s3 from uploadcare
