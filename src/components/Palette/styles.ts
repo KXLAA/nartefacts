@@ -23,4 +23,9 @@ export const Color = styled.div<{ color: string }>`
   :hover {
     filter: brightness(150%);
   }
+  span {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff;
+  }
 `

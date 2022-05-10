@@ -30,7 +30,7 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, title }) => {
 
   const copyToClipboard = (color: string) => {
     copy(color)
-    toast('Copied to clipboard')
+    toast(`Copied ${color}`)
   }
 
   return (
@@ -41,7 +41,7 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, title }) => {
         title={title}
         onClick={() => copyToClipboard(color)}
       >
-        {isHovered && 'COPY'}
+        <span>{isHovered && `COPY`}</span>
       </S.Color>
     </>
   )

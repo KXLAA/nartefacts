@@ -70,6 +70,12 @@ exports[`<Preview /> should render the component correctly 1`] = `
   filter: brightness(150%);
 }
 
+.c6 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .c7 {
   height: 130px;
   display: -webkit-box;
@@ -94,6 +100,12 @@ exports[`<Preview /> should render the component correctly 1`] = `
 .c7:hover {
   -webkit-filter: brightness(150%);
   filter: brightness(150%);
+}
+
+.c7 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 .c8 {
@@ -122,6 +134,12 @@ exports[`<Preview /> should render the component correctly 1`] = `
   filter: brightness(150%);
 }
 
+.c8 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .c9 {
   height: 130px;
   display: -webkit-box;
@@ -146,6 +164,12 @@ exports[`<Preview /> should render the component correctly 1`] = `
 .c9:hover {
   -webkit-filter: brightness(150%);
   filter: brightness(150%);
+}
+
+.c9 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 .c10 {
@@ -174,6 +198,12 @@ exports[`<Preview /> should render the component correctly 1`] = `
   filter: brightness(150%);
 }
 
+.c10 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .c11 {
   height: 130px;
   display: -webkit-box;
@@ -198,6 +228,12 @@ exports[`<Preview /> should render the component correctly 1`] = `
 .c11:hover {
   -webkit-filter: brightness(150%);
   filter: brightness(150%);
+}
+
+.c11 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 .c12 {
@@ -226,6 +262,12 @@ exports[`<Preview /> should render the component correctly 1`] = `
   filter: brightness(150%);
 }
 
+.c12 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .c13 {
   height: 130px;
   display: -webkit-box;
@@ -250,6 +292,12 @@ exports[`<Preview /> should render the component correctly 1`] = `
 .c13:hover {
   -webkit-filter: brightness(150%);
   filter: brightness(150%);
+}
+
+.c13 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 .c2 {
@@ -402,42 +450,58 @@ exports[`<Preview /> should render the component correctly 1`] = `
       class="c6"
       color="#095525"
       title="Color"
-    />
+    >
+      <span />
+    </div>
     <div
       class="c7"
       color="#673636"
       title="Color"
-    />
+    >
+      <span />
+    </div>
     <div
       class="c8"
       color="#379273"
       title="Color"
-    />
+    >
+      <span />
+    </div>
     <div
       class="c9"
       color="#136407"
       title="Color"
-    />
+    >
+      <span />
+    </div>
     <div
       class="c10"
       color="#573227"
       title="Color"
-    />
+    >
+      <span />
+    </div>
     <div
       class="c11"
       color="#547820"
       title="Color"
-    />
+    >
+      <span />
+    </div>
     <div
       class="c12"
       color="#163598"
       title="Color"
-    />
+    >
+      <span />
+    </div>
     <div
       class="c13"
       color="#682052"
       title="Color"
-    />
+    >
+      <span />
+    </div>
   </div>
 </div>
 `;
