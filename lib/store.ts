@@ -37,11 +37,17 @@ export const useCreatedStore = create(
 
       // actions
       addGeneratedColor: (image: string, colors: colorsTuple) => {
+        //Limit amount of items that can be added to the array
+        const limitArray = (
+          colors: GeneratedColors[],
+          color: GeneratedColors,
+        ) => [...colors.slice(0, 59), color]
         set((state) => ({
-          generatedColors: [
-            ...state.generatedColors,
-            { id: uuidv4(), image, colors } as GeneratedColors,
-          ],
+          generatedColors: limitArray(state.generatedColors, {
+            id: uuidv4(),
+            image,
+            colors,
+          }),
         }))
       },
       removeGeneratedColor: (id: string) => {

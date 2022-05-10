@@ -37,7 +37,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [x] Need to fix copy colors to clipboard functionality, it's a bit buggy
 - [ ] Modal pop up to name generated palettes w react hook form
 - [ ] ~~Generate palettes from Links~~
-- [ ] Limit amount user can create and store in local storage, im thinking 50 items ?
+- [x] Limit amount user can create and store in local storage, im thinking ~~50~~ 60 items ?
 - [ ] ~~A way to edit pallettes after they are generated~~
 - [ ] ~~Increase or reduce number of colors in pallettes ?~~
 - [ ] write stories for components on this route
