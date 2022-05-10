@@ -47,3 +47,8 @@ model Admin {
 
   @@map(name: "users")
 }
+
+model Analytics {
+  id                String @id @default(uuid())
+  generatedPalettes Int
+}

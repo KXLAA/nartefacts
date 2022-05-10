@@ -5,25 +5,25 @@ import { RouterContext } from 'next/dist/shared/lib/router-context'
 import { Header } from '..'
 
 describe('<Header />', () => {
-  it('should render the header', () => {
-    const { getByRole } = render(<Header />)
+  it('should render the header based on props', () => {
+    const { getByRole } = render(<Header primary />)
     const header = getByRole('banner')
     expect(header).toBeInTheDocument()
   })
 
   it('should render the entire header correctly', () => {
-    const { container } = render(<Header />)
+    const { container } = render(<Header primary />)
     expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the nav', () => {
-    const { getByRole } = render(<Header />)
+    const { getByRole } = render(<Header primary />)
     const navigation = getByRole('navigation')
     expect(navigation).toBeInTheDocument()
   })
 
   it('should render the navigation buttons', () => {
-    const { getByText } = render(<Header />)
+    const { getByText } = render(<Header primary />)
     const infoLink = getByText(/info/i)
     const likesLink = getByText(/likes/i)
     const createLink = getByText(/create/i)
@@ -38,7 +38,7 @@ describe('<Header />', () => {
       <RouterContext.Provider
         value={createMockRouter({ query: { id: '33' }, pathname: 'kola' })}
       >
-        <Header />
+        <Header primary />
       </RouterContext.Provider>,
     )
 
@@ -59,7 +59,7 @@ describe('<Header />', () => {
 
     const { getByRole } = render(
       <RouterContext.Provider value={router}>
-        <Header />
+        <Header primary />
       </RouterContext.Provider>,
     )
 

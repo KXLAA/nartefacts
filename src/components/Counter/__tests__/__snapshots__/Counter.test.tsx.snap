@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Counter /> should render the component correctly 1`] = `
+.c0 {
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 {
+  background-color: #202020;
+  font-weight: bold;
+  width: 100%;
+  border: solid 2px #363636;
+  border-radius: 8px;
+  max-width: 500px;
+  margin-top: 2rem;
+  font-size: 24px;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  color: #5a5a5a;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <p>
+      0 Gradients Generated
+       
+    </p>
+  </div>
+</div>
+`;

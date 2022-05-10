@@ -6,7 +6,8 @@
       {
         "ssr": true,
         "displayName": true
-      }
+      },
+      "@babel/plugin-proposal-export-default-from"
     ]
   ],
   "env": {
@@ -17,7 +18,8 @@
           {
             "ssr": false,
             "displayName": false
-          }
+          },
+          "@babel/plugin-proposal-export-default-from"
         ]
       ]
     }

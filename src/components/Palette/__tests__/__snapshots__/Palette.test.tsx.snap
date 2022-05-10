@@ -1,0 +1,329 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Palette /> should render the pallette correctly 1`] = `
+.c0 {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.c1 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #095525;
+}
+
+.c1:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c1 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c2 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #673636;
+}
+
+.c2:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c2 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c3 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #379273;
+}
+
+.c3:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c3 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c4 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #136407;
+}
+
+.c4:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c4 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c5 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #573227;
+}
+
+.c5:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c5 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c6 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #547820;
+}
+
+.c6:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c6 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c7 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #163598;
+}
+
+.c7:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c7 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c8 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #682052;
+}
+
+.c8:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c8 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+<div
+  class="c0"
+  title="Palette"
+>
+  <div
+    class="c1"
+    color="#095525"
+    title="Color"
+  >
+    <span />
+  </div>
+  <div
+    class="c2"
+    color="#673636"
+    title="Color"
+  >
+    <span />
+  </div>
+  <div
+    class="c3"
+    color="#379273"
+    title="Color"
+  >
+    <span />
+  </div>
+  <div
+    class="c4"
+    color="#136407"
+    title="Color"
+  >
+    <span />
+  </div>
+  <div
+    class="c5"
+    color="#573227"
+    title="Color"
+  >
+    <span />
+  </div>
+  <div
+    class="c6"
+    color="#547820"
+    title="Color"
+  >
+    <span />
+  </div>
+  <div
+    class="c7"
+    color="#163598"
+    title="Color"
+  >
+    <span />
+  </div>
+  <div
+    class="c8"
+    color="#682052"
+    title="Color"
+  >
+    <span />
+  </div>
+</div>
+`;

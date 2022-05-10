@@ -18,9 +18,12 @@ const Query: QueryResolvers = {
   },
 
   oneAlbum: async (_, { id }) => {
-    const album = prisma.album.findUnique({
+    const album = await prisma.album.findUnique({
       where: {
         id: id,
+      },
+      include: {
+        artist: true,
       },
     })
     return album
@@ -61,6 +64,11 @@ const Query: QueryResolvers = {
     const paginated = paginate(first!, after!, albums)
 
     return paginated
+  },
+
+  analytics: async () => {
+    const analytics = await prisma.analytics.findMany()
+    return analytics
   },
 }
 

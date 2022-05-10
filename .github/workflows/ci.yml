@@ -36,7 +36,7 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }} 
 
       - name: Test
-        run: yarn test
+        run: yarn test -u
         env: 
           DATABASE_URL: ${{ secrets.DATABASE_URL }} 
 

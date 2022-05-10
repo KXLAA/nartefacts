@@ -8,6 +8,6 @@ module.exports = withPWA({
     disable: !isProd,
   },
   images: {
-    domains: ['ucarecdn.com'],
+    domains: ['ucarecdn.com', 'nartefact-upload.s3.eu-west-2.amazonaws.com'],
   },
 })

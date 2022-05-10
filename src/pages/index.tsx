@@ -12,9 +12,9 @@ export default function Home({ data }: AllAlbumsQueryResult) {
 
   return (
     <Layout.Main>
-      <Header />
+      <Header primary />
 
-      <Layout.Cards>
+      <Layout.Grid columns={3}>
         {albums?.map((album) => (
           <Card
             key={album?.id}
@@ -29,7 +29,7 @@ export default function Home({ data }: AllAlbumsQueryResult) {
             artist={album?.artist}
           />
         ))}
-      </Layout.Cards>
+      </Layout.Grid>
     </Layout.Main>
   )
 }

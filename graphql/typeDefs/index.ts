@@ -7,24 +7,27 @@ const typeDefs = gql`
     albumsByType(type: String!, first: Int, after: String): AlbumsConnection
     albumsByTitle(title: String!, first: Int, after: String): AlbumsConnection
     albumsByArtist(artist: String!, first: Int, after: String): AlbumsConnection
+    analytics: [Analytics!]!
   }
 
   type Mutation {
     addToLike(albumID: ID!): Boolean
     removeFromLike(albumID: ID!): Boolean
 
-    generateColors(imageUrl: String): Colors
+    generateColors(imageUrl: String!): Colors
 
     addAlbum(input: AlbumInput): Album!
     updateAlbum(albumID: ID!, input: AlbumInput): Album!
     deleteAlbum(albumID: ID!): Boolean!
 
-    addArtist(input: ArtistInput): Artist
-    updateArtist(artistID: ID!, input: ArtistInput): Artist
+    addArtist(input: ArtistInput): Artist!
+    updateArtist(artistID: ID!, input: ArtistInput): Artist!
     deleteArtist(artistID: ID!): Boolean!
 
     signUp(username: String!, password: String!): String!
     logIn(username: String!, password: String!): String!
+
+    updateAnalytics(id: ID!): Analytics
   }
 
   type Album {
@@ -67,7 +70,12 @@ const typeDefs = gql`
     name: String
     photoUrl: String
     biography: String
-    albums: [Album]
+    albums: [Album!]
+  }
+
+  type Analytics {
+    id: ID!
+    generatedPalettes: Int
   }
 
   input ArtistInput {
@@ -79,7 +87,7 @@ const typeDefs = gql`
   # Defining paginated relationships using the cursor connections specification
   type AlbumEdges {
     cursor: String
-    node: Album
+    node: Album!
   }
 
   type AlbumPageInfo {
@@ -88,8 +96,8 @@ const typeDefs = gql`
   }
 
   type AlbumsConnection {
-    edges: [AlbumEdges]
-    node: [Album]
+    edges: [AlbumEdges!]!
+    node: [Album!]!
     pageInfo: AlbumPageInfo
   }
 `

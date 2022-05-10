@@ -1,12 +1,59 @@
 # nartefacts
 
-This is a rewrite of my nartefacts application with a bunch of new technologies and improvements based of what i have learnt since the first version. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/).
+This is a rewrite of my nartefacts application with a bunch of new technologies and improvements based of what i have learnt since V1. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/).
+
+## Todos
+
+### General
+
+- [ ] Add Framer motion page transitions and regular transitions
+- [ ] Add proper stories
+- [ ] fix path name issue
+- [ ] add loading transitions
+- [ ] responsive design
+- [ ] move all images used on the home page to s3 from uploadcare
+- [ ] E2E tests with Cypress
+
+### Home Page
+
+- [ ] Implement infinite scroll
+- [ ] add details to albums
+- [ ] add like & unlike interaction with optimistic updates
+- [ ] add global footer with info & link to portfolio
+- [ ] add gradients
+- [ ] Modal for more info about album
+
+### Admin Page
+
+- [ ] Design admin page on Figma
+- [ ] Implement admin page
+- [ ] connect admin page to next auth on the front end
+
+### Create Page
+
+- [x] Add toast notification when a user generates a color pallette
+- [x] Copy to clipboard for individual colors and entire pallette
+- [x] Add counter to track number of generated pallettes
+- [x] Disable button state
+- [x] Improve tests, replace getByTitle with getByTestId in preview component
+- [x] Need to fix copy colors to clipboard functionality, it's a bit buggy
+- [ ] Modal pop up to name generated palettes w react hook form
+- [ ] ~~Generate palettes from Links~~
+- [x] Limit amount user can create and store in local storage, im thinking ~~50~~ 60 items ?
+- [ ] ~~A way to edit pallettes after they are generated~~
+- [ ] ~~Increase or reduce number of colors in pallettes ?~~
+- [ ] write stories for components on this route
+- [ ] Gradient component (i want to do shaders ? idk may take longer)
 
 ## Demo
 
 <!-- <p align="center">
   <img height="300" src="https://media.giphy.com/media/WXraj8aJHXUP7kRDbJ/giphy.gif" />
 </p> -->
+
+<!-- Local Storage
+https://github.com/pmndrs/zustand/issues/245#issue-749551108
+https://github.com/pmndrs/zustand/pull/248 -->
 
 ## Technologies used
 
