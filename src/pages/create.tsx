@@ -26,9 +26,7 @@ export default function Create() {
       />
 
       <Layout.Secondary mw="800px">
-        {!upload.imageUrl ? (
-          <Dropzone upload={upload} setUpload={setUpload} />
-        ) : null}
+        {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
           <Preview
             imageUrl={upload.imageUrl!}
