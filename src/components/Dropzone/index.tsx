@@ -6,7 +6,7 @@ import { useS3Upload } from 'next-s3-upload'
 import {
   useGenerateColorsMutation,
   useUpdateAnalyticsMutation,
-} from '../../../graphql/generated/graphql'
+} from 'graphql/generated/graphql'
 import { RotatingLines } from 'react-loader-spinner'
 import { colorsTuple } from 'components/Palette'
 

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { colorsTuple } from 'components/Palette'
 import { Preview } from 'components/Preview'
 import { Counter } from 'components/Counter'
-import { useAnalyticsQuery } from '../../graphql/generated/graphql'
+import { useAnalyticsQuery } from 'graphql/generated/graphql'
 import { Dropzone } from 'components/Dropzone'
 
 export default function Create() {

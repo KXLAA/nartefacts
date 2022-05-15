@@ -1,4 +1,4 @@
-import { rgbToHex } from './../resolvers/utils'
+import { rgbToHex } from 'graphql/resolvers/utils'
 
 it('returns an array of Hex colors', async () => {
   const colors: [red: number, green: number, blue: number][] = [

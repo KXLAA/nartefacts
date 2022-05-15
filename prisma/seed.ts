@@ -1,5 +1,5 @@
-import { ALBUMS, ARTISTS } from '../data'
-import { prisma } from '../lib/prisma'
+import { ALBUMS, ARTISTS } from './data'
+import { prisma } from 'lib/prisma'
 
 const main = async () => {
   await prisma.artist.createMany({

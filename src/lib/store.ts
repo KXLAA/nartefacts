@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { colorsTuple } from 'components/Palette'
 import create from 'zustand'
-import { v4 as uuidv4 } from 'uuid'
+import { nanoid } from 'nanoid'
 import { persist } from 'zustand/middleware'
 
 type GeneratedColors = {
@@ -44,7 +45,7 @@ export const useCreatedStore = create(
         ) => [...colors.slice(0, 59), color]
         set((state) => ({
           generatedColors: limitArray(state.generatedColors, {
-            id: uuidv4(),
+            id: nanoid(),
             image,
             colors,
           }),
