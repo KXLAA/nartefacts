@@ -6,39 +6,29 @@ import { useS3Upload } from 'next-s3-upload'
 import {
   useGenerateColorsMutation,
   useUpdateAnalyticsMutation,
-} from '../../../graphql/generated/graphql'
+} from 'graphql/generated/graphql'
 import { RotatingLines } from 'react-loader-spinner'
 import { colorsTuple } from 'components/Palette'
+import { UploadState } from 'pages/create'
 
 export type DropzoneProps = {
-  setImageUrl: React.Dispatch<React.SetStateAction<string | null>>
-  setColors?: React.Dispatch<React.SetStateAction<colorsTuple | null>>
-  loading: boolean
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  setError: React.Dispatch<React.SetStateAction<string | null>>
-  error: string | null
+  upload: UploadState
+  setUpload: React.Dispatch<React.SetStateAction<UploadState>>
 }
 
-export const Dropzone: React.FC<DropzoneProps> = ({
-  setImageUrl,
-  setColors,
-  loading,
-  setLoading,
-  setError,
-  error,
-}) => {
+export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
   const { uploadToS3 } = useS3Upload()
   const [generateColors] = useGenerateColorsMutation()
   const [updateAnalytics] = useUpdateAnalyticsMutation()
 
   const onDrop = useCallback(async (acceptedFiles) => {
-    setLoading(true)
+    setUpload((prev) => ({ ...prev, isUploading: true }))
     try {
       const { url } = await uploadToS3(acceptedFiles[0])
       const id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
-      setImageUrl(url)
+      setUpload((prev) => ({ ...prev, imageUrl: url }))
       if (url) {
-        setLoading(false)
+        setUpload((prev) => ({ ...prev, isUploading: false }))
         const { data } = await generateColors({
           variables: {
             imageUrl: url,
@@ -55,11 +45,14 @@ export const Dropzone: React.FC<DropzoneProps> = ({
             },
           },
         })
-        setColors && setColors(data?.generateColors?.colors as colorsTuple)
+        setUpload((prev) => ({
+          ...prev,
+          colors: data?.generateColors?.colors as colorsTuple,
+        }))
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        setError(error.message)
+        setUpload((prev) => ({ ...prev, error: (error as Error).message }))
       }
     }
 
@@ -75,9 +68,9 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   return (
     <S.Drop {...getRootProps()}>
       <input {...getInputProps()} />
-      {!error ? (
+      {!upload.error ? (
         <S.Content>
-          {loading ? (
+          {upload.isUploading ? (
             <RotatingLines width="100" strokeColor="#FF5733" />
           ) : (
             <>
@@ -92,7 +85,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
           )}
         </S.Content>
       ) : (
-        <p>{error}</p>
+        <p>{upload.error}</p>
       )}
     </S.Drop>
   )

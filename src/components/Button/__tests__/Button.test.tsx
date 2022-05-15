@@ -1,8 +1,6 @@
 import { render } from '@testing-library/react'
 import { colors } from 'styles/global'
 const { grayPrimary, blackSecondary } = colors
-import { RouterContext } from 'next/dist/shared/lib/router-context'
-import { createMockRouter } from 'utils'
 import { Button } from '..'
 
 describe('<Button />', () => {
@@ -38,11 +36,7 @@ describe('<Button />', () => {
 
   it('Button Link should render as an <a> tag with href attribute', () => {
     const { getByRole } = render(
-      <RouterContext.Provider
-        value={createMockRouter({ query: { id: '33' }, pathname: 'kola' })}
-      >
-        <Button buttonType="link-primary" href="/test" />
-      </RouterContext.Provider>,
+      <Button buttonType="link-primary" href="/test" />,
     )
 
     const buttonLink = getByRole('link', { name: /button/i })

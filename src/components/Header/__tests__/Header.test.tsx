@@ -33,24 +33,6 @@ describe('<Header />', () => {
     expect(createLink).toBeInTheDocument()
   })
 
-  it('has navigation button links with the correct href attributes', () => {
-    const { getByText } = render(
-      <RouterContext.Provider
-        value={createMockRouter({ query: { id: '33' }, pathname: 'kola' })}
-      >
-        <Header primary />
-      </RouterContext.Provider>,
-    )
-
-    const infoLink = getByText(/info/i)
-    const likesLink = getByText(/likes/i)
-    const createLink = getByText(/create/i)
-
-    expect(infoLink).toHaveAttribute('href', '/info')
-    expect(likesLink).toHaveAttribute('href', '/likes')
-    expect(createLink).toHaveAttribute('href', '/create')
-  })
-
   it('has navigation buttons that work', () => {
     const router = createMockRouter({
       query: { id: '33' },

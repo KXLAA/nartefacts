@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"  --max-warnings=0",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "test": "jest --maxWorkers=50%",
+    "test": "jest --maxWorkers=50% -u",
     "test:watch": "jest --watch --maxWorkers=25%",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
     "storybook": "start-storybook -s ./public -p 6006",
@@ -19,9 +19,6 @@
     "db:push": "npx prisma db push",
     "gen": "graphql-codegen --config codegen.yml",
     "postinstall": "prisma generate"
-  },
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
@@ -36,6 +33,7 @@
     "lucide-react": "^0.34.0",
     "micro": "^9.3.4",
     "micro-cors": "^0.1.1",
+    "nanoid": "^3.3.4",
     "next": "12.0.9",
     "next-pwa": "^5.4.4",
     "next-s3-upload": "^0.2.1",
@@ -46,7 +44,6 @@
     "react-hot-toast": "^2.2.0",
     "react-loader-spinner": "^6.0.0-0",
     "styled-components": "^5.3.3",
-    "uuid": "^8.3.2",
     "yup": "^0.32.11",
     "zustand": "^4.0.0-rc.1"
   },
@@ -103,11 +100,13 @@
     "typescript": "^4.5.5",
     "typescript-plugin-styled-components": "^2.0.0"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "lint-staged": {
-    "src/**/*": [
-      "yarn lint --fix",
-      "yarn test --findRelatedTests --bail",
-      "yarn format"
+    "./src/**/*.{ts,js,jsx,tsx}": [
+      "eslint --ignore-path .gitignore --fix",
+      "prettier --ignore-path .gitignore --write"
     ]
   },
   "config": {

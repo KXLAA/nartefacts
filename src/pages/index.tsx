@@ -4,8 +4,8 @@ import * as Layout from 'components/common/Layout'
 import {
   AllAlbumsQueryResult,
   AllAlbumsDocument,
-} from '../../graphql/generated/graphql'
-import { initializeApollo } from '../../lib/apollo'
+} from 'graphql/generated/graphql'
+import { initializeApollo } from 'lib/apollo'
 
 export default function Home({ data }: AllAlbumsQueryResult) {
   const albums = data?.allAlbums?.node

@@ -5,14 +5,16 @@ import { useState } from 'react'
 import { colorsTuple } from 'components/Palette'
 import { Preview } from 'components/Preview'
 import { Counter } from 'components/Counter'
-import { useAnalyticsQuery } from '../../graphql/generated/graphql'
+import { useAnalyticsQuery } from 'graphql/generated/graphql'
 import { Dropzone } from 'components/Dropzone'
 
 export default function Create() {
-  const [imageUrl, setImageUrl] = useState<null | string>(null)
-  const [colors, setColors] = useState<colorsTuple | null>(null)
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
+  const [upload, setUpload] = useState<UploadState>({
+    isUploading: false,
+    imageUrl: null,
+    error: null,
+    colors: [],
+  })
   const { data: count } = useAnalyticsQuery()
 
   return (
@@ -24,24 +26,18 @@ export default function Create() {
       />
 
       <Layout.Secondary mw="800px">
-        {!imageUrl ? (
-          <Dropzone
-            setError={setError}
-            error={error}
-            loading={loading}
-            setLoading={setLoading}
-            setColors={setColors}
-            setImageUrl={setImageUrl}
-          />
-        ) : null}
-        {colors && imageUrl ? (
+        {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
+        {upload.colors && upload.imageUrl ? (
           <Preview
-            imageUrl={imageUrl}
-            colors={colors as colorsTuple}
+            imageUrl={upload.imageUrl!}
+            colors={upload.colors as colorsTuple}
             reset={() => {
-              setImageUrl(null)
-              setColors(null)
-              setLoading(false)
+              setUpload((prev) => ({
+                ...prev,
+                colors: null,
+                imageUrl: null,
+                isUploading: false,
+              }))
             }}
           />
         ) : null}
@@ -50,4 +46,11 @@ export default function Create() {
       </Layout.Secondary>
     </Layout.Main>
   )
+}
+
+export type UploadState = {
+  isUploading: boolean
+  imageUrl: null | string
+  error: null | string
+  colors: null | string[]
 }
