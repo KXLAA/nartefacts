@@ -20,15 +20,15 @@ export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
 
           <S.Nav>
             <Link href="/create" passHref>
-              <Button label="create" buttonType="link-primary" />
+              <Button label="create" buttonType="link-primary" width="full" />
             </Link>
 
             <Link href="/likes" passHref>
-              <Button label="likes" buttonType="link-secondary" />
+              <Button label="likes" buttonType="link-secondary" width="full" />
             </Link>
 
             <Link href="/info" passHref>
-              <Button label="info" buttonType="link-primary" />
+              <Button label="info" buttonType="link-primary" width="full" />
             </Link>
           </S.Nav>
         </S.Layout>

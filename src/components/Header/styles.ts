@@ -1,3 +1,4 @@
+import { getSize } from '@/styles/global'
 import styled from 'styled-components'
 
 export const Layout = styled.header`
@@ -12,6 +13,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   justify-items: center;
+  gap: ${getSize('md')};
 `
 
 export const Spacer = styled.div`
