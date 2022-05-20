@@ -4,7 +4,7 @@ import { colorsTuple, Palette } from '@/components/Palette'
 import { Button } from '@/components/Button'
 import { useCreatedStore } from '@/lib/store'
 import { useState } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import { Toast } from '@/components/Toast'
 
 export type PreviewProps = {
@@ -30,28 +30,17 @@ export const Preview: React.FC<PreviewProps> = ({
 
   return (
     <S.Wrapper data-testid="Preview">
-      <Toaster
-        position="top-right"
-        reverseOrder={true}
-        toastOptions={{
-          style: {
-            padding: '0rem',
-            background: 'none',
-            width: '12rem',
-          },
-        }}
-      />
       <S.Buttons>
         <Button
-          text="save"
+          label="save"
           buttonType="primary"
           onClick={save}
-          fullWidth
+          width="full"
           disabled={disable}
         />
         <Button
-          text="refresh"
-          fullWidth
+          label="refresh"
+          width="full"
           buttonType="secondary"
           onClick={reset ? reset : undefined}
         />

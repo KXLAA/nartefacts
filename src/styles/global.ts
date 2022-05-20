@@ -54,10 +54,10 @@ export const theme = {
   },
 }
 //Helper functions & Types
-export type Size = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+export type Size = keyof typeof theme.size
+export type FontSize = keyof typeof theme.text
 
-export const getFontSize = (fontSize: keyof typeof theme.text) =>
-  theme.text[fontSize]
+export const getFontSize = (fontSize: FontSize) => theme.text[fontSize]
 
 export const getSize = (size: Size) => theme.size[size]
 

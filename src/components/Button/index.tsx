@@ -1,39 +1,52 @@
-import * as S from '@/components/Button/styles'
-import { capitalize } from '@/utils'
-import React, { forwardRef, ForwardRefRenderFunction } from 'react'
+import { forwardRef, ForwardRefRenderFunction } from 'react'
 
-export type ButtonProps = {
-  text?: string
-  buttonColor?: string
-  textColor?: string
-  fullWidth?: boolean
+import * as S from '@/components/Button/styles'
+import { FontSize, Size } from '@/styles/global'
+
+export interface ButtonProps {
+  label?: string
+  color?: 'light' | 'dark' | 'danger'
+  width?: 'full' | Extract<Size, 'sm' | 'md' | 'lg'>
+  height?: Extract<Size, 'sm' | 'md' | 'lg'>
+  fontSize?: FontSize
   onClick?: () => void
   href?: string
-  icon?: Element
+  active?: boolean
   disabled?: boolean
   buttonType?:
     | 'primary'
     | 'secondary'
-    | 'outline'
-    | 'link-outline'
     | 'link-primary'
     | 'link-secondary'
+    | 'danger'
   type?: 'button' | 'submit' | 'reset'
 }
 
 const Link: ForwardRefRenderFunction<HTMLAnchorElement, ButtonProps> = (
-  { buttonColor, text, textColor, onClick, href },
+  {
+    label = `Button Link`,
+    color,
+    active,
+    width,
+    height,
+    onClick,
+    href,
+    fontSize,
+  },
   ref,
 ) => {
   return (
     <S.Link
-      buttonColor={buttonColor}
-      textColor={textColor}
+      width={width}
+      height={height}
+      fontSize={fontSize}
+      color={color}
       href={href}
       onClick={onClick}
       ref={ref}
+      active={active}
     >
-      {capitalize(text!) || 'ButtonLink'}
+      {label}
     </S.Link>
   )
 }
@@ -41,101 +54,106 @@ const Link: ForwardRefRenderFunction<HTMLAnchorElement, ButtonProps> = (
 const ButtonLink = forwardRef(Link)
 
 export const Button: React.FC<ButtonProps> = ({
-  text,
+  label,
+  width,
+  height,
   onClick,
-  fullWidth,
   buttonType,
   href,
+  fontSize,
   disabled,
   type = 'button',
+  active,
 }) => {
   switch (buttonType) {
     case 'primary':
       return (
         <S.Button
-          buttonColor="#5A5A5A"
-          textColor="#202020"
+          color="dark"
           role="button"
           onClick={onClick}
-          fullWidth={fullWidth}
+          width={width}
+          height={height}
+          fontSize={fontSize}
           disabled={disabled}
           type={type}
+          active={active}
         >
-          {capitalize(text!) || 'Button'}
+          {label || 'Primary Button'}
         </S.Button>
       )
     case 'secondary':
       return (
         <S.Button
-          buttonColor="#202020"
-          textColor="#5A5A5A"
+          color="light"
           role="button"
           onClick={onClick}
-          fullWidth={fullWidth}
+          width={width}
+          height={height}
+          fontSize={fontSize}
           disabled={disabled}
           type={type}
+          active={active}
         >
-          {capitalize(text!) || 'Button'}
+          {label || 'Secondary Button'}
         </S.Button>
       )
-    case 'outline':
+    case 'danger':
       return (
         <S.Button
-          textColor="#5A5A5A"
+          color="danger"
           role="button"
           onClick={onClick}
-          buttonType="outline"
-          fullWidth={fullWidth}
+          width={width}
+          height={height}
+          fontSize={fontSize}
           disabled={disabled}
           type={type}
+          active={active}
         >
-          {capitalize(text!) || 'Button'}
+          {label || 'Danger Button'}
         </S.Button>
-      )
-
-    case 'link-outline':
-      return (
-        <ButtonLink
-          textColor="#5A5A5A"
-          onClick={onClick}
-          buttonType="outline"
-          fullWidth={fullWidth}
-          href={href}
-          text={text}
-        />
       )
     case 'link-primary':
       return (
         <ButtonLink
-          buttonColor="#5A5A5A"
-          textColor="#202020"
-          onClick={onClick}
-          fullWidth={fullWidth}
+          color="dark"
+          width={width}
+          height={height}
           href={href}
-          text={text}
+          fontSize={fontSize}
+          onClick={onClick}
+          label={label}
+          active={active}
         />
       )
     case 'link-secondary':
       return (
         <ButtonLink
-          buttonColor="#202020"
-          textColor="#5A5A5A"
+          color="light"
+          width={width}
+          height={height}
           href={href}
+          fontSize={fontSize}
           onClick={onClick}
-          fullWidth={fullWidth}
-          text={text}
+          label={label}
+          active={active}
         />
       )
     default:
       return (
         <S.Button
-          buttonColor="#5A5A5A"
-          textColor="#202020"
+          color="dark"
           role="button"
           onClick={onClick}
-          fullWidth={fullWidth}
+          width={width}
+          height={height}
+          disabled={disabled}
+          fontSize={fontSize}
+          type={type}
+          active={active}
         >
-          {capitalize(text!) || 'Button'}
+          {label || 'Primary Button'}
         </S.Button>
       )
   }

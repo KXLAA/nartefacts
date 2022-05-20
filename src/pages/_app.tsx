@@ -5,6 +5,7 @@ import { GlobalStyles, theme } from '@/styles/global'
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@/lib/apollo'
 import { ThemeProvider } from 'styled-components'
+import { Toaster } from 'react-hot-toast'
 
 function App({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)
@@ -66,6 +67,17 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <ApolloProvider client={apolloClient}>
         <ThemeProvider theme={theme}>
+          <Toaster
+            position="top-right"
+            reverseOrder={true}
+            toastOptions={{
+              style: {
+                padding: '0rem',
+                background: 'none',
+                width: '12rem',
+              },
+            }}
+          />
           <GlobalStyles />
           <Component {...pageProps} />
         </ThemeProvider>
