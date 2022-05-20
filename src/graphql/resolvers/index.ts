@@ -1,5 +1,5 @@
-import Query from './query'
-import Mutation from './mutation'
+import Query from '@/graphql/resolvers/query'
+import Mutation from '@/graphql/resolvers/mutation'
 
 const resolvers = {
   Query,

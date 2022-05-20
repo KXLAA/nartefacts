@@ -1,15 +1,15 @@
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
-import * as S from './styles'
-import { UploadPlus } from '../Icons'
+import * as S from '@/components/Dropzone/styles'
+import { UploadPlus } from '@/components/Icons'
 import { useS3Upload } from 'next-s3-upload'
 import {
   useGenerateColorsMutation,
   useUpdateAnalyticsMutation,
-} from 'graphql/generated/graphql'
+} from '@/graphql/generated/graphql'
 import { RotatingLines } from 'react-loader-spinner'
-import { colorsTuple } from 'components/Palette'
-import { UploadState } from 'pages/create'
+import { colorsTuple } from '@/components/Palette'
+import { UploadState } from '@/pages/create'
 
 export type DropzoneProps = {
   upload: UploadState

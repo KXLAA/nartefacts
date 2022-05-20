@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as S from './styles'
+import * as S from '@/components/Input/styles'
 import React, {
   forwardRef,
   DetailedHTMLProps,

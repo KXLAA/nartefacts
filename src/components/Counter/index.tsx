@@ -1,4 +1,4 @@
-import * as S from './styles'
+import * as S from '@/components/Counter/styles'
 
 export type CounterProps = {
   count?: number | undefined | null

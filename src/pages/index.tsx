@@ -1,11 +1,13 @@
-import { Header } from 'components/Header'
-import { Card } from 'components/Card'
-import * as Layout from 'components/common/Layout'
+/* istanbul ignore file */
+
+import { Header } from '@/components/Header'
+import { Card } from '@/components/Card'
+import * as Layout from '@/components/Common/Layout'
 import {
   AllAlbumsQueryResult,
   AllAlbumsDocument,
-} from 'graphql/generated/graphql'
-import { initializeApollo } from 'lib/apollo'
+} from '@/graphql/generated/graphql'
+import { initializeApollo } from '@/lib/apollo'
 
 export default function Home({ data }: AllAlbumsQueryResult) {
   const albums = data?.allAlbums?.node
@@ -16,18 +18,7 @@ export default function Home({ data }: AllAlbumsQueryResult) {
 
       <Layout.Grid columns={3}>
         {albums?.map((album) => (
-          <Card
-            key={album?.id}
-            colors={album?.colors}
-            likeCount={album?.likeCount}
-            albumArt={album?.albumArt}
-            spotify={album?.spotify}
-            apple={album?.apple}
-            type={album?.type}
-            description={album?.description}
-            title={album?.title}
-            artist={album?.artist}
-          />
+          <Card key={album?.id} {...album} />
         ))}
       </Layout.Grid>
     </Layout.Main>

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 
-import { Logo } from '..'
+import { Logo } from '@/components/Logo'
 
 describe('<Logo />', () => {
   it('should render the logo', () => {

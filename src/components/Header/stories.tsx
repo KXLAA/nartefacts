@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react'
-import { Header } from '.'
-import * as Layout from 'components/common/Layout'
+import * as Layout from '@/components/Common/Layout'
+
+import { Header } from '@/components/Header'
 
 export default {
   component: Header,

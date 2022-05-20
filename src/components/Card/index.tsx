@@ -1,4 +1,4 @@
-import * as S from './styles'
+import * as S from '@/components/Card/styles'
 import Image from 'next/image'
 
 export type CardProps = {

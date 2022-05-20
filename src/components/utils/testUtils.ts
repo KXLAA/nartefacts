@@ -1,4 +1,4 @@
-import { colorsTuple } from 'components/Palette'
+import { colorsTuple } from '@/components/Palette'
 
 export const imageUrl =
   'https://ucarecdn.com/c515e4b5-a5bb-44a3-85d0-f139497e0de0/forbrokenearsep_tems.jpeg'

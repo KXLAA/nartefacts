@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import { Card } from '.'
+import { Card } from '@/components/Card'
 
 export default {
   component: Card,

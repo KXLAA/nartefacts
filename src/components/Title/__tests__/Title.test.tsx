@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 
-import { Title } from '..'
+import { Title } from '@/components/Title'
 
 describe('<Title />', () => {
   it('should render the with default values', () => {

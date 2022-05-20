@@ -1,5 +1,5 @@
-import typeDefs from '../typeDefs'
-import resolvers from '../resolvers'
+import typeDefs from '@/graphql/typeDefs'
+import resolvers from '@/graphql/resolvers'
 import { gql, ApolloServer } from 'apollo-server-micro'
 
 const GET_ALBUMS = gql`

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { colorsTuple } from 'components/Palette'
+import { colorsTuple } from '@/components/Palette'
 import create from 'zustand'
 import { nanoid } from 'nanoid'
 import { persist } from 'zustand/middleware'

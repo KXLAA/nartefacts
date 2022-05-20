@@ -1,5 +1,5 @@
-import * as S from './styles'
-import { capitalize } from 'utils'
+import * as S from '@/components/Button/styles'
+import { capitalize } from '@/utils'
 import React, { forwardRef, ForwardRefRenderFunction } from 'react'
 
 export type ButtonProps = {

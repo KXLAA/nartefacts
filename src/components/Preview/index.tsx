@@ -1,11 +1,11 @@
-import * as S from './styles'
+import * as S from '@/components/Preview/styles'
 import Image from 'next/image'
-import { colorsTuple, Palette } from 'components/Palette'
-import { Button } from 'components/Button'
-import { useCreatedStore } from 'lib/store'
+import { colorsTuple, Palette } from '@/components/Palette'
+import { Button } from '@/components/Button'
+import { useCreatedStore } from '@/lib/store'
 import { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-import { Toast } from 'components/Toast'
+import { Toast } from '@/components/Toast'
 
 export type PreviewProps = {
   heading?: string

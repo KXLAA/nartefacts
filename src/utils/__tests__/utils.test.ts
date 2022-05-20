@@ -1,4 +1,4 @@
-import { capitalize } from 'utils'
+import { capitalize } from '@/utils'
 
 describe('capitalize', () => {
   it('should capitalize the first letter of a string', () => {

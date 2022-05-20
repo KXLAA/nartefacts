@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-
-import { Title } from '.'
+import { Title } from '@/components/Title'
 
 export default {
   component: Title,

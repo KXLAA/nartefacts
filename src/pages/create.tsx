@@ -1,12 +1,14 @@
-import * as Layout from 'components/common/Layout'
-import { Header } from 'components/Header'
-import { Title } from 'components/Title'
+/* istanbul ignore file */
+
+import * as Layout from '@/components/Common/Layout'
+import { Header } from '@/components/Header'
+import { Title } from '@/components/Title'
 import { useState } from 'react'
-import { colorsTuple } from 'components/Palette'
-import { Preview } from 'components/Preview'
-import { Counter } from 'components/Counter'
-import { useAnalyticsQuery } from 'graphql/generated/graphql'
-import { Dropzone } from 'components/Dropzone'
+import { colorsTuple } from '@/components/Palette'
+import { Preview } from '@/components/Preview'
+import { Counter } from '@/components/Counter'
+import { useAnalyticsQuery } from '@/graphql/generated/graphql'
+import { Dropzone } from '@/components/Dropzone'
 
 export default function Create() {
   const [upload, setUpload] = useState<UploadState>({

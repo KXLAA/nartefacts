@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 
-import { Counter } from '..'
+import { Counter } from '@/components/Counter'
 
 describe('<Counter />', () => {
   it('should render the component', () => {

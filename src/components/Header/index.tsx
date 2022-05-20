@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import * as S from './styles'
-import { Logo } from 'components/Logo'
-import { Button } from 'components/Button'
-import { colors } from 'styles/global'
-import { Arrow } from 'components/Icons'
+import * as S from '@/components/Header/styles'
+
+import { Logo } from '@/components/Logo'
+import { Button } from '@/components/Button'
+import { colors } from '@/styles/global'
+import { Arrow } from '@/components/Icons'
 
 export type HeaderProps = {
   primary?: boolean
