@@ -27,7 +27,7 @@ export default function Create() {
         description="Generate color pallettes or gradients from your own images "
       />
 
-      <Layout.Secondary mw="800px">
+      <Layout.Main>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
           <Preview
@@ -45,7 +45,7 @@ export default function Create() {
         ) : null}
 
         <Counter count={count?.analytics[0]?.generatedPalettes} />
-      </Layout.Secondary>
+      </Layout.Main>
     </Layout.Main>
   )
 }
