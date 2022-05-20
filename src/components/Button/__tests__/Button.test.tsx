@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react'
-import { colors } from '@/styles/global'
-const { grayPrimary, blackSecondary } = colors
+import { getColor } from '@/styles/global'
 import { Button } from '@/components/Button'
 
 describe('<Button />', () => {
@@ -10,8 +9,8 @@ describe('<Button />', () => {
 
     expect(button).toBeInTheDocument()
     expect(button).toHaveStyle({
-      'background-color': grayPrimary,
-      color: blackSecondary,
+      'background-color': getColor('blackLight'),
+      color: getColor('grayLight'),
     })
   })
 
@@ -22,14 +21,14 @@ describe('<Button />', () => {
 
   it('should render the button with correct values based on props', () => {
     const { getByRole } = render(
-      <Button buttonType="secondary" text="Props" fullWidth />,
+      <Button buttonType="secondary" label="Props" width="full" />,
     )
     const button = getByRole('button', { name: /props/i })
 
     expect(button).toBeInTheDocument()
     expect(button).toHaveStyle({
-      'background-color': blackSecondary,
-      color: grayPrimary,
+      'background-color': getColor('grayLight'),
+      color: getColor('blackLight'),
       'max-width': '100%',
     })
   })

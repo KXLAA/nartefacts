@@ -7,6 +7,7 @@ import { Size } from '@/styles/global'
 export interface LayoutProps {
   size?: Extract<Size, 'sm' | 'md' | 'lg'>
   children: React.ReactNode
+  padding?: boolean
 }
 
 export interface GridProps extends LayoutProps {
@@ -14,9 +15,13 @@ export interface GridProps extends LayoutProps {
   gap?: Size
 }
 
-export const Main: React.FC<LayoutProps> = ({ children, size = 'lg' }) => {
+export const Main: React.FC<LayoutProps> = ({
+  children,
+  size = 'lg',
+  padding,
+}) => {
   return (
-    <S.Main size={size}>
+    <S.Main size={size} padding={padding}>
       <Header />
       {children}
     </S.Main>

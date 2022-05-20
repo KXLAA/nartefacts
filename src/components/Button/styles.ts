@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 import { ButtonProps } from '@/components/Button'
-import { getFontSize, theme } from '@/styles/global'
+import { getFontSize, getColor } from '@/styles/global'
 
-const { colors } = theme
 export const Wrapper = styled.div``
 
 type StyledButtonProps = Pick<
@@ -15,23 +14,23 @@ const getButtonStyle = (color: StyledButtonProps['color']) => {
   switch (color) {
     case 'light':
       return {
-        bg: colors.grayLight,
-        label: colors.blackLight,
+        bg: getColor('grayLight'),
+        label: getColor('blackLight'),
       }
     case 'dark':
       return {
-        bg: colors.blackLight,
-        label: colors.grayLight,
+        bg: getColor('blackLight'),
+        label: getColor('grayLight'),
       }
     case 'danger':
       return {
-        bg: colors.red,
-        label: colors.white,
+        bg: getColor('red'),
+        label: getColor('white'),
       }
     default:
       return {
-        bg: colors.blackLight,
-        label: colors.grayLight,
+        bg: getColor('grayLight'),
+        label: getColor('blackLight'),
       }
   }
 }

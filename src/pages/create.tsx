@@ -20,14 +20,14 @@ export default function Create() {
   const { data: count } = useAnalyticsQuery()
 
   return (
-    <Layout.Main>
+    <Layout.Main size="md">
       <Header secondary />
       <Title
         title="create"
         description="Generate color pallettes or gradients from your own images "
       />
 
-      <Layout.Main>
+      <>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
           <Preview
@@ -45,7 +45,7 @@ export default function Create() {
         ) : null}
 
         <Counter count={count?.analytics[0]?.generatedPalettes} />
-      </Layout.Main>
+      </>
     </Layout.Main>
   )
 }

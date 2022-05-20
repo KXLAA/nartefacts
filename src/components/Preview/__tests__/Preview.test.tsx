@@ -32,8 +32,6 @@ describe('<Preview />', () => {
     expect(saveButton).not.toBeDisabled()
 
     await user.click(saveButton)
-    const toast = getByText(/saved/i)
-    expect(toast).toBeInTheDocument()
     expect(saveButton).toBeDisabled()
   })
 })

@@ -2,10 +2,11 @@
 
 import styled from 'styled-components'
 
-import { GridProps } from '@/components/Common/Layout'
+import { GridProps, LayoutProps } from '@/components/Common/Layout'
 import { getSize, Size } from '@/styles/global'
 
-const getMaxWidth = ({ size }: { size: Extract<Size, 'sm' | 'md' | 'lg'> }) => {
+type LayoutSize = Extract<Size, 'sm' | 'md' | 'lg'>
+const getMaxWidth = (size: LayoutSize) => {
   switch (size) {
     case 'sm':
       return 400
@@ -18,11 +19,14 @@ const getMaxWidth = ({ size }: { size: Extract<Size, 'sm' | 'md' | 'lg'> }) => {
   }
 }
 
-export const Main = styled.main`
-  max-width: ${getMaxWidth}px;
+export const Main = styled.main<LayoutProps>`
+  max-width: ${({ size }) => getMaxWidth(size as LayoutSize)}px;
   width: 100%;
   margin: 0 auto;
-  padding: ${getSize('xl')} ${getSize('xxl')};
+  padding-left: ${({ padding }) => (padding ? getSize('xl') : getSize('md'))};
+  padding-right: ${({ padding }) => (padding ? getSize('xl') : getSize('md'))};
+  padding-top: ${getSize('xl')};
+  padding-bottom: ${getSize('xl')};
 `
 
 export const Grid = styled.div<GridProps>`
