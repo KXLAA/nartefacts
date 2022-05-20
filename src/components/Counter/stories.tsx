@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import { Counter } from '.'
+import { Counter } from '@/components/Counter'
 
 export default {
   component: Counter,

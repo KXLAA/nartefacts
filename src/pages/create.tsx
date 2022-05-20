@@ -1,12 +1,14 @@
-import * as Layout from 'components/common/Layout'
-import { Header } from 'components/Header'
-import { Title } from 'components/Title'
+/* istanbul ignore file */
+
+import * as Layout from '@/components/Common/Layout'
+import { Header } from '@/components/Header'
+import { Title } from '@/components/Title'
 import { useState } from 'react'
-import { colorsTuple } from 'components/Palette'
-import { Preview } from 'components/Preview'
-import { Counter } from 'components/Counter'
-import { useAnalyticsQuery } from 'graphql/generated/graphql'
-import { Dropzone } from 'components/Dropzone'
+import { colorsTuple } from '@/components/Palette'
+import { Preview } from '@/components/Preview'
+import { Counter } from '@/components/Counter'
+import { useAnalyticsQuery } from '@/graphql/generated/graphql'
+import { Dropzone } from '@/components/Dropzone'
 
 export default function Create() {
   const [upload, setUpload] = useState<UploadState>({
@@ -18,14 +20,14 @@ export default function Create() {
   const { data: count } = useAnalyticsQuery()
 
   return (
-    <Layout.Main>
+    <Layout.Main size="md">
       <Header secondary />
       <Title
         title="create"
         description="Generate color pallettes or gradients from your own images "
       />
 
-      <Layout.Secondary mw="800px">
+      <>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
           <Preview
@@ -43,7 +45,7 @@ export default function Create() {
         ) : null}
 
         <Counter count={count?.analytics[0]?.generatedPalettes} />
-      </Layout.Secondary>
+      </>
     </Layout.Main>
   )
 }

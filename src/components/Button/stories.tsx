@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/react'
-import { colors } from 'styles/global'
+import { colors } from '@/styles/global'
 const { grayPrimary, blackSecondary } = colors
 
-import { Button } from '.'
+import { Button } from '@/components/Button'
 
 export default {
   component: Button,
@@ -14,6 +14,6 @@ export default {
   },
 } as Meta
 
-export const Basic: Story = (args) => <Button {...args} />
+// export const Basic: Story = (args) => <Button {...args} />
 
-export const Default: Story = () => <Button />
+// export const Default: Story = () => <Button />

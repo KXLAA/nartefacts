@@ -18,7 +18,8 @@
     "studio": "npx prisma studio",
     "db:push": "npx prisma db push",
     "gen": "graphql-codegen --config codegen.yml",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "prepare": "husky install && chmod ug+x .husky/*"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",

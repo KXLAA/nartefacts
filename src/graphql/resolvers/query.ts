@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
-import { QueryResolvers } from '../generated/graphql'
+import { QueryResolvers } from '@/graphql/generated/graphql'
 const prisma = new PrismaClient()
-import { paginate } from './utils'
+import { paginate } from '@/graphql/resolvers/utils'
 
 const Query: QueryResolvers = {
   allAlbums: async (_, { first, after }) => {

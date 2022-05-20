@@ -1,4 +1,4 @@
-import * as S from './styles'
+import * as S from '@/components/Title/styles'
 
 export type TitleProps = {
   title?: string

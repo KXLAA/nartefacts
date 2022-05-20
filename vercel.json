@@ -1,0 +1,22 @@
+{
+  "headers": [
+    {
+      "source": "public/fonts/HeliosExt-Bold.woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "public/fonts/HeliosExt.woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

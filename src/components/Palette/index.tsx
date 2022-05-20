@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as S from './styles'
-import { useCopyToClipboard, useMouseOver } from 'lib/hooks'
+import * as S from '@/components/Palette/styles'
+import { useCopyToClipboard, useMouseOver } from '@/lib/hooks'
 import toast from 'react-hot-toast'
 
 export type colorsTuple = [

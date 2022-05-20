@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import * as S from './styles'
-import { Logo } from 'components/Logo'
-import { Button } from 'components/Button'
-import { colors } from 'styles/global'
-import { Arrow } from 'components/Icons'
+import * as S from '@/components/Header/styles'
+
+import { Logo } from '@/components/Logo'
+import { Button } from '@/components/Button'
+import { colors } from '@/styles/global'
+import { Arrow } from '@/components/Icons'
 
 export type HeaderProps = {
   primary?: boolean
@@ -19,15 +20,15 @@ export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
 
           <S.Nav>
             <Link href="/create" passHref>
-              <Button text="create" buttonType="link-primary" />
+              <Button label="create" buttonType="link-primary" width="full" />
             </Link>
 
             <Link href="/likes" passHref>
-              <Button text="likes" buttonType="link-secondary" />
+              <Button label="likes" buttonType="link-secondary" width="full" />
             </Link>
 
             <Link href="/info" passHref>
-              <Button text="info" buttonType="link-primary" />
+              <Button label="info" buttonType="link-primary" width="full" />
             </Link>
           </S.Nav>
         </S.Layout>

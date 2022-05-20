@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
-import { colors, imageUrl } from 'components/utils'
+import { colors, imageUrl } from '@/components/utils'
 
-import { Preview } from '.'
+import { Preview } from '@/components/Preview'
 
 export default {
   component: Preview,
