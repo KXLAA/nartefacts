@@ -41,14 +41,14 @@ export default class MyDocument extends Document {
         <Head />
         <link
           rel="preload"
-          href="@/public/fonts/HeliosExt-Bold.woff2"
+          href="/fonts/HeliosExt-Bold.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="@/public/fonts/HeliosExt.woff2"
+          href="/fonts/HeliosExt.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

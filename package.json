@@ -19,7 +19,9 @@
     "db:push": "npx prisma db push",
     "gen": "graphql-codegen --config codegen.yml",
     "postinstall": "prisma generate",
-    "prepare": "husky install && chmod ug+x .husky/*"
+    "prepare": "husky install && chmod ug+x .husky/*",
+    "cypress:open": "cypress open",
+    "e2e": "start-server-and-test dev 3000 cypress:open"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
@@ -79,6 +81,7 @@
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^2.0.2",
+    "cypress": "^9.6.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.7.0",
     "eslint-config-next": "^12.0.9",
@@ -96,6 +99,7 @@
     "prettier": "2.5.1",
     "prisma": "^3.10.0",
     "sass": "^1.50.1",
+    "start-server-and-test": "^1.14.0",
     "ts-node": "^10.7.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.5.5",
