@@ -78,6 +78,8 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     font-family: 'HeliosExt', sans-serif;
     background: ${getColor('blackBase')};
+    color:${getColor('grayLight')};
+    font-size: ${getFontSize('lg')};
     -webkit-font-smoothing: antialiased;
   }
   img, picture, video, canvas, svg {
