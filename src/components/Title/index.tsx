@@ -1,15 +1,13 @@
 import * as S from '@/components/Title/styles'
 
 export type TitleProps = {
-  title?: string
-  description?: string
+  text?: string
 }
 
-export const Title: React.FC<TitleProps> = ({ title, description }) => {
+export const Title: React.FC<TitleProps> = ({ text }) => {
   return (
-    <S.Box>
-      <S.Heading>{title || 'title'}</S.Heading>
-      <S.Description>{description || 'description'}</S.Description>
-    </S.Box>
+    <S.Wrapper>
+      <p>{text || 'description'}</p>
+    </S.Wrapper>
   )
 }

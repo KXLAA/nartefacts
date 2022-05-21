@@ -4,11 +4,8 @@ import { Title } from '@/components/Title'
 
 describe('<Title />', () => {
   it('should render the with default values', () => {
-    const { getByText, getByRole } = render(<Title />)
-    const heading = getByRole('heading', { name: /title/i })
+    const { getByText } = render(<Title />)
     const description = getByText(/description/)
-
-    expect(heading).toBeInTheDocument()
     expect(description).toBeInTheDocument()
   })
 
@@ -18,13 +15,8 @@ describe('<Title />', () => {
   })
 
   it('should render the with correctly with given props', () => {
-    const { getByText, getByRole } = render(
-      <Title title="props" description="property" />,
-    )
-    const heading = getByRole('heading', { name: /props/i })
+    const { getByText } = render(<Title text="property" />)
     const description = getByText(/property/)
-
-    expect(heading).toBeInTheDocument()
     expect(description).toBeInTheDocument()
   })
 })
