@@ -25,11 +25,11 @@ describe('<Header />', () => {
   it('should render the navigation buttons', () => {
     const { getByText } = render(<Header primary />)
     const infoLink = getByText(/info/i)
-    const likesLink = getByText(/likes/i)
+    const savedLink = getByText(/saved/i)
     const createLink = getByText(/create/i)
 
     expect(infoLink).toBeInTheDocument()
-    expect(likesLink).toBeInTheDocument()
+    expect(savedLink).toBeInTheDocument()
     expect(createLink).toBeInTheDocument()
   })
 

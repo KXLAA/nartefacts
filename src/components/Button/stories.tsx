@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Story, Meta } from '@storybook/react'
 import { colors } from '@/styles/global'
 const { grayPrimary, blackSecondary } = colors

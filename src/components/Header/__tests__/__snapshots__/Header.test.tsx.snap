@@ -9,8 +9,8 @@ exports[`<Header /> should render the entire header correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  gap: 3rem;
   width: 100%;
+  gap: 32px;
 }
 
 .c1 {
@@ -18,15 +18,15 @@ exports[`<Header /> should render the entire header correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  width: 100%;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  justify-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -106,6 +106,14 @@ exports[`<Header /> should render the entire header correctly 1`] = `
   transform: translateX(0rem) translateY(0.125rem);
 }
 
+.c4 {
+  display: block;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  min-height: 32px;
+}
+
 <header
   class="c0"
 >
@@ -138,10 +146,10 @@ exports[`<Header /> should render the entire header correctly 1`] = `
     <a
       class="c3"
       color="light"
-      href="/likes"
+      href="/saved"
       width="full"
     >
-      likes
+      saved
     </a>
     <a
       class="c2"
@@ -152,5 +160,8 @@ exports[`<Header /> should render the entire header correctly 1`] = `
       info
     </a>
   </nav>
+  <span
+    class="c4"
+  />
 </header>
 `;
