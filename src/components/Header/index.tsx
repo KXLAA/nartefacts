@@ -3,8 +3,7 @@ import * as S from '@/components/Header/styles'
 
 import { Logo } from '@/components/Logo'
 import { Button } from '@/components/Button'
-import { colors } from '@/styles/global'
-import { Arrow } from '@/components/Icons'
+import { Spacer } from '@/components/Common/Spacer'
 
 export type HeaderProps = {
   primary?: boolean
@@ -23,30 +22,26 @@ export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
               <Button label="create" buttonType="link-primary" width="full" />
             </Link>
 
-            <Link href="/likes" passHref>
-              <Button label="likes" buttonType="link-secondary" width="full" />
+            <Link href="/saved" passHref>
+              <Button label="saved" buttonType="link-secondary" width="full" />
             </Link>
 
             <Link href="/info" passHref>
               <Button label="info" buttonType="link-primary" width="full" />
             </Link>
           </S.Nav>
+          <Spacer size="lg" />
         </S.Layout>
       ) : null}
 
       {secondary ? (
         <S.Layout>
           <S.Nav>
-            <Link href="/" passHref>
-              <Arrow position="left" color={colors.grayPrimary} size={48} />
-            </Link>
-
             <Link href="/">
               <Logo width="250" />
             </Link>
-
-            <S.Spacer />
           </S.Nav>
+          <Spacer size="lg" />
         </S.Layout>
       ) : null}
     </>

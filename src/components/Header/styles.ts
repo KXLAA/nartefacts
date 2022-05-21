@@ -4,19 +4,14 @@ import styled from 'styled-components'
 export const Layout = styled.header`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   width: 100%;
+  gap: ${getSize('lg')};
 `
 
 export const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
+  width: 100%;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   gap: ${getSize('md')};
-`
-
-export const Spacer = styled.div`
-  width: 48px;
-  height: 48px;
 `
