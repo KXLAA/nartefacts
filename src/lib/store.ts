@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { colorsTuple } from '@/components/Palette'
+import { ColorsTuple } from '@/components/Palette'
 import create from 'zustand'
 import { nanoid } from 'nanoid'
 import { persist } from 'zustand/middleware'
 
 type GeneratedColors = {
   id: string
-  image: string
-  colors: colorsTuple
+  imageUrl: string
+  colors: ColorsTuple
 }
 
 // type LikedColors = {
@@ -18,7 +18,7 @@ type GeneratedColors = {
 
 type CreatedStore = {
   generatedColors: GeneratedColors[]
-  addGeneratedColor: (image: string, colors: colorsTuple) => void
+  addGeneratedColor: (image: string, colors: ColorsTuple) => void
   removeGeneratedColor: (id: string) => void
   clearAllGeneratedColors: () => void
 }
@@ -37,7 +37,7 @@ export const useCreatedStore = create(
       generatedColors: [],
 
       // actions
-      addGeneratedColor: (image: string, colors: colorsTuple) => {
+      addGeneratedColor: (imageUrl: string, colors: ColorsTuple) => {
         //Limit amount of items that can be added to the array
         const limitArray = (
           colors: GeneratedColors[],
@@ -46,7 +46,7 @@ export const useCreatedStore = create(
         set((state) => ({
           generatedColors: limitArray(state.generatedColors, {
             id: nanoid(),
-            image,
+            imageUrl,
             colors,
           }),
         }))

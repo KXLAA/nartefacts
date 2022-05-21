@@ -4,7 +4,7 @@ import * as Layout from '@/components/Common/Layout'
 import { Header } from '@/components/Header'
 import { Title } from '@/components/Title'
 import { useState } from 'react'
-import { colorsTuple } from '@/components/Palette'
+import { ColorsTuple } from '@/components/Palette'
 import { Preview } from '@/components/Preview'
 import { Counter } from '@/components/Counter'
 import { useAnalyticsQuery } from '@/graphql/generated/graphql'
@@ -30,7 +30,7 @@ export default function Create() {
         {upload.colors && upload.imageUrl ? (
           <Preview
             imageUrl={upload.imageUrl!}
-            colors={upload.colors as colorsTuple}
+            colors={upload.colors as ColorsTuple}
             reset={() => {
               setUpload((prev) => ({
                 ...prev,
@@ -41,6 +41,7 @@ export default function Create() {
             }}
           />
         ) : null}
+        <Spacer size="lg" />
 
         <Counter count={count?.analytics[0]?.generatedPalettes} />
       </>

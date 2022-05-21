@@ -2,11 +2,10 @@
 
 exports[`<Palette /> should render the pallette correctly 1`] = `
 .c0 {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 0.5rem;
   width: 100%;
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat( 4,1fr );
+  gap: 8px;
 }
 
 .c1 {
@@ -267,7 +266,6 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 <div
   class="c0"
-  title="Palette"
 >
   <div
     class="c1"

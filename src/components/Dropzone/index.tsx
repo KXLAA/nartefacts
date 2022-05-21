@@ -8,7 +8,7 @@ import {
   useUpdateAnalyticsMutation,
 } from '@/graphql/generated/graphql'
 import { RotatingLines } from 'react-loader-spinner'
-import { colorsTuple } from '@/components/Palette'
+import { ColorsTuple } from '@/components/Palette'
 import { UploadState } from '@/pages/create'
 
 export type DropzoneProps = {
@@ -26,9 +26,8 @@ export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
     try {
       const { url } = await uploadToS3(acceptedFiles[0])
       const id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
-      setUpload((prev) => ({ ...prev, imageUrl: url }))
       if (url) {
-        setUpload((prev) => ({ ...prev, isUploading: false }))
+        setUpload((prev) => ({ ...prev, isUploading: false, imageUrl: url }))
         const { data } = await generateColors({
           variables: {
             imageUrl: url,
@@ -47,7 +46,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
         })
         setUpload((prev) => ({
           ...prev,
-          colors: data?.generateColors?.colors as colorsTuple,
+          colors: data?.generateColors?.colors as ColorsTuple,
         }))
       }
     } catch (error: unknown) {

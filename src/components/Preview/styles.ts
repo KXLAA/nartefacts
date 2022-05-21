@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
 export const ImageWrapper = styled.div`
   border: 4px solid ${colors.graySecondary};
   border-radius: 4px;
-  margin-bottom: 2rem;
   padding: 0;
 
   span {
@@ -23,6 +22,5 @@ export const Buttons = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 2rem;
   gap: 1rem;
 `

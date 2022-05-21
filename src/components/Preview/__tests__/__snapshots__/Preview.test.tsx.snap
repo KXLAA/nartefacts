@@ -7,17 +7,6 @@ exports[`<Preview /> should render the component correctly 1`] = `
   margin: 0 auto;
 }
 
-.c4 {
-  border: 4px solid #363636;
-  border-radius: 4px;
-  margin-bottom: 2rem;
-  padding: 0;
-}
-
-.c4 span {
-  border-radius: 4px;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -32,272 +21,7 @@ exports[`<Preview /> should render the component correctly 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-bottom: 2rem;
   gap: 1rem;
-}
-
-.c5 {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 0.5rem;
-  width: 100%;
-  max-width: 800px;
-}
-
-.c6 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #095525;
-}
-
-.c6:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c6 span {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.c7 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #673636;
-}
-
-.c7:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c7 span {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.c8 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #379273;
-}
-
-.c8:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c8 span {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.c9 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #136407;
-}
-
-.c9:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c9 span {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.c10 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #573227;
-}
-
-.c10:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c10 span {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.c11 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #547820;
-}
-
-.c11:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c11 span {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.c12 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #163598;
-}
-
-.c12:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c12 span {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.c13 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #682052;
-}
-
-.c13:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c13 span {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
 }
 
 .c2 {
@@ -396,6 +120,295 @@ exports[`<Preview /> should render the component correctly 1`] = `
   transform: none;
 }
 
+.c4 {
+  display: block;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  min-height: 16px;
+}
+
+.c6 {
+  display: block;
+  width: 8px;
+  min-width: 8px;
+  height: 8px;
+  min-height: 8px;
+}
+
+.c7 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat( 4,1fr );
+  gap: 8px;
+}
+
+.c8 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #095525;
+}
+
+.c8:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c8 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c9 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #673636;
+}
+
+.c9:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c9 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c10 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #379273;
+}
+
+.c10:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c10 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c11 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #136407;
+}
+
+.c11:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c11 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c12 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #573227;
+}
+
+.c12:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c12 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c13 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #547820;
+}
+
+.c13:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c13 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c14 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #163598;
+}
+
+.c14:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c14 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c15 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #682052;
+}
+
+.c15:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c15 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.c5 {
+  border: 2px solid #5A5A5A;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.c5 span {
+  border-radius: 8px;
+}
+
 <div
   class="c0"
   data-testid="Preview"
@@ -406,100 +419,109 @@ exports[`<Preview /> should render the component correctly 1`] = `
     <button
       class="c2"
       color="dark"
+      font-size="xl"
       role="button"
       type="button"
       width="full"
     >
-      save
+      Save
     </button>
     <button
       class="c3"
       color="light"
+      font-size="xl"
       role="button"
       type="button"
       width="full"
     >
-      refresh
+      Refresh
     </button>
   </div>
-  <div
+  <span
     class="c4"
-  >
-    <span
-      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+  />
+  <div>
+    <div
+      class="c5"
     >
       <span
-        style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
-      />
-      <img
-        alt="user uploaded image"
-        data-nimg="responsive"
-        decoding="async"
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-      />
-      <noscript />
-    </span>
-  </div>
-  <div
-    class="c5"
-    title="Palette"
-  >
-    <div
-      class="c6"
-      color="#095525"
-      title="Color"
-    >
-      <span />
+        style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+        />
+        <img
+          alt="user uploaded image"
+          data-nimg="responsive"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </span>
     </div>
+    <span
+      class="c6"
+    />
     <div
       class="c7"
-      color="#673636"
-      title="Color"
     >
-      <span />
-    </div>
-    <div
-      class="c8"
-      color="#379273"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c9"
-      color="#136407"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c10"
-      color="#573227"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c11"
-      color="#547820"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c12"
-      color="#163598"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c13"
-      color="#682052"
-      title="Color"
-    >
-      <span />
+      <div
+        class="c8"
+        color="#095525"
+        title="Color"
+      >
+        <span />
+      </div>
+      <div
+        class="c9"
+        color="#673636"
+        title="Color"
+      >
+        <span />
+      </div>
+      <div
+        class="c10"
+        color="#379273"
+        title="Color"
+      >
+        <span />
+      </div>
+      <div
+        class="c11"
+        color="#136407"
+        title="Color"
+      >
+        <span />
+      </div>
+      <div
+        class="c12"
+        color="#573227"
+        title="Color"
+      >
+        <span />
+      </div>
+      <div
+        class="c13"
+        color="#547820"
+        title="Color"
+      >
+        <span />
+      </div>
+      <div
+        class="c14"
+        color="#163598"
+        title="Color"
+      >
+        <span />
+      </div>
+      <div
+        class="c15"
+        color="#682052"
+        title="Color"
+      >
+        <span />
+      </div>
     </div>
   </div>
 </div>
