@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "public/fonts/HeliosExt-Bold.woff2",
+      "source": "/fonts/HeliosExt-Bold.woff2",
       "headers": [
         {
           "key": "Cache-Control",
@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "public/fonts/HeliosExt.woff2",
+      "source": "/fonts/HeliosExt.woff2",
       "headers": [
         {
           "key": "Cache-Control",
