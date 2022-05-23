@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { ColorsTuple } from '@/components/Palette'
-import create from 'zustand'
 import { nanoid } from 'nanoid'
+import create from 'zustand'
 import { persist } from 'zustand/middleware'
+
+import { ColorsTuple } from '@/components/Palette'
 
 type GeneratedColors = {
   id: string

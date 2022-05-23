@@ -7,9 +7,9 @@ import * as Layout from '@/components/Common/Layout'
 import { Grid } from '@/components/Common/Layout'
 import { Spacer } from '@/components/Common/Spacer'
 import { Generated } from '@/components/Generated'
+import { Header } from '@/components/Header'
 import { Title } from '@/components/Title'
 import { useCreatedStore } from '@/lib/store'
-import { Header } from '@/components/Header'
 
 export default function Saved() {
   const store = useCreatedStore()

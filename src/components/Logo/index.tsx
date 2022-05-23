@@ -1,4 +1,5 @@
-import { ForwardRefRenderFunction, forwardRef } from 'react'
+import { forwardRef, ForwardRefRenderFunction } from 'react'
+
 import styles from './logo.module.scss'
 
 export type LogoProps = {

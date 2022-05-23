@@ -1,4 +1,5 @@
 import { Copy as Icon } from 'lucide-react'
+
 import { IconProps } from '@/components/Icons'
 
 const Copy: React.FC<IconProps> = ({ color, size, strokeWidth }) => {

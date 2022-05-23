@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
-import { getColor } from '@/styles/global'
+
 import { Button } from '@/components/Button'
+import { getColor } from '@/styles/global'
 
 describe('<Button />', () => {
   it('should render the button with default values & styles', () => {

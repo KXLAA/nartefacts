@@ -1,12 +1,13 @@
-import * as S from '@/components/Preview/styles'
-import { ColorsTuple } from '@/components/Palette'
-import { Button } from '@/components/Button'
-import { useCreatedStore } from '@/lib/store'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import { Toast } from '@/components/Toast'
-import { Generated } from '@/components/Generated'
+
+import { Button } from '@/components/Button'
 import { Spacer } from '@/components/Common/Spacer'
+import { Generated } from '@/components/Generated'
+import { ColorsTuple } from '@/components/Palette'
+import * as S from '@/components/Preview/styles'
+import { Toast } from '@/components/Toast'
+import { useCreatedStore } from '@/lib/store'
 
 export type PreviewProps = {
   heading?: string

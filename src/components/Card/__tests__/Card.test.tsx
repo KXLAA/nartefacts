@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
-import { imageUrl } from '@/components/utils'
 
 import { Card } from '@/components/Card'
+import { imageUrl } from '@/components/utils'
 
 describe('<Card />', () => {
   it('should render card with image', () => {

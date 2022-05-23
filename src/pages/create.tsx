@@ -1,15 +1,17 @@
 /* istanbul ignore file */
 
-import * as Layout from '@/components/Common/Layout'
-import { Header } from '@/components/Header'
-import { Title } from '@/components/Title'
+import Head from 'next/head'
 import { useState } from 'react'
+
+import * as Layout from '@/components/Common/Layout'
+import { Spacer } from '@/components/Common/Spacer'
+import { Counter } from '@/components/Counter'
+import { Dropzone } from '@/components/Dropzone'
+import { Header } from '@/components/Header'
 import { ColorsTuple } from '@/components/Palette'
 import { Preview } from '@/components/Preview'
-import { Counter } from '@/components/Counter'
+import { Title } from '@/components/Title'
 import { useAnalyticsQuery } from '@/graphql/generated/graphql'
-import { Dropzone } from '@/components/Dropzone'
-import { Spacer } from '@/components/Common/Spacer'
 
 export default function Create() {
   const [upload, setUpload] = useState<UploadState>({
@@ -19,11 +21,25 @@ export default function Create() {
     colors: [],
   })
   const { data: count } = useAnalyticsQuery()
+  const getText = (): string => {
+    if (upload.isUploading) {
+      return '👀 generating your pallette...'
+    }
+
+    if (!upload.imageUrl) {
+      return '✨ generate color pallettes from your images'
+    }
+
+    return '💾 save your color pallette'
+  }
 
   return (
     <Layout.Main size="md">
+      <Head>
+        <title>{getText()}</title>
+      </Head>
       <Header secondary />
-      <Title text="Generate color pallettes from your own images " />
+      <Title text={getText()} />
       <Spacer size="md" />
       <>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}

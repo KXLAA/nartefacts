@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { getSize, getColor } from '@/styles/global'
+import { getColor, getSize } from '@/styles/global'
 
 export const ImageWrapper = styled.div<{ small?: boolean }>`
   border: ${({ small }) => (small ? '1px' : getSize('xxs'))} solid

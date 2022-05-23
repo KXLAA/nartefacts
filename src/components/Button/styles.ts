@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { ButtonProps } from '@/components/Button'
-import { getFontSize, getColor } from '@/styles/global'
+import { getColor, getFontSize } from '@/styles/global'
 
 export const Wrapper = styled.div``
 

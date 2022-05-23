@@ -1,12 +1,14 @@
 import { Prisma } from '@prisma/client'
-import { MutationResolvers } from '../generated/graphql'
-import ColorThief from 'colorthief'
 import { ApolloError, UserInputError } from 'apollo-server-errors'
 import * as argon from 'argon2'
+import ColorThief from 'colorthief'
 import jwt from 'jsonwebtoken'
-import { prisma } from '@/lib/prisma'
-import { rgbToHex } from '@/graphql/resolvers/utils'
+
 import { ColorsTuple } from '@/components/Palette'
+import { rgbToHex } from '@/graphql/resolvers/utils'
+import { prisma } from '@/lib/prisma'
+
+import { MutationResolvers } from '../generated/graphql'
 
 const Mutation: MutationResolvers = {
   generateColors: async (_, { imageUrl }) => {

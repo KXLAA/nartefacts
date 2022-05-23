@@ -1,11 +1,12 @@
 /* istanbul ignore file */
+import { ApolloProvider } from '@apollo/client'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { GlobalStyles, theme } from '@/styles/global'
-import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '@/lib/apollo'
-import { ThemeProvider } from 'styled-components'
 import { Toaster } from 'react-hot-toast'
+import { ThemeProvider } from 'styled-components'
+
+import { useApollo } from '@/lib/apollo'
+import { GlobalStyles, theme } from '@/styles/global'
 
 function App({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)

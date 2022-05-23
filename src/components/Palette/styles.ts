@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { getColor, getFontSize } from '@/styles/global'
+
 import { ColorBoxProps } from '@/components/Palette'
+import { getColor, getFontSize } from '@/styles/global'
 
 export const Color = styled.div<ColorBoxProps>`
   height: ${({ small }) => (small === true ? '58px' : '130px')};

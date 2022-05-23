@@ -36,8 +36,8 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 .c1 span {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 24px;
+  color: #E3E3E3;
 }
 
 .c2 {
@@ -68,8 +68,8 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 .c2 span {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 24px;
+  color: #E3E3E3;
 }
 
 .c3 {
@@ -100,8 +100,8 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 .c3 span {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 24px;
+  color: #E3E3E3;
 }
 
 .c4 {
@@ -132,8 +132,8 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 .c4 span {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 24px;
+  color: #E3E3E3;
 }
 
 .c5 {
@@ -164,8 +164,8 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 .c5 span {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 24px;
+  color: #E3E3E3;
 }
 
 .c6 {
@@ -196,8 +196,8 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 .c6 span {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 24px;
+  color: #E3E3E3;
 }
 
 .c7 {
@@ -228,8 +228,8 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 .c7 span {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 24px;
+  color: #E3E3E3;
 }
 
 .c8 {
@@ -260,8 +260,8 @@ exports[`<Palette /> should render the pallette correctly 1`] = `
 
 .c8 span {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #fff;
+  font-size: 24px;
+  color: #E3E3E3;
 }
 
 <div

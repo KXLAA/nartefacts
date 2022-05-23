@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { getColor, getFontSize, getBorder, getSize } from '@/styles/global'
+
+import { getBorder, getColor, getFontSize, getSize } from '@/styles/global'
 
 export const Wrapper = styled.div`
   width: 100%;

@@ -17,7 +17,7 @@ exports[`<Counter /> should render the component correctly 1`] = `
   background-color: #202020;
   font-weight: bold;
   width: 100%;
-  border: solid 1px #5A5A5A;
+  border: 1px solid #5A5A5A;
   border-radius: 8px;
   max-width: 500px;
   font-size: 24px;

@@ -1,11 +1,11 @@
 /* istanbul ignore file */
 
-import { Header } from '@/components/Header'
 import { Card } from '@/components/Card'
 import * as Layout from '@/components/Common/Layout'
+import { Header } from '@/components/Header'
 import {
-  AllAlbumsQueryResult,
   AllAlbumsDocument,
+  AllAlbumsQueryResult,
 } from '@/graphql/generated/graphql'
 import { initializeApollo } from '@/lib/apollo'
 

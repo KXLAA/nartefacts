@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 import { Spacer } from '@/components/Common/Spacer'
-import { ColorsTuple, Palette } from '@/components/Palette'
 import * as S from '@/components/Generated/styles'
+import { ColorsTuple, Palette } from '@/components/Palette'
 
 export type GeneratedProps = {
   imageUrl: null | string

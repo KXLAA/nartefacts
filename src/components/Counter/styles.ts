@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { getColor, getFontSize, getBorder } from '@/styles/global'
+
+import { getBorder, getColor, getFontSize } from '@/styles/global'
 
 export const Wrapper = styled.div`
   text-align: center;

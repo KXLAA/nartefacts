@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { getSize, getBorder } from '@/styles/global'
+
+import { getBorder, getSize } from '@/styles/global'
 
 export const Wrapper = styled.div`
   width: 100%;

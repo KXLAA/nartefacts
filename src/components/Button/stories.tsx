@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Story, Meta } from '@storybook/react'
-import { getColor } from '@/styles/global'
+import { Meta, Story } from '@storybook/react'
 
 import { Button } from '@/components/Button'
+import { getColor } from '@/styles/global'
 
 export default {
   component: Button,

@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as S from '@/components/Input/styles'
 import React, {
-  forwardRef,
   DetailedHTMLProps,
-  InputHTMLAttributes,
+  forwardRef,
   ForwardRefRenderFunction,
+  InputHTMLAttributes,
 } from 'react'
+
+import * as S from '@/components/Input/styles'
 
 export type InputType = 'text' | 'email'
 

@@ -13,7 +13,7 @@ const getMaxWidth = (size: LayoutSize) => {
     case 'md':
       return 800
     case 'lg':
-      return 1440
+      return 1280
     default:
       return 1440
   }
@@ -23,8 +23,8 @@ export const Main = styled.main<LayoutProps>`
   max-width: ${({ size }) => getMaxWidth(size as LayoutSize)}px;
   width: 100%;
   margin: 0 auto;
-  padding-left: ${({ padding }) => (padding ? getSize('xl') : getSize('md'))};
-  padding-right: ${({ padding }) => (padding ? getSize('xl') : getSize('md'))};
+  padding-left: ${getSize('lg')};
+  padding-right: ${getSize('lg')};
   padding-top: ${getSize('xl')};
   padding-bottom: ${getSize('xl')};
 `

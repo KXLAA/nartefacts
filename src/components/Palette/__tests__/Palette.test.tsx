@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+
 import { ColorsTuple, Palette } from '@/components/Palette'
 import { colors as testColors } from '@/components/utils'
 

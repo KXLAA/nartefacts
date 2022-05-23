@@ -5,7 +5,7 @@ exports[`<Toast /> should render the component correctly 1`] = `
   width: 100%;
   max-width: 400px;
   background-color: #202020;
-  border: solid 0.8px #5a5a5a;
+  border: 1px solid #5A5A5A;
   border-radius: 4px;
   padding: 4px;
 }
@@ -15,8 +15,8 @@ exports[`<Toast /> should render the component correctly 1`] = `
 }
 
 .c1 {
-  color: #5a5a5a;
-  font-size: 1.5rem;
+  color: #5A5A5A;
+  font-size: 24px;
   text-align: center;
   font-weight: bold;
   padding-top: 4px;
