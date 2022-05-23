@@ -20,7 +20,7 @@ export const Generated: React.FC<GeneratedProps> = ({
       <S.ImageWrapper small={small}>
         {imageUrl && (
           <Image
-            src={imageUrl as string}
+            src={imageUrl ? (imageUrl as string) : '/public/placeholder.png'}
             height={800}
             width={800}
             alt={'user uploaded image'}
