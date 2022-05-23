@@ -8,6 +8,7 @@ exports[`<Toast /> should render the component correctly 1`] = `
   border: 1px solid #5A5A5A;
   border-radius: 4px;
   padding: 4px;
+  cursor: pointer;
 }
 
 .c0 span {
@@ -24,6 +25,7 @@ exports[`<Toast /> should render the component correctly 1`] = `
 
 <div
   class="c0"
+  href="/saved"
 >
   <span
     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"

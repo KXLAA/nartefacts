@@ -151,14 +151,6 @@ exports[`<Header /> should render the entire header correctly 1`] = `
     >
       saved
     </a>
-    <a
-      class="c2"
-      color="dark"
-      href="/info"
-      width="full"
-    >
-      info
-    </a>
   </nav>
   <span
     class="c4"
