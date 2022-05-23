@@ -51,7 +51,7 @@
     "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
+    "@babel/core": "^7.18.0",
     "@babel/plugin-proposal-export-default-from": "^7.16.7",
     "@babel/plugin-proposal-export-namespace-from": "^7.16.7",
     "@babel/preset-env": "^7.16.11",
