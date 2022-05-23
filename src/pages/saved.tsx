@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 
 import Head from 'next/head'
+import toast from 'react-hot-toast'
 
 import { Button } from '@/components/Button'
 import * as Layout from '@/components/Common/Layout'
@@ -37,7 +38,10 @@ export default function Saved() {
                 height="sm"
                 fontSize="md"
                 label="Delete"
-                onClick={() => store.removeGeneratedColor(item.id)}
+                onClick={() => {
+                  store.removeGeneratedColor(item.id)
+                  toast(`Deleted Palette`)
+                }}
               />
               <Spacer size="sm" />
               <Generated small {...item} />

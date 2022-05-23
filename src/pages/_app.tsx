@@ -75,7 +75,7 @@ function App({ Component, pageProps }: AppProps) {
               style: {
                 padding: '0rem',
                 background: 'none',
-                width: '12rem',
+                width: '15rem',
               },
             }}
           />
