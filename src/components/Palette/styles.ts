@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import { getColor, getFontSize } from '@/styles/global'
 import { ColorBoxProps } from '@/components/Palette'
 
 export const Color = styled.div<ColorBoxProps>`
@@ -13,13 +13,14 @@ export const Color = styled.div<ColorBoxProps>`
   background: ${({ color }) =>
     color.match(/^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i)
       ? color
-      : '#202020'};
+      : getColor('blackLight')};
   :hover {
     filter: brightness(150%);
   }
   span {
     font-weight: bold;
-    font-size: ${({ small }) => (small ? '0.8rem' : '1.5rem')};
-    color: #fff;
+    font-size: ${({ small }) =>
+      small ? getFontSize('sm') : getFontSize('lg')};
+    color: ${getColor('white')};
   }
 `
