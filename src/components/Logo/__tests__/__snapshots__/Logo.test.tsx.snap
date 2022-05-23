@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Logo /> should render Logo correctly 1`] = `
+exports[`<Logo /> should render <Logo /> correctly 1`] = `
 <svg
   aria-roledescription="logo"
   class="logo"

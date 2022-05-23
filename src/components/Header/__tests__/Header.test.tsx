@@ -11,7 +11,7 @@ describe('<Header />', () => {
     expect(header).toBeInTheDocument()
   })
 
-  it('should render the entire header correctly', () => {
+  it('should render <Header /> correctly', () => {
     const { container } = render(<Header primary />)
     expect(container.firstChild).toMatchSnapshot()
   })

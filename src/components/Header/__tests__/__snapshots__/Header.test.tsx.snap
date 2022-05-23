@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> should render the entire header correctly 1`] = `
+exports[`<Header /> should render <Header /> correctly 1`] = `
 .c2 {
   display: -webkit-box;
   display: -webkit-flex;

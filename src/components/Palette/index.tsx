@@ -12,7 +12,6 @@ export type PalletteProps = {
 
 export type ColorBoxProps = {
   color: string
-  title: string
   small?: boolean
 }
 
@@ -27,7 +26,7 @@ export type ColorsTuple = [
   string,
 ]
 
-const ColorBox: React.FC<ColorBoxProps> = ({ color, title, small }) => {
+export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
   const [, copy] = useCopyToClipboard()
   const [hoverRef, isHovered] = useMouseOver()
 
@@ -41,8 +40,8 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, title, small }) => {
       small={small}
       ref={hoverRef as any}
       color={color}
-      title={title}
       onClick={() => copyToClipboard(color)}
+      data-testid="color-box"
     >
       <span>{isHovered && `COPY`}</span>
     </S.Color>
@@ -61,7 +60,7 @@ export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
   return (
     <Layout.Grid columns={4} gap={small ? 'xxs' : 'sm'}>
       {colors?.map((color) => (
-        <ColorBox key={color} color={color} title="Color" small={small} />
+        <ColorBox key={color} color={color} small={small} />
       ))}
     </Layout.Grid>
   )

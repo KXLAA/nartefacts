@@ -311,424 +311,56 @@ exports[`<Generated /> should render <Generated /> correctly 1`] = `
     <div
       class="c3"
       color="#095525"
-      title="Color"
+      data-testid="color-box"
     >
       <span />
     </div>
     <div
       class="c4"
       color="#673636"
-      title="Color"
+      data-testid="color-box"
     >
       <span />
     </div>
     <div
       class="c5"
       color="#379273"
-      title="Color"
+      data-testid="color-box"
     >
       <span />
     </div>
     <div
       class="c6"
       color="#136407"
-      title="Color"
+      data-testid="color-box"
     >
       <span />
     </div>
     <div
       class="c7"
       color="#573227"
-      title="Color"
+      data-testid="color-box"
     >
       <span />
     </div>
     <div
       class="c8"
       color="#547820"
-      title="Color"
+      data-testid="color-box"
     >
       <span />
     </div>
     <div
       class="c9"
       color="#163598"
-      title="Color"
+      data-testid="color-box"
     >
       <span />
     </div>
     <div
       class="c10"
       color="#682052"
-      title="Color"
-    >
-      <span />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<Generated /> should render the entire <Generated /> correctly 1`] = `
-.c1 {
-  display: block;
-  width: 8px;
-  min-width: 8px;
-  height: 8px;
-  min-height: 8px;
-}
-
-.c0 {
-  border: 2px solid #5A5A5A;
-  border-radius: 8px;
-  padding: 0;
-}
-
-.c0 span {
-  border-radius: 8px;
-}
-
-.c2 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat( 4,1fr );
-  gap: 8px;
-}
-
-.c3 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #095525;
-}
-
-.c3:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c3 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c4 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #673636;
-}
-
-.c4:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c4 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c5 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #379273;
-}
-
-.c5:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c5 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c6 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #136407;
-}
-
-.c6:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c6 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c7 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #573227;
-}
-
-.c7:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c7 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c8 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #547820;
-}
-
-.c8:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c8 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c9 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #163598;
-}
-
-.c9:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c9 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c10 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #682052;
-}
-
-.c10:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c10 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-<div>
-  <div
-    class="c0"
-  >
-    <span
-      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-    >
-      <span
-        style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
-      />
-      <img
-        alt="user uploaded image"
-        data-nimg="responsive"
-        decoding="async"
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-      />
-      <noscript />
-    </span>
-  </div>
-  <span
-    class="c1"
-  />
-  <div
-    class="c2"
-  >
-    <div
-      class="c3"
-      color="#095525"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c4"
-      color="#673636"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c5"
-      color="#379273"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c6"
-      color="#136407"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c7"
-      color="#573227"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c8"
-      color="#547820"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c9"
-      color="#163598"
-      title="Color"
-    >
-      <span />
-    </div>
-    <div
-      class="c10"
-      color="#682052"
-      title="Color"
+      data-testid="color-box"
     >
       <span />
     </div>
