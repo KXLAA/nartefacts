@@ -1,14 +1,14 @@
 import styled from 'styled-components'
-import { colors } from '@/styles/global'
+import { getSize, getBorder } from '@/styles/global'
 
 export const Wrapper = styled.div`
   width: 100%;
-  gap: 2rem;
+  gap: ${getSize('lg')};
   margin: 0 auto;
 `
 
 export const ImageWrapper = styled.div`
-  border: 4px solid ${colors.graySecondary};
+  border: ${getBorder('sm', 'solid', 'grayBase')};
   border-radius: 4px;
   padding: 0;
 
@@ -22,5 +22,5 @@ export const Buttons = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: ${getSize('md')};
 `
