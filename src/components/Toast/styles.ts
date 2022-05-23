@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   border: ${getBorder('sm', 'solid', 'grayLight')};
   border-radius: 4px;
   padding: ${getSize('xs')};
+  cursor: pointer;
 
   span {
     border-radius: 4px;
