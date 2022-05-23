@@ -1,32 +1,126 @@
-name: ci
-on: [pull_request]
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**.js'
+      - '**.jsx'
+      - '**.ts'
+      - '**.tsx'
+      - '**.yml'
+      - '**.json'
+
+
+concurrency: 
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
+  # Install yarn & cypress dependencies & cache them
+  install-cache: 
     runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        node-version: [16]
     steps:
-      - name: Checkout Repository
+      - name: Checkout Commit
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node
+      - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
-
-      - name: Install dependencies (with cache)
-        uses: bahmutov/npm-install@HEAD
-      
+          node-version: ${{ matrix.node }}
+      - name: Cache yarn dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with: 
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys:
+            ${{ runner.os }}-yarn-
+      - name: Cache Cypress binary
+        uses: actions/cache@v2
+        id: cache-cypress-binary
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-binary-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            cypress-binary-
+      - name: Install Dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true' || steps.cache-cypress-binary.outputs.cache-hit != 'true'
+        run: |
+          yarn install --force --non-interactive
+  
+   # Prettier & Eslint
+  lint-format:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16]
+    needs: install-cache
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Run lint
+        run: |
+          yarn lint
+      - name: Run prettier
+        run: |
+          yarn format
+  
+  # Type Check PR
+  type-check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16]
+    needs: install-cache
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Check types
-        run: yarn type-check
-
-      - name: Linting
-        run: yarn lint
-
-      - name: Check commits messages
-        uses: wagoid/commitlint-github-action@v4
-      
+        run: |
+          yarn type-check
+  
+  # Run Unit Tests
+  unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16]
+    needs: install-cache
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
       - name: Create env file
         run: |
           touch .env
@@ -34,11 +128,47 @@ jobs:
           cat .env
         env: 
           DATABASE_URL: ${{ secrets.DATABASE_URL }} 
-
-      - name: Test
-        run: yarn test -u
-        env: 
-          DATABASE_URL: ${{ secrets.DATABASE_URL }} 
-
-      - name: Build
-        run: yarn build
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Run test
+        run: |
+          yarn test
+  
+  # Build application
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16]
+    needs: [lint-format, type-check, unit-test]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Run build
+        run: |
+           yarn build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-output
+          path: .next
+          retention-days: 1
+ 
