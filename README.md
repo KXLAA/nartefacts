@@ -43,7 +43,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] ~~A way to edit pallettes after they are generated~~
 - [ ] ~~Increase or reduce number of colors in pallettes ?~~
 - [ ] write stories for components on this route
-- [ ] Fix layout sizes
+- [x] Fix layout sizes
 - [ ] Notification on Delete, add a modal for delete ?
 - [x] Dynamic messages when uploading image
 - [x] click on toast notification to redirect to /saved
