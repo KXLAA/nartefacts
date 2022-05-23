@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react'
-import { imageUrl } from '@/components/utils'
+import { Meta, Story } from '@storybook/react'
 
 import { Toast } from '@/components/Toast'
+import { imageUrl } from '@/components/utils'
 
 export default {
   component: Toast,

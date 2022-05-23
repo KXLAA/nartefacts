@@ -1,5 +1,6 @@
-import * as S from '@/components/Toast/styles'
 import Image from 'next/image'
+
+import * as S from '@/components/Toast/styles'
 // import Link from 'next/link'
 
 export type ToastProps = {

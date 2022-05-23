@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
-import { imageUrl } from '@/components/utils'
+
 import { Toast } from '@/components/Toast'
+import { imageUrl } from '@/components/utils'
 
 describe('<Toast />', () => {
   it('should render the toast component', () => {

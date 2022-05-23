@@ -1,5 +1,6 @@
-import * as S from '@/components/Card/styles'
 import Image from 'next/image'
+
+import * as S from '@/components/Card/styles'
 
 export type CardProps = {
   image?: string | null

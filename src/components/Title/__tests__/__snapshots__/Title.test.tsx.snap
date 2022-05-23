@@ -4,11 +4,12 @@ exports[`<Title /> should render the entire title correctly 1`] = `
 .c0 {
   width: 100%;
   background-color: #202020;
-  padding: 32px;
+  padding: 16px;
   border: 1px solid #5A5A5A;
   border-radius: 8px;
   text-align: center;
   font-weight: bold;
+  font-size: 24px;
 }
 
 <div

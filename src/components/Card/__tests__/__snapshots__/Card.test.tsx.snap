@@ -9,7 +9,7 @@ exports[`<Card /> should render card  correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 32px;
 }
 
 .c1 {

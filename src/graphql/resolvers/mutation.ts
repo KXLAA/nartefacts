@@ -1,22 +1,24 @@
 import { Prisma } from '@prisma/client'
-import { MutationResolvers } from '../generated/graphql'
-import ColorThief from 'colorthief'
 import { ApolloError, UserInputError } from 'apollo-server-errors'
 import * as argon from 'argon2'
+import ColorThief from 'colorthief'
 import jwt from 'jsonwebtoken'
-import { prisma } from '@/lib/prisma'
+
+import { ColorsTuple } from '@/components/Palette'
 import { rgbToHex } from '@/graphql/resolvers/utils'
-import { colorsTuple } from '@/components/Palette'
+import { prisma } from '@/lib/prisma'
+
+import { MutationResolvers } from '../generated/graphql'
 
 const Mutation: MutationResolvers = {
   generateColors: async (_, { imageUrl }) => {
-    const getColors = async (): Promise<colorsTuple | undefined> => {
+    const getColors = async (): Promise<ColorsTuple | undefined> => {
       try {
         //This function returns an array of rgb color codes in this format - [red: number, green: number, blue: number][]
         const colors = await ColorThief.getPalette(imageUrl!, 8, 10)
         //Converting the rgb color codes to HEX color codes
         const palette = colors.map((color) => rgbToHex(color))
-        return palette as colorsTuple
+        return palette as ColorsTuple
       } catch (error: unknown) {
         if (error as Error) {
           throw new ApolloError('Oops, something went wrong')

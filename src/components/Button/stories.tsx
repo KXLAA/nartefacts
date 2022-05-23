@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Story, Meta } from '@storybook/react'
-import { colors } from '@/styles/global'
-const { grayPrimary, blackSecondary } = colors
+import { Meta, Story } from '@storybook/react'
 
 import { Button } from '@/components/Button'
+import { getColor } from '@/styles/global'
 
 export default {
   component: Button,
   title: 'Button',
   args: {
     text: 'Basic',
-    buttonColor: blackSecondary,
-    textColor: grayPrimary,
+    buttonColor: getColor('blackLight'),
+    textColor: getColor('grayLight'),
   },
 } as Meta
 

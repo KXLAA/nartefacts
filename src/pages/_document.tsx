@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 import Document, {
   DocumentContext,
-  Html,
   Head,
+  Html,
   Main,
   NextScript,
 } from 'next/document'

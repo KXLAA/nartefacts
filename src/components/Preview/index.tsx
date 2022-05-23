@@ -1,17 +1,19 @@
-import * as S from '@/components/Preview/styles'
-import Image from 'next/image'
-import { colorsTuple, Palette } from '@/components/Palette'
-import { Button } from '@/components/Button'
-import { useCreatedStore } from '@/lib/store'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+
+import { Button } from '@/components/Button'
+import { Spacer } from '@/components/Common/Spacer'
+import { Generated } from '@/components/Generated'
+import { ColorsTuple } from '@/components/Palette'
+import * as S from '@/components/Preview/styles'
 import { Toast } from '@/components/Toast'
+import { useCreatedStore } from '@/lib/store'
 
 export type PreviewProps = {
   heading?: string
   imageUrl: string
   reset?: () => void
-  colors: colorsTuple
+  colors: ColorsTuple
 }
 
 export const Preview: React.FC<PreviewProps> = ({
@@ -32,31 +34,24 @@ export const Preview: React.FC<PreviewProps> = ({
     <S.Wrapper data-testid="Preview">
       <S.Buttons>
         <Button
-          label="save"
+          label="Save"
           buttonType="primary"
-          onClick={save}
-          width="full"
           disabled={disable}
+          width="full"
+          onClick={save}
+          fontSize="xl"
         />
         <Button
-          label="refresh"
-          width="full"
+          label="Refresh"
           buttonType="secondary"
+          width="full"
           onClick={reset ? reset : undefined}
+          fontSize="xl"
         />
       </S.Buttons>
+      <Spacer size="md" />
 
-      <S.ImageWrapper>
-        <Image
-          src={imageUrl!}
-          height={800}
-          width={800}
-          alt={'user uploaded image'}
-          layout="responsive"
-        />
-      </S.ImageWrapper>
-
-      <Palette colors={colors as colorsTuple} />
+      <Generated imageUrl={imageUrl} colors={colors} />
     </S.Wrapper>
   )
 }

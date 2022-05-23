@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { getBorder, getColor, getFontSize } from '@/styles/global'
+
 export const Wrapper = styled.div`
   text-align: center;
   display: flex;
@@ -7,15 +9,13 @@ export const Wrapper = styled.div`
 `
 
 export const Counter = styled.div`
-  background-color: #202020;
+  background-color: ${getColor('blackLight')};
   font-weight: bold;
   width: 100%;
-  border: solid 2px #363636;
+  border: ${getBorder('sm', 'solid', 'grayLight')};
   border-radius: 8px;
   max-width: 500px;
-  margin-top: 2rem;
-  font-size: 24px;
+  font-size: ${getFontSize('lg')};
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
-  color: #5a5a5a;
 `

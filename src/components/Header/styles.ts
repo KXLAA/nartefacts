@@ -1,5 +1,6 @@
-import { getSize } from '@/styles/global'
 import styled from 'styled-components'
+
+import { getSize } from '@/styles/global'
 
 export const Layout = styled.header`
   display: flex;

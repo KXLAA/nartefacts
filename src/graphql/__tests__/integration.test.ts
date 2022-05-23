@@ -1,6 +1,7 @@
-import typeDefs from '@/graphql/typeDefs'
+import { ApolloServer, gql } from 'apollo-server-micro'
+
 import resolvers from '@/graphql/resolvers'
-import { gql, ApolloServer } from 'apollo-server-micro'
+import typeDefs from '@/graphql/typeDefs'
 
 const GET_ALBUMS = gql`
   query Albums($first: Int, $after: String) {

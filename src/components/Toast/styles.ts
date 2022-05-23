@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
+import { getBorder, getColor, getFontSize, getSize } from '@/styles/global'
+
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 400px;
-  background-color: #202020;
-  border: solid 0.8px #5a5a5a;
+  background-color: ${getColor('blackLight')};
+  border: ${getBorder('sm', 'solid', 'grayLight')};
   border-radius: 4px;
-  padding: 4px;
+  padding: ${getSize('xs')};
 
   span {
     border-radius: 4px;
@@ -14,9 +16,9 @@ export const Wrapper = styled.div`
 `
 
 export const Text = styled.p`
-  color: #5a5a5a;
-  font-size: 1.5rem;
+  color: ${getColor('grayLight')};
+  font-size: ${getFontSize('lg')};
   text-align: center;
   font-weight: bold;
-  padding-top: 4px;
+  padding-top: ${getSize('xs')};
 `

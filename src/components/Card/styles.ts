@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import { colors } from '@/styles/global'
+
+import { getBorder, getSize } from '@/styles/global'
 
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: ${getSize('lg')};
 `
 
 export const Gradient = styled.div`
@@ -15,14 +16,14 @@ export const Gradient = styled.div`
   );
   width: 100%;
   height: 122px;
-  border: 4px solid ${colors.graySecondary};
-  border-radius: 4px;
+  border: ${getBorder('md', 'solid', 'grayBase')};
+  border-radius: ${getSize('xs')};
 `
 
 export const ImageWrapper = styled.div`
-  border: 4px solid ${colors.graySecondary};
-  border-radius: 4px;
+  border: ${getBorder('md', 'solid', 'grayBase')};
+  border-radius: ${getSize('xs')};
   span {
-    border-radius: 4px;
+    border-radius: ${getSize('xs')};
   }
 `

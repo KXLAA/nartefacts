@@ -1,13 +1,6 @@
 /* istanbul ignore file */
 import { createGlobalStyle } from 'styled-components'
 
-export const colors = {
-  blackPrimary: '#191919',
-  blackSecondary: '#202020',
-  grayPrimary: '#5A5A5A',
-  graySecondary: '#363636',
-}
-
 export const testColors = {
   black: '#231651',
   white: '#FFFFFF',
@@ -47,22 +40,38 @@ export const theme = {
     full: '9999px',
   },
   borders: {
-    none: 'none',
-    sm: '2px',
-    md: '4px',
-    lg: '8px',
+    solid: {
+      sm: '1px solid',
+      base: '2px solid',
+      md: '4px solid',
+      lg: '8px solid',
+    },
+    dashed: {
+      sm: '1px dashed',
+      base: '2px solid',
+      md: '4px dashed',
+      lg: '8px dashed',
+    },
   },
 }
-//Helper functions & Types
+//Getter functions & Types
 export type Size = keyof typeof theme.size
 export type FontSize = keyof typeof theme.text
-
 export const getFontSize = (fontSize: FontSize) => theme.text[fontSize]
-
 export const getSize = (size: Size) => theme.size[size]
+
+export const getBorder = (
+  size: Extract<'base' | Size, 'sm' | 'md' | 'lg'> = 'md',
+  style: 'solid' | 'dashed' = 'solid',
+  color: keyof typeof theme.colors = 'grayLight',
+) => {
+  return `${theme.borders[style][size]} ${theme.colors[color]}`
+}
 
 export const getColor = (color: keyof typeof theme.colors) =>
   theme.colors[color]
+
+//Global styles
 
 export const GlobalStyles = createGlobalStyle`
 *, *::before, *::after {

@@ -1,8 +1,8 @@
-import { render, fireEvent } from '@testing-library/react'
-import { createMockRouter } from '@/utils'
+import { fireEvent, render } from '@testing-library/react'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 
 import { Header } from '@/components/Header'
+import { createMockRouter } from '@/utils'
 
 describe('<Header />', () => {
   it('should render the header based on props', () => {

@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import * as S from '@/components/Header/styles'
 
-import { Logo } from '@/components/Logo'
 import { Button } from '@/components/Button'
 import { Spacer } from '@/components/Common/Spacer'
+import * as S from '@/components/Header/styles'
+import { Logo } from '@/components/Logo'
 
 export type HeaderProps = {
   primary?: boolean

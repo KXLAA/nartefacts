@@ -1,9 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as S from '@/components/Palette/styles'
-import { useCopyToClipboard, useMouseOver } from '@/lib/hooks'
 import toast from 'react-hot-toast'
 
-export type colorsTuple = [
+import * as Layout from '@/components/Common/Layout'
+import * as S from '@/components/Palette/styles'
+import { useCopyToClipboard, useMouseOver } from '@/lib/hooks'
+
+export type PalletteProps = {
+  colors: string[]
+  small?: boolean
+}
+
+export type ColorBoxProps = {
+  color: string
+  title: string
+  small?: boolean
+}
+
+export type ColorsTuple = [
   string,
   string,
   string,
@@ -14,19 +27,9 @@ export type colorsTuple = [
   string,
 ]
 
-export type PaletteProps = {
-  colors: colorsTuple
-}
-
-type ColorBoxProps = {
-  color: string
-  title: string
-}
-
-const ColorBox: React.FC<ColorBoxProps> = ({ color, title }) => {
-  const [value, copy] = useCopyToClipboard()
+const ColorBox: React.FC<ColorBoxProps> = ({ color, title, small }) => {
+  const [, copy] = useCopyToClipboard()
   const [hoverRef, isHovered] = useMouseOver()
-  console.log(value)
 
   const copyToClipboard = (color: string) => {
     copy(color)
@@ -34,32 +37,32 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, title }) => {
   }
 
   return (
-    <>
-      <S.Color
-        ref={hoverRef as any}
-        color={color}
-        title={title}
-        onClick={() => copyToClipboard(color)}
-      >
-        <span>{isHovered && `COPY`}</span>
-      </S.Color>
-    </>
+    <S.Color
+      small={small}
+      ref={hoverRef as any}
+      color={color}
+      title={title}
+      onClick={() => copyToClipboard(color)}
+    >
+      <span>{isHovered && `COPY`}</span>
+    </S.Color>
   )
 }
 
-export const Palette: React.FC<PaletteProps> = ({ colors }) => {
-  colors?.forEach((color, index) => {
+export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
+  colors.forEach((color, index) => {
     if (!color.match(/^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i)) {
       console.warn(
         `Invalid color ${color} at index ${index} in Palette component.`,
       )
     }
   })
+
   return (
-    <S.Wrapper title="Palette">
+    <Layout.Grid columns={4} gap={small ? 'xxs' : 'sm'}>
       {colors?.map((color) => (
-        <ColorBox key={color} color={color} title="Color" />
+        <ColorBox key={color} color={color} title="Color" small={small} />
       ))}
-    </S.Wrapper>
+    </Layout.Grid>
   )
 }
