@@ -15,7 +15,7 @@ describe('<Button />', () => {
     })
   })
 
-  it('should render the Button correctly', () => {
+  it('should render <Button /> correctly', () => {
     const { container } = render(<Button />)
     expect(container.firstChild).toMatchSnapshot()
   })

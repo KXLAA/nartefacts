@@ -10,7 +10,7 @@ describe('<Counter />', () => {
     expect(counter).toBeInTheDocument()
   })
 
-  it('should render the component correctly', () => {
+  it('should render <Counter /> correctly', () => {
     const { container } = render(<Counter />)
     expect(container.firstChild).toMatchSnapshot()
   })

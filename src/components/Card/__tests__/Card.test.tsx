@@ -11,7 +11,7 @@ describe('<Card />', () => {
     expect(image).toBeTruthy()
   })
 
-  it('should render card  correctly', () => {
+  it('should render <Card /> correctly', () => {
     const { container } = render(<Card albumArt={imageUrl} />)
     expect(container.firstChild).toMatchSnapshot()
   })

@@ -18,7 +18,7 @@ describe('<Preview />', () => {
     expect(preview).toBeInTheDocument()
   })
 
-  it('should render the component correctly', () => {
+  it('should render <Preview /> correctly', () => {
     const { container } = render(
       <Preview colors={colors} imageUrl={imageUrl} />,
     )

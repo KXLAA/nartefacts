@@ -9,7 +9,7 @@ describe('<Title />', () => {
     expect(description).toBeInTheDocument()
   })
 
-  it('should render the entire title correctly', () => {
+  it('should render <Title /> correctly', () => {
     const { container } = render(<Title />)
     expect(container.firstChild).toMatchSnapshot()
   })
