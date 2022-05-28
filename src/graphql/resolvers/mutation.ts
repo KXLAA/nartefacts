@@ -29,64 +29,23 @@ const Mutation: MutationResolvers = {
     return { colors: colors! }
   },
 
-  //Artist
-  addArtist: async (_, { input }) => {
-    const artist = await prisma.artist.create({
-      data: {
-        name: input?.name || '',
-        biography: input?.biography || '',
-        photoUrl: input?.photoUrl || '',
-      },
-    })
-    return artist
-  },
-
-  updateArtist: async (_, { artistID, input }) => {
-    const updateArtist = await prisma.artist.update({
-      where: {
-        id: artistID,
-      },
-      data: {
-        name: input?.name || '',
-        biography: input?.biography || '',
-        photoUrl: input?.photoUrl || '',
-      },
-    })
-
-    return updateArtist
-  },
-
-  deleteArtist: async (_, { artistID }) => {
-    const deleteArtist = await prisma.artist.delete({
-      where: {
-        id: artistID,
-      },
-    })
-    return deleteArtist ? true : false
-  },
-
   //Album
   addAlbum: async (_, { input }) => {
-    const artist = await prisma.artist.findUnique({
-      where: {
-        name: input?.artistName,
-      },
-    })
-    if (!artist) {
-      throw new UserInputError('cannot find artist', {
-        argumentName: 'artistName',
-      })
-    }
-    const album = await prisma.album.create({
+    const album = await prisma.albums.create({
       data: {
+        v: 0,
         title: input?.title || '',
         type: input?.type || '',
-        artistId: artist?.id,
         albumArt: input?.albumArt || '',
         likeCount: input?.likeCount || 0,
-        description: input?.description || '',
-        spotify: input?.spotify || '',
-        apple: input?.apple || '',
+        artist: {
+          name: '',
+          photoURL: '',
+        },
+        urls: {
+          spotify: input?.urls?.spotify || '',
+          apple: input?.urls?.apple || '',
+        },
         colors: input?.colors,
       },
     })
@@ -95,30 +54,24 @@ const Mutation: MutationResolvers = {
   },
 
   updateAlbum: async (_, { albumID, input }) => {
-    const artist = await prisma.artist.findUnique({
-      where: {
-        name: input?.artistName,
-      },
-    })
-    if (!artist) {
-      throw new UserInputError('cannot find artist', {
-        argumentName: 'artistName',
-      })
-    }
-
-    const updateAlbum = await prisma.album.update({
+    const updateAlbum = await prisma.albums.update({
       where: {
         id: albumID,
       },
       data: {
+        v: 0,
         title: input?.title || '',
         type: input?.type || '',
-        artistId: artist?.id,
         albumArt: input?.albumArt || '',
         likeCount: input?.likeCount || 0,
-        description: input?.description || '',
-        spotify: input?.spotify || '',
-        apple: input?.apple || '',
+        artist: {
+          name: '',
+          photoURL: '',
+        },
+        urls: {
+          spotify: input?.urls?.spotify || '',
+          apple: input?.urls?.apple || '',
+        },
         colors: input?.colors,
       },
     })
@@ -126,7 +79,7 @@ const Mutation: MutationResolvers = {
   },
 
   deleteAlbum: async (_, { albumID }) => {
-    const deleteAlbum = await prisma.album.delete({
+    const deleteAlbum = await prisma.albums.delete({
       where: {
         id: albumID,
       },
@@ -136,7 +89,7 @@ const Mutation: MutationResolvers = {
 
   //Social
   addToLike: async (_, { albumID }) => {
-    const updateAlbum = await prisma.album.update({
+    const updateAlbum = await prisma.albums.update({
       where: {
         id: albumID,
       },
@@ -150,7 +103,7 @@ const Mutation: MutationResolvers = {
   },
 
   removeFromLike: async (_, { albumID }) => {
-    const updateAlbum = await prisma.album.update({
+    const updateAlbum = await prisma.albums.update({
       where: {
         id: albumID,
       },

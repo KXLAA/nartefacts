@@ -1,8 +1,8 @@
 overwrite: true
-schema: './graphql/typeDefs/index.ts'
-documents: '**/*.{gql,graphql}'
+schema: './src/graphql/typeDefs/index.ts'
+documents: 'src/**/*.+(gql|graphql)'
 generates:
-  ./graphql/generated/graphql.tsx:
+  ./src/graphql/generated/graphql.tsx:
     plugins:
       - 'typescript'
       - 'typescript-operations'
