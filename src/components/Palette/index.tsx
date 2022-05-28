@@ -38,7 +38,13 @@ export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
     <S.Color
       small={small}
       ref={hoverRef as any}
-      color={color}
+      css={{
+        backgroundColor: color.match(
+          /^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i,
+        )
+          ? color
+          : '#202020',
+      }}
       onClick={() => copyToClipboard(color)}
       data-testid="color-box"
     >
@@ -57,7 +63,7 @@ export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
   })
 
   return (
-    <Layout.Grid columns={4} gap={small ? 'xxs' : 'sm'}>
+    <Layout.Grid columns={4} gap={small ? 1 : 2}>
       {colors?.map((color) => (
         <ColorBox key={color} color={color} small={small} />
       ))}

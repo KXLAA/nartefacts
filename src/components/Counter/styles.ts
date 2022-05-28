@@ -1,21 +1,17 @@
-import styled from 'styled-components'
+import { styled } from '@/lib/stitches.config'
 
-import { getBorder, getColor, getFontSize } from '@/styles/global'
+export const Wrapper = styled('div', {
+  textAlign: 'center',
+  display: 'flex',
+  justifyContent: 'center',
+})
 
-export const Wrapper = styled.div`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-`
-
-export const Counter = styled.div`
-  background-color: ${getColor('blackLight')};
-  font-weight: bold;
-  width: 100%;
-  border: ${getBorder('sm', 'solid', 'grayLight')};
-  border-radius: 8px;
-  max-width: 500px;
-  font-size: ${getFontSize('lg')};
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-`
+export const Counter = styled('div', {
+  backgroundColor: '$black-light',
+  fontWeight: 'bold',
+  width: '100%',
+  borderRadius: '$rounded',
+  maxWidth: '500px',
+  fontSize: '$lg',
+  py: '$1',
+})

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
-import * as S from '@/components/Card/styles'
+import { Gradient, ImageWrapper } from '@/components/Card/styles'
+import { Flex } from '@/components/Flex'
 
 export type CardProps = {
   image?: string | null
@@ -22,9 +23,9 @@ export type CardProps = {
 
 export const Card: React.FC<CardProps> = ({ albumArt }) => {
   return (
-    <S.Card>
-      <S.Gradient />
-      <S.ImageWrapper>
+    <Flex direction="column" gap={4}>
+      <Gradient />
+      <ImageWrapper>
         <Image
           src={albumArt!}
           height={385}
@@ -32,7 +33,7 @@ export const Card: React.FC<CardProps> = ({ albumArt }) => {
           alt={'album art'}
           layout="responsive"
         />
-      </S.ImageWrapper>
-    </S.Card>
+      </ImageWrapper>
+    </Flex>
   )
 }

@@ -1,16 +1,23 @@
-import styled from 'styled-components'
+import { styled } from '@/lib/stitches.config'
 
-import { getBorder, getSize } from '@/styles/global'
+export const ImageWrapper = styled('div', {
+  border: '2px solid $gray-light',
+  borderRadius: '$rounded',
 
-export const ImageWrapper = styled.div<{ small?: boolean }>`
-  border: ${({ small }) =>
-    small
-      ? getBorder('sm', 'solid', 'grayLight')
-      : getBorder('base', 'solid', 'grayLight')};
-  border-radius: ${({ small }) => (small ? getSize('xs') : getSize('sm'))};
-  padding: 0;
+  '& span': {
+    borderRadius: '$rounded',
+  },
 
-  span {
-    border-radius: ${({ small }) => (small ? getSize('xs') : getSize('sm'))};
-  }
-`
+  variants: {
+    small: {
+      true: {
+        border: '1px solid $gray-light',
+        borderRadius: '$rounded-sm',
+
+        '& span': {
+          borderRadius: '$rounded-sm',
+        },
+      },
+    },
+  },
+})
