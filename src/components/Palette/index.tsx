@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import toast from 'react-hot-toast'
 
 import * as Layout from '@/components/Common/Layout'
