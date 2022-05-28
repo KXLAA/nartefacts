@@ -4,7 +4,6 @@ import Head from 'next/head'
 import { useState } from 'react'
 
 import * as Layout from '@/components/Common/Layout'
-import { Spacer } from '@/components/Common/Spacer'
 import { Counter } from '@/components/Counter'
 import { Dropzone } from '@/components/Dropzone'
 import { Header } from '@/components/Header'
@@ -40,7 +39,6 @@ export default function Create() {
       </Head>
       <Header secondary />
       <Title text={getText()} />
-      <Spacer size="md" />
       <>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
@@ -57,7 +55,6 @@ export default function Create() {
             }}
           />
         ) : null}
-        <Spacer size="lg" />
 
         <Counter count={count?.analytics[0]?.generatedPalettes} />
       </>

@@ -3,11 +3,9 @@ import { ApolloProvider } from '@apollo/client'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Toaster } from 'react-hot-toast'
-import { ThemeProvider } from 'styled-components'
 
 import { useApollo } from '@/lib/apollo'
 import { globalStyles } from '@/lib/stitches.config'
-import { theme } from '@/styles/global'
 
 function App({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)
@@ -69,20 +67,18 @@ function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <ApolloProvider client={apolloClient}>
-        <ThemeProvider theme={theme}>
-          <Toaster
-            position="top-right"
-            reverseOrder={true}
-            toastOptions={{
-              style: {
-                padding: '0rem',
-                background: 'none',
-                width: '15rem',
-              },
-            }}
-          />
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <Toaster
+          position="top-right"
+          reverseOrder={true}
+          toastOptions={{
+            style: {
+              padding: '0rem',
+              background: 'none',
+              width: '15rem',
+            },
+          }}
+        />
+        <Component {...pageProps} />
       </ApolloProvider>
     </>
   )

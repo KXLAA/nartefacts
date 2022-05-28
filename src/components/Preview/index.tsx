@@ -2,7 +2,7 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 
 import { Button } from '@/components/Button'
-import { Spacer } from '@/components/Common/Spacer'
+import { Flex } from '@/components/Flex'
 import { Generated } from '@/components/Generated'
 import { ColorsTuple } from '@/components/Palette'
 import * as S from '@/components/Preview/styles'
@@ -32,12 +32,15 @@ export const Preview: React.FC<PreviewProps> = ({
 
   return (
     <S.Wrapper data-testid="Preview">
-      <S.Buttons>
-        <Button label="Save" disabled={disable} onClick={save} />
-        <Button label="Refresh" onClick={reset ? reset : undefined} />
-      </S.Buttons>
-      <Spacer size="md" />
-
+      <Flex gap={4}>
+        <Button label="Save" disabled={disable} onClick={save} fullWidth />
+        <Button
+          variant="dark"
+          label="Refresh"
+          onClick={reset ? reset : undefined}
+          fullWidth
+        />
+      </Flex>
       <Generated imageUrl={imageUrl} colors={colors} />
     </S.Wrapper>
   )

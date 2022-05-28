@@ -40,7 +40,7 @@ export const {
     colors: {
       'white-base': '#E3E3E3',
       'black-base': '#191919',
-      'black-light': '#191919',
+      'black-light': '#202020',
       'gray-base': '#363636',
       'gray-light': '#5A5A5A',
       'red-base': '#630101',

@@ -8,8 +8,7 @@ export const StyledButton = styled('button', {
   userSelect: 'none',
 
   // Custom reset?
-  display: 'inline-flex',
-  flexShrink: 0,
+  display: 'flex',
   justifyContent: 'center',
   alignContent: 'center',
   lineHeight: '1',

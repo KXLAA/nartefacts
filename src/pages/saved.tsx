@@ -6,7 +6,6 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/Button'
 import * as Layout from '@/components/Common/Layout'
 import { Grid } from '@/components/Common/Layout'
-import { Spacer } from '@/components/Common/Spacer'
 import { Generated } from '@/components/Generated'
 import { Header } from '@/components/Header'
 import { Title } from '@/components/Title'
@@ -29,7 +28,6 @@ export default function Saved() {
       <Layout.Main size="md">
         <Header secondary />
         <Title text={getText()} />
-        <Spacer size="lg" />
         <Grid columns={3}>
           {store.generatedColors.map((item) => (
             <div key={item.id}>
@@ -43,7 +41,6 @@ export default function Saved() {
                   toast(`Deleted Palette`)
                 }}
               />
-              <Spacer size="sm" />
               <Generated small {...item} />
             </div>
           ))}

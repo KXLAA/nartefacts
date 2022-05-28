@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-import { Spacer } from '@/components/Common/Spacer'
 import * as S from '@/components/Generated/styles'
 import { ColorsTuple, Palette } from '@/components/Palette'
 
@@ -26,7 +25,6 @@ export const Generated: React.FC<GeneratedProps> = ({
           layout="responsive"
         />
       </S.ImageWrapper>
-      <Spacer size="sm" />
       <Palette colors={colors as ColorsTuple} small={small} />
     </div>
   )

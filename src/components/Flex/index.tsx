@@ -1,8 +1,8 @@
 import { styled } from '@/lib/stitches.config'
 
 export const Flex = styled('div', {
-  boxSizing: 'border-box',
   display: 'flex',
+  width: '100%',
   variants: {
     direction: {
       row: {
@@ -116,8 +116,5 @@ export const Flex = styled('div', {
   },
   defaultVariants: {
     direction: 'row',
-    align: 'stretch',
-    justify: 'start',
-    wrap: 'noWrap',
   },
 })
