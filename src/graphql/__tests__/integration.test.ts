@@ -1,41 +1,9 @@
-import { ApolloServer, gql } from 'apollo-server-micro'
+import { ApolloServer } from 'apollo-server-micro'
 
+import { AllAlbumsDocument } from '@/graphql/generated/graphql'
 import resolvers from '@/graphql/resolvers'
 import typeDefs from '@/graphql/typeDefs'
 
-const GET_ALBUMS = gql`
-  query Albums($first: Int, $after: String) {
-    allAlbums(first: $first, after: $after) {
-      edges {
-        cursor
-        node {
-          id
-          title
-          type
-          artist {
-            id
-            name
-            photoUrl
-            biography
-            albums {
-              id
-            }
-          }
-          albumArt
-          likeCount
-          description
-          spotify
-          apple
-          colors
-        }
-      }
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-    }
-  }
-`
 const testServer = new ApolloServer({
   typeDefs,
   resolvers,
@@ -43,7 +11,7 @@ const testServer = new ApolloServer({
 
 it('returns a list of all albums', async () => {
   const result = await testServer.executeOperation({
-    query: GET_ALBUMS,
+    query: AllAlbumsDocument,
     // variables: { name: 'world' },
   })
 
@@ -55,7 +23,7 @@ it('returns a list of n albums', async () => {
   const n = 3
 
   const result = await testServer.executeOperation({
-    query: GET_ALBUMS,
+    query: AllAlbumsDocument,
     variables: { first: n },
   })
 

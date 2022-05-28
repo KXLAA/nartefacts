@@ -20,10 +20,6 @@ const typeDefs = gql`
     updateAlbum(albumID: ID!, input: AlbumInput): Album!
     deleteAlbum(albumID: ID!): Boolean!
 
-    addArtist(input: ArtistInput): Artist!
-    updateArtist(artistID: ID!, input: ArtistInput): Artist!
-    deleteArtist(artistID: ID!): Boolean!
-
     signUp(username: String!, password: String!): String!
     logIn(username: String!, password: String!): String!
 
@@ -32,15 +28,13 @@ const typeDefs = gql`
 
   type Album {
     id: ID!
+    albumArt: String!
+    artist: Artist!
+    colors: [String!]!
+    likeCount: Int!
     title: String!
     type: String!
-    artist: Artist
-    albumArt: String!
-    likeCount: Int
-    description: String
-    spotify: String
-    apple: String
-    colors: [String!]!
+    urls: Urls!
   }
 
   type Admin {
@@ -49,15 +43,13 @@ const typeDefs = gql`
   }
 
   input AlbumInput {
+    albumArt: String!
+    artist: ArtistInput!
+    colors: [String!]!
+    likeCount: Int
     title: String!
     type: String!
-    artistName: String!
-    albumArt: String!
-    likeCount: Int
-    description: String
-    spotify: String
-    apple: String
-    colors: [String!]!
+    urls: UrlsInput!
   }
 
   type Colors {
@@ -65,12 +57,14 @@ const typeDefs = gql`
     # gradient: String
   }
 
+  type Urls {
+    apple: String
+    spotify: String
+  }
+
   type Artist {
-    id: ID!
     name: String
-    photoUrl: String
-    biography: String
-    albums: [Album!]
+    photoURL: String
   }
 
   type Analytics {
@@ -80,8 +74,12 @@ const typeDefs = gql`
 
   input ArtistInput {
     name: String
-    photoUrl: String
-    biography: String
+    photoURL: String
+  }
+
+  input UrlsInput {
+    apple: String
+    spotify: String
   }
 
   # Defining paginated relationships using the cursor connections specification
