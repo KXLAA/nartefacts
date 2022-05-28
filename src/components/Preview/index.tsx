@@ -33,21 +33,8 @@ export const Preview: React.FC<PreviewProps> = ({
   return (
     <S.Wrapper data-testid="Preview">
       <S.Buttons>
-        <Button
-          label="Save"
-          buttonType="primary"
-          disabled={disable}
-          width="full"
-          onClick={save}
-          fontSize="xl"
-        />
-        <Button
-          label="Refresh"
-          buttonType="secondary"
-          width="full"
-          onClick={reset ? reset : undefined}
-          fontSize="xl"
-        />
+        <Button label="Save" disabled={disable} onClick={save} />
+        <Button label="Refresh" onClick={reset ? reset : undefined} />
       </S.Buttons>
       <Spacer size="md" />
 

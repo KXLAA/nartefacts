@@ -16,14 +16,13 @@ export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
       {primary ? (
         <S.Layout>
           <Logo />
-
           <S.Nav>
             <Link href="/create" passHref>
-              <Button label="create" buttonType="link-primary" width="full" />
+              <Button label="create" />
             </Link>
 
             <Link href="/saved" passHref>
-              <Button label="saved" buttonType="link-secondary" width="full" />
+              <Button label="saved" />
             </Link>
 
             {/* <Link href="/info" passHref>

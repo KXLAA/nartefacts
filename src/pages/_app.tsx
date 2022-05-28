@@ -6,10 +6,12 @@ import { Toaster } from 'react-hot-toast'
 import { ThemeProvider } from 'styled-components'
 
 import { useApollo } from '@/lib/apollo'
-import { GlobalStyles, theme } from '@/styles/global'
+import { globalStyles } from '@/lib/stitches.config'
+import { theme } from '@/styles/global'
 
 function App({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)
+  globalStyles()
 
   return (
     <>
@@ -79,7 +81,6 @@ function App({ Component, pageProps }: AppProps) {
               },
             }}
           />
-          <GlobalStyles />
           <Component {...pageProps} />
         </ThemeProvider>
       </ApolloProvider>
