@@ -1,4 +1,4 @@
-import { Album } from '@prisma/client'
+import { albums } from '@prisma/client'
 
 //Helper function to covert rgb color codes to HEX color codes
 export const rgbToHex = (arr: [number, number, number]): string => {
@@ -9,7 +9,7 @@ export const rgbToHex = (arr: [number, number, number]): string => {
 export const paginate = (
   firstArg: number,
   afterArg: string,
-  dataToPaginate: Album[] | [],
+  dataToPaginate: albums[] | [],
 ) => {
   //Slicing is done with the first argument. This asks for the query to return the first 10 items from the dataToPaginate .
   const first = firstArg || 10
