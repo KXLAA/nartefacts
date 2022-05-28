@@ -75,6 +75,14 @@ export const {
       xxl: '3rem', //48px,
     },
 
+    borderWidths: {
+      none: '0px',
+      sm: '1px',
+      base: '2px',
+      lg: '4px',
+      xl: '8px',
+    },
+
     /* Spacing */
     space: {
       0: '0px',
@@ -222,6 +230,16 @@ export const {
     my: (value: PropertyValue<'marginTop'>) => ({
       marginTop: value,
       marginBottom: value,
+    }),
+
+    getBorder: (value: {
+      style: PropertyValue<'borderStyle'>
+      width: PropertyValue<'borderWidth'>
+      color: PropertyValue<'borderColor'>
+    }) => ({
+      borderStyle: value.style,
+      borderWidth: value.width,
+      borderColor: value.color,
     }),
 
     // An abbreviated property for border-radius
