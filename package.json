@@ -27,6 +27,7 @@
     "@apollo/client": "^3.5.10",
     "@hookform/resolvers": "^2.8.8",
     "@prisma/client": "3.10.0",
+    "@stitches/react": "^1.2.8",
     "apollo-server-micro": "^3.6.4",
     "argon2": "^0.28.5",
     "colorthief": "^2.3.2",
