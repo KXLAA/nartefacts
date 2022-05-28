@@ -14,6 +14,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] move all images used on the home page to s3 from uploadcare
 - [ ] E2E tests with Cypress
 - [ ] Migrate to MongoDB
+- [x] Migrate to Stitches
 
 ### Home Page
 

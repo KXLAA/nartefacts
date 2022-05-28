@@ -45,7 +45,7 @@ describe('<Header />', () => {
       </RouterContext.Provider>,
     )
 
-    const createLink = getByRole('link', { name: /create/i })
+    const createLink = getByRole('button', { name: /create/i })
 
     fireEvent.click(createLink)
     expect(router.push).toHaveBeenCalledWith('/create', '/create', {
