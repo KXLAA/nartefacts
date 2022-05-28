@@ -9,6 +9,7 @@ import { Dropzone } from '@/components/Dropzone'
 import { Header } from '@/components/Header'
 import { ColorsTuple } from '@/components/Palette'
 import { Preview } from '@/components/Preview'
+import { Spacer } from '@/components/Spacer'
 import { Title } from '@/components/Title'
 import { useAnalyticsQuery } from '@/graphql/generated/graphql'
 
@@ -38,7 +39,9 @@ export default function Create() {
         <title>{getText()}</title>
       </Head>
       <Header secondary />
+      <Spacer horizontal={8} />
       <Title text={getText()} />
+      <Spacer horizontal={4} />
       <>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
@@ -55,7 +58,7 @@ export default function Create() {
             }}
           />
         ) : null}
-
+        <Spacer horizontal={8} />
         <Counter count={count?.analytics[0]?.generatedPalettes} />
       </>
     </Layout.Main>

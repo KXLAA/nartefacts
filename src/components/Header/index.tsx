@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
           <Logo />
           <Flex as="nav" gap={6}>
             <Link href="/create" passHref>
-              <Button label="create" fullWidth />
+              <Button variant="dark" label="create" fullWidth />
             </Link>
 
             <Link href="/saved" passHref>

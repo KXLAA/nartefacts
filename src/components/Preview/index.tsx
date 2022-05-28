@@ -6,6 +6,7 @@ import { Flex } from '@/components/Flex'
 import { Generated } from '@/components/Generated'
 import { ColorsTuple } from '@/components/Palette'
 import * as S from '@/components/Preview/styles'
+import { Spacer } from '@/components/Spacer'
 import { Toast } from '@/components/Toast'
 import { useCreatedStore } from '@/lib/store'
 
@@ -34,6 +35,7 @@ export const Preview: React.FC<PreviewProps> = ({
     <S.Wrapper data-testid="Preview">
       <Flex gap={4}>
         <Button label="Save" disabled={disable} onClick={save} fullWidth />
+
         <Button
           variant="dark"
           label="Refresh"
@@ -41,6 +43,7 @@ export const Preview: React.FC<PreviewProps> = ({
           fullWidth
         />
       </Flex>
+      <Spacer horizontal={4} />
       <Generated imageUrl={imageUrl} colors={colors} />
     </S.Wrapper>
   )

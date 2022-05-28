@@ -8,6 +8,7 @@ import * as Layout from '@/components/Common/Layout'
 import { Grid } from '@/components/Common/Layout'
 import { Generated } from '@/components/Generated'
 import { Header } from '@/components/Header'
+import { Spacer } from '@/components/Spacer'
 import { Title } from '@/components/Title'
 import { useCreatedStore } from '@/lib/store'
 
@@ -27,13 +28,14 @@ export default function Saved() {
       </Head>
       <Layout.Main size="md">
         <Header secondary />
+        <Spacer horizontal={8} />
         <Title text={getText()} />
+        <Spacer horizontal={4} />
         <Grid columns={3}>
           {store.generatedColors.map((item) => (
             <div key={item.id}>
               <Button
                 size="sm"
-                fullWidth
                 variant="danger"
                 label="Delete"
                 onClick={() => {
@@ -41,6 +43,8 @@ export default function Saved() {
                   toast(`Deleted Palette`)
                 }}
               />
+              <Spacer horizontal={2} />
+
               <Generated small {...item} />
             </div>
           ))}

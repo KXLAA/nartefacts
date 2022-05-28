@@ -3,6 +3,7 @@
 import { Card } from '@/components/Card'
 import * as Layout from '@/components/Common/Layout'
 import { Header } from '@/components/Header'
+import { Spacer } from '@/components/Spacer'
 import {
   AllAlbumsDocument,
   AllAlbumsQueryResult,
@@ -15,6 +16,7 @@ export default function Home({ data }: AllAlbumsQueryResult) {
   return (
     <Layout.Main>
       <Header primary />
+      <Spacer horizontal={8} />
 
       <Layout.Grid columns={3}>
         {albums?.map((album) => (
