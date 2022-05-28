@@ -57,7 +57,7 @@ export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
   })
 
   return (
-    <Layout.Grid columns={4} gap={small ? 'xxs' : 'sm'}>
+    <Layout.Grid columns={4} gap={small ? 1 : 3}>
       {colors?.map((color) => (
         <ColorBox key={color} color={color} small={small} />
       ))}

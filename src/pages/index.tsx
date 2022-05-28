@@ -13,7 +13,7 @@ export default function Home({ data }: AllAlbumsQueryResult) {
   const albums = data?.allAlbums?.node
 
   return (
-    <Layout.Main padding>
+    <Layout.Main>
       <Header primary />
 
       <Layout.Grid columns={3}>

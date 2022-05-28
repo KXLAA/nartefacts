@@ -1,8 +1,7 @@
 import Image from 'next/image'
 
+import { Gradient, ImageWrapper } from '@/components/Card/styles'
 import { Flex } from '@/components/Flex'
-
-import { Gradient, ImageWrapper } from './styles'
 
 export type CardProps = {
   image?: string | null
