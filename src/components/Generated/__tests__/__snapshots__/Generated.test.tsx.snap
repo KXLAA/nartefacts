@@ -1,75 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Palette /> should render the <Palette /> correctly 1`] = `
+exports[`<Generated /> should render <Generated /> correctly 1`] = `
+.c1 {
+  display: block;
+  width: 8px;
+  min-width: 8px;
+  height: 8px;
+  min-height: 8px;
+}
+
 .c0 {
+  border: 2px solid #5A5A5A;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.c0 span {
+  border-radius: 8px;
+}
+
+.c2 {
   width: 100%;
   display: grid;
   grid-template-columns: repeat( 4,1fr );
   gap: 8px;
-}
-
-.c1 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #095525;
-}
-
-.c1:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c1 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c2 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #673636;
-}
-
-.c2:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c2 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
 }
 
 .c3 {
@@ -90,7 +44,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
   border-radius: 8px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #379273;
+  background: #095525;
 }
 
 .c3:hover {
@@ -122,7 +76,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
   border-radius: 8px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #136407;
+  background: #673636;
 }
 
 .c4:hover {
@@ -154,7 +108,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
   border-radius: 8px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #573227;
+  background: #379273;
 }
 
 .c5:hover {
@@ -186,7 +140,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
   border-radius: 8px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #547820;
+  background: #136407;
 }
 
 .c6:hover {
@@ -218,7 +172,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
   border-radius: 8px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #163598;
+  background: #573227;
 }
 
 .c7:hover {
@@ -250,7 +204,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
   border-radius: 8px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #682052;
+  background: #547820;
 }
 
 .c8:hover {
@@ -264,64 +218,152 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
   color: #E3E3E3;
 }
 
-<div
-  class="c0"
->
+.c9 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #163598;
+}
+
+.c9:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c9 span {
+  font-weight: bold;
+  font-size: 24px;
+  color: #E3E3E3;
+}
+
+.c10 {
+  height: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #682052;
+}
+
+.c10:hover {
+  -webkit-filter: brightness(150%);
+  filter: brightness(150%);
+}
+
+.c10 span {
+  font-weight: bold;
+  font-size: 24px;
+  color: #E3E3E3;
+}
+
+<div>
   <div
-    class="c1"
-    color="#095525"
-    data-testid="color-box"
+    class="c0"
   >
-    <span />
+    <span
+      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+    >
+      <span
+        style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+      />
+      <img
+        alt="user uploaded image"
+        data-nimg="responsive"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+      />
+      <noscript />
+    </span>
   </div>
+  <span
+    class="c1"
+  />
   <div
     class="c2"
-    color="#673636"
-    data-testid="color-box"
   >
-    <span />
-  </div>
-  <div
-    class="c3"
-    color="#379273"
-    data-testid="color-box"
-  >
-    <span />
-  </div>
-  <div
-    class="c4"
-    color="#136407"
-    data-testid="color-box"
-  >
-    <span />
-  </div>
-  <div
-    class="c5"
-    color="#573227"
-    data-testid="color-box"
-  >
-    <span />
-  </div>
-  <div
-    class="c6"
-    color="#547820"
-    data-testid="color-box"
-  >
-    <span />
-  </div>
-  <div
-    class="c7"
-    color="#163598"
-    data-testid="color-box"
-  >
-    <span />
-  </div>
-  <div
-    class="c8"
-    color="#682052"
-    data-testid="color-box"
-  >
-    <span />
+    <div
+      class="c3"
+      color="#095525"
+      data-testid="color-box"
+    >
+      <span />
+    </div>
+    <div
+      class="c4"
+      color="#673636"
+      data-testid="color-box"
+    >
+      <span />
+    </div>
+    <div
+      class="c5"
+      color="#379273"
+      data-testid="color-box"
+    >
+      <span />
+    </div>
+    <div
+      class="c6"
+      color="#136407"
+      data-testid="color-box"
+    >
+      <span />
+    </div>
+    <div
+      class="c7"
+      color="#573227"
+      data-testid="color-box"
+    >
+      <span />
+    </div>
+    <div
+      class="c8"
+      color="#547820"
+      data-testid="color-box"
+    >
+      <span />
+    </div>
+    <div
+      class="c9"
+      color="#163598"
+      data-testid="color-box"
+    >
+      <span />
+    </div>
+    <div
+      class="c10"
+      color="#682052"
+      data-testid="color-box"
+    >
+      <span />
+    </div>
   </div>
 </div>
 `;

@@ -469,56 +469,56 @@ exports[`<Preview /> should render the component correctly 1`] = `
       <div
         class="c8"
         color="#095525"
-        title="Color"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
         class="c9"
         color="#673636"
-        title="Color"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
         class="c10"
         color="#379273"
-        title="Color"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
         class="c11"
         color="#136407"
-        title="Color"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
         class="c12"
         color="#573227"
-        title="Color"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
         class="c13"
         color="#547820"
-        title="Color"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
         class="c14"
         color="#163598"
-        title="Color"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
         class="c15"
         color="#682052"
-        title="Color"
+        data-testid="color-box"
       >
         <span />
       </div>

@@ -22,11 +22,11 @@ export const Preview: React.FC<PreviewProps> = ({
   reset,
 }) => {
   const store = useCreatedStore()
-  const [disable, setDisable] = useState<boolean>(false)
+  const [disable, setDisable] = useState<boolean>(!colors)
 
   const save = () => {
     setDisable(true)
-    store.addGeneratedColor(imageUrl, colors)
+    if (colors && imageUrl) store.addGeneratedColor(imageUrl, colors)
     toast(() => <Toast imageUrl={imageUrl} />)
   }
 

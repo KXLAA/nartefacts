@@ -18,15 +18,13 @@ export const Generated: React.FC<GeneratedProps> = ({
   return (
     <div>
       <S.ImageWrapper small={small}>
-        {imageUrl && (
-          <Image
-            src={imageUrl as string}
-            height={800}
-            width={800}
-            alt={'user uploaded image'}
-            layout="responsive"
-          />
-        )}
+        <Image
+          src={imageUrl ? (imageUrl as string) : '/public/placeholder.png'}
+          height={800}
+          width={800}
+          alt={'user uploaded image'}
+          layout="responsive"
+        />
       </S.ImageWrapper>
       <Spacer size="sm" />
       <Palette colors={colors as ColorsTuple} small={small} />

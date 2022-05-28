@@ -11,7 +11,7 @@ describe('<Header />', () => {
     expect(header).toBeInTheDocument()
   })
 
-  it('should render the entire header correctly', () => {
+  it('should render <Header /> correctly', () => {
     const { container } = render(<Header primary />)
     expect(container.firstChild).toMatchSnapshot()
   })
@@ -24,11 +24,11 @@ describe('<Header />', () => {
 
   it('should render the navigation buttons', () => {
     const { getByText } = render(<Header primary />)
-    const infoLink = getByText(/info/i)
+    // const infoLink = getByText(/info/i)
     const savedLink = getByText(/saved/i)
     const createLink = getByText(/create/i)
 
-    expect(infoLink).toBeInTheDocument()
+    // expect(infoLink).toBeInTheDocument()
     expect(savedLink).toBeInTheDocument()
     expect(createLink).toBeInTheDocument()
   })
@@ -45,10 +45,10 @@ describe('<Header />', () => {
       </RouterContext.Provider>,
     )
 
-    const infoLink = getByRole('link', { name: /info/i })
+    const createLink = getByRole('link', { name: /create/i })
 
-    fireEvent.click(infoLink)
-    expect(router.push).toHaveBeenCalledWith('/info', '/info', {
+    fireEvent.click(createLink)
+    expect(router.push).toHaveBeenCalledWith('/create', '/create', {
       locale: undefined,
       scroll: undefined,
       shallow: undefined,

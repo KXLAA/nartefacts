@@ -61,7 +61,7 @@ export const getFontSize = (fontSize: FontSize) => theme.text[fontSize]
 export const getSize = (size: Size) => theme.size[size]
 
 export const getBorder = (
-  size: Extract<'base' | Size, 'sm' | 'md' | 'lg'> = 'md',
+  size: 'base' | Extract<Size, 'sm' | 'md' | 'lg'> = 'md',
   style: 'solid' | 'dashed' = 'solid',
   color: keyof typeof theme.colors = 'grayLight',
 ) => {

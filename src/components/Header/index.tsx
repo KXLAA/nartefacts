@@ -26,9 +26,9 @@ export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
               <Button label="saved" buttonType="link-secondary" width="full" />
             </Link>
 
-            <Link href="/info" passHref>
+            {/* <Link href="/info" passHref>
               <Button label="info" buttonType="link-primary" width="full" />
-            </Link>
+            </Link> */}
           </S.Nav>
           <Spacer size="lg" />
         </S.Layout>
