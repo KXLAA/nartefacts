@@ -8,7 +8,7 @@ const prisma = new PrismaClient()
 const Query: QueryResolvers = {
   allAlbums: async (_, { first, after }) => {
     //Get all the album data from the database
-    const albums = await prisma.album.findMany({
+    const albums = await prisma.albums.findMany({
       include: {
         artist: true,
       },
@@ -20,7 +20,7 @@ const Query: QueryResolvers = {
   },
 
   oneAlbum: async (_, { id }) => {
-    const album = await prisma.album.findUnique({
+    const album = await prisma.albums.findUnique({
       where: {
         id: id,
       },
@@ -32,7 +32,7 @@ const Query: QueryResolvers = {
   },
 
   albumsByType: async (_, { first, after, type }) => {
-    const albums = await prisma.album.findMany({
+    const albums = await prisma.albums.findMany({
       where: {
         type: type!,
       },
@@ -44,25 +44,12 @@ const Query: QueryResolvers = {
   },
 
   albumsByTitle: async (_, { first, after, title }) => {
-    const albums = await prisma.album.findMany({
+    const albums = await prisma.albums.findMany({
       where: {
         title: title!,
       },
     })
 
-    const paginated = paginate(first!, after!, albums)
-
-    return paginated
-  },
-
-  albumsByArtist: async (_, { first, after, artist }) => {
-    const albums = await prisma.album.findMany({
-      where: {
-        artist: {
-          name: artist!,
-        },
-      },
-    })
     const paginated = paginate(first!, after!, albums)
 
     return paginated

@@ -34,7 +34,7 @@ export async function getServerSideProps() {
   const { data } = await apolloClient.query<AllAlbumsQueryResult>({
     query: AllAlbumsDocument,
     variables: {
-      first: 10,
+      first: 12,
       after: null,
     },
   })

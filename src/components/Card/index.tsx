@@ -2,24 +2,9 @@ import Image from 'next/image'
 
 import { Gradient, ImageWrapper } from '@/components/Card/styles'
 import { Flex } from '@/components/Flex'
+import { Album } from '@/graphql/generated/graphql'
 
-export type CardProps = {
-  image?: string | null
-  colors?: string[] | null
-  likeCount?: number | null
-  textColor?: string | null
-  albumArt?: string | null
-  spotify?: string | null
-  apple?: string | null
-  type?: string | null
-  description?: string | null
-  title?: string | null
-  artist?: {
-    name?: string | null
-    photoUrl?: string | null
-    biography?: string | null
-  } | null
-}
+export type CardProps = Album
 
 export const Card: React.FC<CardProps> = ({ albumArt }) => {
   return (
