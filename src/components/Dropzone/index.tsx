@@ -7,6 +7,7 @@ import * as S from '@/components/Dropzone/styles'
 import { UploadPlus } from '@/components/Icons'
 import { ColorsTuple } from '@/components/Palette'
 import {
+  useAnalyticsQuery,
   useGenerateColorsMutation,
   useUpdateAnalyticsMutation,
 } from '@/graphql/generated/graphql'
@@ -19,6 +20,7 @@ export type DropzoneProps = {
 
 export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
   const { uploadToS3 } = useS3Upload()
+  const { data: count } = useAnalyticsQuery()
   const [generateColors] = useGenerateColorsMutation()
   const [updateAnalytics] = useUpdateAnalyticsMutation()
 
@@ -26,7 +28,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
     setUpload((prev) => ({ ...prev, isUploading: true }))
     try {
       const { url } = await uploadToS3(acceptedFiles[0])
-      const id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
+      const id = count?.analytics[0]?.id
       if (url) {
         setUpload((prev) => ({ ...prev, isUploading: false, imageUrl: url }))
         const { data } = await generateColors({
@@ -36,11 +38,11 @@ export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
         })
         await updateAnalytics({
           variables: {
-            id: id,
+            id: id as string,
           },
           optimisticResponse: {
             updateAnalytics: {
-              id: id,
+              id: id as string,
               generatedPalettes: 1,
             },
           },
