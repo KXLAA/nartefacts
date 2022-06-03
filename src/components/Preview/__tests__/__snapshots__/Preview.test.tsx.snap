@@ -1,448 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Preview /> should render the component correctly 1`] = `
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 100%;
-  width: 100%;
-  height: 82px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  border: none;
-  padding: 0 16px;
-  background-color: #202020;
-  font-size: 36px;
-  border-radius: 8px;
-  color: #5A5A5A;
-  font-weight: bold;
-  cursor: pointer;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.c2:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255,255,255,0.1);
-}
-
-.c2:active {
-  -webkit-transform: translateX(0rem) translateY(0.125rem);
-  -ms-transform: translateX(0rem) translateY(0.125rem);
-  transform: translateX(0rem) translateY(0.125rem);
-}
-
-.c2:disabled,
-.c2:disabled:hover,
-.c2:disabled:active {
-  box-shadow: inset 0 0 100px 100px rgba(255,255,255,0.1);
-  cursor: not-allowed;
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 100%;
-  width: 100%;
-  height: 82px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  border: none;
-  padding: 0 16px;
-  background-color: #5A5A5A;
-  font-size: 36px;
-  border-radius: 8px;
-  color: #202020;
-  font-weight: bold;
-  cursor: pointer;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.c3:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255,255,255,0.1);
-}
-
-.c3:active {
-  -webkit-transform: translateX(0rem) translateY(0.125rem);
-  -ms-transform: translateX(0rem) translateY(0.125rem);
-  transform: translateX(0rem) translateY(0.125rem);
-}
-
-.c3:disabled,
-.c3:disabled:hover,
-.c3:disabled:active {
-  box-shadow: inset 0 0 100px 100px rgba(255,255,255,0.1);
-  cursor: not-allowed;
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-}
-
-.c4 {
-  display: block;
-  width: 16px;
-  min-width: 16px;
-  height: 16px;
-  min-height: 16px;
-}
-
-.c6 {
-  display: block;
-  width: 8px;
-  min-width: 8px;
-  height: 8px;
-  min-height: 8px;
-}
-
-.c5 {
-  border: 2px solid #5A5A5A;
-  border-radius: 8px;
-  padding: 0;
-}
-
-.c5 span {
-  border-radius: 8px;
-}
-
-.c7 {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat( 4,1fr );
-  gap: 8px;
-}
-
-.c8 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #095525;
-}
-
-.c8:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c8 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c9 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #673636;
-}
-
-.c9:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c9 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c10 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #379273;
-}
-
-.c10:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c10 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c11 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #136407;
-}
-
-.c11:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c11 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c12 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #573227;
-}
-
-.c12:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c12 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c13 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #547820;
-}
-
-.c13:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c13 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c14 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #163598;
-}
-
-.c14:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c14 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c15 {
-  height: 130px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 8px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: #682052;
-}
-
-.c15:hover {
-  -webkit-filter: brightness(150%);
-  filter: brightness(150%);
-}
-
-.c15 span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #E3E3E3;
-}
-
-.c0 {
-  width: 100%;
-  gap: 32px;
-  margin: 0 auto;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  gap: 16px;
-}
-
+exports[`<Preview /> should render <Preview /> correctly 1`] = `
 <div
-  class="c0"
+  class="nartefacts-c-ODbym"
   data-testid="Preview"
 >
   <div
-    class="c1"
+    class="nartefacts-c-fZrNKq nartefacts-c-fZrNKq-ejCoEP-direction-row nartefacts-c-fZrNKq-iSZeJd-gap-4"
   >
     <button
-      class="c2"
-      color="dark"
-      font-size="xl"
-      role="button"
-      type="button"
-      width="full"
+      class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eDnYwL-variant-light nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
     >
       Save
     </button>
     <button
-      class="c3"
-      color="light"
-      font-size="xl"
-      role="button"
-      type="button"
-      width="full"
+      class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eVtbBr-variant-dark nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
     >
       Refresh
     </button>
   </div>
   <span
-    class="c4"
+    aria-hidden="true"
+    class="nartefacts-c-gZOOBe nartefacts-c-gZOOBe-igVsjEr-css"
   />
   <div>
     <div
-      class="c5"
+      class="nartefacts-c-iYrbGo"
     >
       <span
         style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -461,64 +44,57 @@ exports[`<Preview /> should render the component correctly 1`] = `
       </span>
     </div>
     <span
-      class="c6"
+      aria-hidden="true"
+      class="nartefacts-c-gZOOBe nartefacts-c-gZOOBe-igVsjEr-css"
     />
     <div
-      class="c7"
+      class="nartefacts-c-dPIbUa nartefacts-c-dPIbUa-gyNLch-columns-4 nartefacts-c-dPIbUa-kdofoX-gap-2"
     >
       <div
-        class="c8"
-        color="#095525"
-        title="Color"
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-idrbDvt-css"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="c9"
-        color="#673636"
-        title="Color"
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-ieaNIii-css"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="c10"
-        color="#379273"
-        title="Color"
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-igbSeBM-css"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="c11"
-        color="#136407"
-        title="Color"
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-igKYXrQ-css"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="c12"
-        color="#573227"
-        title="Color"
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-ilbfIFJ-css"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="c13"
-        color="#547820"
-        title="Color"
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-iecSHAT-css"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="c14"
-        color="#163598"
-        title="Color"
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-iljWqZn-css"
+        data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="c15"
-        color="#682052"
-        title="Color"
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-ifCAGtg-css"
+        data-testid="color-box"
       >
         <span />
       </div>

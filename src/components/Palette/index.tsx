@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import toast from 'react-hot-toast'
 
 import * as Layout from '@/components/Common/Layout'
@@ -12,7 +11,6 @@ export type PalletteProps = {
 
 export type ColorBoxProps = {
   color: string
-  title: string
   small?: boolean
 }
 
@@ -27,7 +25,7 @@ export type ColorsTuple = [
   string,
 ]
 
-const ColorBox: React.FC<ColorBoxProps> = ({ color, title, small }) => {
+export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
   const [, copy] = useCopyToClipboard()
   const [hoverRef, isHovered] = useMouseOver()
 
@@ -40,9 +38,15 @@ const ColorBox: React.FC<ColorBoxProps> = ({ color, title, small }) => {
     <S.Color
       small={small}
       ref={hoverRef as any}
-      color={color}
-      title={title}
+      css={{
+        backgroundColor: color.match(
+          /^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i,
+        )
+          ? color
+          : '#202020',
+      }}
       onClick={() => copyToClipboard(color)}
+      data-testid="color-box"
     >
       <span>{isHovered && `COPY`}</span>
     </S.Color>
@@ -59,9 +63,9 @@ export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
   })
 
   return (
-    <Layout.Grid columns={4} gap={small ? 'xxs' : 'sm'}>
+    <Layout.Grid columns={4} gap={small ? 1 : 2}>
       {colors?.map((color) => (
-        <ColorBox key={color} color={color} title="Color" small={small} />
+        <ColorBox key={color} color={color} small={small} />
       ))}
     </Layout.Grid>
   )

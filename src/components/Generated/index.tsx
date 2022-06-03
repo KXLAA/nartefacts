@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import { Spacer } from '@/components/Common/Spacer'
 import * as S from '@/components/Generated/styles'
 import { ColorsTuple, Palette } from '@/components/Palette'
+import { Spacer } from '@/components/Spacer'
 
 export type GeneratedProps = {
   imageUrl: null | string
@@ -18,17 +18,15 @@ export const Generated: React.FC<GeneratedProps> = ({
   return (
     <div>
       <S.ImageWrapper small={small}>
-        {imageUrl && (
-          <Image
-            src={imageUrl as string}
-            height={800}
-            width={800}
-            alt={'user uploaded image'}
-            layout="responsive"
-          />
-        )}
+        <Image
+          src={imageUrl ? (imageUrl as string) : '/public/placeholder.png'}
+          height={800}
+          width={800}
+          alt={'user uploaded image'}
+          layout="responsive"
+        />
       </S.ImageWrapper>
-      <Spacer size="sm" />
+      <Spacer horizontal={small ? 2 : 4} />
       <Palette colors={colors as ColorsTuple} small={small} />
     </div>
   )

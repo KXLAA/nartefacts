@@ -9,7 +9,7 @@ describe('<Logo />', () => {
     expect(logo).toBeInTheDocument()
   })
 
-  it('should render Logo correctly', () => {
+  it('should render <Logo /> correctly', () => {
     const { container } = render(<Logo />)
     expect(container.firstChild).toMatchSnapshot()
   })

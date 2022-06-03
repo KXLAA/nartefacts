@@ -1,5 +1,4 @@
 /* istanbul ignore file */
-import { createGlobalStyle } from 'styled-components'
 
 export const testColors = {
   black: '#231651',
@@ -61,7 +60,7 @@ export const getFontSize = (fontSize: FontSize) => theme.text[fontSize]
 export const getSize = (size: Size) => theme.size[size]
 
 export const getBorder = (
-  size: Extract<'base' | Size, 'sm' | 'md' | 'lg'> = 'md',
+  size: 'base' | Extract<Size, 'sm' | 'md' | 'lg'> = 'md',
   style: 'solid' | 'dashed' = 'solid',
   color: keyof typeof theme.colors = 'grayLight',
 ) => {
@@ -70,42 +69,3 @@ export const getBorder = (
 
 export const getColor = (color: keyof typeof theme.colors) =>
   theme.colors[color]
-
-//Global styles
-
-export const GlobalStyles = createGlobalStyle`
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  * {
-    margin: 0;
-  }
-  html, body {
-    height: 100%;
-  }
-  body {
-    line-height: 1.5;
-    font-family: 'HeliosExt', sans-serif;
-    background: ${getColor('blackBase')};
-    color:${getColor('grayLight')};
-    font-size: ${getFontSize('lg')};
-    -webkit-font-smoothing: antialiased;
-  }
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  input, button, textarea, select {
-    font: inherit;
-  }
-  a {
-  color: inherit;
-  text-decoration: none;
-  }
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  #root, #__next {
-    isolation: isolate;
-  }
-`

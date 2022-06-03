@@ -4,12 +4,12 @@ import Head from 'next/head'
 import { useState } from 'react'
 
 import * as Layout from '@/components/Common/Layout'
-import { Spacer } from '@/components/Common/Spacer'
 import { Counter } from '@/components/Counter'
 import { Dropzone } from '@/components/Dropzone'
 import { Header } from '@/components/Header'
 import { ColorsTuple } from '@/components/Palette'
 import { Preview } from '@/components/Preview'
+import { Spacer } from '@/components/Spacer'
 import { Title } from '@/components/Title'
 import { useAnalyticsQuery } from '@/graphql/generated/graphql'
 
@@ -39,8 +39,9 @@ export default function Create() {
         <title>{getText()}</title>
       </Head>
       <Header secondary />
+      <Spacer horizontal={8} />
       <Title text={getText()} />
-      <Spacer size="md" />
+      <Spacer horizontal={4} />
       <>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
@@ -57,8 +58,7 @@ export default function Create() {
             }}
           />
         ) : null}
-        <Spacer size="lg" />
-
+        <Spacer horizontal={8} />
         <Counter count={count?.analytics[0]?.generatedPalettes} />
       </>
     </Layout.Main>

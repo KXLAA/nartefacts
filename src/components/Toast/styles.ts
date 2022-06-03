@@ -1,24 +1,22 @@
-import styled from 'styled-components'
+import { styled } from '@/lib/stitches.config'
 
-import { getBorder, getColor, getFontSize, getSize } from '@/styles/global'
+export const Wrapper = styled('div', {
+  width: '100%',
+  maxWidth: '400px',
+  backgroundColor: '$black-light',
+  border: '1px solid $gray-light',
+  borderRadius: '$rounded-sm',
+  padding: '$xs',
+  cursor: 'pointer',
+  '& span': {
+    borderRadius: '$rounded-sm',
+  },
+})
 
-export const Wrapper = styled.div`
-  width: 100%;
-  max-width: 400px;
-  background-color: ${getColor('blackLight')};
-  border: ${getBorder('sm', 'solid', 'grayLight')};
-  border-radius: 4px;
-  padding: ${getSize('xs')};
-
-  span {
-    border-radius: 4px;
-  }
-`
-
-export const Text = styled.p`
-  color: ${getColor('grayLight')};
-  font-size: ${getFontSize('lg')};
-  text-align: center;
-  font-weight: bold;
-  padding-top: ${getSize('xs')};
-`
+export const Text = styled('p', {
+  color: '$gray-light',
+  fontSize: '$lg',
+  textAlign: 'center',
+  fontWeight: 'bold',
+  paddingTop: '$xs',
+})

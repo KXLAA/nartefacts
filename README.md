@@ -13,6 +13,8 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] responsive design
 - [ ] move all images used on the home page to s3 from uploadcare
 - [ ] E2E tests with Cypress
+- [x] Migrate to MongoDB
+- [x] Migrate to Stitches
 
 ### Home Page
 
@@ -43,11 +45,11 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] ~~A way to edit pallettes after they are generated~~
 - [ ] ~~Increase or reduce number of colors in pallettes ?~~
 - [ ] write stories for components on this route
-- [ ] Fix layout sizes
+- [x] Fix layout sizes
 - [ ] Notification on Delete, add a modal for delete ?
-- [ ] Dynamic messages when uploading image
-- [ ] click on toast notification to redirect to /saved
-- [ ] placeholder images when image link is missing
+- [x] Dynamic messages when uploading image
+- [x] click on toast notification to redirect to /saved
+- [x] placeholder images when image link is missing
 - [ ] framer animations on this page
 - [ ] Gradient component (i want to do shaders ? idk may take longer)
 

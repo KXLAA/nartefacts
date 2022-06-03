@@ -1,29 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Toast /> should render the component correctly 1`] = `
-.c0 {
-  width: 100%;
-  max-width: 400px;
-  background-color: #202020;
-  border: 1px solid #5A5A5A;
-  border-radius: 4px;
-  padding: 4px;
-}
-
-.c0 span {
-  border-radius: 4px;
-}
-
-.c1 {
-  color: #5A5A5A;
-  font-size: 24px;
-  text-align: center;
-  font-weight: bold;
-  padding-top: 4px;
-}
-
 <div
-  class="c0"
+  class="nartefacts-c-cClkRF"
+  href="/saved"
 >
   <span
     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -41,7 +21,7 @@ exports[`<Toast /> should render the component correctly 1`] = `
     <noscript />
   </span>
   <p
-    class="c1"
+    class="nartefacts-c-gVDEjR"
   >
     Saved
   </p>

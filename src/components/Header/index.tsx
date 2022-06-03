@@ -1,8 +1,7 @@
 import Link from 'next/link'
 
 import { Button } from '@/components/Button'
-import { Spacer } from '@/components/Common/Spacer'
-import * as S from '@/components/Header/styles'
+import { Flex } from '@/components/Flex'
 import { Logo } from '@/components/Logo'
 
 export type HeaderProps = {
@@ -12,38 +11,35 @@ export type HeaderProps = {
 
 export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
   return (
-    <>
+    <div>
       {primary ? (
-        <S.Layout>
+        <Flex as="header" direction={'column'} gap={6}>
           <Logo />
-
-          <S.Nav>
+          <Flex as="nav" gap={6}>
             <Link href="/create" passHref>
-              <Button label="create" buttonType="link-primary" width="full" />
+              <Button variant="dark" label="create" fullWidth />
             </Link>
 
             <Link href="/saved" passHref>
-              <Button label="saved" buttonType="link-secondary" width="full" />
+              <Button label="saved" fullWidth />
             </Link>
 
-            <Link href="/info" passHref>
+            {/* <Link href="/info" passHref>
               <Button label="info" buttonType="link-primary" width="full" />
-            </Link>
-          </S.Nav>
-          <Spacer size="lg" />
-        </S.Layout>
+            </Link> */}
+          </Flex>
+        </Flex>
       ) : null}
 
       {secondary ? (
-        <S.Layout>
-          <S.Nav>
+        <Flex as="header">
+          <Flex as="nav" justify={'center'}>
             <Link href="/">
               <Logo width="250" />
             </Link>
-          </S.Nav>
-          <Spacer size="lg" />
-        </S.Layout>
+          </Flex>
+        </Flex>
       ) : null}
-    </>
+    </div>
   )
 }

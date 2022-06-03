@@ -1,34 +1,29 @@
 fragment ArtistItem on Artist {
-  id
   name
-  photoUrl
-  biography
-  albums {
-    id
-    title
-    type
-    albumArt
-    likeCount
-    description
-    spotify
-    apple
-    colors
-  }
+  photoURL
 }
 
 fragment AlbumItem on Album {
   id
-  title
+  albumArt
   type
   artist {
     ...ArtistItem
   }
-  albumArt
-  likeCount
-  description
-  spotify
-  apple
   colors
+  likeCount
+  title
+  type
+  urls {
+    spotify
+    apple
+  }
+}
+
+query Album($id: ID!) {
+  oneAlbum(id: $id) {
+    ...AlbumItem
+  }
 }
 
 query AllAlbums($first: Int, $after: String) {
@@ -46,12 +41,6 @@ query AllAlbums($first: Int, $after: String) {
       endCursor
       hasNextPage
     }
-  }
-}
-
-query Album($id: ID!) {
-  oneAlbum(id: $id) {
-    ...AlbumItem
   }
 }
 
@@ -75,24 +64,6 @@ query AlbumsByType($type: String!, $first: Int, $after: String) {
 
 query AlbumsByTitle($title: String!, $first: Int, $after: String) {
   albumsByTitle(title: $title, first: $first, after: $after) {
-    edges {
-      cursor
-      node {
-        ...AlbumItem
-      }
-    }
-    node {
-      ...AlbumItem
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
-
-query AlbumsByArtist($artist: String!, $first: Int, $after: String) {
-  albumsByArtist(artist: $artist, first: $first, after: $after) {
     edges {
       cursor
       node {
@@ -151,22 +122,6 @@ mutation UpdateAlbum($albumId: ID!, $input: AlbumInput) {
 
 mutation DeleteAlbum($albumId: ID!) {
   deleteAlbum(albumID: $albumId)
-}
-
-mutation AddArtist($input: ArtistInput) {
-  addArtist(input: $input) {
-    ...ArtistItem
-  }
-}
-
-mutation UpdateArtist($artistId: ID!, $input: ArtistInput!) {
-  updateArtist(artistID: $artistId, input: $input) {
-    ...ArtistItem
-  }
-}
-
-mutation DeleteArtist($artistId: ID!) {
-  deleteArtist(artistID: $artistId)
 }
 
 mutation LogIn($password: String!, $username: String!) {
