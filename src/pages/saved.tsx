@@ -3,13 +3,13 @@
 import Head from 'next/head'
 import toast from 'react-hot-toast'
 
-import { Button } from '@/components/Button'
-import * as Layout from '@/components/Common/Layout'
-import { Grid } from '@/components/Common/Layout'
-import { Generated } from '@/components/Generated'
-import { Header } from '@/components/Header'
-import { Spacer } from '@/components/Spacer'
-import { Title } from '@/components/Title'
+import { Button } from '@/components/button'
+import { Generated } from '@/components/generated'
+import { Grid } from '@/components/grid'
+import { Header } from '@/components/header'
+import { Main } from '@/components/layout'
+import { Spacer } from '@/components/spacer'
+import { Title } from '@/components/title'
 import { useCreatedStore } from '@/lib/store'
 
 export default function Saved() {
@@ -26,12 +26,12 @@ export default function Saved() {
       <Head>
         <title>{getText()}</title>
       </Head>
-      <Layout.Main size="md">
+      <Main size="md">
         <Header secondary />
-        <Spacer horizontal={8} />
+        <Spacer size="8" />
         <Title text={getText()} />
-        <Spacer horizontal={4} />
-        <Grid columns={3}>
+        <Spacer size="4" />
+        <Grid columns={3} gap={5}>
           {store.generatedColors.map((item) => (
             <div key={item.id}>
               <Button
@@ -43,13 +43,13 @@ export default function Saved() {
                   toast(`Deleted Palette`)
                 }}
               />
-              <Spacer horizontal={2} />
+              <Spacer size="2" />
 
               <Generated small {...item} />
             </div>
           ))}
         </Grid>
-      </Layout.Main>
+      </Main>
     </>
   )
 }

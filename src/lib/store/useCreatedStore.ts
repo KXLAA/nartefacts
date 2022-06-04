@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
-import { ColorsTuple } from '@/components/Palette'
+import { ColorsTuple } from '@/components/palette'
 
 type GeneratedColors = {
   id: string

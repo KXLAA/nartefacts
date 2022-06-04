@@ -3,14 +3,14 @@
 import Head from 'next/head'
 import { useState } from 'react'
 
-import * as Layout from '@/components/Common/Layout'
-import { Counter } from '@/components/Counter'
-import { Dropzone } from '@/components/Dropzone'
-import { Header } from '@/components/Header'
-import { ColorsTuple } from '@/components/Palette'
-import { Preview } from '@/components/Preview'
-import { Spacer } from '@/components/Spacer'
-import { Title } from '@/components/Title'
+import { Counter } from '@/components/counter'
+import { Dropzone, UploadState } from '@/components/dropzone'
+import { Header } from '@/components/header'
+import * as Layout from '@/components/layout'
+import { ColorsTuple } from '@/components/palette'
+import { Preview } from '@/components/preview'
+import { Spacer } from '@/components/spacer'
+import { Title } from '@/components/title'
 import { useAnalyticsQuery } from '@/graphql/generated/graphql'
 
 export default function Create() {
@@ -39,9 +39,9 @@ export default function Create() {
         <title>{getText()}</title>
       </Head>
       <Header secondary />
-      <Spacer horizontal={8} />
+      <Spacer size="8" />
       <Title text={getText()} />
-      <Spacer horizontal={4} />
+      <Spacer size="4" />
       <>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
@@ -58,16 +58,9 @@ export default function Create() {
             }}
           />
         ) : null}
-        <Spacer horizontal={8} />
+        <Spacer size="8" />
         <Counter count={count?.analytics[0]?.generatedPalettes} />
       </>
     </Layout.Main>
   )
-}
-
-export type UploadState = {
-  isUploading: boolean
-  imageUrl: null | string
-  error: null | string
-  colors: null | string[]
 }
