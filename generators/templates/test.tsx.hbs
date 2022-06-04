@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 
-import {{pascalCase name}} from '..'
+import  { {{pascalCase name}} } from '@/components/{{camelCase name}}'
 
 describe('<{{pascalCase name}} />', () => {
   it('should render the heading', () => {
     const { getByRole } = render(<{{pascalCase name}} />)
-    const heading = getByRole('heading', { name: /{{pascalCase name}}/i })
+    const heading = getByRole('heading', { name: /{{camelCase name}}/i })
 
     expect(heading).toBeInTheDocument()
   })

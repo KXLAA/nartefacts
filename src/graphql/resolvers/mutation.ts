@@ -4,7 +4,7 @@ import * as argon from 'argon2'
 import ColorThief from 'colorthief'
 import jwt from 'jsonwebtoken'
 
-import { ColorsTuple } from '@/components/Palette'
+import { ColorsTuple } from '@/components/palette'
 import { rgbToHex } from '@/graphql/resolvers/utils'
 import { prisma } from '@/lib/prisma'
 

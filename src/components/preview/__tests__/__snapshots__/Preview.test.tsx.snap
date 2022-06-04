@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Preview /> should render <Preview /> correctly 1`] = `
+<div
+  class="nartefacts-c-ODbym"
+  data-testid="Preview"
+>
+  <div
+    class="nartefacts-c-fZrNKq nartefacts-c-fZrNKq-ejCoEP-direction-row nartefacts-c-fZrNKq-iSZeJd-gap-4"
+  >
+    <button
+      class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eDnYwL-variant-light nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
+    >
+      Save
+    </button>
+    <button
+      class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eVtbBr-variant-dark nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
+    >
+      Refresh
+    </button>
+  </div>
+  <span
+    aria-hidden="true"
+    class="nartefacts-c-hakyQ nartefacts-c-hakyQ-jbdhzH-width-4 nartefacts-c-hakyQ-bbciZP-height-4"
+  />
+  <div>
+    <div
+      class="nartefacts-c-iYrbGo"
+    >
+      <span
+        style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+      >
+        <span
+          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+        />
+        <img
+          alt="user uploaded image"
+          data-nimg="responsive"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+        <noscript />
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="nartefacts-c-hakyQ nartefacts-c-hakyQ-jbdhzH-width-4 nartefacts-c-hakyQ-bbciZP-height-4"
+    />
+    <div
+      class="nartefacts-c-PJLV nartefacts-c-dwnvnm nartefacts-c-dwnvnm-gyNLch-columns-4 nartefacts-c-dwnvnm-kdofoX-gap-2"
+    >
+      <div
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-idrbDvt-css"
+        data-testid="color-box"
+      >
+        <span />
+      </div>
+      <div
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-ieaNIii-css"
+        data-testid="color-box"
+      >
+        <span />
+      </div>
+      <div
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-igbSeBM-css"
+        data-testid="color-box"
+      >
+        <span />
+      </div>
+      <div
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-igKYXrQ-css"
+        data-testid="color-box"
+      >
+        <span />
+      </div>
+      <div
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-ilbfIFJ-css"
+        data-testid="color-box"
+      >
+        <span />
+      </div>
+      <div
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-iecSHAT-css"
+        data-testid="color-box"
+      >
+        <span />
+      </div>
+      <div
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-iljWqZn-css"
+        data-testid="color-box"
+      >
+        <span />
+      </div>
+      <div
+        class="nartefacts-c-irykEI nartefacts-c-irykEI-ifCAGtg-css"
+        data-testid="color-box"
+      >
+        <span />
+      </div>
+    </div>
+  </div>
+</div>
+`;

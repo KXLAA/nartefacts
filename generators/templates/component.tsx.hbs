@@ -1,0 +1,11 @@
+import { StyledWrapper } from '@/components/{{camelCase name}}/styles';
+import { {{pascalCase name}}Props } from '@/components/{{camelCase name}}/types';
+
+
+export const {{pascalCase name}}: React.FC<{{pascalCase name}}Props>  = ({ heading }) => {
+  return (
+    <StyledWrapper>
+      <h1>{heading || `{{pascalCase name}}`} </h1>
+    </StyledWrapper>
+  )
+}

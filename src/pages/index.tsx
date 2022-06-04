@@ -1,9 +1,10 @@
 /* istanbul ignore file */
 
-import { Card } from '@/components/Card'
-import * as Layout from '@/components/Common/Layout'
-import { Header } from '@/components/Header'
-import { Spacer } from '@/components/Spacer'
+import { Card } from '@/components/card'
+import { Grid } from '@/components/grid'
+import { Header } from '@/components/header'
+import { Main } from '@/components/layout'
+import { Spacer } from '@/components/spacer'
 import {
   AllAlbumsDocument,
   AllAlbumsQueryResult,
@@ -14,16 +15,16 @@ export default function Home({ data }: AllAlbumsQueryResult) {
   const albums = data?.allAlbums?.node
 
   return (
-    <Layout.Main>
+    <Main>
       <Header primary />
-      <Spacer horizontal={8} />
+      <Spacer size="8" />
 
-      <Layout.Grid columns={3}>
+      <Grid columns={3} gap={5}>
         {albums?.map((album) => (
           <Card key={album?.id} {...album} />
         ))}
-      </Layout.Grid>
-    </Layout.Main>
+      </Grid>
+    </Main>
   )
 }
 
@@ -34,7 +35,7 @@ export async function getServerSideProps() {
   const { data } = await apolloClient.query<AllAlbumsQueryResult>({
     query: AllAlbumsDocument,
     variables: {
-      first: 12,
+      first: 48,
       after: null,
     },
   })
