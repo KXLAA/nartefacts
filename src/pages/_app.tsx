@@ -4,11 +4,11 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Toaster } from 'react-hot-toast'
 
-import { useApollo } from '@/lib/apollo'
+import { useApolloStore } from '@/lib/apollo'
 import { globalStyles } from '@/lib/stitches.config'
 
 function App({ Component, pageProps }: AppProps) {
-  const apolloClient = useApollo(pageProps)
+  const client = useApolloStore(pageProps.initialApolloState)
   globalStyles()
 
   return (
@@ -66,7 +66,7 @@ function App({ Component, pageProps }: AppProps) {
           content="https://ucarecdn.com/85a59495-37d7-4fd0-b128-482cdbf43445/OGIMAGE.png"
         />
       </Head>
-      <ApolloProvider client={apolloClient}>
+      <ApolloProvider client={client}>
         <Toaster
           position="top-right"
           reverseOrder={true}

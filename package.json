@@ -47,6 +47,7 @@
     "react-hook-form": "^7.30.0",
     "react-hot-toast": "^2.2.0",
     "react-loader-spinner": "^6.0.0-0",
+    "react-use": "^17.4.0",
     "yup": "^0.32.11",
     "zustand": "^4.0.0-rc.1"
   },

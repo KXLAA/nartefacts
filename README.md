@@ -18,7 +18,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 
 ### Home Page
 
-- [ ] Implement infinite scroll
+- [x] Implement infinite scroll
 - [ ] add details to albums
 - [ ] add like & unlike interaction with optimistic updates
 - [ ] add global footer with info & link to portfolio

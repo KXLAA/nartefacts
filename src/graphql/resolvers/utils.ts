@@ -11,7 +11,7 @@ export const paginate = (
   afterArg: string,
   dataToPaginate: albums[] | [],
 ) => {
-  //Slicing is done with the first argument. This asks for the query to return the first 10 items from the dataToPaginate .
+  //Slicing is done with the first argument. This asks for the query to return the first 10 items from the dataToPaginate array.
   const first = firstArg || 10
   //Pagination is done with the after argument. We passed in a cursor
   //so we are asking for the server to return the data after that cursor.
