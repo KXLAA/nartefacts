@@ -52,7 +52,7 @@ export default function Home() {
 }
 
 //A draw back to this approach is query duplication.
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const apollo = createClient()
   await apollo.query<AllAlbumsQueryResult>({
     query: AllAlbumsDocument,
