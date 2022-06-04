@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { Toaster } from 'react-hot-toast'
 
 import { useApolloStore } from '@/lib/apollo'
-import { globalStyles } from '@/lib/stitches.config'
+import { globalStyles } from '@/lib/stitches'
 
 function App({ Component, pageProps }: AppProps) {
   const client = useApolloStore(pageProps.initialApolloState)
