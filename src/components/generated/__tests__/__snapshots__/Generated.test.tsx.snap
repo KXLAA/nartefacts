@@ -23,10 +23,10 @@ exports[`<Generated /> should render <Generated /> correctly 1`] = `
   </div>
   <span
     aria-hidden="true"
-    class="nartefacts-c-gZOOBe nartefacts-c-gZOOBe-igVsjEr-css"
+    class="nartefacts-c-hakyQ nartefacts-c-hakyQ-jbdhzH-width-4 nartefacts-c-hakyQ-bbciZP-height-4"
   />
   <div
-    class="nartefacts-c-dPIbUa nartefacts-c-dPIbUa-gyNLch-columns-4 nartefacts-c-dPIbUa-kdofoX-gap-2"
+    class="nartefacts-c-PJLV nartefacts-c-dwnvnm nartefacts-c-dwnvnm-gyNLch-columns-4 nartefacts-c-dwnvnm-kdofoX-gap-2"
   >
     <div
       class="nartefacts-c-irykEI nartefacts-c-irykEI-idrbDvt-css"
