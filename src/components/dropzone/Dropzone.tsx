@@ -24,7 +24,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
     setUpload((prev) => ({ ...prev, isUploading: true }))
     try {
       const { url } = await uploadToS3(acceptedFiles[0])
-      const id = count?.analytics[0]?.id
+      const id = '62926cd85bfc86a848203302' || count?.analytics[0]?.id
       if (url) {
         setUpload((prev) => ({ ...prev, isUploading: false, imageUrl: url }))
         const { data } = await generateColors({

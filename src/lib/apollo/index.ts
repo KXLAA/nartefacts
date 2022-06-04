@@ -22,6 +22,7 @@ const httpLink = new HttpLink({
       ? 'http://localhost:3000/api/graphql'
       : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/graphql`,
   // fetch: fetch,
+  credentials: 'same-origin',
 })
 
 let globalApollo: ApolloClient<NormalizedCacheObject> | null = null
