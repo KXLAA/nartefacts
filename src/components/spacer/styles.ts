@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { createScaleVariant, styled } from '@/lib/stitches'
 
 export const StyledSpacer = styled('span', {

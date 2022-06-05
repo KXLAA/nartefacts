@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* istanbul ignore file */
+
 import * as React from 'react'
 
 import { StyledSpacer } from './styles'

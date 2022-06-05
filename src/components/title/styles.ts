@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { styled } from '@/lib/stitches'
 
 export const StyledWrapper = styled('div', {
