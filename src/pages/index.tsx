@@ -6,6 +6,7 @@ import { Card } from '@/components/card'
 import { Grid } from '@/components/grid'
 import { Header } from '@/components/header'
 import { Main } from '@/components/layout'
+import { Loader } from '@/components/loader'
 import { Spacer } from '@/components/spacer'
 import {
   AllAlbumsDocument,
@@ -45,13 +46,19 @@ export default function Home() {
           <Card key={album?.id} {...album} />
         ))}
       </Grid>
-      {loading && <div style={{ textAlign: 'center' }}>Loading...</div>}
-      <div style={{ height: '1rem' }} ref={intersectionRef}></div>
+      <Spacer size="4" />
+
+      {loading && <Loader />}
+
+      <div
+        style={{ height: '2rem' }}
+        ref={intersectionRef}
+        aria-hidden="true"
+      />
     </Main>
   )
 }
 
-//A draw back to this approach is query duplication.
 export async function getServerSideProps() {
   const apollo = createClient()
   await apollo.query<AllAlbumsQueryResult>({
