@@ -8,6 +8,7 @@ export const StyledButton = styled('button', {
   userSelect: 'none',
 
   // Custom reset?
+  width: '100%',
   display: 'flex',
   justifyContent: 'center',
   alignContent: 'center',
@@ -16,7 +17,6 @@ export const StyledButton = styled('button', {
   border: 'none',
 
   // Custom
-  width: '100%',
   px: '$4',
   fontFamily: '$primary',
   fontWeight: 'bold',
@@ -45,8 +45,7 @@ export const StyledButton = styled('button', {
       md: {
         height: '$16',
         maxWidth: '$64',
-        width: '100%',
-        fontSize: '$xl',
+        fontSize: '28px',
       },
       lg: {
         height: '$20',
@@ -77,6 +76,6 @@ export const StyledButton = styled('button', {
   defaultVariants: {
     size: 'lg',
     variant: 'light',
-    fullWidth: false,
+    fullWidth: true,
   },
 })

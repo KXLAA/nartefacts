@@ -27,13 +27,28 @@ export const Preview: React.FC<PreviewProps> = ({
 
   return (
     <StyledWrapper data-testid="Preview">
-      <Flex gap={4}>
-        <Button label="Save" disabled={disable} onClick={save} fullWidth />
+      <Flex gap={3}>
+        <Button
+          label="save"
+          disabled={disable}
+          onClick={save}
+          size="md"
+          fullWidth
+        />
 
         <Button
           variant="dark"
-          label="Refresh"
+          label="export"
           onClick={reset ? reset : undefined}
+          size="md"
+          fullWidth
+        />
+
+        <Button
+          variant="danger"
+          label="reset"
+          onClick={reset ? reset : undefined}
+          size="md"
           fullWidth
         />
       </Flex>

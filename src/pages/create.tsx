@@ -30,7 +30,7 @@ export default function Create() {
       return '✨ generate color pallettes from your images'
     }
 
-    return '💾 save your color pallette'
+    return '💾 save or export your color pallette'
   }
 
   return (
@@ -41,7 +41,7 @@ export default function Create() {
       <Header secondary />
       <Spacer size="8" />
       <Title text={getText()} />
-      <Spacer size="4" />
+      <Spacer size="8" />
       <>
         {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
         {upload.colors && upload.imageUrl ? (
