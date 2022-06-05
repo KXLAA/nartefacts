@@ -2,10 +2,10 @@
 
 exports[`<Counter /> should render <Counter /> correctly 1`] = `
 <div
-  class="nartefacts-c-AIGlN"
+  class="nartefacts-c-PJLV nartefacts-c-AIGlN"
 >
   <div
-    class="nartefacts-c-XyGMV"
+    class="nartefacts-c-PJLV nartefacts-c-XyGMV"
   >
     <p>
       0 Gradients Generated

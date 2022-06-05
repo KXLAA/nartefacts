@@ -1,8 +1,9 @@
 /* istanbul ignore file */
 
+import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
-export const StyledWrapper = styled('div', {
+export const StyledWrapper = styled(Box, {
   width: '100%',
   maxWidth: '400px',
   backgroundColor: '$black-light',

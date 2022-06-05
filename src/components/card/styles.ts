@@ -1,6 +1,7 @@
+import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
-export const Gradient = styled('div', {
+export const Gradient = styled(Box, {
   background: `linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.5),
@@ -11,7 +12,7 @@ export const Gradient = styled('div', {
   border: 'solid 2px $gray-base',
 })
 
-export const ImageWrapper = styled('div', {
+export const ImageWrapper = styled(Box, {
   border: 'solid 2px $gray-base',
   borderRadius: '$rounded',
   '& span': {

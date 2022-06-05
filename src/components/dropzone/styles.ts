@@ -1,12 +1,12 @@
+import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
-export const StyledDrop = styled('div', {
+export const StyledDrop = styled(Box, {
   backgroundColor: '$black-light',
   border: '1.5px dashed $gray-base',
   borderRadius: '$rounded',
   width: '100%',
   height: '800px',
-  padding: '$md',
   cursor: 'pointer',
   transition: 'all 0.3s ease',
   '&:hover': {
@@ -15,14 +15,13 @@ export const StyledDrop = styled('div', {
   },
 })
 
-export const StyledContent = styled('div', {
+export const StyledContent = styled(Box, {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
   minHeight: '100%',
-  padding: '$md',
   '& p': {
     fontSize: '$lg',
     fontWeight: 'bold',

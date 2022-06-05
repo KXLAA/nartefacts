@@ -1,5 +1,4 @@
-/* istanbul ignore file */
-
+import { Box } from '@/components/box'
 import { keyframes, styled } from '@/lib/stitches'
 
 const gradientAnimation = keyframes({
@@ -8,7 +7,7 @@ const gradientAnimation = keyframes({
   '100%': { backgroundPosition: '0% 50%' },
 })
 
-export const StyledLoaderGradient = styled('div', {
+export const StyledLoaderGradient = styled(Box, {
   background: `linear-gradient(
         147deg,
         #f098b9,
