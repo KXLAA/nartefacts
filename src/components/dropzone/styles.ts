@@ -1,7 +1,7 @@
 import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
-export const StyledDrop = styled(Box, {
+export const StyledDrop = styled('div', {
   backgroundColor: '$black-light',
   border: '1.5px dashed $gray-base',
   borderRadius: '$rounded',
