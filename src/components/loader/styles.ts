@@ -26,6 +26,6 @@ export const StyledLoaderGradient = styled('div', {
   backgroundSize: '540% 540%',
   height: '$2',
   '@media (prefers-reduced-motion: no-preference)': {
-    animation: `${gradientAnimation} 30s ease infinite`,
+    animation: `${gradientAnimation} 15s ease infinite`,
   },
 })
