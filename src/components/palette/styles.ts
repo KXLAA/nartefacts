@@ -1,6 +1,7 @@
+import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
-export const StyledColor = styled('div', {
+export const StyledColor = styled(Box, {
   height: '130px',
   display: 'flex',
   justifyContent: 'center',

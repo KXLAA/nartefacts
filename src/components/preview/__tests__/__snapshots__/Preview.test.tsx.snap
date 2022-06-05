@@ -2,11 +2,11 @@
 
 exports[`<Preview /> should render <Preview /> correctly 1`] = `
 <div
-  class="nartefacts-c-ODbym"
+  class="nartefacts-c-PJLV nartefacts-c-ODbym"
   data-testid="Preview"
 >
   <div
-    class="nartefacts-c-fZrNKq nartefacts-c-fZrNKq-ejCoEP-direction-row nartefacts-c-fZrNKq-iSZeJd-gap-4"
+    class="nartefacts-c-PJLV nartefacts-c-fZrNKq nartefacts-c-fZrNKq-ejCoEP-direction-row nartefacts-c-fZrNKq-iSZeJd-gap-4"
   >
     <button
       class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eDnYwL-variant-light nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
@@ -51,49 +51,49 @@ exports[`<Preview /> should render <Preview /> correctly 1`] = `
       class="nartefacts-c-PJLV nartefacts-c-dwnvnm nartefacts-c-dwnvnm-gyNLch-columns-4 nartefacts-c-dwnvnm-kdofoX-gap-2"
     >
       <div
-        class="nartefacts-c-irykEI nartefacts-c-irykEI-idrbDvt-css"
+        class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-idrbDvt-css"
         data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="nartefacts-c-irykEI nartefacts-c-irykEI-ieaNIii-css"
+        class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-ieaNIii-css"
         data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="nartefacts-c-irykEI nartefacts-c-irykEI-igbSeBM-css"
+        class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-igbSeBM-css"
         data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="nartefacts-c-irykEI nartefacts-c-irykEI-igKYXrQ-css"
+        class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-igKYXrQ-css"
         data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="nartefacts-c-irykEI nartefacts-c-irykEI-ilbfIFJ-css"
+        class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-ilbfIFJ-css"
         data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="nartefacts-c-irykEI nartefacts-c-irykEI-iecSHAT-css"
+        class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-iecSHAT-css"
         data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="nartefacts-c-irykEI nartefacts-c-irykEI-iljWqZn-css"
+        class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-iljWqZn-css"
         data-testid="color-box"
       >
         <span />
       </div>
       <div
-        class="nartefacts-c-irykEI nartefacts-c-irykEI-ifCAGtg-css"
+        class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-ifCAGtg-css"
         data-testid="color-box"
       >
         <span />

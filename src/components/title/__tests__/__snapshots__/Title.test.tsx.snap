@@ -2,7 +2,7 @@
 
 exports[`<Title /> should render <Title /> correctly 1`] = `
 <div
-  class="nartefacts-c-fktTUB"
+  class="nartefacts-c-PJLV nartefacts-c-fktTUB"
 >
   <p>
     description

@@ -2,7 +2,7 @@
 
 exports[`<Toast /> should render the component correctly 1`] = `
 <div
-  class="nartefacts-c-cClkRF"
+  class="nartefacts-c-PJLV nartefacts-c-cClkRF"
   href="/saved"
 >
   <span

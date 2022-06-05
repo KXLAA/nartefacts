@@ -2,13 +2,13 @@
 
 exports[`<Card /> should render <Card /> correctly 1`] = `
 <div
-  class="nartefacts-c-fZrNKq nartefacts-c-fZrNKq-iTKOFX-direction-column nartefacts-c-fZrNKq-iSZeJd-gap-4"
+  class="nartefacts-c-PJLV nartefacts-c-fZrNKq nartefacts-c-fZrNKq-iTKOFX-direction-column nartefacts-c-fZrNKq-iSZeJd-gap-4"
 >
   <div
-    class="nartefacts-c-gUIxfD"
+    class="nartefacts-c-PJLV nartefacts-c-gUIxfD"
   />
   <div
-    class="nartefacts-c-eWvWkT"
+    class="nartefacts-c-PJLV nartefacts-c-eWvWkT"
   >
     <span
       style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"

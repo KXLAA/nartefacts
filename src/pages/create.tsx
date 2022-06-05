@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { Counter } from '@/components/counter'
 import { Dropzone, UploadState } from '@/components/dropzone'
 import { Header } from '@/components/header'
-import * as Layout from '@/components/layout'
+import { Main } from '@/components/layout'
 import { ColorsTuple } from '@/components/palette'
 import { Preview } from '@/components/preview'
 import { Spacer } from '@/components/spacer'
@@ -34,7 +34,7 @@ export default function Create() {
   }
 
   return (
-    <Layout.Main size="md">
+    <Main size="md">
       <Head>
         <title>{getText()}</title>
       </Head>
@@ -61,6 +61,6 @@ export default function Create() {
         <Spacer size="8" />
         <Counter count={count?.analytics[0]?.generatedPalettes} />
       </>
-    </Layout.Main>
+    </Main>
   )
 }

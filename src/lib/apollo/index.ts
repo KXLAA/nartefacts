@@ -1,108 +1,54 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   ApolloClient,
   DefaultOptions,
+  FieldMergeFunction,
   HttpLink,
   InMemoryCache,
+  InMemoryCacheConfig,
   NormalizedCacheObject,
 } from '@apollo/client'
-import deepmerge from 'deepmerge'
-import isEqual from 'lodash.isequal'
+import { relayStylePagination } from '@apollo/client/utilities'
+import fetch from 'cross-fetch'
 import { useMemo } from 'react'
 
 /**
- * The code below basically allows us to next js data fetching methods with apollo
- * in particular, this code is fetching data from the server before the client is render and  putting that fetched data in local apollo cache, so the client is not actually
- * fetching data from the server. This code also ensures that we get the latest data from the
- * server and that the local cache is updated with the latest data.
- * see https://github.com/vercel/next.js/tree/canary/examples/with-apollo
+Fixes error with Vercel not finding the graphql endpoint in production
  */
+const httpLink = new HttpLink({
+  uri:
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000/api/graphql'
+      : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/graphql`,
+  // fetch: fetch,
+  credentials: 'same-origin',
+})
 
-export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
+let globalApollo: ApolloClient<NormalizedCacheObject> | null = null
 
-let apolloClient: ApolloClient<NormalizedCacheObject>
-
-function createIsomorphLink() {
-  return new HttpLink({
-    uri:
-      process.env.NODE_ENV === 'development'
-        ? 'http://localhost:3000/api/graphql'
-        : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/graphql`,
-    credentials: 'same-origin',
-  })
+const cacheOptions: InMemoryCacheConfig = {
+  typePolicies: {
+    Query: {
+      fields: {
+        allAlbums: relayStylePagination(),
+      },
+    },
+  },
 }
 
-function createApolloClient() {
-  let defaultOptions: DefaultOptions
-
-  if (typeof window === 'undefined') {
-    //We don't want any cache to be stored server side
-    defaultOptions = {
-      watchQuery: {
-        fetchPolicy: 'no-cache',
-        errorPolicy: 'all',
-      },
-    }
-  } else {
-    //We immediately show results, but check in the background if any changes occurred, and eventually update the view
-    defaultOptions = {
-      watchQuery: {
-        fetchPolicy: 'cache-and-network',
-        errorPolicy: 'all',
-        notifyOnNetworkStatusChange: true,
-      },
-    }
-  }
-
-  return new ApolloClient({
-    ssrMode: typeof window === 'undefined',
-    link: createIsomorphLink(),
-    cache: new InMemoryCache(),
-    // defaultOptions,
-  })
-}
-
-export function initializeApollo(initialState = null) {
-  const _apolloClient = apolloClient ?? createApolloClient()
-
-  // If your page has Next.js data fetching methods that use Apollo Client, the initial state
-  // gets hydrated here
-  if (initialState) {
-    // Get existing cache, loaded during client side data fetching
-    const existingCache = _apolloClient.extract()
-
-    // Merge the existing cache into data passed from getStaticProps/getServerSideProps
-    const data = deepmerge(initialState, existingCache, {
-      // combine arrays using object equality (like in sets)
-      arrayMerge: (destinationArray, sourceArray) => [
-        ...sourceArray,
-        ...destinationArray.filter((d) =>
-          sourceArray.every((s) => !isEqual(d, s)),
-        ),
-      ],
+export const createClient = (initialState?: NormalizedCacheObject) => {
+  if (!globalApollo) {
+    globalApollo = new ApolloClient({
+      ssrMode: process.browser,
+      link: httpLink,
+      cache: new InMemoryCache(cacheOptions).restore(initialState || {}),
     })
-
-    // Restore the cache with the merged data
-    _apolloClient.cache.restore(data)
   }
-  // For SSG and SSR always create a new Apollo Client
-  if (typeof window === 'undefined') return _apolloClient
-  // Create the Apollo Client once in the client
-  if (!apolloClient) apolloClient = _apolloClient
-
-  return _apolloClient
+  return globalApollo
 }
 
-export function addApolloState(client: any, pageProps: any) {
-  if (pageProps?.props) {
-    pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract()
-  }
-
-  return pageProps
-}
-
-export function useApollo(pageProps: any) {
-  const state = pageProps[APOLLO_STATE_PROP_NAME]
-  const store = useMemo(() => initializeApollo(state), [state])
+export const useApolloStore = (initialState?: NormalizedCacheObject) => {
+  const store = useMemo(() => createClient(initialState), [initialState])
   return store
 }
