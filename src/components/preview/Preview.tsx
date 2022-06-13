@@ -4,6 +4,13 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/button'
 import { Flex } from '@/components/flex'
 import { Generated } from '@/components/generated'
+import {
+  Modal,
+  ModalContent,
+  ModalDescription,
+  ModalTitle,
+  StyledTrigger,
+} from '@/components/modal'
 import { Spacer } from '@/components/spacer'
 import { Toast } from '@/components/toast'
 import { useCreatedStore } from '@/lib/store'
@@ -36,14 +43,15 @@ export const Preview: React.FC<PreviewProps> = ({
           fullWidth
         />
 
-        <Button
-          variant="dark"
-          label="export"
-          onClick={reset ? reset : undefined}
-          size="md"
-          fullWidth
-        />
-
+        <Modal>
+          <StyledTrigger>
+            <Button variant="dark" label="export" size="md" fullWidth />
+            <ModalContent>
+              <ModalTitle>Export</ModalTitle>
+              <ModalDescription>Pick an Option</ModalDescription>
+            </ModalContent>
+          </StyledTrigger>
+        </Modal>
         <Button
           variant="danger"
           label="reset"

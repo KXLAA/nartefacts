@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
-import { getCssText } from '@/lib/stitches.config'
+import { getCssText } from '@/lib/stitches'
 
 export default class MyDocument extends Document {
   render() {

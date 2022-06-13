@@ -6,13 +6,10 @@ export const StyledButton = styled('button', {
   alignItems: 'center',
   boxSizing: 'border-box',
   userSelect: 'none',
-
-  // Custom reset?
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
   alignContent: 'center',
-  lineHeight: '1',
   WebkitTapHighlightColor: 'rgba(0,0,0,0)',
   border: 'none',
 
