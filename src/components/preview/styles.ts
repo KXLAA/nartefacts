@@ -4,4 +4,7 @@ import { styled } from '@/lib/stitches'
 export const StyledWrapper = styled(Box, {
   width: '100%',
   margin: ' 0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$4',
 })

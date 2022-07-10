@@ -11,6 +11,7 @@ import {
   ModalTitle,
   StyledTrigger,
 } from '@/components/modal'
+import { ColorsTuple, Palette } from '@/components/palette'
 import { Spacer } from '@/components/spacer'
 import { Toast } from '@/components/toast'
 import { useCreatedStore } from '@/lib/store'
@@ -34,7 +35,7 @@ export const Preview: React.FC<PreviewProps> = ({
 
   return (
     <StyledWrapper data-testid="Preview">
-      <Flex gap={3}>
+      <Flex gap={3} justify="between">
         <Button
           label="save"
           disabled={disable}
@@ -43,7 +44,7 @@ export const Preview: React.FC<PreviewProps> = ({
           fullWidth
         />
 
-        <Modal>
+        {/* <Modal>
           <StyledTrigger>
             <Button variant="dark" label="export" size="md" fullWidth />
             <ModalContent>
@@ -51,7 +52,7 @@ export const Preview: React.FC<PreviewProps> = ({
               <ModalDescription>Pick an Option</ModalDescription>
             </ModalContent>
           </StyledTrigger>
-        </Modal>
+        </Modal> */}
         <Button
           variant="danger"
           label="reset"
@@ -60,7 +61,6 @@ export const Preview: React.FC<PreviewProps> = ({
           fullWidth
         />
       </Flex>
-      <Spacer size="4" />
       <Generated imageUrl={imageUrl} colors={colors} />
     </StyledWrapper>
   )

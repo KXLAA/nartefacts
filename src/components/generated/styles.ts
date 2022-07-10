@@ -1,3 +1,4 @@
+import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
 export const StyledImageWrapper = styled('div', {
@@ -17,6 +18,22 @@ export const StyledImageWrapper = styled('div', {
         '& span': {
           borderRadius: '$rounded-sm',
         },
+      },
+    },
+  },
+})
+
+export const StyledWrapper = styled(Box, {
+  width: '100%',
+  margin: ' 0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$4',
+
+  variants: {
+    small: {
+      true: {
+        gap: '$2',
       },
     },
   },

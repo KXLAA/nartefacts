@@ -1,5 +1,6 @@
 import toast from 'react-hot-toast'
 
+import { Box } from '@/components/box'
 import { Grid } from '@/components/grid'
 import { useCopyToClipboard, useMouseOver } from '@/lib/hooks'
 
@@ -42,6 +43,29 @@ export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
       )
     }
   })
+  if (small) {
+    return (
+      <Box
+        css={{
+          display: 'flex',
+          width: 200,
+          gap: 8,
+          overflowX: 'auto',
+          'scroll-snap-type': 'x',
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          '-webkit-overflow-scrolling': 'touch',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        }}
+      >
+        {colors?.map((color) => (
+          <ColorBox key={color} color={color} small={small} />
+        ))}
+      </Box>
+    )
+  }
 
   return (
     <Grid columns={4} gap={small ? 1 : 2}>

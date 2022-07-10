@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
+import { Button } from '@/components/button'
 import { ColorsTuple, Palette } from '@/components/palette'
-import { Spacer } from '@/components/spacer'
 
-import { StyledImageWrapper } from './styles'
+import { StyledImageWrapper, StyledWrapper } from './styles'
 import { GeneratedProps } from './types'
 
 export const Generated: React.FC<GeneratedProps> = ({
@@ -12,7 +12,7 @@ export const Generated: React.FC<GeneratedProps> = ({
   small,
 }) => {
   return (
-    <div>
+    <StyledWrapper small={small}>
       <StyledImageWrapper small={small}>
         <Image
           src={imageUrl ? (imageUrl as string) : '/public/placeholder.png'}
@@ -22,8 +22,13 @@ export const Generated: React.FC<GeneratedProps> = ({
           layout="responsive"
         />
       </StyledImageWrapper>
-      {small ? <Spacer size="2" /> : <Spacer size="4" />}
+      <Button
+        variant="dark"
+        label="export"
+        size={small ? 'sm' : 'md'}
+        fullWidth
+      />
       <Palette colors={colors as ColorsTuple} small={small} />
-    </div>
+    </StyledWrapper>
   )
 }

@@ -22,11 +22,14 @@ export const StyledColor = styled(Box, {
   variants: {
     small: {
       true: {
-        height: '58px',
+        height: 58,
         borderRadius: '$rounded-sm',
+        'scroll-snap-align': 'center',
+        flex: '0 0 auto',
+        'aspect-ratio': '1/1',
 
         '& span': {
-          fontSize: '$sm',
+          fontSize: 12,
           color: '$white-base',
         },
       },
