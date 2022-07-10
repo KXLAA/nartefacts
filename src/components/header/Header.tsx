@@ -10,7 +10,7 @@ export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
   return (
     <div>
       {primary ? (
-        <Flex as="header" direction={'column'} gap={6}>
+        <Flex as="header" direction={'column'} gap={6} justify="between">
           <Logo />
           <Flex as="nav" gap={6}>
             <Link href="/create" passHref>

@@ -66,8 +66,8 @@ export const StyledButton = styled('button', {
     },
     fullWidth: {
       true: {
-        width: '100%',
-        maxWidth: '100%',
+        width: '100% !important',
+        maxWidth: '100% !important',
       },
     },
   },
