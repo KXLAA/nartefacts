@@ -16,9 +16,9 @@ import { useAnalyticsQuery } from '@/graphql/generated/graphql'
 export default function Create() {
   const [upload, setUpload] = useState<UploadState>({
     isUploading: false,
-    imageUrl: null,
-    error: null,
-    colors: [],
+    imageUrl: undefined,
+    error: undefined,
+    colors: undefined,
   })
   const { data: count } = useAnalyticsQuery()
   const getText = (): string => {
@@ -33,6 +33,15 @@ export default function Create() {
     return '💾 save or export your color pallette'
   }
 
+  const reset = () => {
+    setUpload((prev) => ({
+      ...prev,
+      colors: undefined,
+      imageUrl: undefined,
+      isUploading: false,
+    }))
+  }
+
   return (
     <Main size="md">
       <Head>
@@ -43,21 +52,16 @@ export default function Create() {
       <Title text={getText()} />
       <Spacer size="8" />
       <>
-        {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
-        {upload.colors && upload.imageUrl ? (
+        {!upload.imageUrl && !upload.colors ? (
+          <Dropzone {...{ upload, setUpload }} />
+        ) : (
           <Preview
             imageUrl={upload.imageUrl!}
             colors={upload.colors as ColorsTuple}
-            reset={() => {
-              setUpload((prev) => ({
-                ...prev,
-                colors: null,
-                imageUrl: null,
-                isUploading: false,
-              }))
-            }}
+            reset={reset}
           />
-        ) : null}
+        )}
+
         <Spacer size="8" />
         <Counter count={count?.analytics[0]?.generatedPalettes} />
       </>

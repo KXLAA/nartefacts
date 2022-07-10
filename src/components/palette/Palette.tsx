@@ -34,7 +34,7 @@ export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
 }
 
 export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
-  colors.forEach((color, index) => {
+  colors?.forEach((color, index) => {
     if (!color.match(/^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i)) {
       console.warn(
         `Invalid color ${color} at index ${index} in Palette component.`,

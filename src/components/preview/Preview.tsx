@@ -16,7 +16,7 @@ export const Preview: React.FC<PreviewProps> = ({
   reset,
 }) => {
   const store = useCreatedStore()
-  const [disable, setDisable] = useState<boolean>(!colors)
+  const [disable, setDisable] = useState<boolean>(false)
 
   const save = () => {
     setDisable(true)
