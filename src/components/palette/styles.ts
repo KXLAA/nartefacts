@@ -1,6 +1,20 @@
 import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
+export const StyledPalette = styled('div', {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+  gap: '$2',
+
+  variants: {
+    small: {
+      true: {
+        gap: '$1',
+      },
+    },
+  },
+})
+
 export const StyledColor = styled(Box, {
   height: '130px',
   display: 'flex',
