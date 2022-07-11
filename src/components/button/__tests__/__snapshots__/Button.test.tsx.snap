@@ -2,7 +2,7 @@
 
 exports[`<Button /> should render <Button /> correctly with the default styles 1`] = `
 <button
-  class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-gHFwzb-size-lg nartefacts-c-bWrDCz-eDnYwL-variant-light nartefacts-c-bWrDCz-cRQNdV-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
+  class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-gHFwzb-size-lg nartefacts-c-bWrDCz-eDnYwL-variant-light nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
 >
   Button CTA
 </button>

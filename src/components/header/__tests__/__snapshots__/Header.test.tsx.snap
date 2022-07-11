@@ -3,7 +3,7 @@
 exports[`<Header /> should render <Header /> correctly 1`] = `
 <div>
   <header
-    class="nartefacts-c-PJLV nartefacts-c-fZrNKq nartefacts-c-fZrNKq-iTKOFX-direction-column nartefacts-c-fZrNKq-dCpVsf-gap-6"
+    class="nartefacts-c-PJLV nartefacts-c-fZrNKq nartefacts-c-fZrNKq-iTKOFX-direction-column nartefacts-c-fZrNKq-knmidH-justify-between nartefacts-c-fZrNKq-dCpVsf-gap-6"
   >
     <svg
       aria-roledescription="logo"
@@ -24,13 +24,13 @@ exports[`<Header /> should render <Header /> correctly 1`] = `
       class="nartefacts-c-PJLV nartefacts-c-fZrNKq nartefacts-c-fZrNKq-ejCoEP-direction-row nartefacts-c-fZrNKq-dCpVsf-gap-6"
     >
       <button
-        class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eVtbBr-variant-dark nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
+        class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-gHFwzb-size-lg nartefacts-c-bWrDCz-eVtbBr-variant-dark nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
         href="/create"
       >
         create
       </button>
       <button
-        class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eDnYwL-variant-light nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
+        class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-gHFwzb-size-lg nartefacts-c-bWrDCz-eDnYwL-variant-light nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
         href="/saved"
       >
         saved

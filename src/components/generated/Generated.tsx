@@ -30,21 +30,21 @@ export const Generated: React.FC<GeneratedProps> = ({
         />
       </StyledImageWrapper>
 
-      {/* <Modal>
-          <StyledTrigger>
-            <Button variant="dark" label="export" size="md" fullWidth />
-            <ModalContent>
-              <ModalTitle>Export</ModalTitle>
-              <ModalDescription>Pick an Option</ModalDescription>
-            </ModalContent>
-          </StyledTrigger>
-        </Modal> */}
-      <Button
-        variant="dark"
-        label="export"
-        size={small ? 'sm' : 'md'}
-        fullWidth
-      />
+      <Modal>
+        <StyledTrigger>
+          <Button
+            variant="dark"
+            label="export"
+            size={small ? 'sm' : 'md'}
+            fullWidth
+          />
+          <ModalContent>
+            <ModalTitle>Export</ModalTitle>
+            <ModalDescription>Pick an Option</ModalDescription>
+          </ModalContent>
+        </StyledTrigger>
+      </Modal>
+
       <Palette colors={colors as ColorsTuple} small={small} />
     </StyledWrapper>
   )

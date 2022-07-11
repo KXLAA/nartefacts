@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Generated /> should render <Generated /> correctly 1`] = `
-<div>
+<div
+  class="nartefacts-c-PJLV nartefacts-c-bMThXb"
+>
   <div
     class="nartefacts-c-iYrbGo"
   >
@@ -21,12 +23,22 @@ exports[`<Generated /> should render <Generated /> correctly 1`] = `
       <noscript />
     </span>
   </div>
-  <span
-    aria-hidden="true"
-    class="nartefacts-c-hakyQ nartefacts-c-hakyQ-jbdhzH-width-4 nartefacts-c-hakyQ-bbciZP-height-4"
-  />
+  <button
+    aria-controls="radix-3"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    class="nartefacts-c-kVFQaL"
+    data-state="closed"
+    type="button"
+  >
+    <button
+      class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-jxetKL-size-md nartefacts-c-bWrDCz-eVtbBr-variant-dark nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
+    >
+      export
+    </button>
+  </button>
   <div
-    class="nartefacts-c-PJLV nartefacts-c-dwnvnm nartefacts-c-dwnvnm-gyNLch-columns-4 nartefacts-c-dwnvnm-kdofoX-gap-2"
+    class="nartefacts-c-jnlfwv"
   >
     <div
       class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-idrbDvt-css"

@@ -2,7 +2,7 @@
 
 exports[`<Palette /> should render the <Palette /> correctly 1`] = `
 <div
-  class="nartefacts-c-PJLV nartefacts-c-dwnvnm nartefacts-c-dwnvnm-gyNLch-columns-4 nartefacts-c-dwnvnm-kdofoX-gap-2"
+  class="nartefacts-c-jnlfwv"
 >
   <div
     class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-idrbDvt-css"
