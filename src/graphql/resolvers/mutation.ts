@@ -46,6 +46,31 @@ const Mutation: MutationResolvers = {
     }
     return formattedCss + formattedSass
   },
+  generateCode: async (_, { colors }) => {
+    const colorNames = getColorNames(colors as ColorTuple)
+
+    const formattedCode = JSON.stringify(
+      colorNames.map((color) => color.hex),
+      null,
+      2,
+    )
+    const object = JSON.stringify(
+      colorNames.reduce(
+        (acc, color) => ({
+          ...acc,
+          [color.name]: color.hex,
+        }),
+        {},
+      ),
+    )
+
+    try {
+      fs.writeFileSync('./src/colors.css', object)
+    } catch (err) {
+      console.error(err)
+    }
+    return object
+  },
   generateColors: async (_, { imageUrl }) => {
     const getColors = async (): Promise<ColorsTuple | undefined> => {
       try {
