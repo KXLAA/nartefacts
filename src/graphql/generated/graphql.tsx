@@ -91,7 +91,9 @@ export type Mutation = {
   addAlbum: Album
   addToLike?: Maybe<Scalars['Boolean']>
   deleteAlbum: Scalars['Boolean']
+  generateCode?: Maybe<Scalars['String']>
   generateColors?: Maybe<Colors>
+  generateCss?: Maybe<Scalars['String']>
   logIn: Scalars['String']
   removeFromLike?: Maybe<Scalars['Boolean']>
   signUp: Scalars['String']
@@ -111,8 +113,16 @@ export type MutationDeleteAlbumArgs = {
   albumID: Scalars['ID']
 }
 
+export type MutationGenerateCodeArgs = {
+  colors: Array<InputMaybe<Scalars['String']>>
+}
+
 export type MutationGenerateColorsArgs = {
   imageUrl: Scalars['String']
+}
+
+export type MutationGenerateCssArgs = {
+  colors: Array<InputMaybe<Scalars['String']>>
 }
 
 export type MutationLogInArgs = {
@@ -1410,11 +1420,23 @@ export type MutationResolvers<
     ContextType,
     RequireFields<MutationDeleteAlbumArgs, 'albumID'>
   >
+  generateCode?: Resolver<
+    Maybe<ResolversTypes['String']>,
+    ParentType,
+    ContextType,
+    RequireFields<MutationGenerateCodeArgs, 'colors'>
+  >
   generateColors?: Resolver<
     Maybe<ResolversTypes['Colors']>,
     ParentType,
     ContextType,
     RequireFields<MutationGenerateColorsArgs, 'imageUrl'>
+  >
+  generateCss?: Resolver<
+    Maybe<ResolversTypes['String']>,
+    ParentType,
+    ContextType,
+    RequireFields<MutationGenerateCssArgs, 'colors'>
   >
   logIn?: Resolver<
     ResolversTypes['String'],

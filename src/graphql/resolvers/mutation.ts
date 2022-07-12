@@ -2,15 +2,50 @@ import { Prisma } from '@prisma/client'
 import { ApolloError, UserInputError } from 'apollo-server-errors'
 import * as argon from 'argon2'
 import ColorThief from 'colorthief'
+import fs from 'fs'
 import jwt from 'jsonwebtoken'
 
 import { ColorsTuple } from '@/components/palette'
 import { rgbToHex } from '@/graphql/resolvers/utils'
 import { prisma } from '@/lib/prisma'
+import { getColorNames } from '@/utils'
 
 import { MutationResolvers } from '../generated/graphql'
 
+type ColorTuple = [
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+  string,
+]
+
 const Mutation: MutationResolvers = {
+  generateCss: async (_, { colors }) => {
+    const colorNames = getColorNames(colors as ColorTuple)
+    const formattedCss = colorNames
+      .map((color) => `--${color.name}: ${color.hex};`)
+      .join('\n')
+    const formattedSass = colorNames
+      .map((color) => `$${color.name}: ${color.hex};`)
+      .join('\n')
+    try {
+      fs.writeFileSync(
+        './src/colors.scss',
+        `:root {
+        ${formattedCss}
+        } 
+        
+        ${formattedSass}`,
+      )
+    } catch (err) {
+      console.error(err)
+    }
+    return formattedCss + formattedSass
+  },
   generateColors: async (_, { imageUrl }) => {
     const getColors = async (): Promise<ColorsTuple | undefined> => {
       try {
