@@ -1,9 +1,10 @@
 import * as ModalPrimitive from '@radix-ui/react-dialog'
 import React from 'react'
 
-import { StyledContent, StyledOverlay } from './styles'
+import { ModalRoot, ModalTrigger, StyledContent, StyledOverlay } from './styles'
+import { ModalProps } from './types'
 
-export const ModalContent = React.forwardRef<
+const ModalContent = React.forwardRef<
   HTMLDivElement,
   { children: React.ReactNode }
 >(({ children, ...props }, forwardedRef) => (
@@ -11,10 +12,17 @@ export const ModalContent = React.forwardRef<
     <StyledOverlay />
     <StyledContent {...props} ref={forwardedRef}>
       {children}
-      <ModalPrimitive.Close>{/* <Cross1Icon /> */}</ModalPrimitive.Close>
     </StyledContent>
   </ModalPrimitive.Portal>
 ))
 
+export const Modal = ({ children, trigger }: ModalProps) => {
+  return (
+    <ModalRoot>
+      <ModalTrigger asChild>{trigger}</ModalTrigger>
+      <ModalContent>{children}</ModalContent>
+    </ModalRoot>
+  )
+}
+
 ModalContent.displayName = 'ModalContent'
-export const Modal = ModalPrimitive.Root

@@ -1,13 +1,6 @@
 import Image from 'next/image'
 
-import { Button } from '@/components/button'
-import {
-  Modal,
-  ModalContent,
-  ModalDescription,
-  ModalTitle,
-  StyledTrigger,
-} from '@/components/modal'
+import { ExportPaletteModal } from '@/components/modal'
 import { ColorsTuple, Palette } from '@/components/palette'
 
 import { StyledImageWrapper, StyledWrapper } from './styles'
@@ -29,22 +22,7 @@ export const Generated: React.FC<GeneratedProps> = ({
           layout="responsive"
         />
       </StyledImageWrapper>
-
-      <Modal>
-        <StyledTrigger>
-          <Button
-            variant="dark"
-            label="export"
-            size={small ? 'sm' : 'md'}
-            fullWidth
-          />
-          <ModalContent>
-            <ModalTitle>Export</ModalTitle>
-            <ModalDescription>Pick an Option</ModalDescription>
-          </ModalContent>
-        </StyledTrigger>
-      </Modal>
-
+      <ExportPaletteModal small={small} />
       <Palette colors={colors as ColorsTuple} small={small} />
     </StyledWrapper>
   )

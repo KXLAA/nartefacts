@@ -13,7 +13,7 @@ const contentShow = keyframes({
 })
 
 export const StyledOverlay = styled(DialogPrimitive.Overlay, {
-  backgroundColor: 'rgba(19, 19, 19, 0.7)',
+  bg: 'rgba(19, 19, 19, 0.7)',
   position: 'fixed',
   inset: 0,
   '@media (prefers-reduced-motion: no-preference)': {
@@ -27,8 +27,8 @@ export const StyledTrigger = styled(DialogPrimitive.Trigger, {
 })
 
 export const StyledContent = styled(DialogPrimitive.Content, {
-  backgroundColor: '$black-light',
-  borderRadius: 6,
+  bg: '$black-light',
+  br: 6,
   boxShadow:
     'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
   position: 'fixed',
@@ -46,16 +46,41 @@ export const StyledContent = styled(DialogPrimitive.Content, {
 })
 
 const StyledTitle = styled(DialogPrimitive.Title, {
-  margin: 0,
-  fontWeight: 500,
-  fontSize: 17,
+  textAlign: 'center',
+
+  variants: {
+    size: {
+      sm: { fontSize: '$sm' },
+      md: { fontSize: '$md' },
+      lg: { fontSize: '$lg' },
+    },
+  },
 })
 
 const StyledDescription = styled(DialogPrimitive.Description, {
-  margin: '10px 0 20px',
-  fontSize: 15,
-  lineHeight: 1.5,
+  fontSize: '$base',
+  textAlign: 'center',
+  mb: 24,
 })
 
+export const IconContainer = styled('div', {
+  bg: '$gray-base',
+  p: '$4',
+  br: 8,
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+})
+
+export const Container = styled('div', {
+  bg: '$gray-base',
+  p: '$4',
+  br: 8,
+})
+
+export const ModalRoot = DialogPrimitive.Root
+export const ModalTrigger = DialogPrimitive.Trigger
 export const ModalTitle = StyledTitle
 export const ModalDescription = StyledDescription
+export const ModalClose = DialogPrimitive.Close
