@@ -20,7 +20,8 @@ const Mutation: MutationResolvers = {
     const colorsForExport = getColorsForExport(type, colors as ColorsTuple)
     let awsUploadedFile
     try {
-      const fileName = type === 'css' ? 'colors/colors.css' : 'colors/colors.js'
+      const fileName =
+        type === 'css' ? 'colors/colors.scss' : 'colors/colors.js'
       awsUploadedFile = await uploadFile(fileName, colorsForExport)
     } catch (err) {
       console.error(err)
