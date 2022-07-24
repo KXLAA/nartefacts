@@ -4,6 +4,7 @@ import { createScaleVariant, styled } from '@/lib/stitches'
 export const Grid = styled(Box, {
   boxSizing: 'border-box',
   display: 'grid',
+  width: '100%',
   height: 'inherit',
 
   variants: {
@@ -57,10 +58,10 @@ export const Grid = styled(Box, {
     },
     columns: {
       1: {
-        gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+        gridTemplateColumns: 'repeat(1,  1fr)',
       },
       2: {
-        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+        gridTemplateColumns: 'repeat(2,  1fr)',
       },
       3: {
         gridTemplateColumns: 'repeat(3, 1fr)',

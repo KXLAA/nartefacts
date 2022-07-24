@@ -41,7 +41,14 @@ export default function Home() {
     <Main>
       <Header primary />
       <Spacer size="8" />
-      <Grid columns={3} gap={5}>
+      <Grid
+        columns={{
+          '@initial': 1,
+          '@sm': 2,
+          '@md': 3,
+        }}
+        gap={5}
+      >
         {nodes?.map((album) => (
           <Card key={album?.id} {...album} />
         ))}

@@ -2,28 +2,26 @@
 
 exports[`<Preview /> should render <Preview /> correctly 1`] = `
 <div
-  class="nartefacts-c-PJLV nartefacts-c-ODbym"
+  class="nartefacts-c-PJLV nartefacts-c-bMThXb"
   data-testid="Preview"
 >
   <div
-    class="nartefacts-c-PJLV nartefacts-c-fZrNKq nartefacts-c-fZrNKq-ejCoEP-direction-row nartefacts-c-fZrNKq-iSZeJd-gap-4"
+    class="nartefacts-c-PJLV nartefacts-c-fZrNKq nartefacts-c-fZrNKq-ejCoEP-direction-row nartefacts-c-fZrNKq-fVlWzK-gap-3"
   >
     <button
-      class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eDnYwL-variant-light nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
+      class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-jxetKL-size-md nartefacts-c-bWrDCz-eDnYwL-variant-light nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
     >
-      Save
+      save
     </button>
     <button
-      class="nartefacts-c-lchVdd nartefacts-c-lchVdd-gHFwzb-size-lg nartefacts-c-lchVdd-eVtbBr-variant-dark nartefacts-c-lchVdd-cFpcyF-fullWidth-true nartefacts-c-lchVdd-iPJLV-css"
+      class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-jxetKL-size-md nartefacts-c-bWrDCz-enPrFN-variant-danger nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
     >
-      Refresh
+      reset
     </button>
   </div>
-  <span
-    aria-hidden="true"
-    class="nartefacts-c-hakyQ nartefacts-c-hakyQ-jbdhzH-width-4 nartefacts-c-hakyQ-bbciZP-height-4"
-  />
-  <div>
+  <div
+    class="nartefacts-c-PJLV nartefacts-c-bMThXb"
+  >
     <div
       class="nartefacts-c-iYrbGo"
     >
@@ -43,12 +41,22 @@ exports[`<Preview /> should render <Preview /> correctly 1`] = `
         <noscript />
       </span>
     </div>
-    <span
-      aria-hidden="true"
-      class="nartefacts-c-hakyQ nartefacts-c-hakyQ-jbdhzH-width-4 nartefacts-c-hakyQ-bbciZP-height-4"
-    />
+    <button
+      aria-controls="radix-3"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      class="nartefacts-c-kVFQaL"
+      data-state="closed"
+      type="button"
+    >
+      <button
+        class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-jxetKL-size-md nartefacts-c-bWrDCz-eVtbBr-variant-dark nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
+      >
+        export
+      </button>
+    </button>
     <div
-      class="nartefacts-c-PJLV nartefacts-c-dwnvnm nartefacts-c-dwnvnm-gyNLch-columns-4 nartefacts-c-dwnvnm-kdofoX-gap-2"
+      class="nartefacts-c-jnlfwv"
     >
       <div
         class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-idrbDvt-css"

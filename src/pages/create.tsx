@@ -16,9 +16,9 @@ import { useAnalyticsQuery } from '@/graphql/generated/graphql'
 export default function Create() {
   const [upload, setUpload] = useState<UploadState>({
     isUploading: false,
-    imageUrl: null,
-    error: null,
-    colors: [],
+    imageUrl: undefined,
+    error: undefined,
+    colors: undefined,
   })
   const { data: count } = useAnalyticsQuery()
   const getText = (): string => {
@@ -30,7 +30,16 @@ export default function Create() {
       return '✨ generate color pallettes from your images'
     }
 
-    return '💾 save your color pallette'
+    return '💾 save or export your color pallette'
+  }
+
+  const reset = () => {
+    setUpload((prev) => ({
+      ...prev,
+      colors: undefined,
+      imageUrl: undefined,
+      isUploading: false,
+    }))
   }
 
   return (
@@ -41,26 +50,19 @@ export default function Create() {
       <Header secondary />
       <Spacer size="8" />
       <Title text={getText()} />
-      <Spacer size="4" />
-      <>
-        {!upload.imageUrl ? <Dropzone {...{ upload, setUpload }} /> : null}
-        {upload.colors && upload.imageUrl ? (
-          <Preview
-            imageUrl={upload.imageUrl!}
-            colors={upload.colors as ColorsTuple}
-            reset={() => {
-              setUpload((prev) => ({
-                ...prev,
-                colors: null,
-                imageUrl: null,
-                isUploading: false,
-              }))
-            }}
-          />
-        ) : null}
-        <Spacer size="8" />
-        <Counter count={count?.analytics[0]?.generatedPalettes} />
-      </>
+      <Spacer size="8" />
+      {!upload.imageUrl && !upload.colors ? (
+        <Dropzone {...{ upload, setUpload }} />
+      ) : (
+        <Preview
+          imageUrl={upload.imageUrl!}
+          colors={upload.colors as ColorsTuple}
+          reset={reset}
+        />
+      )}
+
+      <Spacer size="8" />
+      <Counter count={count?.analytics[0]?.generatedPalettes} />
     </Main>
   )
 }

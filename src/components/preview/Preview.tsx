@@ -4,7 +4,6 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/button'
 import { Flex } from '@/components/flex'
 import { Generated } from '@/components/generated'
-import { Spacer } from '@/components/spacer'
 import { Toast } from '@/components/toast'
 import { useCreatedStore } from '@/lib/store'
 
@@ -17,7 +16,7 @@ export const Preview: React.FC<PreviewProps> = ({
   reset,
 }) => {
   const store = useCreatedStore()
-  const [disable, setDisable] = useState<boolean>(!colors)
+  const [disable, setDisable] = useState<boolean>(false)
 
   const save = () => {
     setDisable(true)
@@ -27,17 +26,23 @@ export const Preview: React.FC<PreviewProps> = ({
 
   return (
     <StyledWrapper data-testid="Preview">
-      <Flex gap={4}>
-        <Button label="Save" disabled={disable} onClick={save} fullWidth />
+      <Flex gap={3}>
+        <Button
+          label="save"
+          disabled={disable}
+          onClick={save}
+          size="md"
+          fullWidth
+        />
 
         <Button
-          variant="dark"
-          label="Refresh"
+          variant="danger"
+          label="reset"
           onClick={reset ? reset : undefined}
+          size="md"
           fullWidth
         />
       </Flex>
-      <Spacer size="4" />
       <Generated imageUrl={imageUrl} colors={colors} />
     </StyledWrapper>
   )

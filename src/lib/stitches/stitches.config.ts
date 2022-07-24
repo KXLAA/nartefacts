@@ -131,17 +131,16 @@ export const {
 
   media: {
     /* Breakpoints */
-    sm: 'width >= 640px', // min-width:  640px
-    md: 'width >= 768px', // min-width: 768px
-    lg: 'width >= 1024px', // min-width:  1024px
-    xl: 'width >= 1280px', // min-width:  1280px
-    '2xl': 'width >= 1536px', //min-width:  1536px
+    sm: '(min-width: 640px)', // width >= 640px
+    md: '(min-width: 768px)', // width >= 768px
+    lg: '(min-width: 1024px)', //width >= 1024px
+    xl: '(min-width: 1280px)', // width >= 1280px
+    '2xl': '(min-width: 1536px)', //width >= 1536px
     motion: '(prefers-reduced-motion)',
     hover: '(any-hover: hover)',
     dark: '(prefers-color-scheme: dark)',
     light: '(prefers-color-scheme: light)',
   },
-
   utils: {
     /* A property for applying width/height together */
     size: (value: PropertyValue<'width'>) => ({
@@ -328,32 +327,6 @@ export const BASE_VARIANTS = {
     paddingBottom: token,
     paddingTop: token,
   })),
-  fontSize: {
-    sm: {
-      fontSize: '$sm',
-      lineHeight: '$sm',
-    },
-    md: {
-      fontSize: '$base',
-      lineHeight: '$base',
-      letterSpacing: '-0.01em',
-    },
-    lg: {
-      fontSize: '$lg',
-      lineHeight: '$lg',
-      letterSpacing: '-0.01em',
-    },
-    xl: {
-      fontSize: '$xl',
-      lineHeight: '$xl',
-      letterSpacing: '-0.01em',
-    },
-    '2xl': {
-      fontSize: '$2xl',
-      lineHeight: '$2xl',
-      letterSpacing: '-0.01em',
-    },
-  },
 }
 
 export const COLOR_VARIANTS = {

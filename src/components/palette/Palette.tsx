@@ -1,9 +1,8 @@
 import toast from 'react-hot-toast'
 
-import { Grid } from '@/components/grid'
 import { useCopyToClipboard, useMouseOver } from '@/lib/hooks'
 
-import { StyledColor } from './styles'
+import { StyledColor, StyledPalette } from './styles'
 import { ColorBoxProps, PalletteProps } from './types'
 
 export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
@@ -35,7 +34,7 @@ export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
 }
 
 export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
-  colors.forEach((color, index) => {
+  colors?.forEach((color, index) => {
     if (!color.match(/^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i)) {
       console.warn(
         `Invalid color ${color} at index ${index} in Palette component.`,
@@ -44,10 +43,10 @@ export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
   })
 
   return (
-    <Grid columns={4} gap={small ? 1 : 2}>
-      {colors?.map((color) => (
+    <StyledPalette small={small}>
+      {colors?.slice(small ? 4 : undefined).map((color) => (
         <ColorBox key={color} color={color} small={small} />
       ))}
-    </Grid>
+    </StyledPalette>
   )
 }

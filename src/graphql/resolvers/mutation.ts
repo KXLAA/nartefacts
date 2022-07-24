@@ -7,10 +7,29 @@ import jwt from 'jsonwebtoken'
 import { ColorsTuple } from '@/components/palette'
 import { rgbToHex } from '@/graphql/resolvers/utils'
 import { prisma } from '@/lib/prisma'
+import { getColorsForExport } from '@/utils'
+import { uploadFile } from '@/utils/aws'
 
 import { MutationResolvers } from '../generated/graphql'
 
 const Mutation: MutationResolvers = {
+  exportColors: async (_, { colors, type }) => {
+    if (!(type === 'css' || type === 'code')) {
+      throw new UserInputError('Invalid type, must be "css" or "code"')
+    }
+    const colorsForExport = getColorsForExport(type, colors as ColorsTuple)
+    let awsUploadedFile
+    try {
+      const fileName =
+        type === 'css' ? 'colors/colors.scss' : 'colors/colors.js'
+      awsUploadedFile = await uploadFile(fileName, colorsForExport)
+    } catch (err) {
+      console.error(err)
+      throw new ApolloError('Oops, something went wrong')
+    }
+    return awsUploadedFile.Location
+  },
+
   generateColors: async (_, { imageUrl }) => {
     const getColors = async (): Promise<ColorsTuple | undefined> => {
       try {

@@ -43,3 +43,10 @@ model analytics {
   id                String @id @default(auto()) @map("_id") @db.ObjectId
   generatedPalettes Int
 }
+
+model generatedPalettes {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  palette   String[]
+}

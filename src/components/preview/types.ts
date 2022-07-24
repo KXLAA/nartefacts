@@ -5,4 +5,5 @@ export type PreviewProps = {
   imageUrl: string
   reset?: () => void
   colors: ColorsTuple
+  small?: boolean
 }
