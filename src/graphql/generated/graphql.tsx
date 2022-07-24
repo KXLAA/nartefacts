@@ -91,9 +91,8 @@ export type Mutation = {
   addAlbum: Album
   addToLike?: Maybe<Scalars['Boolean']>
   deleteAlbum: Scalars['Boolean']
-  generateCode?: Maybe<Scalars['String']>
+  exportColors?: Maybe<Scalars['String']>
   generateColors?: Maybe<Colors>
-  generateCss?: Maybe<Scalars['String']>
   logIn: Scalars['String']
   removeFromLike?: Maybe<Scalars['Boolean']>
   signUp: Scalars['String']
@@ -113,16 +112,13 @@ export type MutationDeleteAlbumArgs = {
   albumID: Scalars['ID']
 }
 
-export type MutationGenerateCodeArgs = {
+export type MutationExportColorsArgs = {
   colors: Array<InputMaybe<Scalars['String']>>
+  type: Scalars['String']
 }
 
 export type MutationGenerateColorsArgs = {
   imageUrl: Scalars['String']
-}
-
-export type MutationGenerateCssArgs = {
-  colors: Array<InputMaybe<Scalars['String']>>
 }
 
 export type MutationLogInArgs = {
@@ -361,6 +357,13 @@ export type GenerateColorsMutationVariables = Exact<{
 export type GenerateColorsMutation = {
   generateColors?: { colors: Array<string> } | null
 }
+
+export type ExportColorsMutationVariables = Exact<{
+  colors: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>
+  type: Scalars['String']
+}>
+
+export type ExportColorsMutation = { exportColors?: string | null }
 
 export type AddToLikeMutationVariables = Exact<{
   albumId: Scalars['ID']
@@ -868,6 +871,55 @@ export type GenerateColorsMutationResult =
 export type GenerateColorsMutationOptions = Apollo.BaseMutationOptions<
   GenerateColorsMutation,
   GenerateColorsMutationVariables
+>
+export const ExportColorsDocument = gql`
+  mutation ExportColors($colors: [String]!, $type: String!) {
+    exportColors(colors: $colors, type: $type)
+  }
+`
+export type ExportColorsMutationFn = Apollo.MutationFunction<
+  ExportColorsMutation,
+  ExportColorsMutationVariables
+>
+
+/**
+ * __useExportColorsMutation__
+ *
+ * To run a mutation, you first call `useExportColorsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useExportColorsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [exportColorsMutation, { data, loading, error }] = useExportColorsMutation({
+ *   variables: {
+ *      colors: // value for 'colors'
+ *      type: // value for 'type'
+ *   },
+ * });
+ */
+export function useExportColorsMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    ExportColorsMutation,
+    ExportColorsMutationVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useMutation<
+    ExportColorsMutation,
+    ExportColorsMutationVariables
+  >(ExportColorsDocument, options)
+}
+export type ExportColorsMutationHookResult = ReturnType<
+  typeof useExportColorsMutation
+>
+export type ExportColorsMutationResult =
+  Apollo.MutationResult<ExportColorsMutation>
+export type ExportColorsMutationOptions = Apollo.BaseMutationOptions<
+  ExportColorsMutation,
+  ExportColorsMutationVariables
 >
 export const AddToLikeDocument = gql`
   mutation AddToLike($albumId: ID!) {
@@ -1420,23 +1472,17 @@ export type MutationResolvers<
     ContextType,
     RequireFields<MutationDeleteAlbumArgs, 'albumID'>
   >
-  generateCode?: Resolver<
+  exportColors?: Resolver<
     Maybe<ResolversTypes['String']>,
     ParentType,
     ContextType,
-    RequireFields<MutationGenerateCodeArgs, 'colors'>
+    RequireFields<MutationExportColorsArgs, 'colors' | 'type'>
   >
   generateColors?: Resolver<
     Maybe<ResolversTypes['Colors']>,
     ParentType,
     ContextType,
     RequireFields<MutationGenerateColorsArgs, 'imageUrl'>
-  >
-  generateCss?: Resolver<
-    Maybe<ResolversTypes['String']>,
-    ParentType,
-    ContextType,
-    RequireFields<MutationGenerateCssArgs, 'colors'>
   >
   logIn?: Resolver<
     ResolversTypes['String'],

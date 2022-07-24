@@ -31,6 +31,7 @@
     "@stitches/react": "^1.2.8",
     "apollo-server-micro": "^3.6.4",
     "argon2": "^0.28.5",
+    "aws-sdk": "^2.1181.0",
     "colorthief": "^2.3.2",
     "graphql": "^16.5.0",
     "hex-color-to-color-name": "^1.0.2",

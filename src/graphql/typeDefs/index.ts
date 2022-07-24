@@ -15,8 +15,7 @@ const typeDefs = gql`
     removeFromLike(albumID: ID!): Boolean
 
     generateColors(imageUrl: String!): Colors
-    generateCss(colors: [String]!): String
-    generateCode(colors: [String]!): String
+    exportColors(colors: [String]!, type: String!): String
 
     addAlbum(input: AlbumInput): Album!
     updateAlbum(albumID: ID!, input: AlbumInput): Album!

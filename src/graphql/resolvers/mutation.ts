@@ -2,75 +2,33 @@ import { Prisma } from '@prisma/client'
 import { ApolloError, UserInputError } from 'apollo-server-errors'
 import * as argon from 'argon2'
 import ColorThief from 'colorthief'
-import fs from 'fs'
 import jwt from 'jsonwebtoken'
 
 import { ColorsTuple } from '@/components/palette'
 import { rgbToHex } from '@/graphql/resolvers/utils'
 import { prisma } from '@/lib/prisma'
-import { getColorNames } from '@/utils'
+import { getColorsForExport } from '@/utils'
+import { uploadFile } from '@/utils/aws'
 
 import { MutationResolvers } from '../generated/graphql'
 
-type ColorTuple = [
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-]
-
 const Mutation: MutationResolvers = {
-  generateCss: async (_, { colors }) => {
-    const colorNames = getColorNames(colors as ColorTuple)
-    const formattedCss = colorNames
-      .map((color) => `--${color.name}: ${color.hex};`)
-      .join('\n')
-    const formattedSass = colorNames
-      .map((color) => `$${color.name}: ${color.hex};`)
-      .join('\n')
+  exportColors: async (_, { colors, type }) => {
+    if (!(type === 'css' || type === 'code')) {
+      throw new UserInputError('Invalid type, must be "css" or "code"')
+    }
+    const colorsForExport = getColorsForExport(type, colors as ColorsTuple)
+    let awsUploadedFile
     try {
-      fs.writeFileSync(
-        './src/colors.scss',
-        `:root {
-        ${formattedCss}
-        } 
-        
-        ${formattedSass}`,
-      )
+      const fileName = type === 'css' ? 'colors/colors.css' : 'colors/colors.js'
+      awsUploadedFile = await uploadFile(fileName, colorsForExport)
     } catch (err) {
       console.error(err)
+      throw new ApolloError('Oops, something went wrong')
     }
-    return formattedCss + formattedSass
+    return awsUploadedFile.Location
   },
-  generateCode: async (_, { colors }) => {
-    const colorNames = getColorNames(colors as ColorTuple)
 
-    const formattedCode = JSON.stringify(
-      colorNames.map((color) => color.hex),
-      null,
-      2,
-    )
-    const object = JSON.stringify(
-      colorNames.reduce(
-        (acc, color) => ({
-          ...acc,
-          [color.name]: color.hex,
-        }),
-        {},
-      ),
-    )
-
-    try {
-      fs.writeFileSync('./src/colors.css', object)
-    } catch (err) {
-      console.error(err)
-    }
-    return object
-  },
   generateColors: async (_, { imageUrl }) => {
     const getColors = async (): Promise<ColorsTuple | undefined> => {
       try {

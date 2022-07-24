@@ -22,7 +22,7 @@ export const Generated: React.FC<GeneratedProps> = ({
           layout="responsive"
         />
       </StyledImageWrapper>
-      <ExportPaletteModal small={small} />
+      <ExportPaletteModal small={small} colors={colors as ColorsTuple} />
       <Palette colors={colors as ColorsTuple} small={small} />
     </StyledWrapper>
   )

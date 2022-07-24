@@ -51,20 +51,18 @@ export default function Create() {
       <Spacer size="8" />
       <Title text={getText()} />
       <Spacer size="8" />
-      <>
-        {!upload.imageUrl && !upload.colors ? (
-          <Dropzone {...{ upload, setUpload }} />
-        ) : (
-          <Preview
-            imageUrl={upload.imageUrl!}
-            colors={upload.colors as ColorsTuple}
-            reset={reset}
-          />
-        )}
+      {!upload.imageUrl && !upload.colors ? (
+        <Dropzone {...{ upload, setUpload }} />
+      ) : (
+        <Preview
+          imageUrl={upload.imageUrl!}
+          colors={upload.colors as ColorsTuple}
+          reset={reset}
+        />
+      )}
 
-        <Spacer size="8" />
-        <Counter count={count?.analytics[0]?.generatedPalettes} />
-      </>
+      <Spacer size="8" />
+      <Counter count={count?.analytics[0]?.generatedPalettes} />
     </Main>
   )
 }

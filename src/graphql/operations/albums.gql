@@ -100,6 +100,10 @@ mutation GenerateColors($imageUrl: String!) {
   }
 }
 
+mutation ExportColors($colors: [String]!, $type: String!) {
+  exportColors(colors: $colors, type: $type)
+}
+
 mutation AddToLike($albumId: ID!) {
   addToLike(albumID: $albumId)
 }
