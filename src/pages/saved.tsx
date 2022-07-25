@@ -1,6 +1,8 @@
 /* istanbul ignore file */
 
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Head from 'next/head'
+import * as React from 'react'
 import toast from 'react-hot-toast'
 
 import { Button } from '@/components/button'
@@ -14,7 +16,7 @@ import { useCreatedStore } from '@/lib/store'
 
 export default function Saved() {
   const store = useCreatedStore()
-
+  const [parent] = useAutoAnimate()
   const getText = () => {
     return store.generatedColors.length > 0
       ? `📸 You have saved ${store.generatedColors.length} pallette(s)`
@@ -31,7 +33,11 @@ export default function Saved() {
         <Spacer size="8" />
         <Title text={getText()} />
         <Spacer size="4" />
-        <Grid columns={3} gap={5}>
+        <Grid
+          columns={3}
+          gap={5}
+          ref={parent as React.RefObject<HTMLDivElement>}
+        >
           {store.generatedColors.map((item) => (
             <div key={item.id}>
               <Button

@@ -15,6 +15,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] E2E tests with Cypress
 - [x] Migrate to MongoDB
 - [x] Migrate to Stitches
+- [ ] [Animate](https://auto-animate.formkit.com/#why-not)
 
 ### Home Page
 

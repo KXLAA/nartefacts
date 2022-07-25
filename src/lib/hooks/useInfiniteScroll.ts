@@ -4,7 +4,7 @@ import { useIntersection } from 'react-use'
 
 export const useInfiniteScroll = (
   ref: MutableRefObject<any>,
-  trigger: Function,
+  fetch: Function,
 ) => {
   const intersection = useIntersection(ref, {
     root: null,
@@ -13,7 +13,7 @@ export const useInfiniteScroll = (
   })
   useEffect(() => {
     if (intersection?.intersectionRatio === 1) {
-      trigger()
+      fetch()
     }
   }, [intersection])
 }
