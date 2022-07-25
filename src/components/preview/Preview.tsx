@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import * as React from 'react'
 import toast from 'react-hot-toast'
 
 import { Button } from '@/components/button'
@@ -10,13 +10,9 @@ import { useCreatedStore } from '@/lib/store'
 import { StyledWrapper } from './styles'
 import { PreviewProps } from './types'
 
-export const Preview: React.FC<PreviewProps> = ({
-  imageUrl,
-  colors,
-  reset,
-}) => {
+export const Preview = ({ imageUrl, colors, reset }: PreviewProps) => {
   const store = useCreatedStore()
-  const [disable, setDisable] = useState<boolean>(false)
+  const [disable, setDisable] = React.useState<boolean>(false)
 
   const save = () => {
     setDisable(true)
@@ -31,7 +27,10 @@ export const Preview: React.FC<PreviewProps> = ({
           label="save"
           disabled={disable}
           onClick={save}
-          size="md"
+          size={{
+            '@initial': 'sm',
+            '@md': 'md',
+          }}
           fullWidth
         />
 
@@ -39,7 +38,10 @@ export const Preview: React.FC<PreviewProps> = ({
           variant="danger"
           label="reset"
           onClick={reset ? reset : undefined}
-          size="md"
+          size={{
+            '@initial': 'sm',
+            '@md': 'md',
+          }}
           fullWidth
         />
       </Flex>

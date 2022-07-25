@@ -1,7 +1,6 @@
 /* istanbul ignore file */
 
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { useRef } from 'react'
 import * as React from 'react'
 
 import { Card } from '@/components/card'
@@ -30,7 +29,7 @@ export default function Home() {
   //infinite scroll stuff
   const nodes = data?.allAlbums?.edges.map((edge) => edge.node)
   const pageInfo = data?.allAlbums?.pageInfo
-  const intersectionRef = useRef(null)
+  const intersectionRef = React.useRef(null)
   useInfiniteScroll(intersectionRef, () => {
     if (pageInfo?.endCursor && pageInfo?.hasNextPage) {
       fetchMore({

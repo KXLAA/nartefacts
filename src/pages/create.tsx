@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 import Head from 'next/head'
-import { useState } from 'react'
+import * as React from 'react'
 
 import { Counter } from '@/components/counter'
 import { Dropzone, UploadState } from '@/components/dropzone'
@@ -13,7 +13,7 @@ import { Title } from '@/components/title'
 import { useAnalyticsQuery } from '@/graphql/generated/graphql'
 
 export default function Create() {
-  const [upload, setUpload] = useState<UploadState>({
+  const [upload, setUpload] = React.useState<UploadState>({
     isUploading: false,
     imageUrl: undefined,
     error: undefined,

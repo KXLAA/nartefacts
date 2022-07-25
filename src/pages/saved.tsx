@@ -41,7 +41,7 @@ export default function Saved() {
           {store.generatedColors.map((item) => (
             <div key={item.id}>
               <Button
-                size="sm"
+                size="xs"
                 variant="danger"
                 label="Delete"
                 onClick={() => {

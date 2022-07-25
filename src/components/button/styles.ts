@@ -34,10 +34,15 @@ export const StyledButton = styled('button', {
 
   variants: {
     size: {
-      sm: {
+      xs: {
         height: '$8',
         maxWidth: '100%',
         fontSize: '$md',
+      },
+      sm: {
+        height: '$10',
+        maxWidth: '100%',
+        fontSize: '22px',
       },
       md: {
         height: '$16',

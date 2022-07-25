@@ -1,3 +1,4 @@
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import toast from 'react-hot-toast'
 
 import { useCopyToClipboard, useMouseOver } from '@/lib/hooks'
@@ -5,7 +6,7 @@ import { useCopyToClipboard, useMouseOver } from '@/lib/hooks'
 import { StyledColor, StyledPalette } from './styles'
 import { ColorBoxProps, PalletteProps } from './types'
 
-export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
+export const ColorBox = ({ color, small }: ColorBoxProps) => {
   const [, copy] = useCopyToClipboard()
   const [hoverRef, isHovered] = useMouseOver()
 
@@ -24,6 +25,9 @@ export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
         )
           ? color
           : '#202020',
+        '@md': {
+          height: '130px',
+        },
       }}
       onClick={() => copyToClipboard(color)}
       data-testid="color-box"
@@ -33,7 +37,8 @@ export const ColorBox: React.FC<ColorBoxProps> = ({ color, small }) => {
   )
 }
 
-export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
+export const Palette = ({ colors, small }: PalletteProps) => {
+  const [parent] = useAutoAnimate()
   colors?.forEach((color, index) => {
     if (!color.match(/^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i)) {
       console.warn(
@@ -43,7 +48,10 @@ export const Palette: React.FC<PalletteProps> = ({ colors, small }) => {
   })
 
   return (
-    <StyledPalette small={small}>
+    <StyledPalette
+      small={small}
+      ref={parent as React.RefObject<HTMLDivElement>}
+    >
       {colors?.slice(small ? 4 : undefined).map((color) => (
         <ColorBox key={color} color={color} small={small} />
       ))}

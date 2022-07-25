@@ -6,16 +6,12 @@ import { ColorsTuple, Palette } from '@/components/palette'
 import { StyledImageWrapper, StyledWrapper } from './styles'
 import { GeneratedProps } from './types'
 
-export const Generated: React.FC<GeneratedProps> = ({
-  imageUrl,
-  colors,
-  small,
-}) => {
+export const Generated = ({ imageUrl, colors, small }: GeneratedProps) => {
   return (
     <StyledWrapper small={small}>
       <StyledImageWrapper small={small}>
         <Image
-          src={imageUrl ? (imageUrl as string) : '/public/placeholder.png'}
+          src={imageUrl!}
           height={800}
           width={800}
           alt={'user uploaded image'}

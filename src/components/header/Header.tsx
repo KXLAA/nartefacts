@@ -6,7 +6,7 @@ import { Logo } from '@/components/logo'
 
 import { HeaderProps } from './types'
 
-export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
+export const Header = ({ primary, secondary }: HeaderProps) => {
   return (
     <div>
       {primary ? (

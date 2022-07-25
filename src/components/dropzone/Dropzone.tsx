@@ -1,5 +1,5 @@
 import { useS3Upload } from 'next-s3-upload'
-import { useCallback } from 'react'
+import * as React from 'react'
 import { useDropzone } from 'react-dropzone'
 import { RotatingLines } from 'react-loader-spinner'
 
@@ -14,13 +14,13 @@ import {
 import { StyledContent, StyledDrop } from './styles'
 import { DropzoneProps } from './types'
 
-export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
+export const Dropzone = ({ upload, setUpload }: DropzoneProps) => {
   const { uploadToS3 } = useS3Upload()
   const { data: count } = useAnalyticsQuery()
   const [generateColors] = useGenerateColorsMutation()
   const [updateAnalytics] = useUpdateAnalyticsMutation()
 
-  const onDrop = useCallback(async (acceptedFiles) => {
+  const onDrop = React.useCallback(async (acceptedFiles) => {
     setUpload((prev) => ({ ...prev, isUploading: true }))
     try {
       const { url } = await uploadToS3(acceptedFiles[0])
@@ -69,7 +69,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({ upload, setUpload }) => {
       {!upload.error ? (
         <StyledContent>
           {upload.isUploading ? (
-            <RotatingLines width="100" strokeColor="#FF5733" />
+            <RotatingLines width="100" strokeColor="#5A5A5A" />
           ) : (
             <>
               <UploadPlus size={72} strokeWidth={0.5} color="#5A5A5A" />

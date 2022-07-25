@@ -9,13 +9,12 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [ ] Add Framer motion page transitions and regular transitions
 - [ ] Add proper stories
 - [ ] fix path name issue
-- [ ] add loading transitions
+- [x] add loading transitions
 - [ ] responsive design
 - [ ] move all images used on the home page to s3 from uploadcare
 - [ ] E2E tests with Cypress
 - [x] Migrate to MongoDB
 - [x] Migrate to Stitches
-- [ ] [Animate](https://auto-animate.formkit.com/#why-not)
 
 ### Home Page
 

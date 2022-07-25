@@ -1,7 +1,7 @@
 import { StyledWrapper } from './styles'
 import { TitleProps } from './types'
 
-export const Title: React.FC<TitleProps> = ({ text }) => {
+export const Title = ({ text }: TitleProps) => {
   return (
     <StyledWrapper>
       <p>{text || 'description'}</p>

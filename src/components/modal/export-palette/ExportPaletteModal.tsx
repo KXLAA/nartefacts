@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react'
+import * as React from 'react'
 import toast from 'react-hot-toast'
 
 import { Button } from '@/components/button'
@@ -9,30 +9,17 @@ import { getColorsForExport } from '@/utils'
 
 import { Modal, ModalDescription, ModalTitle } from '../common'
 import { ExportButton, ExportedTextArea } from './styles'
-
-type ColorTuple = [
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-]
+import { ExportedProps, ExportPaletteModalProps } from './types'
 
 export const ExportPaletteModal = ({
   small,
   colors,
-}: {
-  small?: boolean
-  colors?: ColorTuple
-}) => {
-  const [openExport, setOpenExport] = useState<{
+}: ExportPaletteModalProps) => {
+  const [openExport, setOpenExport] = React.useState<{
     open: boolean
     type: 'code' | 'css'
   }>({ open: false, type: '' as 'code' | 'css' })
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = React.useState(false)
   return (
     <Modal
       open={openModal}
@@ -41,7 +28,10 @@ export const ExportPaletteModal = ({
         <Button
           variant="dark"
           label="export"
-          size={small ? 'sm' : 'md'}
+          size={{
+            '@initial': 'sm',
+            '@md': small ? 'xs' : 'md',
+          }}
           fullWidth
         />
       }
@@ -86,14 +76,7 @@ const Exported = ({
   type,
   setOpenModal,
   setOpenExport,
-}: {
-  colors: ColorTuple
-  type: 'code' | 'css'
-  setOpenModal: Dispatch<SetStateAction<boolean>>
-  setOpenExport: Dispatch<
-    SetStateAction<{ open: boolean; type: 'code' | 'css' }>
-  >
-}) => {
+}: ExportedProps) => {
   const [, copy] = useCopyToClipboard()
   const [exportColors] = useExportColorsMutation()
 
