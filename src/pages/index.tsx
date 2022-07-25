@@ -1,6 +1,5 @@
 /* istanbul ignore file */
 
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import * as React from 'react'
 
 import { Card } from '@/components/card'
@@ -15,7 +14,7 @@ import {
   useAllAlbumsQuery,
 } from '@/graphql/generated/graphql'
 import { createClient } from '@/lib/apollo'
-import { useInfiniteScroll } from '@/lib/hooks'
+import { useAutoAnimate, useInfiniteScroll } from '@/lib/hooks'
 
 // number of items to load on first load
 const first = 9

@@ -1,6 +1,5 @@
 /* istanbul ignore file */
 
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Head from 'next/head'
 import * as React from 'react'
 import toast from 'react-hot-toast'
@@ -12,6 +11,7 @@ import { Header } from '@/components/header'
 import { Main } from '@/components/layout'
 import { Spacer } from '@/components/spacer'
 import { Title } from '@/components/title'
+import { useAutoAnimate } from '@/lib/hooks'
 import { useCreatedStore } from '@/lib/store'
 
 export default function Saved() {

@@ -1,7 +1,6 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import toast from 'react-hot-toast'
 
-import { useCopyToClipboard, useMouseOver } from '@/lib/hooks'
+import { useAutoAnimate, useCopyToClipboard, useMouseOver } from '@/lib/hooks'
 
 import { StyledColor, StyledPalette } from './styles'
 import { ColorBoxProps, PalletteProps } from './types'
