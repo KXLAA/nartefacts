@@ -16,9 +16,9 @@ const ModalContent = React.forwardRef<
   </ModalPrimitive.Portal>
 ))
 
-export const Modal = ({ children, trigger }: ModalProps) => {
+export const Modal = ({ children, trigger, ...props }: ModalProps) => {
   return (
-    <ModalRoot>
+    <ModalRoot {...props}>
       <ModalTrigger asChild>{trigger}</ModalTrigger>
       <ModalContent>{children}</ModalContent>
     </ModalRoot>
