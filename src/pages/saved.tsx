@@ -15,7 +15,7 @@ import { useCreatedStore } from '@/lib/store'
 export default function Saved() {
   const store = useCreatedStore()
 
-  const getText = (): string => {
+  const getText = () => {
     return store.generatedColors.length > 0
       ? `📸 You have saved ${store.generatedColors.length} pallette(s)`
       : `🙊 You have not saved any pallette yet`
@@ -44,7 +44,6 @@ export default function Saved() {
                 }}
               />
               <Spacer size="2" />
-
               <Generated small {...item} />
             </div>
           ))}

@@ -2,8 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   ApolloClient,
-  DefaultOptions,
-  FieldMergeFunction,
   HttpLink,
   InMemoryCache,
   InMemoryCacheConfig,
@@ -21,9 +19,13 @@ const httpLink = new HttpLink({
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000/api/graphql'
       : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/graphql`,
-  // fetch: fetch,
+  fetch: fetch,
   credentials: 'same-origin',
 })
+
+/**
+This adds support for pagination with Relay Style Pagination
+ */
 
 let globalApollo: ApolloClient<NormalizedCacheObject> | null = null
 
@@ -36,6 +38,9 @@ const cacheOptions: InMemoryCacheConfig = {
     },
   },
 }
+/**
+Using SSR with Apollo Client is a hassle, this is one way to do it. The recommended way by vercel was too verbose
+ */
 
 export const createClient = (initialState?: NormalizedCacheObject) => {
   if (!globalApollo) {

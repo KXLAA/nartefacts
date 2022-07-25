@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction, useState } from 'react'
 import toast from 'react-hot-toast'
 
 import { Button } from '@/components/button'
@@ -27,8 +28,15 @@ export const ExportPaletteModal = ({
   small?: boolean
   colors?: ColorTuple
 }) => {
+  const [openExport, setOpenExport] = useState<{
+    open: boolean
+    type: 'code' | 'css'
+  }>({ open: false, type: '' as 'code' | 'css' })
+  const [openModal, setOpenModal] = useState(false)
   return (
     <Modal
+      open={openModal}
+      onOpenChange={setOpenModal}
       trigger={
         <Button
           variant="dark"
@@ -38,42 +46,62 @@ export const ExportPaletteModal = ({
         />
       }
     >
-      <ModalTitle>Export Palette</ModalTitle>
-      <ModalDescription>Pick an option to export your colors</ModalDescription>
-      <Flex gap={4}>
-        <ExportedPaletteModal
-          type="css"
-          trigger={<ExportButton>CSS</ExportButton>}
-          colors={colors as ColorTuple}
+      {openExport.open ? (
+        <Exported
+          colors={colors!}
+          type={openExport.type}
+          setOpenModal={setOpenModal}
+          setOpenExport={setOpenExport}
         />
-        <ExportedPaletteModal
-          type="code"
-          trigger={<ExportButton>CODE</ExportButton>}
-          colors={colors as ColorTuple}
-        />
-      </Flex>
+      ) : (
+        <>
+          <ModalTitle>Export Palette</ModalTitle>
+          <ModalDescription>
+            Pick an option to export your colors
+          </ModalDescription>
+          <Flex gap={4}>
+            <ExportButton
+              onClick={() => {
+                setOpenExport({ open: true, type: 'css' })
+              }}
+            >
+              CSS
+            </ExportButton>
+            <ExportButton
+              onClick={() => {
+                setOpenExport({ open: true, type: 'code' })
+              }}
+            >
+              CODE
+            </ExportButton>
+          </Flex>
+        </>
+      )}
     </Modal>
   )
 }
 
-const ExportedPaletteModal = ({
-  trigger,
+const Exported = ({
   colors,
   type,
+  setOpenModal,
+  setOpenExport,
 }: {
-  icon?: React.ReactNode
-  description?: string
-  trigger?: React.ReactNode
   colors: ColorTuple
   type: 'code' | 'css'
+  setOpenModal: Dispatch<SetStateAction<boolean>>
+  setOpenExport: Dispatch<
+    SetStateAction<{ open: boolean; type: 'code' | 'css' }>
+  >
 }) => {
   const [, copy] = useCopyToClipboard()
-  const [exportColors, { loading }] = useExportColorsMutation()
+  const [exportColors] = useExportColorsMutation()
 
   const exported = getColorsForExport(type, colors)
   const copyToClipboard = (exported: string) => {
     copy(exported)
     toast(`Copied`)
+    setOpenExport({ open: false, type: '' as 'code' | 'css' })
   }
   const getDownloadLink = async () => {
     const { data } = await exportColors({
@@ -85,33 +113,31 @@ const ExportedPaletteModal = ({
     if (data?.exportColors) {
       window.open(data?.exportColors)
     }
+    setOpenModal(false)
+    setOpenExport({ open: false, type: '' as 'code' | 'css' })
   }
 
-  console.log(loading)
-
   return (
-    <Modal trigger={trigger}>
-      <Flex gap={4} direction="column">
-        <ModalTitle size="lg">Copy</ModalTitle>
-        <ExportedTextArea value={exported} />
-        <Flex gap={4}>
-          <Button
-            variant="light"
-            size="sm"
-            label="Copy"
-            fullWidth
-            onClick={() => copyToClipboard(exported)}
-          />
+    <Flex gap={4} direction="column">
+      <ModalTitle size="lg">Copy</ModalTitle>
+      <ExportedTextArea value={exported} />
+      <Flex gap={4}>
+        <Button
+          variant="light"
+          size="sm"
+          label="Copy"
+          fullWidth
+          onClick={() => copyToClipboard(exported)}
+        />
 
-          <Button
-            variant="light"
-            size="sm"
-            label="Download"
-            fullWidth
-            onClick={getDownloadLink}
-          />
-        </Flex>
+        <Button
+          variant="light"
+          size="sm"
+          label="Download"
+          fullWidth
+          onClick={getDownloadLink}
+        />
       </Flex>
-    </Modal>
+    </Flex>
   )
 }
