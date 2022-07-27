@@ -6,19 +6,40 @@ import { Logo } from '@/components/logo'
 
 import { HeaderProps } from './types'
 
-export const Header: React.FC<HeaderProps> = ({ primary, secondary }) => {
+export const Header = ({ primary, secondary }: HeaderProps) => {
   return (
     <div>
       {primary ? (
         <Flex as="header" direction={'column'} gap={6} justify="between">
           <Logo />
-          <Flex as="nav" gap={6}>
+          <Flex
+            as="nav"
+            gap={{
+              '@initial': 2,
+              '@sm': 6,
+            }}
+          >
             <Link href="/create" passHref>
-              <Button variant="dark" label="create" fullWidth />
+              <Button
+                variant="dark"
+                label="create"
+                fullWidth
+                size={{
+                  '@initial': 'sm',
+                  '@sm': 'lg',
+                }}
+              />
             </Link>
 
             <Link href="/saved" passHref>
-              <Button label="saved" fullWidth />
+              <Button
+                label="saved"
+                fullWidth
+                size={{
+                  '@initial': 'sm',
+                  '@sm': 'lg',
+                }}
+              />
             </Link>
 
             {/* <Link href="/info" passHref>

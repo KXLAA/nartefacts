@@ -5,7 +5,7 @@ import { Flex } from '@/components/flex'
 import { Gradient, ImageWrapper } from './styles'
 import { CardProps } from './types'
 
-export const Card: React.FC<CardProps> = ({ albumArt }) => {
+export const Card = ({ albumArt }: CardProps) => {
   return (
     <Flex direction="column" gap={4}>
       <Gradient />

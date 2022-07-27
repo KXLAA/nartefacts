@@ -1,5 +1,21 @@
+import { GetColorName } from 'hex-color-to-color-name'
+
 import { ColorsTuple } from '@/components/palette'
-import { getColorNames } from '@/utils'
+
+export const getColorNames = (colors: ColorsTuple) => {
+  const colorNames = colors?.map((color) => {
+    const colorName: string = GetColorName(color)
+      .toLowerCase()
+      .replace(/\s/g, '-')
+
+    console.log(colorName)
+    return {
+      hex: color,
+      name: colorName,
+    }
+  })
+  return colorNames
+}
 
 export const getColorsForExport = (
   type: 'code' | 'css',

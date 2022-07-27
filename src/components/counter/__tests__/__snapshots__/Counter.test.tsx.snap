@@ -4,13 +4,13 @@ exports[`<Counter /> should render <Counter /> correctly 1`] = `
 <div
   class="nartefacts-c-PJLV nartefacts-c-AIGlN"
 >
-  <div
+  <span
     class="nartefacts-c-PJLV nartefacts-c-XyGMV"
   >
-    <p>
+    <span>
       0 Gradients Generated
        
-    </p>
-  </div>
+    </span>
+  </span>
 </div>
 `;

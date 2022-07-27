@@ -1,10 +1,8 @@
-import '../../../../.jest/matchMedia.mock'
-
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { Preview } from '@/components/preview'
-import { colors, imageUrl } from '@/components/utils'
+import { colors, imageUrl } from '@/utils'
 
 describe('<Preview />', () => {
   it('should render the component', () => {

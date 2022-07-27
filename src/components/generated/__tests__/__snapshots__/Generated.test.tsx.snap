@@ -5,7 +5,7 @@ exports[`<Generated /> should render <Generated /> correctly 1`] = `
   class="nartefacts-c-PJLV nartefacts-c-bMThXb"
 >
   <div
-    class="nartefacts-c-iYrbGo"
+    class="nartefacts-c-fsMzZB"
   >
     <span
       style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -27,67 +27,73 @@ exports[`<Generated /> should render <Generated /> correctly 1`] = `
     aria-controls="radix-3"
     aria-expanded="false"
     aria-haspopup="dialog"
-    class="nartefacts-c-kVFQaL"
+    class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-bgGQWB-size-sm nartefacts-c-bWrDCz-eVtbBr-variant-dark nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-etFzOM-size-md nartefacts-c-bWrDCz-iPJLV-css"
     data-state="closed"
     type="button"
   >
-    <button
-      class="nartefacts-c-bWrDCz nartefacts-c-bWrDCz-jxetKL-size-md nartefacts-c-bWrDCz-eVtbBr-variant-dark nartefacts-c-bWrDCz-deuXAd-fullWidth-true nartefacts-c-bWrDCz-iPJLV-css"
-    >
-      export
-    </button>
+    export
   </button>
   <div
     class="nartefacts-c-jnlfwv"
   >
     <div
-      class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-idrbDvt-css"
+      class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-ibRqtCb-css"
       data-testid="color-box"
     >
       <span />
     </div>
     <div
-      class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-ieaNIii-css"
+      class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-icNTaWo-css"
       data-testid="color-box"
     >
       <span />
     </div>
     <div
-      class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-igbSeBM-css"
+      class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-iljSaHW-css"
       data-testid="color-box"
     >
       <span />
     </div>
     <div
-      class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-igKYXrQ-css"
+      class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-ifnWYyO-css"
       data-testid="color-box"
     >
       <span />
     </div>
     <div
-      class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-ilbfIFJ-css"
+      class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-ifasfFT-css"
       data-testid="color-box"
     >
       <span />
     </div>
     <div
-      class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-iecSHAT-css"
+      class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-iidIQth-css"
       data-testid="color-box"
     >
       <span />
     </div>
     <div
-      class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-iljWqZn-css"
+      class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-ihyNqYh-css"
       data-testid="color-box"
     >
       <span />
     </div>
     <div
-      class="nartefacts-c-PJLV nartefacts-c-irykEI nartefacts-c-PJLV-ifCAGtg-css"
+      class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-icxDfvq-css"
       data-testid="color-box"
     >
       <span />
     </div>
   </div>
 </div>
+`;
+
+exports[`<Generated /> should render with image placeholder if imageUrl is invalid   1`] = `
+<img
+  alt="user uploaded image"
+  data-nimg="responsive"
+  decoding="async"
+  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+  style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+/>
 `;

@@ -2,7 +2,7 @@ import { StyledWrapper } from '@/components/{{camelCase name}}/styles';
 import { {{pascalCase name}}Props } from '@/components/{{camelCase name}}/types';
 
 
-export const {{pascalCase name}}: React.FC<{{pascalCase name}}Props>  = ({ heading }) => {
+export const {{pascalCase name}} = ({ heading }: {{pascalCase name}}Props) => {
   return (
     <StyledWrapper>
       <h1>{heading || `{{pascalCase name}}`} </h1>

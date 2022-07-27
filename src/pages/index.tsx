@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-import { useRef } from 'react'
+import * as React from 'react'
 
 import { Card } from '@/components/card'
 import { Grid } from '@/components/grid'
@@ -14,18 +14,21 @@ import {
   useAllAlbumsQuery,
 } from '@/graphql/generated/graphql'
 import { createClient } from '@/lib/apollo'
-import { useInfiniteScroll } from '@/lib/hooks'
+import { useAutoAnimate, useInfiniteScroll } from '@/lib/hooks'
 
+// number of items to load on first load
 const first = 9
 export default function Home() {
+  const [parent] = useAutoAnimate()
   const { data, loading, fetchMore } = useAllAlbumsQuery({
     variables: { first },
     notifyOnNetworkStatusChange: true,
   })
+
+  //infinite scroll stuff
   const nodes = data?.allAlbums?.edges.map((edge) => edge.node)
   const pageInfo = data?.allAlbums?.pageInfo
-  const intersectionRef = useRef(null)
-
+  const intersectionRef = React.useRef(null)
   useInfiniteScroll(intersectionRef, () => {
     if (pageInfo?.endCursor && pageInfo?.hasNextPage) {
       fetchMore({
@@ -42,6 +45,7 @@ export default function Home() {
       <Header primary />
       <Spacer size="8" />
       <Grid
+        ref={parent as React.RefObject<HTMLDivElement>}
         columns={{
           '@initial': 1,
           '@sm': 2,
@@ -57,6 +61,7 @@ export default function Home() {
 
       {loading && <Loader />}
 
+      {/* when this div is visible, fetch more albums */}
       <div
         style={{ height: '2rem' }}
         ref={intersectionRef}

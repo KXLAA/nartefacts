@@ -6,12 +6,7 @@ import * as React from 'react'
 import { StyledSpacer } from './styles'
 import { SpacerProps } from './types'
 
-export const Spacer: React.FC<SpacerProps> = ({
-  axis,
-  size,
-  css,
-  ...props
-}) => {
+export const Spacer = ({ axis, size, css, ...props }: SpacerProps) => {
   const width = axis === 'vertical' ? 0 : size //left to right
   const height = axis === 'horizontal' ? 0 : size // top to bottom
 

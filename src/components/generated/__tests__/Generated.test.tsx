@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 
 import { Generated } from '@/components/generated'
-import { colors, imageUrl } from '@/components/utils'
+import { colors, imageUrl } from '@/utils'
 
 describe('<Generated />', () => {
   it('should render the uploaded image based on props', () => {
@@ -24,5 +24,6 @@ describe('<Generated />', () => {
     const { getByRole } = render(<Generated colors={colors} imageUrl={''} />)
     const image = getByRole('img')
     expect(image).toBeTruthy()
+    expect(image).toMatchSnapshot()
   })
 })

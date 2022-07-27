@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { StyledText, StyledWrapper } from './styles'
 import { ToastProps } from './types'
 
-export const Toast: React.FC<ToastProps> = ({ imageUrl }) => {
+export const Toast = ({ imageUrl }: ToastProps) => {
   return (
     <Link href="/saved" passHref>
       <StyledWrapper>

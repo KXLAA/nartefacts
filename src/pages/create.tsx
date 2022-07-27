@@ -1,27 +1,26 @@
 /* istanbul ignore file */
 
 import Head from 'next/head'
-import { useState } from 'react'
+import * as React from 'react'
 
 import { Counter } from '@/components/counter'
 import { Dropzone, UploadState } from '@/components/dropzone'
 import { Header } from '@/components/header'
 import { Main } from '@/components/layout'
-import { ColorsTuple } from '@/components/palette'
 import { Preview } from '@/components/preview'
 import { Spacer } from '@/components/spacer'
 import { Title } from '@/components/title'
 import { useAnalyticsQuery } from '@/graphql/generated/graphql'
 
 export default function Create() {
-  const [upload, setUpload] = useState<UploadState>({
+  const [upload, setUpload] = React.useState<UploadState>({
     isUploading: false,
     imageUrl: undefined,
     error: undefined,
     colors: undefined,
   })
   const { data: count } = useAnalyticsQuery()
-  const getText = (): string => {
+  const getText = () => {
     if (upload.isUploading) {
       return '👀 generating your pallette...'
     }
@@ -56,11 +55,10 @@ export default function Create() {
       ) : (
         <Preview
           imageUrl={upload.imageUrl!}
-          colors={upload.colors as ColorsTuple}
+          colors={upload.colors!}
           reset={reset}
         />
       )}
-
       <Spacer size="8" />
       <Counter count={count?.analytics[0]?.generatedPalettes} />
     </Main>

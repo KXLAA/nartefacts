@@ -16,7 +16,7 @@ export const StyledPalette = styled('div', {
 })
 
 export const StyledColor = styled(Box, {
-  height: '130px',
+  height: '80px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

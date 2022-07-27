@@ -1,5 +1,10 @@
 import { Box } from '@/components/box'
-import { styled } from '@/lib/stitches'
+import { keyframes, styled } from '@/lib/stitches'
+
+const fadeIn = keyframes({
+  '0%': { opacity: 0, transform: 'translateY(-20px)' },
+  '100%': { opacity: 1, transform: 'translateY(0)' },
+})
 
 export const StyledWrapper = styled(Box, {
   width: '100%',
@@ -7,4 +12,8 @@ export const StyledWrapper = styled(Box, {
   display: 'flex',
   flexDirection: 'column',
   gap: '$4',
+
+  '@media (prefers-reduced-motion: no-preference)': {
+    animation: `${fadeIn} 1s ease-in`,
+  },
 })
