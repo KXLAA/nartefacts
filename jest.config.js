@@ -1,4 +1,11 @@
 module.exports = {
+  transformIgnorePatterns: [
+    //https://github.com/formkit/auto-animate/issues/29
+    '[/\\\\]node_modules[/\\\\](?!(@formkit/auto-animate)).+\\.(js|jsx|mjs|cjs|ts|tsx)$',
+  ],
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx|mjs)$': 'babel-jest',
+  },
   testEnvironment: 'jest-environment-jsdom',
   //https://stackoverflow.com/questions/64792387/jest-ignore-cypress-test
   testPathIgnorePatterns: [
@@ -8,7 +15,6 @@ module.exports = {
     '<rootDir>/src/graphql/generated/',
     '<rootDir>/src/graphql/operations/',
     '<rootDir>/src/pages/api/',
-    '[/\\\\]node_modules[/\\\\](?!(@formkit/auto-animate)).+\\.(js|jsx|mjs|cjs|ts|tsx)$',
   ],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts(x)?', '!src/**/stories.tsx'],

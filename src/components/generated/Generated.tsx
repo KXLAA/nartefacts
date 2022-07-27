@@ -11,7 +11,7 @@ export const Generated = ({ imageUrl, colors, small }: GeneratedProps) => {
     <StyledWrapper small={small}>
       <StyledImageWrapper small={small}>
         <Image
-          src={imageUrl!}
+          src={imageUrl || '/static/placeholder.png'}
           height={800}
           width={800}
           alt={'user uploaded image'}

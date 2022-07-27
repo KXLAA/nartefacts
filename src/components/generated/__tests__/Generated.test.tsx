@@ -24,5 +24,6 @@ describe('<Generated />', () => {
     const { getByRole } = render(<Generated colors={colors} imageUrl={''} />)
     const image = getByRole('img')
     expect(image).toBeTruthy()
+    expect(image).toMatchSnapshot()
   })
 })
