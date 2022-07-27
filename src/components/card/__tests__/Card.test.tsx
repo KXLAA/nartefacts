@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 
 import { Card } from '@/components/card'
-import { mockAlbum } from '@/components/utils'
+import { mockAlbum } from '@/utils'
 
 describe('<Card />', () => {
   it('should render card with image', () => {

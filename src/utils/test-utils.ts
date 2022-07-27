@@ -1,3 +1,7 @@
+/* istanbul ignore file */
+
+import { NextRouter } from 'next/router'
+
 import { ColorsTuple } from '@/components/palette'
 
 export const imageUrl =
@@ -42,4 +46,32 @@ export const mockAlbum = {
     '#eecc6c',
   ],
   likeCount: 1,
+}
+
+export const createMockRouter = (router: Partial<NextRouter>): NextRouter => {
+  return {
+    basePath: '',
+    pathname: '/',
+    route: '/',
+    query: {},
+    asPath: '/',
+    back: jest.fn(),
+    beforePopState: jest.fn(),
+    prefetch: jest.fn(),
+    push: jest.fn(),
+    reload: jest.fn(),
+    replace: jest.fn(),
+    events: {
+      on: jest.fn(),
+      off: jest.fn(),
+      emit: jest.fn(),
+    },
+    isFallback: false,
+    isLocaleDomain: false,
+    isReady: true,
+    defaultLocale: 'en',
+    domainLocales: [],
+    isPreview: false,
+    ...router,
+  }
 }

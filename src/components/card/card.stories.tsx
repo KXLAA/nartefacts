@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 
 import { Card } from '@/components/card'
-import { mockAlbum } from '@/components/utils'
+import { mockAlbum } from '@/utils'
 
 export default {
   component: Card,

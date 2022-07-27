@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 
 import { Palette } from '@/components/palette'
-import { colors as testColors } from '@/components/utils'
+import { colors as testColors } from '@/utils'
 
 export default {
   component: Palette,

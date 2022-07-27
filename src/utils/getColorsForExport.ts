@@ -4,7 +4,11 @@ import { ColorsTuple } from '@/components/palette'
 
 export const getColorNames = (colors: ColorsTuple) => {
   const colorNames = colors?.map((color) => {
-    const colorName = GetColorName(color).toLowerCase().replace(/\s/g, '-')
+    const colorName: string = GetColorName(color)
+      .toLowerCase()
+      .replace(/\s/g, '-')
+
+    console.log(colorName)
     return {
       hex: color,
       name: colorName,
