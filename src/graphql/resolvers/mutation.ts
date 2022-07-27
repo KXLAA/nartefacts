@@ -6,9 +6,9 @@ import jwt from 'jsonwebtoken'
 
 import { ColorsTuple } from '@/components/palette'
 import { rgbToHex } from '@/graphql/resolvers/utils'
+import { uploadFile } from '@/lib/aws'
 import { prisma } from '@/lib/prisma'
 import { getColorsForExport } from '@/utils'
-import { uploadFile } from '@/utils/aws'
 
 import { MutationResolvers } from '../generated/graphql'
 

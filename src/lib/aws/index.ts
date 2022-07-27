@@ -5,6 +5,7 @@ aws.config.update({
   secretAccessKey: process.env.S3_UPLOAD_SECRET,
   signatureVersion: 'v4',
 })
+
 const s3 = new aws.S3()
 
 export const uploadFile = (key: string, body: Buffer | string) => {
