@@ -21,7 +21,6 @@ export const StyledColor = styled(Box, {
   justifyContent: 'center',
   alignItems: 'center',
   cursor: 'pointer',
-  borderRadius: '$rounded',
   transition: 'all 0.3s ease-in-out',
   background: '$black-light',
   ':hover': {

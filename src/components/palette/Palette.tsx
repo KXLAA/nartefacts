@@ -24,9 +24,6 @@ export const ColorBox = ({ color, small }: ColorBoxProps) => {
         )
           ? color
           : '#202020',
-        '@md': {
-          height: '130px',
-        },
       }}
       onClick={() => copyToClipboard(color)}
       data-testid="color-box"

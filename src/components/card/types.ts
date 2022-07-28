@@ -1,3 +1,3 @@
-import { Album } from '@/graphql/generated/graphql'
+import { Album } from '@/graphql'
 
 export type CardProps = Album

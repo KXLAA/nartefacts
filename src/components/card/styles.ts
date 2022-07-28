@@ -1,21 +1,45 @@
 import { Box } from '@/components/box'
-import { styled } from '@/lib/stitches'
+import { keyframes, styled } from '@/lib/stitches'
 
-export const Gradient = styled(Box, {
-  background: `linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-  )`,
-  borderRadius: '$rounded',
-  height: '$32',
-  border: 'solid 2px $gray-base',
+const gradientAnimation = keyframes({
+  '0%': { backgroundPosition: '0% 50%' },
+  '50%': { backgroundPosition: '100% 50%' },
+  '100%': { backgroundPosition: '0% 50%' },
 })
 
-export const ImageWrapper = styled(Box, {
-  border: 'solid 2px $gray-base',
+export const Divider = styled(Box, {
+  background: `linear-gradient(
+    147deg,
+    #f098b9,
+    #eedd67,
+    #d82259,
+    #161616,
+    #0485e5,
+    #065b2c,
+    #b7281f,
+    #943d3f,
+    #0e118c,
+    #1dc395,
+    #0e7790
+  )`,
+  backgroundSize: '540% 540%',
+  height: '$1',
+  '@media (prefers-reduced-motion: no-preference)': {
+    animation: `${gradientAnimation} 15s ease infinite`,
+  },
+})
+
+export const ImageWrapper = styled(Box, {})
+
+export const Content = styled(Box, {
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  bg: '$black-light',
+  padding: '$1',
   borderRadius: '$rounded',
+  textAlign: 'center',
   '& span': {
-    borderRadius: '$rounded',
+    fontSize: 18,
   },
 })
