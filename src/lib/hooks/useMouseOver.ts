@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef, useState } from 'react'
+import * as React from 'react'
 
 export const useMouseOver = () => {
-  const [value, setValue] = useState(false)
+  const [value, setValue] = React.useState(false)
 
-  const ref = useRef(null)
+  const ref = React.useRef(null)
 
   const handleMouseOver = () => setValue(true)
   const handleMouseOut = () => setValue(false)
 
-  useEffect(
+  React.useEffect(
     () => {
       const node = ref.current as any
       if (node) {
