@@ -8,6 +8,7 @@ import {
   useDrag,
   useMouseOver,
 } from '@/lib/hooks'
+import { isValidHexCode } from '@/utils'
 
 import { StyledColor } from './styles'
 import { ColorBoxProps, PalletteProps, VisibilityApiType } from './types'
@@ -27,11 +28,7 @@ export const ColorBox = ({ color, size }: ColorBoxProps) => {
       ref={hoverRef as any}
       css={{
         //check if the color hex code is valid
-        backgroundColor: color.match(
-          /^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i,
-        )
-          ? color
-          : '#202020',
+        bg: color.match(isValidHexCode) ? color : '#202020',
       }}
       onClick={() => copyToClipboard(color)}
       data-testid="color-box"
