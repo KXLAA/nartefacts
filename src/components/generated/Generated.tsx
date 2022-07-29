@@ -19,7 +19,7 @@ export const Generated = ({ imageUrl, colors, small }: GeneratedProps) => {
         />
       </StyledImageWrapper>
       <ExportPaletteModal small={small} colors={colors as ColorsTuple} />
-      <Palette colors={colors as ColorsTuple} small={small} />
+      <Palette colors={colors as ColorsTuple} size={small ? 'sm' : 'lg'} />
     </StyledWrapper>
   )
 }

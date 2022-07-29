@@ -10,7 +10,7 @@ export const Card = ({ albumArt, title, artist, colors }: CardProps) => {
   //randomly select 4 colors from the palette
   const shuffled = [...colors]
     .sort(() => Math.random() - Math.random())
-    .slice(0, 4)
+    .slice(0, 8)
 
   return (
     <Flex direction="column" gap={4}>

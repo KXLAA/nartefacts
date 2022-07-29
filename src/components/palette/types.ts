@@ -1,11 +1,18 @@
-export type PalletteProps = {
+import { VisibilityContext } from 'react-horizontal-scrolling-menu'
+
+import { VariantProps } from '@/lib/stitches'
+
+import { StyledColor } from './styles'
+
+type ColorVariantsProps = VariantProps<typeof StyledColor>
+export type VisibilityApiType = React.ContextType<typeof VisibilityContext>
+
+export interface PalletteProps extends ColorVariantsProps {
   colors: string[]
-  small?: boolean
 }
 
-export type ColorBoxProps = {
+export interface ColorBoxProps extends ColorVariantsProps {
   color: string
-  small?: boolean
 }
 
 export type ColorsTuple = [

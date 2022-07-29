@@ -1,11 +1,18 @@
+import * as React from 'react'
+import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import toast from 'react-hot-toast'
 
-import { useAutoAnimate, useCopyToClipboard, useMouseOver } from '@/lib/hooks'
+import {
+  useAutoAnimate,
+  useCopyToClipboard,
+  useDrag,
+  useMouseOver,
+} from '@/lib/hooks'
 
-import { StyledColor, StyledPalette } from './styles'
-import { ColorBoxProps, PalletteProps } from './types'
+import { StyledColor } from './styles'
+import { ColorBoxProps, PalletteProps, VisibilityApiType } from './types'
 
-export const ColorBox = ({ color, small }: ColorBoxProps) => {
+export const ColorBox = ({ color, size }: ColorBoxProps) => {
   const [, copy] = useCopyToClipboard()
   const [hoverRef, isHovered] = useMouseOver()
 
@@ -16,9 +23,10 @@ export const ColorBox = ({ color, small }: ColorBoxProps) => {
 
   return (
     <StyledColor
-      small={small}
+      size={size}
       ref={hoverRef as any}
       css={{
+        //check if the color hex code is valid
         backgroundColor: color.match(
           /^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i,
         )
@@ -33,8 +41,34 @@ export const ColorBox = ({ color, small }: ColorBoxProps) => {
   )
 }
 
-export const Palette = ({ colors, small }: PalletteProps) => {
+export const Palette = ({ colors, size }: PalletteProps) => {
   const [parent] = useAutoAnimate()
+  const { dragStart, dragStop, dragMove } = useDrag()
+
+  const handleDrag =
+    ({ scrollContainer }: VisibilityApiType) =>
+    (event: React.MouseEvent) =>
+      dragMove(event, (posDiff) => {
+        if (scrollContainer.current) {
+          scrollContainer.current.scrollLeft += posDiff
+        }
+      })
+
+  const onWheel = (apiObj: VisibilityApiType, ev: React.WheelEvent): void => {
+    const isTouchPad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15
+
+    if (isTouchPad) {
+      ev.stopPropagation()
+      return
+    }
+
+    if (ev.deltaY < 0) {
+      apiObj.scrollNext()
+    } else if (ev.deltaY > 0) {
+      apiObj.scrollPrev()
+    }
+  }
+
   colors?.forEach((color, index) => {
     if (!color.match(/^#(?:(?:[\da-f]{3}){1,2}|(?:[\da-f]{4}){1,2})$/i)) {
       console.warn(
@@ -44,13 +78,20 @@ export const Palette = ({ colors, small }: PalletteProps) => {
   })
 
   return (
-    <StyledPalette
-      small={small}
+    <div
+      onMouseLeave={dragStop}
       ref={parent as React.RefObject<HTMLDivElement>}
     >
-      {colors?.slice(small ? 4 : undefined).map((color) => (
-        <ColorBox key={color} color={color} small={small} />
-      ))}
-    </StyledPalette>
+      <ScrollMenu
+        onMouseDown={() => dragStart}
+        onMouseUp={() => dragStop}
+        onMouseMove={handleDrag}
+        onWheel={onWheel}
+      >
+        {colors?.map((color) => (
+          <ColorBox key={color} color={color} size={size} />
+        ))}
+      </ScrollMenu>
+    </div>
   )
 }
