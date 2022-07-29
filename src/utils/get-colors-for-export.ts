@@ -7,8 +7,6 @@ export const getColorNames = (colors: ColorsTuple) => {
     const colorName: string = GetColorName(color)
       .toLowerCase()
       .replace(/\s/g, '-')
-
-    console.log(colorName)
     return {
       hex: color,
       name: colorName,

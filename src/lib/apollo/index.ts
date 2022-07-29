@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* istanbul ignore file */
+
 import {
   ApolloClient,
   HttpLink,

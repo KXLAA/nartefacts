@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export {
   BASE_VARIANTS,
   COLOR_VARIANTS,
