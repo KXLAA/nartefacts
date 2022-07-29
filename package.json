@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently -n NEXT,TS -c magenta,cyan \"next dev\" \"yarn ts --watch\"",
     "type-check": "tsc",
+    "ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"  --max-warnings=0",
@@ -34,6 +35,7 @@
     "argon2": "^0.28.5",
     "aws-sdk": "^2.1181.0",
     "colorthief": "^2.3.2",
+    "concurrently": "^7.3.0",
     "graphql": "^16.5.0",
     "hex-color-to-color-name": "^1.0.2",
     "jsonwebtoken": "^8.5.1",
