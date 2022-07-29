@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 
 import { QueryResolvers } from '@/graphql/generated/graphql'
-import { paginate } from '@/graphql/resolvers/utils'
+import { paginate } from '@/utils'
 
 const prisma = new PrismaClient()
 
