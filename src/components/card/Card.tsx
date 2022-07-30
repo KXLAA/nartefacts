@@ -7,11 +7,6 @@ import { Content, Divider, ImageWrapper } from './styles'
 import { CardProps } from './types'
 
 export const Card = ({ albumArt, title, artist, colors }: CardProps) => {
-  //randomly select 4 colors from the palette
-  const shuffled = [...colors]
-    .sort(() => Math.random() - Math.random())
-    .slice(0, 8)
-
   return (
     <Flex direction="column" gap={4}>
       <ImageWrapper>
@@ -21,10 +16,12 @@ export const Card = ({ albumArt, title, artist, colors }: CardProps) => {
           width={385}
           alt={'album art'}
           layout="responsive"
+          placeholder="blur"
+          blurDataURL={albumArt!}
         />
       </ImageWrapper>
       <Divider />
-      <Palette colors={shuffled} />
+      <Palette colors={colors} />
       <Content>
         <p>{title}</p>
         <span>{artist.name}</span>
