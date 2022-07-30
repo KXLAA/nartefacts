@@ -18,7 +18,7 @@ export const StyledButton = styled('button', {
   fontFamily: '$primary',
   fontWeight: 'bold',
   fontVariantNumeric: 'tabular-nums',
-  br: '$rounded',
+  br: 4,
   cursor: 'pointer',
   transition: 'all 0.3s ease',
 
