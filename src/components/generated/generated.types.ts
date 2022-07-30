@@ -1,6 +1,6 @@
 import { ColorsTuple } from '@/components/palette'
 
-export type GeneratedProps = {
+export interface GeneratedProps {
   imageUrl: null | string
   colors: null | ColorsTuple
   small?: boolean

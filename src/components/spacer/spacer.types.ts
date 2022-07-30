@@ -1,6 +1,6 @@
 import { CSS, SizeTypes, VariantProps } from '@/lib/stitches'
 
-import { StyledSpacer } from './styles'
+import { StyledSpacer } from './spacer.styles'
 
 export interface Props {
   css?: CSS

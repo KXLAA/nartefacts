@@ -1,2 +1,2 @@
 export * from './Modal'
-export * from './styles'
+export * from './modal.styles'

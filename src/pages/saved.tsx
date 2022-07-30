@@ -17,21 +17,21 @@ import { useCreatedStore } from '@/lib/store'
 export default function Saved() {
   const store = useCreatedStore()
   const [parent] = useAutoAnimate()
-  const getText = () => {
-    return store.generatedColors.length > 0
+  const getTitle = () =>
+    store.generatedColors.length > 0
       ? `📸 You have saved ${store.generatedColors.length} pallette(s)`
       : `🙊 You have not saved any pallette yet`
-  }
+  const title = getTitle()
 
   return (
     <>
       <Head>
-        <title>{getText()}</title>
+        <title>{title}</title>
       </Head>
       <Main size="md">
         <Header secondary />
         <Spacer size="8" />
-        <Title text={getText()} />
+        <Title text={title} />
         <Spacer size="4" />
         <Grid
           columns={3}

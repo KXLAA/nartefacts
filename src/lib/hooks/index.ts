@@ -1,4 +1,7 @@
-export { useAutoAnimate } from './useAutoAnimate'
-export { useCopyToClipboard } from './useCopyToClipboard'
-export { useInfiniteScroll } from './useInfiniteScroll'
-export { useMouseOver } from './useMouseOver'
+/* istanbul ignore file */
+
+export * from './useAutoAnimate'
+export * from './useCopyToClipboard'
+export * from './useDrag'
+export * from './useInfiniteScroll'
+export * from './useMouseOver'

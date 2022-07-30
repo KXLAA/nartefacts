@@ -1,14 +1,14 @@
 import Image from 'next/image'
 
 import { Flex } from '@/components/flex'
+import { Palette } from '@/components/palette'
 
-import { Gradient, ImageWrapper } from './styles'
-import { CardProps } from './types'
+import { Content, Divider, ImageWrapper } from './card.styles'
+import { CardProps } from './card.types'
 
-export const Card = ({ albumArt }: CardProps) => {
+export const Card = ({ albumArt, title, artist, colors }: CardProps) => {
   return (
     <Flex direction="column" gap={4}>
-      <Gradient />
       <ImageWrapper>
         <Image
           src={albumArt!}
@@ -16,8 +16,16 @@ export const Card = ({ albumArt }: CardProps) => {
           width={385}
           alt={'album art'}
           layout="responsive"
+          placeholder="blur"
+          blurDataURL={albumArt!}
         />
       </ImageWrapper>
+      <Divider />
+      <Palette colors={colors} />
+      <Content>
+        <p>{title}</p>
+        <span>{artist.name}</span>
+      </Content>
     </Flex>
   )
 }

@@ -16,8 +16,8 @@ import {
 import { createClient } from '@/lib/apollo'
 import { useAutoAnimate, useInfiniteScroll } from '@/lib/hooks'
 
-// number of items to load on first load
-const first = 9
+const first = 9 // number of items to load on first load
+
 export default function Home() {
   const [parent] = useAutoAnimate()
   const { data, loading, fetchMore } = useAllAlbumsQuery({
@@ -61,7 +61,7 @@ export default function Home() {
 
       {loading && <Loader />}
 
-      {/* when this div is visible, fetch more albums */}
+      {/* when this div is visible, fetch more data */}
       <div
         style={{ height: '2rem' }}
         ref={intersectionRef}

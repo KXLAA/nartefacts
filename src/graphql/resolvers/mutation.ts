@@ -5,10 +5,9 @@ import ColorThief from 'colorthief'
 import jwt from 'jsonwebtoken'
 
 import { ColorsTuple } from '@/components/palette'
-import { rgbToHex } from '@/graphql/resolvers/utils'
 import { uploadFile } from '@/lib/aws'
 import { prisma } from '@/lib/prisma'
-import { getColorsForExport } from '@/utils'
+import { getColorsForExport, rgbToHex } from '@/utils'
 
 import { MutationResolvers } from '../generated/graphql'
 
@@ -33,11 +32,11 @@ const Mutation: MutationResolvers = {
   generateColors: async (_, { imageUrl }) => {
     const getColors = async (): Promise<ColorsTuple | undefined> => {
       try {
-        //This function returns an array of rgb color codes in this format - [red: number, green: number, blue: number][]
         const colors = await ColorThief.getPalette(imageUrl!, 8, 10)
-        //Converting the rgb color codes to HEX color codes
-        const palette = colors.map((color) => rgbToHex(color))
-        return palette as ColorsTuple
+        const palette: ColorsTuple = colors.map((color) =>
+          rgbToHex(color),
+        ) as ColorsTuple
+        return palette
       } catch (error: unknown) {
         if (error as Error) {
           throw new ApolloError('Oops, something went wrong')
@@ -45,7 +44,7 @@ const Mutation: MutationResolvers = {
       }
     }
     const colors = await getColors()
-    return { colors: colors! }
+    return { colors: colors || [] }
   },
 
   //Album

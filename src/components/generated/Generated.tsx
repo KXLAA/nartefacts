@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { ExportPaletteModal } from '@/components/modal'
 import { ColorsTuple, Palette } from '@/components/palette'
 
-import { StyledImageWrapper, StyledWrapper } from './styles'
-import { GeneratedProps } from './types'
+import { StyledImageWrapper, StyledWrapper } from './generated.styles'
+import { GeneratedProps } from './generated.types'
 
 export const Generated = ({ imageUrl, colors, small }: GeneratedProps) => {
   return (
@@ -19,7 +19,7 @@ export const Generated = ({ imageUrl, colors, small }: GeneratedProps) => {
         />
       </StyledImageWrapper>
       <ExportPaletteModal small={small} colors={colors as ColorsTuple} />
-      <Palette colors={colors as ColorsTuple} small={small} />
+      <Palette colors={colors as ColorsTuple} size={small ? 'sm' : 'lg'} />
     </StyledWrapper>
   )
 }

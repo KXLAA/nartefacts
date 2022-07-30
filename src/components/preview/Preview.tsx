@@ -7,8 +7,8 @@ import { Generated } from '@/components/generated'
 import { Toast } from '@/components/toast'
 import { useCreatedStore } from '@/lib/store'
 
-import { StyledWrapper } from './styles'
-import { PreviewProps } from './types'
+import { StyledWrapper } from './preview.styles'
+import { PreviewProps } from './preview.types'
 
 export const Preview = ({ imageUrl, colors, reset }: PreviewProps) => {
   const store = useCreatedStore()

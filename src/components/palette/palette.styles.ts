@@ -2,26 +2,17 @@ import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
 export const StyledPalette = styled('div', {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
-  gap: '$2',
-
-  variants: {
-    small: {
-      true: {
-        gap: '$1',
-      },
-    },
+  '&:first-child': {
+    ml: 0,
   },
 })
 
 export const StyledColor = styled(Box, {
-  height: '80px',
+  mr: '$3',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   cursor: 'pointer',
-  borderRadius: '$rounded',
   transition: 'all 0.3s ease-in-out',
   background: '$black-light',
   ':hover': {
@@ -34,16 +25,36 @@ export const StyledColor = styled(Box, {
   },
 
   variants: {
-    small: {
-      true: {
-        height: 58,
-        borderRadius: '$rounded-sm',
-
+    size: {
+      sm: {
+        size: 58,
+        mr: '$2',
+        '& span': {
+          fontSize: 12,
+          color: '$white-base',
+        },
+      },
+      md: {
+        size: 100,
+        '& span': {
+          fontSize: 12,
+          color: '$white-base',
+        },
+      },
+      lg: {
+        size: 160,
         '& span': {
           fontSize: 12,
           color: '$white-base',
         },
       },
     },
+    small: {
+      true: {},
+    },
+  },
+
+  defaultVariants: {
+    size: 'md',
   },
 })

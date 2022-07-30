@@ -4,7 +4,7 @@ import { Button } from '@/components/button'
 import { Flex } from '@/components/flex'
 import { Logo } from '@/components/logo'
 
-import { HeaderProps } from './types'
+import { HeaderProps } from './header.types'
 
 export const Header = ({ primary, secondary }: HeaderProps) => {
   return (

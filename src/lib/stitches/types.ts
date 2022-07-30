@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { CSS as StitchesCSS } from '@stitches/react'
 import { Prefixed } from '@stitches/react/types/util'
 

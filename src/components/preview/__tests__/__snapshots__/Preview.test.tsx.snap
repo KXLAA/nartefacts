@@ -51,56 +51,161 @@ exports[`<Preview /> should render <Preview /> correctly 1`] = `
     >
       export
     </button>
-    <div
-      class="nartefacts-c-jnlfwv"
-    >
+    <div>
       <div
-        class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-ibRqtCb-css"
-        data-testid="color-box"
+        class="react-horizontal-scrolling-menu--wrapper "
       >
-        <span />
-      </div>
-      <div
-        class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-icNTaWo-css"
-        data-testid="color-box"
-      >
-        <span />
-      </div>
-      <div
-        class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-iljSaHW-css"
-        data-testid="color-box"
-      >
-        <span />
-      </div>
-      <div
-        class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-ifnWYyO-css"
-        data-testid="color-box"
-      >
-        <span />
-      </div>
-      <div
-        class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-ifasfFT-css"
-        data-testid="color-box"
-      >
-        <span />
-      </div>
-      <div
-        class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-iidIQth-css"
-        data-testid="color-box"
-      >
-        <span />
-      </div>
-      <div
-        class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-ihyNqYh-css"
-        data-testid="color-box"
-      >
-        <span />
-      </div>
-      <div
-        class="nartefacts-c-PJLV nartefacts-c-dhqBbC nartefacts-c-PJLV-icxDfvq-css"
-        data-testid="color-box"
-      >
-        <span />
+        <div
+          class="react-horizontal-scrolling-menu--header"
+        />
+        <div
+          class="react-horizontal-scrolling-menu--inner-wrapper"
+        >
+          <div
+            class="react-horizontal-scrolling-menu--arrow-left"
+          />
+          <div
+            class="react-horizontal-scrolling-menu--scroll-container "
+          >
+            <div
+              class="react-horizontal-scrolling-menu--item "
+              data-index="0"
+              data-key="#095525"
+            >
+              <div
+                class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-glIPfA-size-lg nartefacts-c-PJLV-icndjIz-css"
+                data-testid="color-box"
+              >
+                <span />
+              </div>
+            </div>
+            <div
+              class="react-horizontal-scrolling-menu--separator "
+              data-index="0.1"
+              data-key="#095525-separator"
+            />
+            <div
+              class="react-horizontal-scrolling-menu--item "
+              data-index="1"
+              data-key="#673636"
+            >
+              <div
+                class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-glIPfA-size-lg nartefacts-c-PJLV-ikUUhWU-css"
+                data-testid="color-box"
+              >
+                <span />
+              </div>
+            </div>
+            <div
+              class="react-horizontal-scrolling-menu--separator "
+              data-index="1.1"
+              data-key="#673636-separator"
+            />
+            <div
+              class="react-horizontal-scrolling-menu--item "
+              data-index="2"
+              data-key="#379273"
+            >
+              <div
+                class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-glIPfA-size-lg nartefacts-c-PJLV-ijASQqu-css"
+                data-testid="color-box"
+              >
+                <span />
+              </div>
+            </div>
+            <div
+              class="react-horizontal-scrolling-menu--separator "
+              data-index="2.1"
+              data-key="#379273-separator"
+            />
+            <div
+              class="react-horizontal-scrolling-menu--item "
+              data-index="3"
+              data-key="#136407"
+            >
+              <div
+                class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-glIPfA-size-lg nartefacts-c-PJLV-ibBDuEG-css"
+                data-testid="color-box"
+              >
+                <span />
+              </div>
+            </div>
+            <div
+              class="react-horizontal-scrolling-menu--separator "
+              data-index="3.1"
+              data-key="#136407-separator"
+            />
+            <div
+              class="react-horizontal-scrolling-menu--item "
+              data-index="4"
+              data-key="#573227"
+            >
+              <div
+                class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-glIPfA-size-lg nartefacts-c-PJLV-igZxaNn-css"
+                data-testid="color-box"
+              >
+                <span />
+              </div>
+            </div>
+            <div
+              class="react-horizontal-scrolling-menu--separator "
+              data-index="4.1"
+              data-key="#573227-separator"
+            />
+            <div
+              class="react-horizontal-scrolling-menu--item "
+              data-index="5"
+              data-key="#547820"
+            >
+              <div
+                class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-glIPfA-size-lg nartefacts-c-PJLV-ifyEfth-css"
+                data-testid="color-box"
+              >
+                <span />
+              </div>
+            </div>
+            <div
+              class="react-horizontal-scrolling-menu--separator "
+              data-index="5.1"
+              data-key="#547820-separator"
+            />
+            <div
+              class="react-horizontal-scrolling-menu--item "
+              data-index="6"
+              data-key="#163598"
+            >
+              <div
+                class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-glIPfA-size-lg nartefacts-c-PJLV-iihcxYh-css"
+                data-testid="color-box"
+              >
+                <span />
+              </div>
+            </div>
+            <div
+              class="react-horizontal-scrolling-menu--separator "
+              data-index="6.1"
+              data-key="#163598-separator"
+            />
+            <div
+              class="react-horizontal-scrolling-menu--item "
+              data-index="7"
+              data-key="#682052"
+            >
+              <div
+                class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-glIPfA-size-lg nartefacts-c-PJLV-ifUsSfW-css"
+                data-testid="color-box"
+              >
+                <span />
+              </div>
+            </div>
+          </div>
+          <div
+            class="react-horizontal-scrolling-menu--arrow-right"
+          />
+        </div>
+        <div
+          class="react-horizontal-scrolling-menu--footer"
+        />
       </div>
     </div>
   </div>

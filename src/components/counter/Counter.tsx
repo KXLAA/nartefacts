@@ -1,5 +1,5 @@
-import { StyledCounter, StyledWrapper } from './styles'
-import { CounterProps } from './types'
+import { StyledCounter, StyledWrapper } from './counter.styles'
+import { CounterProps } from './counter.types'
 
 export const Counter = ({ count }: CounterProps) => {
   return (

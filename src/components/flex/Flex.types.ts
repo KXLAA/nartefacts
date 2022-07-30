@@ -1,12 +1,9 @@
 import { CSS, VariantProps } from '@/lib/stitches'
 
-import { Flex } from '.'
+import { Flex } from './Flex'
 
-export interface Props {
+export type FlexVariantsProps = VariantProps<typeof Flex>
+export interface FlexProps extends FlexVariantsProps {
   css?: CSS
   as?: keyof Pick<JSX.IntrinsicElements, 'span' | 'div'>
 }
-
-export type FlexVariantsProps = VariantProps<typeof Flex>
-export type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>
-export type FlexProps = Props & NativeAttrs & FlexVariantsProps

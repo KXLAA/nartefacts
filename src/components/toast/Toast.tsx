@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { StyledText, StyledWrapper } from './styles'
-import { ToastProps } from './types'
+import { StyledText, StyledWrapper } from './toast.styles'
+import { ToastProps } from './toast.types'
 
 export const Toast = ({ imageUrl }: ToastProps) => {
   return (

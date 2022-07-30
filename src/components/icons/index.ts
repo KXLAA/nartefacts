@@ -1,8 +1,4 @@
-export { default as Check } from './Check'
-export { default as Copy } from './Copy'
-export { default as UploadPlus } from './UploadPlus'
-export interface IconProps {
-  color: string
-  size: number
-  strokeWidth?: number
-}
+export * from './Check'
+export * from './Copy'
+export * from './icons.types'
+export * from './UploadPlus'

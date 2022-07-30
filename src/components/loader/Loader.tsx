@@ -1,5 +1,6 @@
 import { Flex } from '@/components/flex'
-import { StyledLoaderGradient } from '@/components/loader/styles'
+
+import { StyledLoaderGradient } from './loader.styles'
 
 export const Loader = () => {
   return (

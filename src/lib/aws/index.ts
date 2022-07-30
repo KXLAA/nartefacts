@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import aws from 'aws-sdk'
 
 aws.config.update({

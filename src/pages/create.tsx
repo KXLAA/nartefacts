@@ -20,7 +20,7 @@ export default function Create() {
     colors: undefined,
   })
   const { data: count } = useAnalyticsQuery()
-  const getText = () => {
+  const getTitle = () => {
     if (upload.isUploading) {
       return '👀 generating your pallette...'
     }
@@ -31,6 +31,7 @@ export default function Create() {
 
     return '💾 save or export your color pallette'
   }
+  const title = getTitle()
 
   const reset = () => {
     setUpload((prev) => ({
@@ -44,11 +45,11 @@ export default function Create() {
   return (
     <Main size="md">
       <Head>
-        <title>{getText()}</title>
+        <title>{title}</title>
       </Head>
       <Header secondary />
       <Spacer size="8" />
-      <Title text={getText()} />
+      <Title text={title} />
       <Spacer size="8" />
       {!upload.imageUrl && !upload.colors ? (
         <Dropzone {...{ upload, setUpload }} />

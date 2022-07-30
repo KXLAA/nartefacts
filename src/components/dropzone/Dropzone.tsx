@@ -11,8 +11,8 @@ import {
   useUpdateAnalyticsMutation,
 } from '@/graphql/generated/graphql'
 
-import { StyledContent, StyledDrop } from './styles'
-import { DropzoneProps } from './types'
+import { StyledContent, StyledDrop } from './dropzone.styles'
+import { DropzoneProps } from './dropzone.types'
 
 export const Dropzone = ({ upload, setUpload }: DropzoneProps) => {
   const { uploadToS3 } = useS3Upload()
