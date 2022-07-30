@@ -1,8 +1,13 @@
 import * as ModalPrimitive from '@radix-ui/react-dialog'
 import React from 'react'
 
-import { ModalRoot, ModalTrigger, StyledContent, StyledOverlay } from './styles'
-import { ModalProps } from './types'
+import {
+  ModalRoot,
+  ModalTrigger,
+  StyledContent,
+  StyledOverlay,
+} from './modal.styles'
+import { ModalProps } from './modal.types'
 
 const ModalContent = React.forwardRef<
   HTMLDivElement,

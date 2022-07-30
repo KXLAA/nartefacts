@@ -2,8 +2,8 @@
 
 import { Header } from '@/components/header'
 
-import { StyledLayout } from './styles'
-import { LayoutProps } from './types'
+import { StyledLayout } from './layout.styles'
+import { LayoutProps } from './layout.types'
 
 export const Main = ({ children, size = 'lg', ...rest }: LayoutProps) => {
   return (

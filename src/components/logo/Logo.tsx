@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { SVG } from './styles'
-import { LogoProps } from './types'
+import { SVG } from './logo.styles'
+import { LogoProps } from './logo.types'
 
 const Base: React.ForwardRefRenderFunction<SVGSVGElement, LogoProps> = (
   { color, width, height, href, onClick },

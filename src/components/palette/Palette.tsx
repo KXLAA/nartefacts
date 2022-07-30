@@ -10,8 +10,12 @@ import {
 } from '@/lib/hooks'
 import { isValidHexCode } from '@/utils'
 
-import { StyledColor } from './styles'
-import { ColorBoxProps, PalletteProps, VisibilityApiType } from './types'
+import { StyledColor } from './palette.styles'
+import {
+  ColorBoxProps,
+  PalletteProps,
+  VisibilityApiType,
+} from './palette.types'
 
 export const ColorBox = ({ color, size }: ColorBoxProps) => {
   const [, copy] = useCopyToClipboard()

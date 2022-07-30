@@ -1,5 +1,5 @@
-import { StyledWrapper } from './styles'
-import { TitleProps } from './types'
+import { StyledWrapper } from './title.styles'
+import { TitleProps } from './title.types'
 
 export const Title = ({ text }: TitleProps) => {
   return (

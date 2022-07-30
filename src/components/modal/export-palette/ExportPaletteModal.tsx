@@ -8,8 +8,11 @@ import { useCopyToClipboard } from '@/lib/hooks'
 import { getColorsForExport } from '@/utils'
 
 import { Modal, ModalDescription, ModalTitle } from '../common'
-import { ExportButton, ExportedTextArea } from './styles'
-import { ExportedProps, ExportPaletteModalProps } from './types'
+import { ExportButton, ExportedTextArea } from './export-palette-modal.styles'
+import {
+  ExportedProps,
+  ExportPaletteModalProps,
+} from './export-palette-modal.types'
 
 export const ExportPaletteModal = ({
   small,

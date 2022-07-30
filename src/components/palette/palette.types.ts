@@ -2,7 +2,7 @@ import { VisibilityContext } from 'react-horizontal-scrolling-menu'
 
 import { VariantProps } from '@/lib/stitches'
 
-import { StyledColor } from './styles'
+import { StyledColor } from './palette.styles'
 
 type ColorVariantsProps = VariantProps<typeof StyledColor>
 export type VisibilityApiType = React.ContextType<typeof VisibilityContext>

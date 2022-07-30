@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { Flex } from '@/components/flex'
 import { Palette } from '@/components/palette'
 
-import { Content, Divider, ImageWrapper } from './styles'
-import { CardProps } from './types'
+import { Content, Divider, ImageWrapper } from './card.styles'
+import { CardProps } from './card.types'
 
 export const Card = ({ albumArt, title, artist, colors }: CardProps) => {
   return (

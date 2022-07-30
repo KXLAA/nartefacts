@@ -1,10 +1,11 @@
 import { ColorsTuple } from '@/components/palette'
 
-export type DropzoneProps = {
+export interface DropzoneProps {
   upload: UploadState
   setUpload: React.Dispatch<React.SetStateAction<UploadState>>
 }
-export type UploadState = {
+
+export interface UploadState {
   isUploading?: boolean
   imageUrl?: string
   error?: string
