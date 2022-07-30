@@ -34,7 +34,11 @@ export default function Saved() {
         <Title text={title} />
         <Spacer size="4" />
         <Grid
-          columns={3}
+          columns={{
+            '@initial': 1,
+            '@sm': 2,
+            '@md': 3,
+          }}
           gap={5}
           ref={parent as React.RefObject<HTMLDivElement>}
         >

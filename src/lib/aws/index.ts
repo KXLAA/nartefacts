@@ -21,3 +21,13 @@ export const uploadFile = (key: string, body: Buffer | string) => {
 }
 
 export default aws
+
+// const getNumberOfFilesInS3Bucket = async (bucket: string) => {
+//   const params = {
+//     Bucket: bucket,
+//     MaxKeys: 1000,
+//     Prefix: 'next-s3-uploads/',
+//   }
+//   const data = await s3.listObjects(params).promise()
+//   return data?.Contents?.length
+// }

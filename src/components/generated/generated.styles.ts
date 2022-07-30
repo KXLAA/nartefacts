@@ -7,24 +7,21 @@ const fadeIn = keyframes({
 })
 
 export const StyledImageWrapper = styled('div', {
-  border: '2px solid $gray-light',
-  borderRadius: '$rounded',
-
   '& span': {
-    borderRadius: '$rounded',
+    br: 4,
     '@media (prefers-reduced-motion: no-preference)': {
       animation: `${fadeIn} 1s ease-in`,
+      br: 4,
     },
   },
 
   variants: {
     small: {
       true: {
-        border: '1px solid $gray-light',
-        borderRadius: '$rounded-sm',
+        br: 2,
 
         '& span': {
-          borderRadius: '$rounded-sm',
+          br: 2,
         },
       },
     },
