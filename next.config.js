@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-module.exports = withPWA({
+const nextConfig = {
   pwa: {
     dest: 'public',
     disable: !isProd,
@@ -14,6 +14,6 @@ module.exports = withPWA({
   images: {
     domains: ['ucarecdn.com', 'nartefact-upload.s3.eu-west-2.amazonaws.com'],
   },
-})
+}
 
-module.exports = withBundleAnalyzer({})
+module.exports = withBundleAnalyzer(withPWA(nextConfig))
