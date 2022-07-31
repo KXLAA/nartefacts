@@ -11,6 +11,7 @@ import * as React from 'react'
 
 import { Flex } from '@/components/flex'
 import { Grid } from '@/components/grid'
+import { DeleteAlbumModal } from '@/components/modal'
 import { Album } from '@/graphql'
 
 import { ImageWrapper, StyledTable, TD, TH, TR } from './table.styles'
@@ -89,7 +90,10 @@ const columns = [
       <Flex gap={4} p={4}>
         <Eye role="button" onClick={() => console.log(info)} />
         <Edit role="button" />
-        <Trash2 role="button" />
+        <DeleteAlbumModal
+          trigger={<Trash2 role="button" />}
+          id={info.row.original.id}
+        />
       </Flex>
     ),
     header: () => <span>Actions</span>,

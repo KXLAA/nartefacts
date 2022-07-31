@@ -40,7 +40,7 @@ export const StyledButton = styled('button', {
         fontSize: '$md',
       },
       sm: {
-        height: '$10',
+        height: '$12',
         maxWidth: '100%',
         fontSize: '22px',
       },

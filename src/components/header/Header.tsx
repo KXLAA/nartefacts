@@ -67,12 +67,20 @@ export const Header = ({ type }: HeaderProps) => {
             <Link href="/">
               <Text>admin.</Text>
             </Link>
-            <Button
-              variant="danger"
-              label="Log Out"
-              size="md"
-              fullWidth={false}
-            />
+            <Flex gap={4} justify="end">
+              <Button
+                variant="danger"
+                label="Log Out"
+                size="md"
+                fullWidth={false}
+              />
+              <Button
+                variant="dark"
+                label="Create"
+                size="md"
+                fullWidth={false}
+              />
+            </Flex>
           </Flex>
         </Flex>
       )

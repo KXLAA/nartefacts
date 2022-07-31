@@ -23,7 +23,6 @@ export default function Home() {
     variables: { first },
     notifyOnNetworkStatusChange: true,
   })
-
   //infinite scroll stuff
   const nodes = data?.allAlbums?.edges.map((edge) => edge.node)
   const pageInfo = data?.allAlbums?.pageInfo
