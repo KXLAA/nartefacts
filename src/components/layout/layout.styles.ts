@@ -23,6 +23,9 @@ export const StyledLayout = styled('main', {
       lg: {
         maxWidth: '1280px',
       },
+      xl: {
+        maxWidth: '1300px',
+      },
     },
   },
 
