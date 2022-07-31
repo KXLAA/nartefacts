@@ -6,7 +6,7 @@ export const StyledButton = styled('button', {
   alignItems: 'center',
   boxSizing: 'border-box',
   userSelect: 'none',
-  width: '100%',
+  width: 'auto',
   display: 'flex',
   justifyContent: 'center',
   alignContent: 'center',

@@ -37,7 +37,7 @@ export default function Admin() {
     }
   })
   return (
-    <Main size="xl" headerType="secondary">
+    <Main size="xl" headerType="admin">
       <Spacer size="8" />
 
       <div>

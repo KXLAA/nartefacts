@@ -4,6 +4,7 @@ import { Button } from '@/components/button'
 import { Flex } from '@/components/flex'
 import { Logo } from '@/components/logo'
 
+import { Text } from './header.styles'
 import { HeaderProps } from './header.types'
 
 export const Header = ({ type }: HeaderProps) => {
@@ -55,6 +56,23 @@ export const Header = ({ type }: HeaderProps) => {
             <Link href="/">
               <Logo width="250" />
             </Link>
+          </Flex>
+        </Flex>
+      )
+
+    case 'admin':
+      return (
+        <Flex as="header">
+          <Flex as="nav" justify="between" align="center">
+            <Link href="/">
+              <Text>admin.</Text>
+            </Link>
+            <Button
+              variant="danger"
+              label="Log Out"
+              size="md"
+              fullWidth={false}
+            />
           </Flex>
         </Flex>
       )

@@ -22,7 +22,7 @@ export function uploadFile(key: string, body: Buffer | string) {
 
 export default aws
 
-async function getNumberOfFilesInS3Bucket(bucket: string) {
+export async function getNumberOfFilesInS3Bucket(bucket: string) {
   const params = {
     Bucket: bucket,
     MaxKeys: 1000,

@@ -5,6 +5,7 @@ import {
   Table as RTable,
   useReactTable,
 } from '@tanstack/react-table'
+import { Edit, Eye, Trash2 } from 'lucide-react'
 import Image from 'next/image'
 import * as React from 'react'
 
@@ -42,7 +43,7 @@ const columns = [
   columnHelper.accessor((row) => row.artist, {
     id: 'artist',
     cell: (info) => (
-      <Flex align="center" gap={4}>
+      <Flex align="center" gap={4} p={2}>
         <ImageWrapper rounded>
           <Image
             src={info.getValue().photoURL || '/static/placeholder.png'}
@@ -66,7 +67,7 @@ const columns = [
   columnHelper.accessor((row) => row.colors, {
     id: 'colors',
     cell: (info) => (
-      <Grid columns={4} gap={2} css={{ p: 4 }}>
+      <Grid columns={4} gap={2} p={4}>
         {info.getValue().map((color) => (
           <span
             key={color}
@@ -85,11 +86,11 @@ const columns = [
   columnHelper.display({
     id: 'actions',
     cell: (info) => (
-      <div>
-        <button onClick={() => console.log(info)}>Details</button>
-        <button>Edit</button>
-        <button>Delete</button>
-      </div>
+      <Flex gap={4} p={4}>
+        <Eye role="button" onClick={() => console.log(info)} />
+        <Edit role="button" />
+        <Trash2 role="button" />
+      </Flex>
     ),
     header: () => <span>Actions</span>,
   }),
