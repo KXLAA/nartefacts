@@ -4,7 +4,6 @@ import * as React from 'react'
 
 import { Card } from '@/components/card'
 import { Grid } from '@/components/grid'
-import { Header } from '@/components/header'
 import { Main } from '@/components/layout'
 import { Loader } from '@/components/loader'
 import { Spacer } from '@/components/spacer'
@@ -41,8 +40,7 @@ export default function Home() {
   })
 
   return (
-    <Main>
-      <Header primary />
+    <Main headerType="primary">
       <Spacer size="8" />
       <Grid
         ref={parent as React.RefObject<HTMLDivElement>}

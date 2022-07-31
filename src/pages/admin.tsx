@@ -1,10 +1,10 @@
 /* istanbul ignore file */
 
-import Head from 'next/head'
 import * as React from 'react'
 
 import { Main } from '@/components/layout'
 import { Loader } from '@/components/loader'
+import { Spacer } from '@/components/spacer'
 import { Table } from '@/components/table'
 import {
   AllAlbumsDocument,
@@ -37,10 +37,9 @@ export default function Admin() {
     }
   })
   return (
-    <Main size="xl">
-      <Head>
-        <title>Hello</title>
-      </Head>
+    <Main size="xl" headerType="secondary">
+      <Spacer size="8" />
+
       <div>
         <Table tableData={nodes!} />
       </div>

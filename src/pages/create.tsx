@@ -5,7 +5,6 @@ import * as React from 'react'
 
 import { Counter } from '@/components/counter'
 import { Dropzone, UploadState } from '@/components/dropzone'
-import { Header } from '@/components/header'
 import { Main } from '@/components/layout'
 import { Preview } from '@/components/preview'
 import { Spacer } from '@/components/spacer'
@@ -43,11 +42,10 @@ export default function Create() {
   }
 
   return (
-    <Main size="md">
+    <Main size="md" headerType="secondary">
       <Head>
         <title>{title}</title>
       </Head>
-      <Header secondary />
       <Spacer size="8" />
       <Title text={title} />
       <Spacer size="8" />
