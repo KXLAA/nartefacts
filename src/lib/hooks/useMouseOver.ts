@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import * as React from 'react'
 
-export const useMouseOver = () => {
+export function useMouseOver() {
   const [value, setValue] = React.useState(false)
 
   const ref = React.useRef(null)

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const useDrag = () => {
+export function useDrag() {
   const [clicked, setClicked] = React.useState(false)
   const [dragging, setDragging] = React.useState(false)
   const position = React.useRef(0)
