@@ -135,18 +135,18 @@ const Mutation: MutationResolvers = {
   },
 
   //Auth
-  signUp: async (_, { username, password }) => {
+  signUp: async (_, { email, password }) => {
     //Generate password hash
-    const hash = await argon.hash(password)
+    const hash = await argon.hash(password!)
     try {
       const admin = await prisma.admin.create({
         data: {
-          username: username!,
+          email: email,
           hash,
         },
       })
       //Return admin username
-      return admin.username
+      return admin.email
     } catch (error) {
       if (error instanceof Prisma.PrismaClientKnownRequestError) {
         console.log('Credentials taken')
@@ -155,11 +155,11 @@ const Mutation: MutationResolvers = {
     }
   },
 
-  logIn: async (_, { username, password }) => {
+  logIn: async (_, { email, password }) => {
     // find the admin by email
     const admin = await prisma.admin.findUnique({
       where: {
-        username: username!,
+        email: email,
       },
     })
     // if user does not exist throw exception

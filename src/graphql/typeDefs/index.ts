@@ -21,8 +21,8 @@ const typeDefs = gql`
     updateAlbum(albumID: ID!, input: AlbumInput): Album!
     deleteAlbum(albumID: ID!): Boolean!
 
-    signUp(username: String!, password: String!): String!
-    logIn(username: String!, password: String!): String!
+    signUp(email: String!, password: String!): String!
+    logIn(email: String!, password: String!): String!
 
     updateAnalytics(id: ID!): Analytics
   }
