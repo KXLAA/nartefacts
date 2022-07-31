@@ -13,6 +13,7 @@ export const TH = styled('th', {
   bg: '$black-light',
   border: '3px solid $gray-base',
   p: 10,
+  fontSize: 20,
 })
 
 export const TR = styled('tr', {
@@ -21,6 +22,7 @@ export const TR = styled('tr', {
 
 export const TD = styled('td', {
   border: '3px solid $gray-base',
+  fontSize: 18,
 })
 
 export const TableHeader = styled('thead', {})

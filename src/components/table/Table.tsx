@@ -1,8 +1,8 @@
 import {
-  ColumnDef,
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  Table as RTable,
   useReactTable,
 } from '@tanstack/react-table'
 import Image from 'next/image'
@@ -66,11 +66,16 @@ const columns = [
   columnHelper.accessor((row) => row.colors, {
     id: 'colors',
     cell: (info) => (
-      <Grid columns={4} gap={4} rowGap={4}>
+      <Grid columns={4} gap={2} css={{ p: 4 }}>
         {info.getValue().map((color) => (
           <span
             key={color}
-            style={{ background: color, width: 50, height: 50 }}
+            style={{
+              background: color,
+              width: 50,
+              height: 50,
+              borderRadius: 9999,
+            }}
           />
         ))}
       </Grid>
@@ -90,7 +95,11 @@ const columns = [
   }),
 ]
 
-export const Table = ({ tableData }: { tableData: Album[] }) => {
+type TableProps<T> = {
+  table?: RTable<T>
+  tableData: Album[]
+}
+export const Table = ({ tableData }: TableProps<Album>) => {
   const [data, setData] = React.useState(() => [...tableData])
 
   const table = useReactTable({
@@ -99,6 +108,7 @@ export const Table = ({ tableData }: { tableData: Album[] }) => {
     getCoreRowModel: getCoreRowModel(),
   })
 
+  // fetch more data when the user scrolls to the bottom
   React.useEffect(() => {
     setData(tableData)
   }, [tableData])
