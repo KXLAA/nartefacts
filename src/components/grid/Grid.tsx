@@ -70,16 +70,16 @@ export const Grid = styled(Box, {
         gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
       },
       5: {
-        gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+        gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
       },
       6: {
-        gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+        gridTemplateColumns: 'repeat(6, minmax(0, 1fr))',
       },
       7: {
-        gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+        gridTemplateColumns: 'repeat(7, minmax(0, 1fr))',
       },
       8: {
-        gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+        gridTemplateColumns: 'repeat(8, minmax(0, 1fr))',
       },
     },
 

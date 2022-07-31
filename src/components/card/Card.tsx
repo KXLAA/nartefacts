@@ -17,7 +17,7 @@ export const Card = ({ albumArt, title, artist, colors }: CardProps) => {
           alt={'album art'}
           layout="responsive"
           placeholder="blur"
-          blurDataURL={albumArt!}
+          blurDataURL={albumArt! || '/static/placeholder.png'}
         />
       </ImageWrapper>
       <Divider />

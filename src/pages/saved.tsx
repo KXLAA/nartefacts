@@ -27,15 +27,15 @@ export default function Saved() {
       <Head>
         <title>{title}</title>
       </Head>
-      <Main size="md" headerType="secondary">
+      <Main headerType="secondary">
         <Spacer size="8" />
         <Title text={title} />
         <Spacer size="4" />
         <Grid
           columns={{
             '@initial': 1,
-            '@sm': 2,
-            '@md': 3,
+            '@sm': 3,
+            '@md': 5,
           }}
           gap={5}
           ref={parent as React.RefObject<HTMLDivElement>}
