@@ -1,10 +1,10 @@
-import { albums } from '@prisma/client'
+import { Album } from '@/graphql'
 
 //Helper function to paginate queries
 export function paginate(
   firstArg: number,
   afterArg: string,
-  dataToPaginate: albums[] | [],
+  dataToPaginate: Album[] | [],
 ) {
   //Slicing is done with the first argument. This asks for the query to return the first 10 items from the dataToPaginate array.
   const first = firstArg || 10
