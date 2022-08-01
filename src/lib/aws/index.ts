@@ -10,7 +10,7 @@ aws.config.update({
 
 const s3 = new aws.S3()
 
-export const uploadFile = (key: string, body: Buffer | string) => {
+export function uploadFile(key: string, body: Buffer | string) {
   const uploadParams = {
     Bucket: process.env.S3_UPLOAD_BUCKET!,
     Key: key,
@@ -22,12 +22,12 @@ export const uploadFile = (key: string, body: Buffer | string) => {
 
 export default aws
 
-// const getNumberOfFilesInS3Bucket = async (bucket: string) => {
-//   const params = {
-//     Bucket: bucket,
-//     MaxKeys: 1000,
-//     Prefix: 'next-s3-uploads/',
-//   }
-//   const data = await s3.listObjects(params).promise()
-//   return data?.Contents?.length
-// }
+export async function getNumberOfFilesInS3Bucket(bucket: string) {
+  const params = {
+    Bucket: bucket,
+    MaxKeys: 1000,
+    Prefix: 'next-s3-uploads/',
+  }
+  const data = await s3.listObjects(params).promise()
+  return data?.Contents?.length
+}

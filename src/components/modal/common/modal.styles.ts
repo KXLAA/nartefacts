@@ -24,6 +24,7 @@ export const StyledOverlay = styled(DialogPrimitive.Overlay, {
 export const StyledTrigger = styled(DialogPrimitive.Trigger, {
   all: 'unset',
   width: '100%',
+  cursor: 'pointer',
 })
 
 export const StyledContent = styled(DialogPrimitive.Content, {

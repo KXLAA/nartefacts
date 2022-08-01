@@ -128,6 +128,6 @@ mutation DeleteAlbum($albumId: ID!) {
   deleteAlbum(albumID: $albumId)
 }
 
-mutation LogIn($password: String!, $username: String!) {
-  logIn(password: $password, username: $username)
+mutation LogIn($password: String!, $email: String!) {
+  logIn(password: $password, email: $email)
 }

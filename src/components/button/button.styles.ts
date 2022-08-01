@@ -6,7 +6,7 @@ export const StyledButton = styled('button', {
   alignItems: 'center',
   boxSizing: 'border-box',
   userSelect: 'none',
-  width: '100%',
+  width: 'auto',
   display: 'flex',
   justifyContent: 'center',
   alignContent: 'center',
@@ -40,7 +40,7 @@ export const StyledButton = styled('button', {
         fontSize: '$md',
       },
       sm: {
-        height: '$10',
+        height: '$12',
         maxWidth: '100%',
         fontSize: '22px',
       },

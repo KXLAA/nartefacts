@@ -122,8 +122,8 @@ export type MutationGenerateColorsArgs = {
 }
 
 export type MutationLogInArgs = {
+  email: Scalars['String']
   password: Scalars['String']
-  username: Scalars['String']
 }
 
 export type MutationRemoveFromLikeArgs = {
@@ -131,8 +131,8 @@ export type MutationRemoveFromLikeArgs = {
 }
 
 export type MutationSignUpArgs = {
+  email: Scalars['String']
   password: Scalars['String']
-  username: Scalars['String']
 }
 
 export type MutationUpdateAlbumArgs = {
@@ -420,7 +420,7 @@ export type DeleteAlbumMutation = { deleteAlbum: boolean }
 
 export type LogInMutationVariables = Exact<{
   password: Scalars['String']
-  username: Scalars['String']
+  email: Scalars['String']
 }>
 
 export type LogInMutation = { logIn: string }
@@ -1165,8 +1165,8 @@ export type DeleteAlbumMutationOptions = Apollo.BaseMutationOptions<
   DeleteAlbumMutationVariables
 >
 export const LogInDocument = gql`
-  mutation LogIn($password: String!, $username: String!) {
-    logIn(password: $password, username: $username)
+  mutation LogIn($password: String!, $email: String!) {
+    logIn(password: $password, email: $email)
   }
 `
 export type LogInMutationFn = Apollo.MutationFunction<
@@ -1188,7 +1188,7 @@ export type LogInMutationFn = Apollo.MutationFunction<
  * const [logInMutation, { data, loading, error }] = useLogInMutation({
  *   variables: {
  *      password: // value for 'password'
- *      username: // value for 'username'
+ *      email: // value for 'email'
  *   },
  * });
  */
@@ -1488,7 +1488,7 @@ export type MutationResolvers<
     ResolversTypes['String'],
     ParentType,
     ContextType,
-    RequireFields<MutationLogInArgs, 'password' | 'username'>
+    RequireFields<MutationLogInArgs, 'email' | 'password'>
   >
   removeFromLike?: Resolver<
     Maybe<ResolversTypes['Boolean']>,
@@ -1500,7 +1500,7 @@ export type MutationResolvers<
     ResolversTypes['String'],
     ParentType,
     ContextType,
-    RequireFields<MutationSignUpArgs, 'password' | 'username'>
+    RequireFields<MutationSignUpArgs, 'email' | 'password'>
   >
   updateAlbum?: Resolver<
     ResolversTypes['Album'],

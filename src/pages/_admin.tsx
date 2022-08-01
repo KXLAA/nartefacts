@@ -2,27 +2,26 @@
 
 import * as React from 'react'
 
-import { Card } from '@/components/card'
-import { Grid } from '@/components/grid'
 import { Main } from '@/components/layout'
 import { Loader } from '@/components/loader'
 import { Spacer } from '@/components/spacer'
+import { Table } from '@/components/table'
 import {
   AllAlbumsDocument,
   AllAlbumsQueryResult,
   useAllAlbumsQuery,
 } from '@/graphql/generated/graphql'
 import { createClient } from '@/lib/apollo'
-import { useAutoAnimate, useInfiniteScroll } from '@/lib/hooks'
+import { useInfiniteScroll } from '@/lib/hooks'
 
-const first = 9 // number of items to load on first load
+const first = 15 // number of items to load on first load
 
-export default function Home() {
-  const [parent] = useAutoAnimate()
+export default function Admin() {
   const { data, loading, fetchMore } = useAllAlbumsQuery({
     variables: { first },
     notifyOnNetworkStatusChange: true,
   })
+
   //infinite scroll stuff
   const nodes = data?.allAlbums?.edges.map((edge) => edge.node)
   const pageInfo = data?.allAlbums?.pageInfo
@@ -37,27 +36,14 @@ export default function Home() {
       })
     }
   })
-
   return (
-    <Main headerType="primary">
+    <Main size="xl" headerType="admin">
       <Spacer size="8" />
-      <Grid
-        ref={parent as React.RefObject<HTMLDivElement>}
-        columns={{
-          '@initial': 1,
-          '@sm': 2,
-          '@md': 3,
-        }}
-        gap={5}
-      >
-        {nodes?.map((album) => (
-          <Card key={album?.id} {...album} />
-        ))}
-      </Grid>
-      <Spacer size="4" />
 
+      <div>
+        <Table tableData={nodes!} />
+      </div>
       {loading && <Loader />}
-
       {/* when this div is visible, fetch more data */}
       <div
         style={{ height: '2rem' }}

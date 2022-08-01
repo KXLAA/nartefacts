@@ -6,24 +6,24 @@ import { createMockRouter } from '@/utils'
 
 describe('<Header />', () => {
   it('should render the header based on props', () => {
-    const { getByRole } = render(<Header primary />)
+    const { getByRole } = render(<Header type="primary" />)
     const header = getByRole('banner')
     expect(header).toBeInTheDocument()
   })
 
   it('should render <Header /> correctly', () => {
-    const { container } = render(<Header primary />)
+    const { container } = render(<Header type="primary" />)
     expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the nav', () => {
-    const { getByRole } = render(<Header primary />)
+    const { getByRole } = render(<Header type="primary" />)
     const navigation = getByRole('navigation')
     expect(navigation).toBeInTheDocument()
   })
 
   it('should render the navigation buttons', () => {
-    const { getByText } = render(<Header primary />)
+    const { getByText } = render(<Header type="primary" />)
     // const infoLink = getByText(/info/i)
     const savedLink = getByText(/saved/i)
     const createLink = getByText(/create/i)
@@ -41,7 +41,7 @@ describe('<Header />', () => {
 
     const { getByRole } = render(
       <RouterContext.Provider value={router}>
-        <Header primary />
+        <Header type="primary" />
       </RouterContext.Provider>,
     )
 

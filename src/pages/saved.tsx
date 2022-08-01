@@ -7,7 +7,6 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/button'
 import { Generated } from '@/components/generated'
 import { Grid } from '@/components/grid'
-import { Header } from '@/components/header'
 import { Main } from '@/components/layout'
 import { Spacer } from '@/components/spacer'
 import { Title } from '@/components/title'
@@ -28,16 +27,15 @@ export default function Saved() {
       <Head>
         <title>{title}</title>
       </Head>
-      <Main size="md">
-        <Header secondary />
+      <Main headerType="secondary">
         <Spacer size="8" />
         <Title text={title} />
         <Spacer size="4" />
         <Grid
           columns={{
             '@initial': 1,
-            '@sm': 2,
-            '@md': 3,
+            '@sm': 3,
+            '@md': 5,
           }}
           gap={5}
           ref={parent as React.RefObject<HTMLDivElement>}

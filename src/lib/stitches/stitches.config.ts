@@ -315,6 +315,10 @@ export const BASE_VARIANTS = {
     marginBottom: token,
     marginTop: token,
   })),
+  m: createScaleVariant('space', (token) => ({
+    margin: token,
+  })),
+  p: createScaleVariant('space', (token) => ({ padding: token })),
   pb: createScaleVariant('space', (token) => ({ paddingBottom: token })),
   pl: createScaleVariant('space', (token) => ({ paddingLeft: token })),
   pr: createScaleVariant('space', (token) => ({ paddingRight: token })),

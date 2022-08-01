@@ -1,4 +1,3 @@
 export interface HeaderProps {
-  primary?: boolean
-  secondary?: boolean
+  type?: 'primary' | 'secondary' | 'admin'
 }

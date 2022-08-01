@@ -16,6 +16,8 @@ export const Generated = ({ imageUrl, colors, small }: GeneratedProps) => {
           width={800}
           alt={'user uploaded image'}
           layout="responsive"
+          placeholder="blur"
+          blurDataURL={imageUrl || '/static/placeholder.png'}
         />
       </StyledImageWrapper>
       <ExportPaletteModal small={small} colors={colors as ColorsTuple} />

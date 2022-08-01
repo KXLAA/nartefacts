@@ -1,9 +1,9 @@
+import { PlusCircle as UploadPlus } from 'lucide-react'
 import { useS3Upload } from 'next-s3-upload'
 import * as React from 'react'
 import { useDropzone } from 'react-dropzone'
 import { RotatingLines } from 'react-loader-spinner'
 
-import { UploadPlus } from '@/components/icons'
 import { ColorsTuple } from '@/components/palette'
 import {
   useAnalyticsQuery,

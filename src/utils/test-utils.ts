@@ -48,7 +48,7 @@ export const mockAlbum = {
   likeCount: 1,
 }
 
-export const createMockRouter = (router: Partial<NextRouter>): NextRouter => {
+export function createMockRouter(router: Partial<NextRouter>): NextRouter {
   return {
     basePath: '',
     pathname: '/',

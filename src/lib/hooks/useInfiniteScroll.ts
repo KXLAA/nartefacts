@@ -2,10 +2,10 @@
 import * as React from 'react'
 import { useIntersection } from 'react-use'
 
-export const useInfiniteScroll = (
+export function useInfiniteScroll(
   ref: React.MutableRefObject<any>,
   fetch: Function,
-) => {
+) {
   const intersection = useIntersection(ref, {
     root: null,
     rootMargin: '0px',
