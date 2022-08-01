@@ -24,11 +24,11 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [x] add gradients
 - [ ] ~~Modal for more info about album~~
 
-### Admin Page
+### ~~Admin Page~~ Scrapped Admin Page
 
-- [x] Design admin page on Figma
-- [x] Implement admin page
-- [ ] connect admin page to next auth on the front end
+- [x] ~~Design admin page on Figma~~
+- [x] ~~Implement admin page~~
+- [ ] ~~connect admin page to next auth on the front end~~
 
 ### Create Page
 
