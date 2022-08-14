@@ -30,12 +30,10 @@ const Mutation: MutationResolvers = {
   },
 
   generateColors: async (_, { imageUrl }) => {
-    const getColors = async (): Promise<ColorsTuple | undefined> => {
+    const getColors = async () => {
       try {
         const colors = await ColorThief.getPalette(imageUrl!, 8, 10)
-        const palette: ColorsTuple = colors.map((color) =>
-          rgbToHex(color),
-        ) as ColorsTuple
+        const palette = colors.map((color) => rgbToHex(color)) as ColorsTuple
         return palette
       } catch (error: unknown) {
         if (error as Error) {
