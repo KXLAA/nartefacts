@@ -148,6 +148,14 @@ export const {
       height: value,
     }),
 
+    w: (value: PropertyValue<'width'>) => ({
+      width: value,
+    }),
+
+    h: (value: PropertyValue<'height'>) => ({
+      height: value,
+    }),
+
     /*  A property to apply linear gradient */
     linearGradient: (value: PropertyValue<'backgroundImage'>) => ({
       backgroundImage: `linear-gradient(${value})`,
