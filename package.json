@@ -96,6 +96,7 @@
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
+    "cy-verify-downloads": "^0.1.8",
     "cypress": "^9.6.1",
     "cypress-file-upload": "^5.0.8",
     "cz-conventional-changelog": "3.3.0",

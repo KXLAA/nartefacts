@@ -1,5 +1,3 @@
-/// <reference types="cypress"/>
-
 describe('Header Tests', () => {
   it('The Primary Header is visible on home page', () => {
     cy.visit('/')

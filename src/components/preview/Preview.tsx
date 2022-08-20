@@ -21,10 +21,11 @@ export const Preview = ({ imageUrl, colors, reset }: PreviewProps) => {
   }
 
   return (
-    <StyledWrapper data-testid="Preview">
+    <StyledWrapper data-testid="preview">
       <Flex gap={3}>
         <Button
           label="save"
+          data-testid="save-button"
           disabled={disable}
           onClick={save}
           size={{
@@ -35,6 +36,7 @@ export const Preview = ({ imageUrl, colors, reset }: PreviewProps) => {
         />
 
         <Button
+          data-testid="reset-button"
           variant="danger"
           label="reset"
           onClick={reset ? reset : undefined}

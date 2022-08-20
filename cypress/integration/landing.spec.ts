@@ -1,21 +1,19 @@
-/// <reference types="cypress"/>
-
 describe('Landing Page Tests', () => {
-  it('Loads the landing page', () => {
+  beforeEach(() => {
     cy.visit('/')
+  })
+  it('Loads the landing page', () => {
     cy.get('[data-testid="album-list"]').should('be.visible')
     cy.get('[data-testid="album-item"]').should('be.visible')
   })
 
   it('Loads the only 9 album items by default', () => {
-    cy.visit('/')
     cy.get('[data-testid="album-item"]')
       .should('be.visible')
       .should('have.length', 9)
   })
 
   it('Loads the next 9 album items when user scrolls down the page', () => {
-    cy.visit('/')
     cy.get('[data-testid="album-item"]')
       .should('be.visible')
       .should('have.length', 9)
