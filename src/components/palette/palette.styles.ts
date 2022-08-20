@@ -8,7 +8,7 @@ export const StyledPalette = styled('div', {
 })
 
 export const StyledColor = styled(Box, {
-  mr: '$3',
+  mr: '$2',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
