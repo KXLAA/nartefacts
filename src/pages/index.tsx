@@ -42,6 +42,7 @@ export default function Home() {
     <Main headerType="primary">
       <Spacer size="8" />
       <Grid
+        data-testid="album-list"
         ref={parent as React.RefObject<HTMLDivElement>}
         columns={{
           '@initial': 1,

@@ -72,8 +72,9 @@ export const Dropzone = ({ upload, setUpload }: DropzoneProps) => {
         '@md': 'lg',
       }}
       active={isDragActive}
+      data-testid="dropzone"
     >
-      <input {...getInputProps()} />
+      <input data-testid="dropzone" {...getInputProps()} />
       {!upload.error ? (
         <StyledContent>
           {upload.isUploading ? (

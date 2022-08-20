@@ -11,7 +11,13 @@ export const Header = ({ type }: HeaderProps) => {
   switch (type) {
     case 'primary':
       return (
-        <Flex as="header" direction={'column'} gap={6} justify="between">
+        <Flex
+          as="header"
+          direction={'column'}
+          gap={6}
+          justify="between"
+          data-testid="primary-header"
+        >
           <Logo />
           <Flex
             as="nav"
@@ -22,6 +28,7 @@ export const Header = ({ type }: HeaderProps) => {
           >
             <Link href="/create" passHref>
               <Button
+                data-testid="create-button"
                 variant="dark"
                 label="create"
                 fullWidth
@@ -34,6 +41,7 @@ export const Header = ({ type }: HeaderProps) => {
 
             <Link href="/saved" passHref>
               <Button
+                data-testid="saved-button"
                 label="saved"
                 fullWidth
                 size={{
@@ -51,7 +59,7 @@ export const Header = ({ type }: HeaderProps) => {
       )
     case 'secondary':
       return (
-        <Flex as="header">
+        <Flex as="header" data-testid="secondary-header">
           <Flex as="nav" justify={'center'}>
             <Link href="/">
               <Logo width="250" />
