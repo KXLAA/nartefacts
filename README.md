@@ -28,7 +28,7 @@ Apart from code improvements, there are also a number of new features:
 - [x] 🪣 **AWS S3** - To store uploaded images
 - [x] ᠀ **Mongo DB** - Database for storing color palettes
 - [x] 🦷 **GraphQL & Apollo** - GraphQL server for querying color palettes
-- [ ] 🧊 **Prisma** - Database ORM
+- [x] 🧊 **Prisma** - Database ORM
 - [x] 📏 **ESLint & Prettier** — For code formatting and correctness
 - [x] 🧪 **Jest & React Testing Library** - To write unit tests
 - [x] 🔬 **Cypress** - To write end to end tests
