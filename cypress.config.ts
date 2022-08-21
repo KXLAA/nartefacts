@@ -9,6 +9,6 @@ export default defineConfig({
   chromeWebSecurity: false,
   video: false,
   e2e: {
-    baseUrl: uri,
+    baseUrl: 'http://localhost:3000',
   },
 })
