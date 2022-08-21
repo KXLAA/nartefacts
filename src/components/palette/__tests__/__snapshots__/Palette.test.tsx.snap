@@ -23,7 +23,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
           data-key="#095525"
         >
           <div
-            class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-icndjIz-css"
+            class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-icndjIz-css"
             data-testid="color-box"
           >
             <span />
@@ -40,7 +40,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
           data-key="#673636"
         >
           <div
-            class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-ikUUhWU-css"
+            class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-ikUUhWU-css"
             data-testid="color-box"
           >
             <span />
@@ -57,7 +57,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
           data-key="#379273"
         >
           <div
-            class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-ijASQqu-css"
+            class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-ijASQqu-css"
             data-testid="color-box"
           >
             <span />
@@ -74,7 +74,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
           data-key="#136407"
         >
           <div
-            class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-ibBDuEG-css"
+            class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-ibBDuEG-css"
             data-testid="color-box"
           >
             <span />
@@ -91,7 +91,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
           data-key="#573227"
         >
           <div
-            class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-igZxaNn-css"
+            class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-igZxaNn-css"
             data-testid="color-box"
           >
             <span />
@@ -108,7 +108,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
           data-key="#547820"
         >
           <div
-            class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-ifyEfth-css"
+            class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-ifyEfth-css"
             data-testid="color-box"
           >
             <span />
@@ -125,7 +125,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
           data-key="#163598"
         >
           <div
-            class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-iihcxYh-css"
+            class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-iihcxYh-css"
             data-testid="color-box"
           >
             <span />
@@ -142,7 +142,7 @@ exports[`<Palette /> should render the <Palette /> correctly 1`] = `
           data-key="#682052"
         >
           <div
-            class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-ifUsSfW-css"
+            class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-ifUsSfW-css"
             data-testid="color-box"
           >
             <span />

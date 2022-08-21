@@ -21,6 +21,7 @@
     "incremental": true,
     "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "cypress"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/**/*"],
+  //https://github.com/cypress-io/cypress/issues/22059#issuecomment-1148921141
+  "exclude": ["cypress", "node_modules", "./cypress.config.ts"]
 }
