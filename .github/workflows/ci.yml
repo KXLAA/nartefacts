@@ -231,6 +231,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
+      - name: Create env file
+        run: |
+          touch .env
+          echo DATABASE_URL=${DATABASE_URL} > .env
+          cat .env
       - name: Restore yarn dependencies
         uses: actions/cache@v2
         id: cache-dependencies
@@ -263,6 +268,8 @@ jobs:
           browser: chrome
           headless: true
           install: false
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
   # e2e-tests-firefox:
   #   runs-on: ubuntu-latest
   #   strategy:
