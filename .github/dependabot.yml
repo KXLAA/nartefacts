@@ -16,3 +16,4 @@ updates:
     reviewers:
       - 'KXLAA'
     open-pull-requests-limit: 10
+    target-branch: 'dev'
