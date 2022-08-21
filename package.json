@@ -25,7 +25,8 @@
     "e2e": "start-server-and-test dev 3000 cypress:open",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "ci": "start-server-and-test start http://localhost:3000"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
@@ -45,7 +46,7 @@
     "hex-color-to-color-name": "^1.0.2",
     "jsonwebtoken": "^8.5.1",
     "lodash.isequal": "^4.5.0",
-    "lucide-react": "^0.34.0",
+    "lucide-react": "^0.88.0",
     "micro": "^9.3.4",
     "micro-cors": "^0.1.1",
     "nanoid": "^3.3.4",
@@ -96,7 +97,9 @@
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
+    "cy-verify-downloads": "^0.1.8",
     "cypress": "^9.6.1",
+    "cypress-file-upload": "^5.0.8",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.7.0",
     "eslint-config-next": "^12.0.9",
@@ -113,7 +116,7 @@
     "jest-transform-css": "^4.0.0",
     "lint-staged": ">=12.3.2",
     "plop": "^3.0.5",
-    "prettier": "2.5.1",
+    "prettier": "2.7.1",
     "prisma": "^3.14.0",
     "sass": "^1.52.1",
     "start-server-and-test": "^1.14.0",

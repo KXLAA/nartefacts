@@ -7,7 +7,7 @@ import { ToastProps } from './toast.types'
 export const Toast = ({ imageUrl }: ToastProps) => {
   return (
     <Link href="/saved" passHref>
-      <StyledWrapper>
+      <StyledWrapper data-testid="saved-image">
         <Image
           src={imageUrl!}
           height={400}

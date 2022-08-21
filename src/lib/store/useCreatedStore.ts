@@ -14,7 +14,7 @@ type GeneratedColors = {
 // type LikedColors = {
 //   id: string
 //   image: string
-//   colors: colorsTuple
+//   colors: ColorsTuple
 // }
 
 type CreatedStore = {
@@ -26,9 +26,9 @@ type CreatedStore = {
 
 // type LikedStore = {
 //   likedColors: LikedColors[]
-//   addLikedColor: (image: string, colors: colorsTuple) => void
-//   removeLikedColor: (id: string) => void
-//   clearAllLikedColors: () => void
+//   addLikedColor?: (image: string, colors: ColorsTuple) => void
+//   removeLikedColor?: (id: string) => void
+//   clearAllLikedColors?: () => void
 // }
 
 export const useCreatedStore = create(
@@ -71,3 +71,18 @@ export const useCreatedStore = create(
     },
   ),
 )
+
+// export const useLikeStore = create(
+//   persist<LikedStore>(
+//     (set) => ({
+//       // initial state
+//       likedColors: [],
+
+//       // actions
+//     }),
+//     // persist generatedColors in local storage
+//     {
+//       name: 'liked-colors',
+//     },
+//   ),
+// )

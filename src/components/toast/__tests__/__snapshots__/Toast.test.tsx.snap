@@ -3,6 +3,7 @@
 exports[`<Toast /> should render the component correctly 1`] = `
 <div
   class="nartefacts-c-PJLV nartefacts-c-cClkRF"
+  data-testid="saved-image"
   href="/saved"
 >
   <span

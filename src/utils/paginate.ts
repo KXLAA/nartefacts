@@ -1,10 +1,12 @@
-import { Album } from '@/graphql'
+interface Obj {
+  id: string
+}
 
 //Helper function to paginate queries
-export function paginate(
+export function paginate<T extends Obj>(
   firstArg: number,
   afterArg: string,
-  dataToPaginate: Album[] | [],
+  dataToPaginate: T[] | [],
 ) {
   //Slicing is done with the first argument. This asks for the query to return the first 10 items from the dataToPaginate array.
   const first = firstArg || 10
@@ -19,7 +21,7 @@ export function paginate(
     (item: { id: string }) => item.id === after,
   )
   //Then we increase that index by one indicating that we want to fetch from the next item in the array
-  const offset: number = index + 1
+  const offset = index + 1
 
   //Here we are returning an array that contains the next batch of data we want to fetch.
   const paginatedData = dataToPaginate.slice(offset, offset + first)

@@ -29,6 +29,7 @@ export const ExportPaletteModal = ({
       onOpenChange={setOpenModal}
       trigger={
         <Button
+          data-testid="export-button"
           variant="dark"
           label="export"
           size={{
@@ -52,8 +53,9 @@ export const ExportPaletteModal = ({
           <ModalDescription>
             Pick an option to export your colors
           </ModalDescription>
-          <Flex gap={4}>
+          <Flex gap={4} data-testid="export-modal">
             <ExportButton
+              data-testid="export-css"
               onClick={() => {
                 setOpenExport({ open: true, type: 'css' })
               }}
@@ -61,6 +63,7 @@ export const ExportPaletteModal = ({
               CSS
             </ExportButton>
             <ExportButton
+              data-testid="export-code"
               onClick={() => {
                 setOpenExport({ open: true, type: 'code' })
               }}
@@ -104,7 +107,7 @@ const Exported = ({
   }
 
   return (
-    <Flex gap={4} direction="column">
+    <Flex gap={4} direction="column" data-testid="exported-modal">
       <ModalTitle size="lg">Copy</ModalTitle>
       <ExportedTextArea value={exported} />
       <Flex gap={4}>
@@ -117,6 +120,7 @@ const Exported = ({
         />
 
         <Button
+          data-testid="download-button"
           variant="light"
           size="sm"
           label="Download"

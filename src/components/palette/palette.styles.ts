@@ -8,7 +8,7 @@ export const StyledPalette = styled('div', {
 })
 
 export const StyledColor = styled(Box, {
-  mr: '$3',
+  mr: '$2',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -28,7 +28,7 @@ export const StyledColor = styled(Box, {
     size: {
       sm: {
         size: 58,
-        mr: '$2',
+        mr: '$1',
         '& span': {
           fontSize: 12,
           color: '$white-base',

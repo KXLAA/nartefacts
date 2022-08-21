@@ -3,6 +3,7 @@ import { ApolloError, UserInputError } from 'apollo-server-errors'
 import * as argon from 'argon2'
 import ColorThief from 'colorthief'
 import jwt from 'jsonwebtoken'
+import { nanoid } from 'nanoid'
 
 import { ColorsTuple } from '@/components/palette'
 import { uploadFile } from '@/lib/aws'
@@ -19,9 +20,16 @@ const Mutation: MutationResolvers = {
     const colorsForExport = getColorsForExport(type, colors as ColorsTuple)
     let awsUploadedFile
     try {
-      const fileName =
-        type === 'css' ? 'colors/colors.scss' : 'colors/colors.js'
-      awsUploadedFile = await uploadFile(fileName, colorsForExport)
+      const getFileName = () => {
+        const fileName =
+          type === 'css'
+            ? `css/${nanoid()}/colors.scss`
+            : `code/${nanoid()}/colors.js`
+        return process.env.NODE_ENV === 'development'
+          ? `narefacts-dev-uploads/colors/${fileName}`
+          : `narefacts-uploads/colors/${fileName}`
+      }
+      awsUploadedFile = await uploadFile(getFileName(), colorsForExport)
     } catch (err) {
       console.error(err)
       throw new ApolloError('Oops, something went wrong')
@@ -30,12 +38,10 @@ const Mutation: MutationResolvers = {
   },
 
   generateColors: async (_, { imageUrl }) => {
-    const getColors = async (): Promise<ColorsTuple | undefined> => {
+    const getColors = async () => {
       try {
         const colors = await ColorThief.getPalette(imageUrl!, 8, 10)
-        const palette: ColorsTuple = colors.map((color) =>
-          rgbToHex(color),
-        ) as ColorsTuple
+        const palette = colors.map((color) => rgbToHex(color)) as ColorsTuple
         return palette
       } catch (error: unknown) {
         if (error as Error) {

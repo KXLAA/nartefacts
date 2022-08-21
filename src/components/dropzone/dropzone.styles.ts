@@ -2,16 +2,36 @@ import { Box } from '@/components/box'
 import { styled } from '@/lib/stitches'
 
 export const StyledDrop = styled('div', {
-  backgroundColor: '$black-light',
+  bg: '$black-light',
   border: '1.5px dashed $gray-base',
-  borderRadius: '$rounded',
-  width: '100%',
-  height: '800px',
+  br: '$rounded',
   cursor: 'pointer',
   transition: 'all 0.3s ease',
   '&:hover': {
-    backgroundColor: '$white-base',
+    bg: '$white-base',
     transform: 'translateX(0rem) translateY(0.125rem)',
+  },
+
+  variants: {
+    active: {
+      true: {
+        bg: '$white-base',
+      },
+    },
+    size: {
+      sm: {
+        w: '100%',
+        h: 440,
+      },
+      md: {
+        w: '100%',
+        h: 440,
+      },
+      lg: {
+        w: '100%',
+        h: 800,
+      },
+    },
   },
 })
 
@@ -25,7 +45,6 @@ export const StyledContent = styled(Box, {
   '& p': {
     fontSize: '$lg',
     fontWeight: 'bold',
-    width: '70%',
     textAlign: 'center',
     color: '$gray-light',
   },

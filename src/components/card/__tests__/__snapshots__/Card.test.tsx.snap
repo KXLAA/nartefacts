@@ -3,6 +3,7 @@
 exports[`<Card /> should render <Card /> correctly 1`] = `
 <div
   class="nartefacts-c-PJLV nartefacts-c-fZrNKq nartefacts-c-fZrNKq-iTKOFX-direction-column nartefacts-c-fZrNKq-iSZeJd-gap-4"
+  data-testid="album-item"
 >
   <div
     class="nartefacts-c-PJLV"
@@ -18,7 +19,7 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
         data-nimg="responsive"
         decoding="async"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; filter: blur(20px); background-size: cover; background-image: url(https://ucarecdn.com/c515e4b5-a5bb-44a3-85d0-f139497e0de0/forbrokenearsep_tems.jpeg); background-position: 0% 0%;"
       />
       <noscript />
     </span>
@@ -45,10 +46,10 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
           <div
             class="react-horizontal-scrolling-menu--item "
             data-index="0"
-            data-key="#1e1f17"
+            data-key="#cc8d45"
           >
             <div
-              class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-idifliQ-css"
+              class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-ibwHJuI-css"
               data-testid="color-box"
             >
               <span />
@@ -57,15 +58,15 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
           <div
             class="react-horizontal-scrolling-menu--separator "
             data-index="0.1"
-            data-key="#1e1f17-separator"
+            data-key="#cc8d45-separator"
           />
           <div
             class="react-horizontal-scrolling-menu--item "
             data-index="1"
-            data-key="#eac374"
+            data-key="#1e1f17"
           >
             <div
-              class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-igbNtre-css"
+              class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-idifliQ-css"
               data-testid="color-box"
             >
               <span />
@@ -74,15 +75,15 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
           <div
             class="react-horizontal-scrolling-menu--separator "
             data-index="1.1"
-            data-key="#eac374-separator"
+            data-key="#1e1f17-separator"
           />
           <div
             class="react-horizontal-scrolling-menu--item "
             data-index="2"
-            data-key="#eecc6c"
+            data-key="#715223"
           >
             <div
-              class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-ieLpHkY-css"
+              class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-igzYSYx-css"
               data-testid="color-box"
             >
               <span />
@@ -91,15 +92,15 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
           <div
             class="react-horizontal-scrolling-menu--separator "
             data-index="2.1"
-            data-key="#eecc6c-separator"
+            data-key="#715223-separator"
           />
           <div
             class="react-horizontal-scrolling-menu--item "
             data-index="3"
-            data-key="#c9c9ca"
+            data-key="#5a3711"
           >
             <div
-              class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-icKplX-css"
+              class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-iflECZZ-css"
               data-testid="color-box"
             >
               <span />
@@ -108,15 +109,15 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
           <div
             class="react-horizontal-scrolling-menu--separator "
             data-index="3.1"
-            data-key="#c9c9ca-separator"
+            data-key="#5a3711-separator"
           />
           <div
             class="react-horizontal-scrolling-menu--item "
             data-index="4"
-            data-key="#cc8d45"
+            data-key="#eac374"
           >
             <div
-              class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-ibwHJuI-css"
+              class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-igbNtre-css"
               data-testid="color-box"
             >
               <span />
@@ -125,15 +126,15 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
           <div
             class="react-horizontal-scrolling-menu--separator "
             data-index="4.1"
-            data-key="#cc8d45-separator"
+            data-key="#eac374-separator"
           />
           <div
             class="react-horizontal-scrolling-menu--item "
             data-index="5"
-            data-key="#5a3711"
+            data-key="#c9c9ca"
           >
             <div
-              class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-iflECZZ-css"
+              class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-icKplX-css"
               data-testid="color-box"
             >
               <span />
@@ -142,7 +143,7 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
           <div
             class="react-horizontal-scrolling-menu--separator "
             data-index="5.1"
-            data-key="#5a3711-separator"
+            data-key="#c9c9ca-separator"
           />
           <div
             class="react-horizontal-scrolling-menu--item "
@@ -150,7 +151,7 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
             data-key="#484c4c"
           >
             <div
-              class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-iIBMph-css"
+              class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-iIBMph-css"
               data-testid="color-box"
             >
               <span />
@@ -164,10 +165,10 @@ exports[`<Card /> should render <Card /> correctly 1`] = `
           <div
             class="react-horizontal-scrolling-menu--item "
             data-index="7"
-            data-key="#715223"
+            data-key="#eecc6c"
           >
             <div
-              class="nartefacts-c-PJLV nartefacts-c-kJLJYA nartefacts-c-kJLJYA-uAklm-size-md nartefacts-c-PJLV-igzYSYx-css"
+              class="nartefacts-c-PJLV nartefacts-c-DxlRh nartefacts-c-DxlRh-uAklm-size-md nartefacts-c-PJLV-ieLpHkY-css"
               data-testid="color-box"
             >
               <span />

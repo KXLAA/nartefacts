@@ -8902,10 +8902,20 @@ cwise-compiler@^1.1.2:
   dependencies:
     uniq "^1.0.0"
 
+cy-verify-downloads@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/cy-verify-downloads/-/cy-verify-downloads-0.1.8.tgz#e16e86f1a6cc17376c39b4c5aa53e5ffa630c9c0"
+  integrity sha512-hfcgXd/YAtoN6TRmuy26DetcxBkApMJPBJI/T61KrV4PciOaWZtFhxPaiF7Kn2aE8XzXt1Os3HULM2Yp8A1mfw==
+
 cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
+
+cypress-file-upload@^5.0.8:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/cypress-file-upload/-/cypress-file-upload-5.0.8.tgz#d8824cbeaab798e44be8009769f9a6c9daa1b4a1"
+  integrity sha512-+8VzNabRk3zG6x8f8BWArF/xA/W0VK4IZNx3MV0jFWrJS/qKn8eHfa5nU73P9fOQAgwHFJx7zjg4lwOnljMO8g==
 
 cypress@^9.6.1:
   version "9.6.1"
@@ -14226,10 +14236,10 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lucide-react@^0.34.0:
-  version "0.34.0"
-  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.34.0.tgz#286b7ddc96d3d01173e133664e05729380169959"
-  integrity sha512-tpbkMpoyke80JRHwrDO1RNdnDENnyrjv2pznCmklCSu1NwTxGY1j/6ArWcXxpPvet+roq3V0tbsqUgEfnL3OZA==
+lucide-react@^0.88.0:
+  version "0.88.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.88.0.tgz#6269fad9e52cfbae036b7b4b95e04335f040bb6d"
+  integrity sha512-DiLZ0uqqt4Qpe7bc+RvJMMI7z3gWlMOnst+TtNFUH6XfQ12APMQDx+/fHsmMlIkyCs/pPo3UKZpYbZ5i1iMOuA==
 
 lz-string@^1.4.4:
   version "1.4.4"
@@ -16097,10 +16107,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
-  integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
+prettier@2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
+  integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
 
 "prettier@>=2.2.1 <=2.3.0":
   version "2.3.0"

@@ -10,8 +10,8 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [x] fix path name issue
 - [x] add loading transitions
 - [x] responsive design
-- [ ] move all images used on the home page to s3 from uploadcare
-- [ ] E2E tests with Cypres
+- [x] move all images used on the home page to s3 from uploadcare
+- [x] E2E tests with Cypres
 - [x] Migrate to MongoDB
 - [x] Migrate to Stitches
 
@@ -19,7 +19,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 
 - [x] Implement infinite scroll
 - [x] add details to albums
-- [ ] add like & unlike interaction with optimistic updates
+- [ ] ~~add like & unlike interaction with optimistic updates~~
 - [ ] add global footer with info & link to portfolio
 - [x] add gradients
 - [ ] ~~Modal for more info about album~~
@@ -49,7 +49,7 @@ This is a rewrite of my nartefacts application with a bunch of new technologies 
 - [x] Dynamic messages when uploading image
 - [x] click on toast notification to redirect to /saved
 - [x] placeholder images when image link is missing
-- [ ] framer animations on this page
+- [ ] ~~framer animations on this page~~
 - [ ] ~~Gradient component (i want to do shaders ? idk may take longer)~~
 
 ## Demo

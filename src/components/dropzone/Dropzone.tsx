@@ -1,10 +1,11 @@
-import { PlusCircle as UploadPlus } from 'lucide-react'
+import { FileUp } from 'lucide-react'
 import { useS3Upload } from 'next-s3-upload'
 import * as React from 'react'
 import { useDropzone } from 'react-dropzone'
 import { RotatingLines } from 'react-loader-spinner'
 
 import { ColorsTuple } from '@/components/palette'
+import { Spacer } from '@/components/spacer'
 import {
   useAnalyticsQuery,
   useGenerateColorsMutation,
@@ -64,20 +65,35 @@ export const Dropzone = ({ upload, setUpload }: DropzoneProps) => {
   })
 
   return (
-    <StyledDrop {...getRootProps()}>
-      <input {...getInputProps()} />
+    <StyledDrop
+      {...getRootProps()}
+      size={{
+        '@initial': 'sm',
+        '@md': 'lg',
+      }}
+      active={isDragActive}
+      data-testid="dropzone"
+    >
+      <input data-testid="dropzone" {...getInputProps()} />
       {!upload.error ? (
         <StyledContent>
           {upload.isUploading ? (
             <RotatingLines width="100" strokeColor="#5A5A5A" />
           ) : (
             <>
-              <UploadPlus size={72} strokeWidth={0.5} color="#5A5A5A" />
-
+              <FileUp size={100} strokeWidth={1} color="#5A5A5A" />
+              <Spacer size="4" />
               {isDragActive ? (
-                <p>drop the files here ...</p>
+                <p>
+                  drop your files here <br /> to upload ...
+                </p>
               ) : (
-                <p>drag {'n'} drop your image here, or click to select files</p>
+                <div>
+                  <p>
+                    drag {'n'} drop your image here, <br /> or click to select
+                    files
+                  </p>
+                </div>
               )}
             </>
           )}

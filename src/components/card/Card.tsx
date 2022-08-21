@@ -8,7 +8,7 @@ import { CardProps } from './card.types'
 
 export const Card = ({ albumArt, title, artist, colors }: CardProps) => {
   return (
-    <Flex direction="column" gap={4}>
+    <Flex direction="column" gap={4} data-testid="album-item">
       <ImageWrapper>
         <Image
           src={albumArt!}

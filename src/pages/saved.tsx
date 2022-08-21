@@ -18,8 +18,8 @@ export default function Saved() {
   const [parent] = useAutoAnimate()
   const getTitle = () =>
     store.generatedColors.length > 0
-      ? `📸 You have saved ${store.generatedColors.length} pallette(s)`
-      : `🙊 You have not saved any pallette yet`
+      ? `📸  You have saved ${store.generatedColors.length} pallette(s)`
+      : `You have not saved any pallette yet`
   const title = getTitle()
 
   return (
