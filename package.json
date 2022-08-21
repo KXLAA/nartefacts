@@ -26,7 +26,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
-    "ci": "start-server-and-test start http://localhost:3000/api/graphql"
+    "ci": "start-server-and-test start http://localhost:3000"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
