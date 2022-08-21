@@ -261,7 +261,7 @@ jobs:
         uses: cypress-io/github-action@v4.1.0
         with:
           start: yarn start
-          wait-on: http://localhost:3000/api/graphql
+          wait-on: http://localhost:3000
           record: true
           config: baseUrl=http://localhost:3000
           wait-on-timeout: 120
