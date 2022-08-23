@@ -2,7 +2,7 @@
 
 [nartefacts](https://www.nartefacts.com/) is a website that curates color palettes extracted from album covers of African musicians. The dominant colors on the covers are extracted by a package called [colour-thief](https://www.npmjs.com/package/color-thief).
 
-This is the second version of the webapp. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/).
+This is the second version of the webapp. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/). You can also check out the figma design [here](https://www.figma.com/file/3RYxdPTHlqXSdnJWZmR9PO/NARTEFACTS?node-id=0%3A1)
 
 Version 2 has some significant code improvements:
 
