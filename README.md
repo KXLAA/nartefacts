@@ -1,117 +1,74 @@
 # nartefacts
 
-This is a rewrite of my nartefacts application with a bunch of new technologies and improvements based of what i have learnt since V1. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/).
+[nartefacts](https://www.nartefacts.com/) is a website that curates color palettes extracted from album covers of African musicians. The dominant colors on the covers are extracted by a package called [colour-thief](https://www.npmjs.com/package/color-thief).
 
-## Todos
+This is the second version of the webapp. You can view the code for the old version [here](https://github.com/KXLAA/nartefacts-js) and a live preview [here](https://nartefacts.vercel.app/). You can also check out the figma design [here](https://www.figma.com/file/3RYxdPTHlqXSdnJWZmR9PO/NARTEFACTS?node-id=0%3A1)
 
-### General
+Version 2 has some significant code improvements:
 
-- [ ] Add Framer motion page transitions and regular transitions
-- [x] fix path name issue
-- [x] add loading transitions
-- [x] responsive design
-- [x] move all images used on the home page to s3 from uploadcare
-- [x] E2E tests with Cypres
-- [x] Migrate to MongoDB
-- [x] Migrate to Stitches
+- The webapp has been rewritten in TypeScript
 
-### Home Page
+- The home page is now rendered on the server with a combination of `getServerSideProps` and the apollo cache improving performance
 
-- [x] Implement infinite scroll
-- [x] add details to albums
-- [ ] ~~add like & unlike interaction with optimistic updates~~
-- [ ] add global footer with info & link to portfolio
-- [x] add gradients
-- [ ] ~~Modal for more info about album~~
+- New unit tests for the components with the `@testing-library/react` library & `jest` library
 
-### ~~Admin Page~~ Scrapped Admin Page
+- End to end tests for the webapp with `cypress` library
+- Using prisma as a database ORM
 
-- [x] ~~Design admin page on Figma~~
-- [x] ~~Implement admin page~~
-- [ ] ~~connect admin page to next auth on the front end~~
+Apart from code improvements, there are also a number of new features:
 
-### Create Page
-
-- [x] Add toast notification when a user generates a color pallette
-- [x] Copy to clipboard for individual colors and entire pallette
-- [x] Add counter to track number of generated pallettes
-- [x] Disable button state
-- [x] Improve tests, replace getByTitle with getByTestId in preview component
-- [x] Need to fix copy colors to clipboard functionality, it's a bit buggy
-- [ ] ~~Modal pop up to name generated palettes w react hook form~~
-- [ ] ~~Generate palettes from Links~~
-- [x] Limit amount user can create and store in local storage, im thinking ~~50~~ 60 items ?
-- [ ] ~~A way to edit pallettes after they are generated~~
-- [ ] ~~Increase or reduce number of colors in pallettes ?~~
-- [ ] ~~write stories for components on this route~~
-- [x] Fix layout sizes
-- [ ] Notification on Delete, add a modal for delete ?
-- [x] Dynamic messages when uploading image
-- [x] click on toast notification to redirect to /saved
-- [x] placeholder images when image link is missing
-- [ ] ~~framer animations on this page~~
-- [ ] ~~Gradient component (i want to do shaders ? idk may take longer)~~
-
-## Demo
-
-<!-- <p align="center">
-  <img height="300" src="https://media.giphy.com/media/WXraj8aJHXUP7kRDbJ/giphy.gif" />
-</p> -->
-
-<!-- Local Storage
-https://github.com/pmndrs/zustand/issues/245#issue-749551108
-https://github.com/pmndrs/zustand/pull/248 -->
+- Users can now generate color palette's from images they upload, uploads are handled with aws s3
+- Users can save color pallettes they create to local storage
 
 ## Technologies used
 
-### What has Changed since v1 ?
+- [x] 💅🏿 **Stitches** - One of my favorite CSS-in-Js solutions
+- [x] 🔯 **React** - The frontend framework
+- [x] ⛑ **TypeScript** - For my sanity
+- [x] 🪣 **AWS S3** - To store uploaded images
+- [x] ᠀ **Mongo DB** - Database for storing color palettes
+- [x] 🦷 **GraphQL & Apollo** - GraphQL server for querying color palettes
+- [x] 🧊 **Prisma** - Database ORM
+- [x] 📏 **ESLint & Prettier** — For code formatting and correctness
+- [x] 🧪 **Jest & React Testing Library** - To write unit tests
+- [x] 🔬 **Cypress** - To write end to end tests
+- [x] 🐶 **Husky** — To run scripts before committing
+- [x] ♺ **Plop** — Micro-generator to generate react component files in a consistent manner
+- [x] 🚓 **Commitlint** — A linter to make sure that commits follow a convention
+- [x] 🚫 **lint-staged** — Run ESLint & Prettier against staged Git files
+- [x] 👷 **CI Workflow** — Run tets, Type Check, lint and format on Pull Requests
 
-## Learnings and potential improvements & future features
+## Development
 
-<!-- https://github.com/vercel/next.js/tree/canary/examples/with-apollo -->
-<!-- https://medium.com/@zhamdi/server-side-rendering-ssr-using-apollo-and-next-js-ac0b2e3ea461 -->
-<!-- https://github.com/apollographql/apollo-client/issues/3130#issuecomment-478409066 -->
-<!--
-https://stackoverflow.com/questions/57472440/how-do-i-correctly-type-the-apollo-client-defaultoptions
-Execute the following command to create your project:
+Clone the repository:
 
 ```bash
-npx create-next-app -e https://github.com/helderburato/nextjs-boilerplate
-
-# or
-
-yarn create next-app -e https://github.com/helderburato/nextjs-boilerplate
+git clone https://github.com/KXLAA/nartefacts.git
 ```
 
-## Getting Started
-
-First, run the development server:
+Then create a `.env` file in the root of the project with the following contents:
 
 ```bash
-npm run dev
-# or
+JWT_SESSION_SECRET=
+DATABASE_URL=
+S3_UPLOAD_KEY=
+S3_UPLOAD_SECRET=
+S3_UPLOAD_BUCKET=
+S3_UPLOAD_REGION=
+```
+
+Install the dependencies:
+
+```bash
+yarn
+```
+
+Then run the server:
+
+```bash
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
+To Query the server got to [http://localhost:3000/graphql](http://localhost:3000/graphql).
