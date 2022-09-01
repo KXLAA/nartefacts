@@ -93,7 +93,7 @@
     "@types/react": "^17.0.38",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
-    "@typescript-eslint/parser": "^5.10.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
