@@ -50,7 +50,7 @@
     "micro": "^9.3.4",
     "micro-cors": "^0.1.1",
     "nanoid": "^3.3.4",
-    "next": "12.0.9",
+    "next": "12.2.5",
     "next-auth": "^4.10.2",
     "next-pwa": "^5.4.4",
     "next-s3-upload": "^0.2.1",
