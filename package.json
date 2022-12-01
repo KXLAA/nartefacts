@@ -38,7 +38,7 @@
     "@stitches/react": "^1.2.8",
     "@tanstack/react-table": "^8.5.2",
     "apollo-server-micro": "^3.6.4",
-    "argon2": "^0.28.5",
+    "argon2": "^0.30.2",
     "aws-sdk": "^2.1181.0",
     "colorthief": "^2.3.2",
     "concurrently": "^7.3.0",
