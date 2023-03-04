@@ -1,5 +1,4 @@
 import Head from "next/head";
-import React from "react";
 
 import { Loader } from "@/components/common/Loader";
 import { Album } from "@/components/home/Album";
