@@ -1,8 +1,16 @@
-import type { albums as AlbumProps } from "@prisma/client";
 import { keyframes, styled } from "@stitches/react";
 import Image from "next/image";
 import React from "react";
 import useEyeDropper from "use-eye-dropper";
+
+type AlbumProps = {
+  albumArt: string;
+  colors: string[];
+  title: string;
+  artist: {
+    name: string;
+  };
+};
 
 export function Album(props: AlbumProps) {
   return (
