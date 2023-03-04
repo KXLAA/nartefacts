@@ -17,9 +17,6 @@ export const pallettesRouter = createTRPCRouter({
           id: input.id,
         },
       });
-      //   if (!album) {
-      //     throw new Error("Album not found");
-      //   }
       return handleNulls(palettes);
     }),
 
@@ -29,9 +26,11 @@ export const pallettesRouter = createTRPCRouter({
       const { imageUrl } = input;
       const colors = await CH.getPalette(imageUrl);
       const palette = ctx.prisma.palettes.create({
-        id: nanoid(),
-        imageUrl,
-        palette: colors,
+        data: {
+          v: 0,
+          imageUrl,
+          palette: colors,
+        },
       });
 
       return handleNulls(palette);

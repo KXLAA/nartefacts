@@ -8,12 +8,14 @@ export function useHomePage() {
   const { ref, inView } = useInView();
   const query = api.albums.getInfiniteAlbums.useInfiniteQuery(
     {
-      limit: 4,
+      limit: 12,
     },
     {
       getNextPageParam: (lastPage) => lastPage.nextCursor,
     }
   );
+
+  console.log(inView);
 
   React.useEffect(() => {
     if (inView) query.fetchNextPage();
@@ -22,6 +24,7 @@ export function useHomePage() {
   return {
     ref,
     data: query.data,
+    albums: query.data?.pages.flatMap((page) => page.albums),
     status: query.status,
     error: query.error,
     isLastPage: !query.hasNextPage && !query.isFetchingNextPage,

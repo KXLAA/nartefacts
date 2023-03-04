@@ -595,7 +595,14 @@ module.exports = {
         12: "hsla(60, 100%, 100%, 0.92)",
       },
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        "border-shiny": "inset 0 0 0 1px hsl(0deg 0% 100% / 10%)",
+        "border-shiny-2": "inset 0 0 0 2px hsl(0deg 0% 100% / 10%)",
+        "border-shiny-4": "inset 0 0 0 4px hsl(0deg 0% 100% / 10%)",
+        "border-shiny-8": "inset 0 0 0 8px hsl(0deg 0% 100% / 10%)",
+      },
+    },
   },
   plugins: [],
 };

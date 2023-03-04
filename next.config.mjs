@@ -11,6 +11,9 @@
 const config = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ["ucarecdn.com", "nartefact-upload.s3.eu-west-2.amazonaws.com"],
+  },
 };
 
 export default config;

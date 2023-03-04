@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 
 import { Loader } from "@/components/common/Loader";
+import { Album } from "@/components/home/Album";
 import { useHomePage } from "@/components/home/controller";
 
 export default function Home() {
@@ -15,27 +16,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-col items-center justify-between min-h-screen p-10">
-        <Loader />
-        {/* {controller.data?.pages.map((page) => (
-          <React.Fragment key={page.nextCursor}>
-            {page.albums.map((project) => (
-              <p
-                style={{
-                  border: "1px solid gray",
-                  borderRadius: "5px",
-                  padding: "10rem 1rem",
-                  background: `hsla(${2 * 30}, 60%, 80%, 1)`,
-                }}
-                key={project.id}
-              >
-                {project.artist.name}
-              </p>
-            ))}
-          </React.Fragment>
-        ))}
+      <main className="flex flex-col items-center justify-between min-h-screen p-2">
+        {/* <Loader /> */}
 
-        {controller.isLoading && <Loader />} */}
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-4 2xl:grid-cols-5">
+          {controller?.albums?.map((album) => (
+            <Album key={album.id} {...album} />
+          ))}
+        </div>
+
+        {controller.isLoading && <Loader />}
 
         <div
           style={{ height: "2rem" }}

@@ -26,3 +26,20 @@ body {
     #0e7790
   );
 }
+
+.gradient {
+  background: linear-gradient(
+    147deg,
+    #f098b9,
+    #eedd67,
+    #d82259,
+    #161616,
+    #0485e5,
+    #065b2c,
+    #b7281f,
+    #943d3f,
+    #0e118c,
+    #1dc395,
+    #0e7790
+  );
+}
