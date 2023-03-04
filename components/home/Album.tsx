@@ -1,16 +1,8 @@
+import type { albums as AlbumProps } from "@prisma/client";
+import { keyframes, styled } from "@stitches/react";
 import Image from "next/image";
 import React from "react";
 import useEyeDropper from "use-eye-dropper";
-
-type AlbumProps = {
-  albumArt: string;
-  artist: {
-    name: string;
-    photoURL: string;
-  };
-  title: string;
-  colors: string[];
-};
 
 export function Album(props: AlbumProps) {
   return (
@@ -24,7 +16,11 @@ export function Album(props: AlbumProps) {
         blurDataURL={props.albumArt}
         className="rounded"
       />
-      <GradientBar colors={props.colors} />
+      <GradientBar
+        css={{
+          $$gradient: `linear-gradient(147deg, ${props.colors.join(", ")})`,
+        }}
+      />
       <div className="p-2 rounded bg-cod-gray-600 shadow-border-shiny">
         <h3 className="text-lg font-bold">{props.title} </h3>
         <p className="text-sm text-gray-500">{props.artist.name}</p>
@@ -33,20 +29,21 @@ export function Album(props: AlbumProps) {
   );
 }
 
-type GradientBarProps = {
-  colors: string[];
-};
+const gradientAnimation = keyframes({
+  "0%": { backgroundPosition: "0% 50%" },
+  "50%": { backgroundPosition: "100% 50%" },
+  "100%": { backgroundPosition: "0% 50%" },
+});
 
-function GradientBar(props: GradientBarProps) {
-  return (
-    <div
-      className="w-full h-1.5"
-      style={{
-        background: `linear-gradient(147deg, ${props.colors.join(", ")})`,
-      }}
-    />
-  );
-}
+export const GradientBar = styled("div", {
+  background: `$$gradient`,
+  backgroundSize: "340% 540%",
+  height: "4px",
+  width: "100%",
+  "@media (prefers-reduced-motion: no-preference)": {
+    animation: `${gradientAnimation} 15s ease infinite`,
+  },
+});
 
 function useAlbum() {
   const { open, close, isSupported } = useEyeDropper();

@@ -28,18 +28,20 @@ body {
 }
 
 .gradient {
-  background: linear-gradient(
-    147deg,
-    #f098b9,
-    #eedd67,
-    #d82259,
-    #161616,
-    #0485e5,
-    #065b2c,
-    #b7281f,
-    #943d3f,
-    #0e118c,
-    #1dc395,
-    #0e7790
-  );
+  background-size: 540% 540%;
+  animation: flow 15s ease-in-out infinite;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
