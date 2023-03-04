@@ -1,52 +1,42 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
 }
 
 type AlbumsArtist {
-  name     String
-  photoURL String
+    name     String
+    photoURL String
 }
 
 type AlbumsUrls {
-  apple   String
-  spotify String
+    apple   String
+    spotify String
 }
 
 model albums {
-  id        String       @id @default(auto()) @map("_id") @db.ObjectId
-  v         Int          @map("__v")
-  albumArt  String
-  artist    AlbumsArtist
-  colors    String[]
-  likeCount Int
-  title     String
-  type      String
-  urls      AlbumsUrls
-}
-
-model Admin {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  email     String   @unique
-  hash      String
-
-  @@map(name: "users")
+    id        String       @id @default(auto()) @map("_id") @db.ObjectId
+    v         Int          @map("__v")
+    albumArt  String
+    artist    AlbumsArtist
+    colors    String[]
+    likeCount Int
+    title     String
+    type      String
+    urls      AlbumsUrls
 }
 
 model analytics {
-  id                String @id @default(auto()) @map("_id") @db.ObjectId
-  generatedPalettes Int
+    id                String @id @default(auto()) @map("_id") @db.ObjectId
+    generatedPalettes Int
 }
 
 model generatedPalettes {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  palette   String[]
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    palette   String[]
 }
