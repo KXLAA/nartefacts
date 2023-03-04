@@ -34,9 +34,10 @@ model analytics {
     generatedPalettes Int
 }
 
-model generatedPalettes {
+model palettes {
     id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    v         Int      @map("__v")
+    imageUrl  String
     createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
     palette   String[]
 }

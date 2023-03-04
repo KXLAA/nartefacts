@@ -10,7 +10,8 @@
     "type-check": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "format": "prettier --write .",
     "prepare": "simple-git-hooks",
-    "studio": "npx prisma studio"
+    "studio": "npx prisma studio",
+    "db:push": "npx prisma db push"
   },
   "dependencies": {
     "@prisma/client": "^4.11.0",
@@ -19,10 +20,17 @@
     "@trpc/next": "^10.12.0",
     "@trpc/react-query": "^10.12.0",
     "@trpc/server": "^10.12.0",
+    "aws-sdk": "^2.1181.0",
     "clsx": "^1.2.1",
+    "colorthief": "^2.4.0",
+    "framer-motion": "^10.0.1",
+    "hex-color-to-color-name": "^1.0.2",
+    "nanoid": "^4.0.1",
     "next": "13.2.1",
+    "next-s3-upload": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.4.3",
     "superjson": "^1.12.2",
     "tailwind-merge": "^1.10.0",
     "tailwind-variants": "^0.0.30",

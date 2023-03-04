@@ -1,10 +1,12 @@
 import Head from "next/head";
+import React from "react";
 
-import { Button } from "@/components/common/Button";
-import { api } from "@/lib/api";
+import { Loader } from "@/components/common/Loader";
+import { useHomePage } from "@/components/home/controller";
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const controller = useHomePage();
+
   return (
     <>
       <Head>
@@ -14,13 +16,32 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col items-center justify-between min-h-screen p-10">
-        <div className="flex flex-col items-center gap-4">
-          <h1 className="text-6xl font-black">NEXT JS STARTER</h1>
-          <Button size="lg">Click me</Button>
-          <p className="text-2xl text-white">
-            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-          </p>
-        </div>
+        <Loader />
+        {/* {controller.data?.pages.map((page) => (
+          <React.Fragment key={page.nextCursor}>
+            {page.albums.map((project) => (
+              <p
+                style={{
+                  border: "1px solid gray",
+                  borderRadius: "5px",
+                  padding: "10rem 1rem",
+                  background: `hsla(${2 * 30}, 60%, 80%, 1)`,
+                }}
+                key={project.id}
+              >
+                {project.artist.name}
+              </p>
+            ))}
+          </React.Fragment>
+        ))}
+
+        {controller.isLoading && <Loader />} */}
+
+        <div
+          style={{ height: "2rem" }}
+          ref={controller.ref}
+          aria-hidden="true"
+        />
       </main>
     </>
   );
