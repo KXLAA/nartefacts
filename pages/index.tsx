@@ -16,13 +16,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-col items-center justify-between min-h-screen p-2">
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-4">
+      <main className="flex flex-col items-center justify-between w-full min-h-screen p-2">
+        <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-4">
           {controller.isLoading ? (
             Array.from({ length: 12 }).map((_, index) => (
               <div
                 key={index}
-                className=" h-[440px] flex flex-col items-center justify-center w-full p-4 rounded bg-cod-gray-500 shadow-border-shiny animate-pulse"
+                className="h-[440px] flex flex-col items-center justify-center w-full p-4 rounded bg-cod-gray-500 shadow-border-shiny animate-pulse"
               />
             ))
           ) : (
