@@ -1,11 +1,11 @@
 import { keyframes, styled } from "@stitches/react";
+import copy from "copy-to-clipboard";
 import { motion } from "framer-motion";
-import { Copy, Share } from "lucide-react";
+import { FileUp, Link } from "lucide-react";
 import Image from "next/image";
-import React from "react";
-import useEyeDropper from "use-eye-dropper";
 
-import cx from "@/lib/cx";
+import { Tooltip } from "@/components/common/Tooltip";
+import { cx } from "@/lib/cx";
 import { useMouseOver } from "@/lib/hooks/use-mouse-over";
 
 type AlbumProps = {
@@ -21,36 +21,30 @@ export function Album(props: AlbumProps) {
   const [hoverRef, isHovered] = useMouseOver<any>();
 
   return (
-    <div className="relative flex flex-col gap-2">
+    <div className="relative flex flex-col gap-2" ref={hoverRef}>
       {isHovered && (
         <motion.div
-          className="absolute right-0 flex gap-2 p-4"
+          className="absolute right-0 z-10 flex gap-1 p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <button
-            className={cx(
-              "flex items-center justify-center w-8 h-8 transition-colors  border rounded-full text-silver-800 bg-shark-700 border-shark-600 hover:bg-shark-500 hover:order-shark-400 hover:text-silver-500"
-            )}
-          >
-            <Copy />
-          </button>
-          <button>
-            <Share />
-          </button>
+          {links.map((link) => (
+            <AnchorLink key={link.id} {...link} />
+          ))}
         </motion.div>
       )}
+
       <Image
-        ref={hoverRef}
         src={props.albumArt}
         height={1000}
         width={1000}
         alt={"album art"}
         placeholder="blur"
         blurDataURL={"/images/placeholder.png"}
-        className="rounded"
+        className="transition transform rounded brightness-90 hover:brightness-110"
       />
+
       <GradientBar
         css={{
           $$gradient: `linear-gradient(147deg, ${props.colors.join(", ")})`,
@@ -100,6 +94,31 @@ function ColorBox({ color }: { color: string }) {
   );
 }
 
+type AnchorLinkProps = {
+  href?: string;
+  icon: JSX.Element;
+  className?: string;
+  onClick?: () => void;
+  message?: string;
+};
+
+function AnchorLink(props: AnchorLinkProps) {
+  return (
+    <Tooltip content={props.message}>
+      <motion.button
+        whileTap={{ scale: 0.95 }}
+        onClick={props.onClick}
+        className={cx(
+          "flex items-center justify-center w-8 h-8 transition-colors  border rounded-md text-silver-500 bg-shark-700 border-shark-600 hover:bg-shark-500 hover:order-shark-400 hover:text-silver-500",
+          props.className
+        )}
+      >
+        {props.icon}
+      </motion.button>
+    </Tooltip>
+  );
+}
+
 const gradientAnimation = keyframes({
   "0%": { backgroundPosition: "0% 50%" },
   "50%": { backgroundPosition: "100% 50%" },
@@ -116,42 +135,17 @@ export const GradientBar = styled("div", {
   },
 });
 
-function useAlbum() {
-  const { open, close, isSupported } = useEyeDropper();
-  const [color, setColor] = React.useState("#fff");
-  const [error, setError] = React.useState();
-
-  const pickColor = () => {
-    open()
-      .then((color) => setColor(color.sRGBHex))
-      .catch((e) => {
-        console.log(e);
-        // Ensures component is still mounted
-        // before calling setState
-        if (!e.canceled) setError(e);
-      });
-  };
-
-  const imageCallbackRef = React.useCallback((node: HTMLImageElement) => {
-    if (node !== null) {
-      //call function when image is hovered
-      node.addEventListener("mouseover", pickColor);
-      //call function when image is no longer hovered
-      node.addEventListener("mouseout", close);
-
-      return () => {
-        node.removeEventListener("mouseover", pickColor);
-        node.removeEventListener("mouseout", close);
-      };
-    }
-  }, []);
-
-  return {
-    color,
-    pickColor,
-    isSupported: isSupported(),
-    close,
-    error,
-    ref: imageCallbackRef,
-  };
-}
+const links = [
+  {
+    id: "copy-link",
+    icon: <Link className="w-4 h-4" />,
+    message: "Copy Link",
+    onClick: () => console.log("github"),
+  },
+  {
+    id: "export",
+    icon: <FileUp className="w-4 h-4" />,
+    message: "Export Pallette",
+    onClick: () => copy(``),
+  },
+];

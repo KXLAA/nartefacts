@@ -27,7 +27,8 @@ export default function Home() {
           ) : (
             <>
               <div className="flex flex-col items-center justify-center w-full h-full p-4 rounded bg-cod-gray-500 shadow-border-shiny">
-                <Loader />
+                <h1 className="text-5xl font-black">NARTEFACTS</h1>
+                <p className="text-lg font-light">A collection of art</p>
               </div>
               {controller?.albums?.map((album) => (
                 <Album key={album.id} {...album} />

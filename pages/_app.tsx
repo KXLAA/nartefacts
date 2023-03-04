@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 
 import { api } from "@/lib/api";
 
@@ -12,6 +13,13 @@ const poppins = Poppins({
   display: "swap",
 });
 
+// const helios = localFont({
+//   src: "../fonts/Helios.ttf",
+//   preload: true,
+//   display: "swap",
+// });
+
+//https://github.com/calcom/cal.com/blob/main/apps/web/pages/_app.tsx
 function App({ Component, pageProps }: AppProps) {
   return (
     <>
