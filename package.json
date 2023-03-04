@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
     "format": "prettier --write .",
     "prepare": "simple-git-hooks",
+    "postinstall": "prisma generate",
     "studio": "npx prisma studio",
     "db:push": "npx prisma db push",
     "clean": "rm -rf .next && rm -rf node_modules"
@@ -57,6 +58,7 @@
     "lint-staged": "^13.1.2",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
+    "prisma": "^4.11.0",
     "simple-git-hooks": "^2.8.1",
     "tailwindcss": "^3.2.7"
   },
