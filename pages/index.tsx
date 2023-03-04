@@ -17,19 +17,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col items-center justify-between min-h-screen p-2">
-        {/* <Loader /> */}
-
         <div className="grid grid-cols-1 gap-2 md:grid-cols-4">
-          <div className="flex flex-col items-center justify-center w-full h-full p-4 rounded bg-cod-gray-500 shadow-border-shiny">
-            <Loader />
-          </div>
-
-          {controller?.albums?.map((album) => (
-            <Album key={album.id} {...album} />
-          ))}
+          {controller.isLoading ? (
+            Array.from({ length: 12 }).map((_, index) => (
+              <div
+                key={index}
+                className=" h-[440px] flex flex-col items-center justify-center w-full p-4 rounded bg-cod-gray-500 shadow-border-shiny animate-pulse"
+              />
+            ))
+          ) : (
+            <>
+              <div className="flex flex-col items-center justify-center w-full h-full p-4 rounded bg-cod-gray-500 shadow-border-shiny">
+                <Loader />
+              </div>
+              {controller?.albums?.map((album) => (
+                <Album key={album.id} {...album} />
+              ))}
+            </>
+          )}
         </div>
 
-        {controller.isLoading && <Loader />}
+        {controller.isFetchingNextPage && <Loader />}
 
         <div
           style={{ height: "2rem" }}

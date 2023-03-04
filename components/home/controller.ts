@@ -8,7 +8,7 @@ export function useHomePage() {
   const { ref, inView } = useInView();
   const query = api.albums.getInfiniteAlbums.useInfiniteQuery(
     {
-      limit: 12,
+      limit: 11,
     },
     {
       getNextPageParam: (lastPage) => lastPage.nextCursor,
@@ -28,7 +28,8 @@ export function useHomePage() {
     status: query.status,
     error: query.error,
     isLastPage: !query.hasNextPage && !query.isFetchingNextPage,
-    isLoading: query.isFetchingNextPage,
+    isLoading: query.isLoading,
+    isFetchingNextPage: query.isFetchingNextPage,
     backgroundIsUpdating: query.isFetching && !query.isFetchingNextPage,
   };
 }
