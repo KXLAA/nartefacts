@@ -27,7 +27,7 @@ model albums {
     title       String
     type        String
     urls        AlbumsUrls
-    releaseDate DateTime
+    releaseDate DateTime?
 }
 
 model analytics {

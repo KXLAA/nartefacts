@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
+import { cx } from "@/lib/cx";
+
 import type { CreateController } from "./controller";
 import { Progress } from "./Progress";
 
@@ -9,13 +11,31 @@ interface ImageUploaderProps extends CreateController {
 }
 
 export function ImageUploader(props: ImageUploaderProps) {
-  return (
-    <motion.div className="flex flex-col w-full gap-4 p-6 rounded-md bg-cod-gray-700">
+  return !props.isUploaded ? (
+    <motion.div
+      className={cx(
+        "flex flex-col w-full gap-4 p-6 rounded-md shadow bg-cod-gray-800"
+      )}
+      //slide down when image is uploaded
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -20, opacity: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div
-        className="w-full h-40 transition-colors border-[1.5px] border-dashed rounded-md cursor-pointer border-cod-gray-400 hover:bg-white/10 hover:border-silver-700"
+        className="w-full h-40 p-4 flex flex-col justify-center items-center transition-colors border-[1.5px] border-dashed rounded-md cursor-pointer border-cod-gray-400 hover:bg-silver/10 hover:border-silver-700"
         {...props.dropzone.getRootProps()}
       >
         <input {...props.dropzone.getInputProps()} />
+
+        <div className="flex flex-col items-center justify-center gap-1">
+          <p className="text-xl text-silver">
+            Drop your image here, or <span className="font-bold">browse</span>
+          </p>
+          <p className="text-xs font-extralight text-silver-800">
+            Supports JPG, JPEG, PNG
+          </p>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -39,5 +59,5 @@ export function ImageUploader(props: ImageUploaderProps) {
         ) : null}
       </AnimatePresence>
     </motion.div>
-  );
+  ) : null;
 }
