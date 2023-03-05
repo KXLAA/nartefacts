@@ -3,6 +3,7 @@ import { z } from "zod";
 
 import { uploadFile } from "@/lib/aws";
 import { CH } from "@/lib/color-helpers";
+import { generateRandomName } from "@/lib/random-name";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
 export const pallettesRouter = createTRPCRouter({
@@ -30,6 +31,7 @@ export const pallettesRouter = createTRPCRouter({
           v: 0,
           imageUrl,
           palette: colors,
+          title: generateRandomName(),
         },
       });
 
@@ -82,6 +84,6 @@ function getFileName(type: "css" | "code") {
       ? `css/${nanoid()}/colors.scss`
       : `code/${nanoid()}/colors.js`;
   return process.env.NODE_ENV === "development"
-    ? `narefacts-dev-uploads/colors/${fileName}`
-    : `narefacts-uploads/colors/${fileName}`;
+    ? `nartefacts-dev-uploads/colors/${fileName}`
+    : `nartefacts-uploads/colors/${fileName}`;
 }

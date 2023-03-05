@@ -9,6 +9,7 @@ interface ImagePreviewProps extends CreateController {
 export function ImagePreview(props: ImagePreviewProps) {
   return props.palette?.imageUrl ? (
     <div className="flex flex-col items-center justify-center w-full p-4">
+      <p>{props.palette.title}</p>
       <Image
         src={props.palette?.imageUrl || "/images/placeholder.png"}
         height={800}
