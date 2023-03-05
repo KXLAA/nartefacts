@@ -4,6 +4,7 @@ import { Loader } from "@/components/common/Loader";
 import { Album } from "@/components/home/Album";
 import { useHomePage } from "@/components/home/controller";
 import { HomePageLoader } from "@/components/home/HomePageLoader";
+import { Layout } from "@/components/layout/Layout";
 
 export default function Home() {
   const controller = useHomePage();
@@ -16,7 +17,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-col items-center justify-between w-full min-h-screen p-2">
+      <Layout className="flex flex-col items-center justify-between w-full min-h-screen p-2">
         <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-5">
           {controller.isLoading ? (
             <HomePageLoader />
@@ -40,7 +41,7 @@ export default function Home() {
           ref={controller.ref}
           aria-hidden="true"
         />
-      </main>
+      </Layout>
     </>
   );
 }
