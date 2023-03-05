@@ -8,7 +8,7 @@ import type { ColorsTuple } from "@/lib/color-helpers";
 import { useLocalStorage } from "@/lib/use-local-storage";
 
 type PreviewPage = "home" | "export" | "download";
-type SavedPalettes = palettes & {
+export type SavedPalettes = palettes & {
   savedAt: Date;
 };
 
@@ -18,10 +18,12 @@ export function useCreate() {
   const [isUploaded, setIsUploaded] = React.useState<boolean>(false);
   const [downloadUrl, setDownloadUrl] = React.useState<string | null>(null);
   const [previewPage, setPreviewPage] = React.useState<PreviewPage>("home");
-  const [savedPallettes, setSavedPallettes] =
-    useLocalStorage<SavedPalettes | null>("nartefacts-pallettes", null);
+  const [savedPallettes, setSavedPallettes] = useLocalStorage<SavedPalettes[]>(
+    "nartefacts-pallettes",
+    []
+  );
 
-  const [palette, setPalette] = React.useState<palettes>();
+  const [palette, setPalette] = React.useState<palettes>({} as palettes);
   const generateColors = api.palettes.generate.useMutation();
   const removeColor = api.palettes.removeColor.useMutation();
   const exportColors = api.palettes.export.useMutation();
@@ -122,8 +124,20 @@ export function useCreate() {
       goToExport: () => setPreviewPage("export"),
       goToDownload: () => setPreviewPage("download"),
     },
-    savedPallette: setSavedPallettes,
-    savedPallettes,
+    savePallette: setSavedPallettes,
+    savedPallettes: {
+      list: savedPallettes,
+      add: (pallette: palettes) => {
+        setSavedPallettes((prev) => {
+          return [...prev, { ...pallette, savedAt: new Date() }];
+        });
+      },
+      delete: (pallette: palettes) => {
+        setSavedPallettes((prev) => {
+          return prev.filter((p) => p.id !== pallette.id);
+        });
+      },
+    },
   };
 }
 

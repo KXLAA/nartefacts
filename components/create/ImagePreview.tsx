@@ -1,4 +1,3 @@
-import type { palettes } from "@prisma/client";
 import copy from "copy-to-clipboard";
 import { motion } from "framer-motion";
 import { XCircle } from "lucide-react";
@@ -96,12 +95,7 @@ function Home(props: ImagePreviewProps) {
         <div className="flex items-center self-end justify-end w-full gap-2">
           <button
             className="w-full p-3 rounded bg-cod-gray-500 shadow-border-shiny"
-            onClick={() =>
-              props.savedPallette({
-                ...(props?.palette as palettes),
-                savedAt: new Date(),
-              })
-            }
+            onClick={() => props.savedPallettes.add(props.palette)}
           >
             Save
           </button>
