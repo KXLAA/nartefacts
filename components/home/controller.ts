@@ -15,8 +15,6 @@ export function useHomePage() {
     }
   );
 
-  console.log(inView);
-
   React.useEffect(() => {
     if (inView) query.fetchNextPage();
   }, [inView]);

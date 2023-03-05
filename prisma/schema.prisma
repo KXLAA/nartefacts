@@ -18,15 +18,16 @@ type AlbumsUrls {
 }
 
 model albums {
-    id        String       @id @default(auto()) @map("_id") @db.ObjectId
-    v         Int          @map("__v")
-    albumArt  String
-    artist    AlbumsArtist
-    colors    String[]
-    likeCount Int
-    title     String
-    type      String
-    urls      AlbumsUrls
+    id          String       @id @default(auto()) @map("_id") @db.ObjectId
+    v           Int          @map("__v")
+    albumArt    String
+    artist      AlbumsArtist
+    colors      String[]
+    likeCount   Int
+    title       String
+    type        String
+    urls        AlbumsUrls
+    releaseDate DateTime
 }
 
 model analytics {
@@ -40,4 +41,5 @@ model palettes {
     imageUrl  String
     createdAt DateTime @default(now())
     palette   String[]
+    title     String
 }

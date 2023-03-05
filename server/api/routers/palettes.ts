@@ -25,7 +25,7 @@ export const pallettesRouter = createTRPCRouter({
     .mutation(async ({ input, ctx }) => {
       const { imageUrl } = input;
       const colors = await CH.getPalette(imageUrl);
-      const palette = ctx.prisma.palettes.create({
+      const palette = await ctx.prisma.palettes.create({
         data: {
           v: 0,
           imageUrl,
@@ -70,10 +70,10 @@ export const pallettesRouter = createTRPCRouter({
 function handleNulls<T>(input: T) {
   const notFound = "Not found";
   if (!input) {
-    return [notFound, null] as const;
+    return [null, notFound] as const;
   }
 
-  return [null, input] as const;
+  return [input, null] as const;
 }
 
 function getFileName(type: "css" | "code") {
