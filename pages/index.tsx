@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Head from "next/head";
 
 import { Loader } from "@/components/common/Loader";
@@ -16,12 +17,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col items-center justify-between w-full min-h-screen p-2">
-        <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-4">
+        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-5">
           {controller.isLoading ? (
             Array.from({ length: 12 }).map((_, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="h-[440px] flex flex-col items-center justify-center w-full p-4 rounded bg-cod-gray-500 shadow-border-shiny animate-pulse"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: {
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    duration: 0.5,
+                    delay: index * 0.09,
+                  },
+                }}
+                exit={{ opacity: 0 }}
               />
             ))
           ) : (
