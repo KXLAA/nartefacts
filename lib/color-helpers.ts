@@ -18,6 +18,37 @@ type ColorNames = {
 };
 
 class Colors {
+  private formatCss(colors: ColorNames[]) {
+    const css = colors
+      .map((color) => `--${color.name}: ${color.hex};`)
+      .join("\n");
+    const scss = colors
+      .map((color) => `$${color.name}: ${color.hex};`)
+      .join("\n");
+
+    return `/* CSS Variables */ \n:root {\n${css}\n}
+        \n/* SCSS/SASS Variables */\n${scss}`;
+  }
+
+  private formatCode(colors: ColorNames[]) {
+    const array = JSON.stringify(
+      colors.map((color) => color.hex),
+      null,
+      2
+    );
+    const object = JSON.stringify(
+      colors.reduce(
+        (acc, color) => ({
+          ...acc,
+          [color.name]: color.hex,
+        }),
+        {}
+      )
+    );
+
+    return `// Array \n${array} \n\n// JSON Object \n${object}`;
+  }
+
   async getPalette(url: string) {
     try {
       const colors = await ColorThief.getPalette(url!, 8, 10);
@@ -48,37 +79,6 @@ class Colors {
         name: colorName,
       };
     });
-  }
-
-  private formatCss(colors: ColorNames[]) {
-    const css = colors
-      .map((color) => `--${color.name}: ${color.hex};`)
-      .join("\n");
-    const scss = colors
-      .map((color) => `$${color.name}: ${color.hex};`)
-      .join("\n");
-
-    return `/* CSS Variables */ \n:root {\n${css}\n}
-        \n/* SCSS/SASS Variables */\n${scss}`;
-  }
-
-  private formatCode(colors: ColorNames[]) {
-    const array = JSON.stringify(
-      colors.map((color) => color.hex),
-      null,
-      2
-    );
-    const object = JSON.stringify(
-      colors.reduce(
-        (acc, color) => ({
-          ...acc,
-          [color.name]: color.hex,
-        }),
-        {}
-      )
-    );
-
-    return `// Array \n${array} \n\n// JSON Object \n${object}`;
   }
 
   getColorsForExport(type: "code" | "css", colors: ColorsTuple) {

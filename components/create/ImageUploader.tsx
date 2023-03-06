@@ -16,7 +16,6 @@ export function ImageUploader(props: ImageUploaderProps) {
       className={cx(
         "flex flex-col w-full gap-4 p-6 rounded-md shadow bg-cod-gray-800"
       )}
-      //slide down when image is uploaded
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -20, opacity: 0 }}
@@ -51,7 +50,7 @@ export function ImageUploader(props: ImageUploaderProps) {
             <div className="flex flex-col gap-0.5">
               <p className="font-semibold tex-sm">Uploading ...</p>
               <p className="text-xs font-extralight text-silver-800">
-                {props.uploadProgress}% . 5 seconds left
+                100% . 5 seconds left
               </p>
               <Progress />
             </div>

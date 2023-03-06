@@ -12,7 +12,7 @@ export type SavedPalettes = palettes & {
   savedAt: Date;
 };
 
-export function useCreate() {
+export function useCreatePage() {
   const [error, setError] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isUploaded, setIsUploaded] = React.useState<boolean>(false);
@@ -28,7 +28,7 @@ export function useCreate() {
   const removeColor = api.palettes.removeColor.useMutation();
   const exportColors = api.palettes.export.useMutation();
 
-  const { uploadToS3, files } = useS3Upload();
+  const { uploadToS3 } = useS3Upload();
   const onDrop = React.useCallback(async (acceptedFiles: File[]) => {
     const { url } = await uploadToS3(acceptedFiles[0]);
     setIsLoading(true);
@@ -66,9 +66,10 @@ export function useCreate() {
     },
   });
 
-  async function exportAsCode(colors: ColorsTuple) {
+  async function exportAsCode() {
+    //colors: ColorsTuple
     const [data, error] = await exportColors.mutateAsync({
-      colors: colors,
+      colors: palette.palette as ColorsTuple,
       type: "code",
     });
 
@@ -77,9 +78,10 @@ export function useCreate() {
     setPreviewPage("download");
   }
 
-  async function exportAsCss(colors: ColorsTuple) {
+  async function exportAsCss() {
+    //colors: ColorsTuple
     const [data, error] = await exportColors.mutateAsync({
-      colors: colors,
+      colors: palette.palette as ColorsTuple,
       type: "css",
     });
 
@@ -103,28 +105,27 @@ export function useCreate() {
       ...dropzone,
     },
     error,
-    uploadProgress: files[0]?.progress,
     isLoading,
     palette,
     isUploaded,
-    removeColor,
-    exportColors,
+    colors: {
+      remove: removeColor.mutateAsync,
+      export: exportColors,
+    },
     export: {
       asCode: exportAsCode,
       asCss: exportAsCss,
     },
-    downloadUrl,
-    downloadExportedColors,
+    exported: {
+      url: downloadUrl,
+      download: downloadExportedColors,
+    },
     page: {
       current: previewPage,
-      home: previewPage === "home",
-      export: previewPage === "export",
-      download: previewPage === "download",
       goToHome: () => setPreviewPage("home"),
       goToExport: () => setPreviewPage("export"),
       goToDownload: () => setPreviewPage("download"),
     },
-    savePallette: setSavedPallettes,
     savedPallettes: {
       list: savedPallettes,
       add: (pallette: palettes) => {
@@ -141,4 +142,57 @@ export function useCreate() {
   };
 }
 
-export type CreateController = ReturnType<typeof useCreate>;
+function useUpload() {
+  const { uploadToS3 } = useS3Upload();
+  const [error, setError] = React.useState<string | null>(null);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isUploaded, setIsUploaded] = React.useState<boolean>(false);
+  const [palette, setPalette] = React.useState<palettes>({} as palettes);
+  const generateColors = api.palettes.generate.useMutation();
+
+  const onDrop = React.useCallback(async (acceptedFiles: File[]) => {
+    const { url } = await uploadToS3(acceptedFiles[0]);
+    setIsLoading(true);
+
+    if (url == null) {
+      setError("Failed to upload image");
+      return;
+    }
+
+    const [palette, error] = await generateColors.mutateAsync({
+      imageUrl: url,
+    });
+
+    if (error != null) {
+      setError(error);
+      setIsLoading(false);
+      return;
+    } else {
+      setError(null);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 4000);
+      setPalette(palette);
+      setIsUploaded(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const dropzone = useDropzone({
+    onDrop,
+    maxFiles: 1,
+    accept: {
+      "image/jpeg": [],
+      "image/png": [],
+    },
+  });
+  return {
+    dropzone,
+    palette,
+    isUploaded,
+    error,
+    isLoading,
+  };
+}
+
+export type CreateController = ReturnType<typeof useCreatePage>;

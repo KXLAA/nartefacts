@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { XCircle } from "lucide-react";
 import Image from "next/image";
 
-import type { ColorsTuple } from "@/lib/color-helpers";
 import { CH } from "@/lib/color-helpers";
 import { useMouseOver } from "@/lib/hooks/use-mouse-over";
 
@@ -36,7 +35,7 @@ function ColorBox(props: { color: string } & CreateController) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => {
-              props.removeColor.mutateAsync({
+              props.colors.remove({
                 color: props.color,
                 id: props.palette ? props.palette.id : "",
               });
@@ -94,19 +93,22 @@ function Home(props: ImagePreviewProps) {
 
         <div className="flex items-center self-end justify-end w-full gap-2">
           <button
-            className="w-full p-3 rounded bg-cod-gray-500 shadow-border-shiny"
+            className="w-full p-2 text-xl font-semibold rounded bg-cod-gray-500 shadow-border-shiny"
             onClick={() => props.savedPallettes.add(props.palette)}
           >
             Save
           </button>
-          <button className="w-full p-3 rounded bg-cod-gray-500 shadow-border-shiny">
+          <button className="w-full p-2 text-xl font-semibold rounded bg-cod-gray-500 shadow-border-shiny">
             Reset
           </button>
           <button
-            className="w-full p-3 rounded bg-cod-gray-500 shadow-border-shiny"
+            className="w-full p-2 text-xl font-semibold rounded bg-cod-gray-500 shadow-border-shiny"
             onClick={props.page.goToExport}
           >
             Export
+          </button>
+          <button className="w-full p-2 text-xl font-semibold rounded bg-cod-gray-500 shadow-border-shiny">
+            Edit
           </button>
         </div>
       </div>
@@ -141,17 +143,13 @@ function Export(props: ImagePreviewProps) {
       <div className="flex items-center self-end justify-end w-full gap-2">
         <button
           className="w-full p-3 rounded bg-cod-gray-500 shadow-border-shiny"
-          onClick={() =>
-            props.export.asCss(props.palette?.palette as ColorsTuple)
-          }
+          onClick={props.export.asCss}
         >
           CSS
         </button>
         <button
           className="w-full p-3 rounded bg-cod-gray-500 shadow-border-shiny"
-          onClick={() =>
-            props.export.asCode(props.palette?.palette as ColorsTuple)
-          }
+          onClick={props.export.asCode}
         >
           CODE
         </button>
@@ -167,7 +165,7 @@ function Download(props: ImagePreviewProps) {
       <div>
         <p>DOWNLOAD</p>
         <button onClick={props.page.goToHome}>Back</button>
-        <button onClick={props.downloadExportedColors}>Download</button>
+        <button onClick={props.exported.download}>Download</button>
       </div>
     </div>
   );
