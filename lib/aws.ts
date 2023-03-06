@@ -19,13 +19,3 @@ export function uploadFile(key: string, body: Buffer | string) {
 
   return s3.upload(uploadParams).promise();
 }
-
-export async function getNumberOfFilesInS3Bucket(bucket: string) {
-  const params = {
-    Bucket: bucket,
-    MaxKeys: 1000,
-    Prefix: "next-s3-uploads/",
-  };
-  const data = await s3.listObjects(params).promise();
-  return data?.Contents?.length;
-}

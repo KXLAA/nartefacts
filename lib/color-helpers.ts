@@ -17,7 +17,15 @@ type ColorNames = {
   name: string;
 };
 
-class Colors {
+interface IColors {
+  getPalette(url: string): Promise<ColorsTuple | undefined>;
+  isValidHexCode(hex: string): boolean;
+  rgbToHex(arr: [number, number, number]): string;
+  getColorNames(colors: ColorsTuple): ColorNames[];
+  getColorsForExport(type: "code" | "css", colors: ColorsTuple): string;
+}
+
+class Colors implements IColors {
   private formatCss(colors: ColorNames[]) {
     const css = colors
       .map((color) => `--${color.name}: ${color.hex};`)
