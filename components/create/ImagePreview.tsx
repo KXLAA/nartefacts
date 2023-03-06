@@ -1,6 +1,6 @@
 import copy from "copy-to-clipboard";
 import { motion } from "framer-motion";
-// import { XCircle } from "lucide-react";
+import { PlusCircle, XCircle } from "lucide-react";
 import Image from "next/image";
 
 import { CH } from "@/lib/color-helpers";
@@ -55,7 +55,9 @@ function ColorBox(
       </motion.span>
     </motion.div>
   ) : (
-    <div className="flex items-center justify-center w-full h-20 transition-all border border-dashed opacity-75 hover:opacity-100 aspect-square shadow-border-shin border-cod-gray-50" />
+    <button className="flex items-center justify-center w-full transition-all border border-dashed rounded opacity-75 hover:opacity-100 aspect-square shadow-border-shin border-cod-gray-50 h-[120px]">
+      <PlusCircle size={24} strokeWidth={1.22} />
+    </button>
   );
 }
 
