@@ -1,4 +1,5 @@
 import type { palettes } from "@prisma/client";
+import { useAnimation } from "framer-motion";
 import { useS3Upload } from "next-s3-upload";
 import React from "react";
 import { useDropzone } from "react-dropzone";
@@ -7,12 +8,15 @@ import { api } from "@/lib/api";
 import type { ColorsTuple } from "@/lib/color-helpers";
 import { useLocalStorage } from "@/lib/use-local-storage";
 
+//https://codesandbox.io/s/9ovl4?file=/src/App.tsx:1083-1088
+
 type PreviewPage = "home" | "export" | "download";
 export type SavedPalettes = palettes & {
   savedAt: Date;
 };
 
 export function useCreatePage() {
+  const controls = useAnimation();
   const [error, setError] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isUploaded, setIsUploaded] = React.useState<boolean>(false);
@@ -22,6 +26,7 @@ export function useCreatePage() {
     "nartefacts-pallettes",
     []
   );
+  const [isEditing, setIsEditing] = React.useState<boolean>(false);
 
   const [palette, setPalette] = React.useState<palettes>({} as palettes);
   const generateColors = api.palettes.generate.useMutation();
@@ -100,9 +105,35 @@ export function useCreatePage() {
     }, 5000);
   }
 
+  function setEditingToFalse() {
+    controls.stop();
+    controls.set("reset");
+    setIsEditing(false);
+  }
+
+  function setEditingToTrue() {
+    controls.start("start");
+    setIsEditing(true);
+  }
+
+  function toggleEditing() {
+    if (isEditing) {
+      setEditingToFalse();
+    } else {
+      setEditingToTrue();
+    }
+  }
+
   return {
     dropzone: {
       ...dropzone,
+    },
+    editing: {
+      isEditing,
+      set: setIsEditing,
+      toggle: toggleEditing,
+      setToTrue: setEditingToTrue,
+      setToFalse: setEditingToFalse,
     },
     error,
     isLoading,
@@ -111,6 +142,11 @@ export function useCreatePage() {
     colors: {
       remove: removeColor.mutateAsync,
       export: exportColors,
+      animation: {
+        controls,
+        getRandomTransformOrigin,
+        variants,
+      },
     },
     export: {
       asCode: exportAsCode,
@@ -193,6 +229,37 @@ function useUpload() {
     error,
     isLoading,
   };
+}
+
+const variants = {
+  start: (i: number) => ({
+    rotate: i % 2 === 0 ? [-1, 1.3, 0] : [1, -1.4, 0],
+    transition: {
+      delay: getRandomDelay(),
+      repeat: Infinity,
+      duration: randomDuration(),
+    },
+  }),
+  reset: {
+    rotate: 0,
+  },
+};
+
+function getRandomTransformOrigin() {
+  const value = (16 + 40 * Math.random()) / 100;
+  const value2 = (15 + 36 * Math.random()) / 100;
+  return {
+    originX: value,
+    originY: value2,
+  };
+}
+
+function getRandomDelay() {
+  return -(Math.random() * 0.7 + 0.05);
+}
+
+function randomDuration() {
+  return Math.random() * 0.07 + 0.23;
 }
 
 export type CreateController = ReturnType<typeof useCreatePage>;

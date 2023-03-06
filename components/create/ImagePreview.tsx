@@ -1,11 +1,11 @@
 import copy from "copy-to-clipboard";
 import { motion } from "framer-motion";
-import { XCircle } from "lucide-react";
+// import { XCircle } from "lucide-react";
 import Image from "next/image";
 
 import { CH } from "@/lib/color-helpers";
-import { useMouseOver } from "@/lib/hooks/use-mouse-over";
 
+// import { useMouseOver } from "@/lib/hooks/use-mouse-over";
 import type { CreateController } from "./controller";
 
 interface ImagePreviewProps extends CreateController {
@@ -13,38 +13,37 @@ interface ImagePreviewProps extends CreateController {
 }
 
 export function ImagePreview(props: ImagePreviewProps) {
-  const Preview = preview[props.page.current];
+  const Preview = {
+    home: Home,
+    export: Export,
+    download: Download,
+  }[props.page.current];
+
   return props.isUploaded && props?.palette ? <Preview {...props} /> : null;
 }
 
-function ColorBox(props: { color: string } & CreateController) {
-  const [hoverRef, isHovered] = useMouseOver<HTMLDivElement>();
+function ColorBox(
+  props: {
+    color: string;
+    index: number;
+  } & CreateController
+) {
   const isValidHex = CH.isValidHexCode(props.color);
 
   return isValidHex ? (
-    <div className="flex flex-col items-center justify-center p-2 rounded bg-cod-gray-500 shadow-border-shiny">
+    <motion.div
+      className="flex flex-col items-center justify-center p-2 rounded bg-cod-gray-500 shadow-border-shiny"
+      style={{
+        ...props.colors.animation.getRandomTransformOrigin(),
+      }}
+      custom={props.index}
+      variants={props.colors.animation.variants}
+      animate={props.colors.animation.controls}
+    >
       <div
         className="flex items-center justify-center w-full h-20 transition-all rounded opacity-75 hover:opacity-100 aspect-square shadow-border-shiny"
         style={{ backgroundColor: props.color }}
-        ref={hoverRef}
-      >
-        {isHovered && (
-          <motion.button
-            className="text-sm text-white"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => {
-              props.colors.remove({
-                color: props.color,
-                id: props.palette ? props.palette.id : "",
-              });
-            }}
-          >
-            <XCircle className="w-3 h-3" />
-          </motion.button>
-        )}
-      </div>
+      />
       <motion.span
         className="mt-1 text-sm font-semibold cursor-pointer text-silver"
         onClick={() => {
@@ -54,7 +53,7 @@ function ColorBox(props: { color: string } & CreateController) {
       >
         {props.color}
       </motion.span>
-    </div>
+    </motion.div>
   ) : (
     <div className="flex items-center justify-center w-full h-20 transition-all border border-dashed opacity-75 hover:opacity-100 aspect-square shadow-border-shin border-cod-gray-50" />
   );
@@ -78,8 +77,8 @@ function Home(props: ImagePreviewProps) {
       <div className="flex flex-col justify-between w-full h-full gap-2">
         {props?.palette?.palette && (
           <div className="grid w-full grid-cols-4 gap-1">
-            {props.palette.palette.map((color) => (
-              <ColorBox key={color} color={color} {...props} />
+            {props.palette.palette.map((color, i) => (
+              <ColorBox key={color} index={i} color={color} {...props} />
             ))}
           </div>
         )}
@@ -107,7 +106,10 @@ function Home(props: ImagePreviewProps) {
           >
             Export
           </button>
-          <button className="w-full p-2 text-xl font-semibold rounded bg-cod-gray-500 shadow-border-shiny">
+          <button
+            className="w-full p-2 text-xl font-semibold rounded bg-cod-gray-500 shadow-border-shiny"
+            onClick={props.editing.toggle}
+          >
             Edit
           </button>
         </div>
@@ -117,7 +119,6 @@ function Home(props: ImagePreviewProps) {
 }
 
 function Export(props: ImagePreviewProps) {
-  console.log(props);
   return (
     <div className="flex flex-col justify-between w-full h-full max-w-lg gap-4 p-6 rounded-md shadow bg-cod-gray-800">
       <div className="flex flex-col gap-1">
@@ -134,8 +135,8 @@ function Export(props: ImagePreviewProps) {
 
       {props?.palette?.palette && (
         <div className="grid w-full grid-cols-4 gap-1">
-          {props.palette.palette.map((color) => (
-            <ColorBox key={color} color={color} {...props} />
+          {props.palette.palette.map((color, i) => (
+            <ColorBox key={color} index={i} color={color} {...props} />
           ))}
         </div>
       )}
@@ -159,7 +160,6 @@ function Export(props: ImagePreviewProps) {
 }
 
 function Download(props: ImagePreviewProps) {
-  console.log(props);
   return (
     <div>
       <div>
@@ -170,9 +170,3 @@ function Download(props: ImagePreviewProps) {
     </div>
   );
 }
-
-const preview = {
-  home: Home,
-  export: Export,
-  download: Download,
-};
