@@ -17,7 +17,7 @@ function ColorBox({ color }: { color: string }) {
 
   return (
     <div
-      className="flex items-center justify-center w-full h-20 transition-all opacity-75 hover:opacity-100 aspect-square shadow-border-shiny"
+      className="flex items-center justify-center w-full h-20 transition-all opacity-75 2xl:h-40 hover:opacity-100 aspect-square shadow-border-shiny"
       style={{ backgroundColor: color }}
       ref={hoverRef}
     >
