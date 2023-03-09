@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import NextLink from "next/link";
 
+import { Card } from "@/components/common/Card";
 import { cx } from "@/lib/cx";
 
 import type { CreateController } from "./controller";
@@ -10,19 +11,13 @@ export function RecentlyCreated(props: CreateController) {
   return (
     <AnimatePresence>
       {props?.savedPallettes?.list?.length ? (
-        <motion.div
-          className={cx(
-            "flex flex-col w-full gap-4 p-6 rounded-md shadow bg-cod-gray-800"
-          )}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 20, opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+        <Card
+          dotted
+          heading="Recently Created"
+          description="Your recently created pallettes"
           key="recently-created"
-        >
-          <div className="flex justify-between w-full border-b-2 border-dashed border-silver-900">
-            <h2 className="text-3xl font-semibold">Recently Created</h2>
-            {props?.savedPallettes?.list.length > 4 ? (
+          addon={
+            props?.savedPallettes?.list.length > 4 ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -31,9 +26,13 @@ export function RecentlyCreated(props: CreateController) {
               >
                 <NextLink href="/saved">View All</NextLink>
               </motion.div>
-            ) : null}
-          </div>
-
+            ) : null
+          }
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 20, opacity: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <div className="grid grid-cols-4 gap-2">
             {props?.savedPallettes?.list.slice(0, 4).map((pallette) => (
               <motion.div
@@ -56,7 +55,7 @@ export function RecentlyCreated(props: CreateController) {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </Card>
       ) : null}
     </AnimatePresence>
   );
