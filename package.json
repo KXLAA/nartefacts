@@ -31,6 +31,7 @@
     "clsx": "^1.2.1",
     "colorthief": "^2.4.0",
     "copy-to-clipboard": "^3.3.3",
+    "date-fns": "^2.29.3",
     "framer-motion": "^10.0.1",
     "hex-color-to-color-name": "^1.0.2",
     "lucide-react": "^0.122.0",

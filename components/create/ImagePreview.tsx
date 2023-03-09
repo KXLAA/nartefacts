@@ -4,8 +4,8 @@ import { Edit, PlusCircle, Trash } from "lucide-react";
 import Image from "next/image";
 
 import { CH } from "@/lib/color-helpers";
+import { formatDate } from "@/lib/date";
 
-// import { useMouseOver } from "@/lib/hooks/use-mouse-over";
 import type { CreateController } from "./controller";
 
 interface ImagePreviewProps extends CreateController {
@@ -43,8 +43,9 @@ function Home(props: ImagePreviewProps) {
 
         <div className="absolute bottom-0 self-center w-full p-4 px-6 text-center rounded-b bg-cod-gray-500 shadow-border-shiny">
           <p className="text-xl font-semibold">{props?.palette?.title}</p>
-          <p className="text-sm text-silver-900 font-extralight">
-            Generated at 24:53 Monday
+          <p className="text-xs text-silver-900 font-extralight">
+            Generated on{" "}
+            {formatDate(props?.palette?.createdAt, "MMMM do, yyyy")}
           </p>
         </div>
       </div>

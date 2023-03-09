@@ -24,6 +24,7 @@ specifiers:
   colorthief: ^2.4.0
   concurrently: ^7.6.0
   copy-to-clipboard: ^3.3.3
+  date-fns: ^2.29.3
   eslint: ^8.23.1
   eslint-config-next: ^13.0.7
   eslint-config-prettier: ^8.5.0
@@ -71,6 +72,7 @@ dependencies:
   clsx: 1.2.1
   colorthief: 2.4.0
   copy-to-clipboard: 3.3.3
+  date-fns: 2.29.3
   framer-motion: 10.0.1_biqbaboplfbrettd7655fr4n2y
   hex-color-to-color-name: 1.0.2
   lucide-react: 0.122.0_react@18.2.0
@@ -2451,7 +2453,6 @@ packages:
   /date-fns/2.29.3:
     resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
     engines: {node: '>=0.11'}
-    dev: true
 
   /debounce/1.2.1:
     resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}
