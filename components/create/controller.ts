@@ -6,7 +6,7 @@ import { useDropzone } from "react-dropzone";
 
 import { api } from "@/lib/api";
 import type { ColorsTuple } from "@/lib/color-helpers";
-import { useLocalStorage } from "@/lib/use-local-storage";
+import { useSavedPallettes } from "@/lib/hooks/use-saved-pallettes";
 
 //https://codesandbox.io/s/9ovl4?file=/src/App.tsx:1083-1088
 
@@ -22,10 +22,7 @@ export function useCreatePage() {
   const [isUploaded, setIsUploaded] = React.useState<boolean>(false);
   const [downloadUrl, setDownloadUrl] = React.useState<string | null>(null);
   const [previewPage, setPreviewPage] = React.useState<PreviewPage>("home");
-  const [savedPallettes, setSavedPallettes] = useLocalStorage<SavedPalettes[]>(
-    "nartefacts-pallettes",
-    []
-  );
+  const [savedPallettes, setSavedPallettes] = useSavedPallettes();
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
 
   const [palette, setPalette] = React.useState<palettes>({} as palettes);

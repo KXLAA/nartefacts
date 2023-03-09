@@ -33,10 +33,10 @@ export function RecentlyCreated(props: CreateController) {
           exit={{ y: 20, opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="grid grid-cols-4 gap-2">
+          <div className="gap-2 columns-3">
             {props?.savedPallettes?.list.slice(0, 4).map((pallette) => (
               <motion.div
-                className="flex-col gap-2 gflex"
+                className="flex flex-col gap-2 mb-2"
                 key={pallette.id}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
