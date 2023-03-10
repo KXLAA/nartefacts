@@ -7,7 +7,7 @@ import { CH } from "@/lib/color-helpers";
 import { formatDate } from "@/lib/date";
 
 import type { CreateController } from "./controller";
-import { usePickColor } from "./controller";
+import { useColorBox } from "./controller";
 
 interface ImagePreviewProps extends CreateController {
   className?: string;
@@ -147,7 +147,7 @@ type ColorBoxProps = CreateController & {
 };
 function ColorBox(props: ColorBoxProps) {
   const isValidHex = CH.isValidHexCode(props.color);
-  const { color, pickColor } = usePickColor({
+  const { color, pickColor, animation } = useColorBox({
     color: props.color,
     id: props.palette.id,
   });
@@ -156,11 +156,11 @@ function ColorBox(props: ColorBoxProps) {
     <motion.div
       className="flex flex-col items-center justify-center p-2 rounded bg-cod-gray-500 shadow-border-shiny"
       style={{
-        ...props.colors.animation.getRandomTransformOrigin(),
+        ...animation.getRandomTransformOrigin(),
       }}
       custom={props.index}
-      variants={props.colors.animation.variants}
-      animate={props.colors.animation.controls}
+      variants={animation.variants}
+      animate={props.animation.controls}
     >
       <div
         className="flex items-center gap-1 justify-center w-full h-20 text-[8px] font-bold transition-all rounded opacity-75 hover:opacity-100 shadow-border-shiny"
@@ -183,12 +183,10 @@ function ColorBox(props: ColorBoxProps) {
 
       <motion.span
         className="mt-1 text-sm font-semibold cursor-pointer text-silver"
-        onClick={() => {
-          copy(props.color);
-        }}
-        whileTap={{ scale: 0.95, color: props.color }}
+        onClick={() => copy(color)}
+        whileTap={{ scale: 0.95, color: color }}
       >
-        {props.color}
+        {color}
       </motion.span>
     </motion.div>
   ) : (

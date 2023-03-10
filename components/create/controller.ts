@@ -18,56 +18,13 @@ export type SavedPalettes = palettes & {
 
 export function useCreatePage() {
   const controls = useAnimation();
-  const [error, setError] = React.useState<string | null>(null);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isUploaded, setIsUploaded] = React.useState<boolean>(false);
+  const { dropzone, palette, isUploaded, error, isLoading } = useUpload();
   const [downloadUrl, setDownloadUrl] = React.useState<string | null>(null);
   const [previewPage, setPreviewPage] = React.useState<PreviewPage>("home");
   const [savedPallettes, setSavedPallettes] = useSavedPallettes();
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
-
-  const [palette, setPalette] = React.useState<palettes>({} as palettes);
-  const generateColors = api.palettes.generate.useMutation();
   const removeColor = api.palettes.removeColor.useMutation();
   const exportColors = api.palettes.export.useMutation();
-
-  const { uploadToS3 } = useS3Upload();
-  const onDrop = React.useCallback(async (acceptedFiles: File[]) => {
-    const { url } = await uploadToS3(acceptedFiles[0]);
-    setIsLoading(true);
-
-    if (url == null) {
-      setError("Failed to upload image");
-      return;
-    }
-
-    const [palette, error] = await generateColors.mutateAsync({
-      imageUrl: url,
-    });
-
-    if (error != null) {
-      setError(error);
-      setIsLoading(false);
-      return;
-    } else {
-      setError(null);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 4000);
-      setPalette(palette);
-      setIsUploaded(true);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const dropzone = useDropzone({
-    onDrop,
-    maxFiles: 1,
-    accept: {
-      "image/jpeg": [],
-      "image/png": [],
-    },
-  });
 
   async function exportAsCode() {
     //colors: ColorsTuple
@@ -123,6 +80,10 @@ export function useCreatePage() {
   }
 
   return {
+    state: {},
+    actions: {},
+    modals: {},
+
     dropzone: {
       ...dropzone,
     },
@@ -137,14 +98,12 @@ export function useCreatePage() {
     isLoading,
     palette,
     isUploaded,
+    animation: {
+      controls,
+    },
     colors: {
       remove: removeColor.mutateAsync,
       export: exportColors,
-      animation: {
-        controls,
-        getRandomTransformOrigin,
-        variants,
-      },
     },
     export: {
       asCode: exportAsCode,
@@ -156,9 +115,18 @@ export function useCreatePage() {
     },
     page: {
       current: previewPage,
-      goToHome: () => setPreviewPage("home"),
-      goToExport: () => setPreviewPage("export"),
-      goToDownload: () => setPreviewPage("download"),
+      goToHome: () => {
+        setPreviewPage("home");
+        setEditingToFalse();
+      },
+      goToExport: () => {
+        setPreviewPage("export");
+        setEditingToFalse();
+      },
+      goToDownload: () => {
+        setPreviewPage("download");
+        setEditingToFalse();
+      },
     },
     savedPallettes: {
       list: savedPallettes,
@@ -234,7 +202,7 @@ type Args = {
   id: string;
 };
 
-export function usePickColor(props: Args) {
+export function useColorBox(props: Args) {
   const { open, close, isSupported } = useEyeDropper();
   const [color, setColor] = React.useState(props.color);
   const [error, setError] = React.useState();
@@ -258,35 +226,39 @@ export function usePickColor(props: Args) {
       });
   }
 
+  const variants = {
+    start: (i: number) => ({
+      rotate: i % 2 === 0 ? [-1, 1.3, 0] : [1, -1.4, 0],
+      transition: {
+        delay: getRandomDelay(),
+        repeat: Infinity,
+        duration: randomDuration(),
+      },
+    }),
+    reset: {
+      rotate: 0,
+    },
+  };
+
+  function getRandomTransformOrigin() {
+    const value = (16 + 40 * Math.random()) / 100;
+    const value2 = (15 + 36 * Math.random()) / 100;
+    return {
+      originX: value,
+      originY: value2,
+    };
+  }
+
   return {
     color,
     pickColor,
     isSupported,
     close,
     error,
-  };
-}
-
-const variants = {
-  start: (i: number) => ({
-    rotate: i % 2 === 0 ? [-1, 1.3, 0] : [1, -1.4, 0],
-    transition: {
-      delay: getRandomDelay(),
-      repeat: Infinity,
-      duration: randomDuration(),
+    animation: {
+      getRandomTransformOrigin,
+      variants,
     },
-  }),
-  reset: {
-    rotate: 0,
-  },
-};
-
-function getRandomTransformOrigin() {
-  const value = (16 + 40 * Math.random()) / 100;
-  const value2 = (15 + 36 * Math.random()) / 100;
-  return {
-    originX: value,
-    originY: value2,
   };
 }
 
