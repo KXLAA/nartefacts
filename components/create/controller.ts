@@ -11,6 +11,8 @@ import { useSavedPallettes } from "@/lib/hooks/use-saved-pallettes";
 
 //https://codesandbox.io/s/9ovl4?file=/src/App.tsx:1083-1088
 
+// TODO: Clean up the logic here
+
 type PreviewPage = "home" | "export" | "download";
 export type SavedPalettes = palettes & {
   savedAt: Date;

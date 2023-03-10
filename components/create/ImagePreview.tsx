@@ -26,7 +26,7 @@ export function ImagePreview(props: ImagePreviewProps) {
 function Home(props: ImagePreviewProps) {
   return props.palette?.imageUrl ? (
     <motion.div
-      className="grid w-full h-full grid-cols-2 gap-2 p-6 rounded-md shadow bg-cod-gray-800 "
+      className="grid w-full h-full grid-cols-2 gap-2 p-6 rounded-md shadow bg-cod-gray-800"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -36,7 +36,7 @@ function Home(props: ImagePreviewProps) {
           src={props.palette?.imageUrl}
           height={800}
           width={800}
-          alt={"user uploaded image"}
+          alt="user uploaded image"
           placeholder="blur"
           blurDataURL={props.palette?.imageUrl}
           className="rounded"
