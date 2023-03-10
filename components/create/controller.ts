@@ -205,7 +205,7 @@ function useUpload() {
 type Args = {
   color: string;
   id: string;
-  setPalette: React.Dispatch<React.SetStateAction<palettes>>;
+  setPalette: (palette: palettes) => void;
   index: number;
 };
 
@@ -268,7 +268,9 @@ export function useColorBox(props: Args) {
       console.log(error);
     }
 
-    props.setPalette(palette);
+    if (palette) {
+      props.setPalette(palette);
+    }
   }
 
   return {
