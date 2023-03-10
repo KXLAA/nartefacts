@@ -18,7 +18,8 @@ export type SavedPalettes = palettes & {
 
 export function useCreatePage() {
   const controls = useAnimation();
-  const { dropzone, palette, isUploaded, error, isLoading } = useUpload();
+  const { dropzone, palette, isUploaded, error, isLoading, setPalette } =
+    useUpload();
   const [downloadUrl, setDownloadUrl] = React.useState<string | null>(null);
   const [previewPage, setPreviewPage] = React.useState<PreviewPage>("home");
   const [savedPallettes, setSavedPallettes] = useSavedPallettes();
@@ -113,6 +114,7 @@ export function useCreatePage() {
       url: downloadUrl,
       download: downloadExportedColors,
     },
+    setPalette,
     page: {
       current: previewPage,
       goToHome: () => {
@@ -194,12 +196,15 @@ function useUpload() {
     isUploaded,
     error,
     isLoading,
+    setPalette,
   };
 }
 
 type Args = {
   color: string;
   id: string;
+  setPalette: React.Dispatch<React.SetStateAction<palettes>>;
+  index: number;
 };
 
 export function useColorBox(props: Args) {
@@ -207,6 +212,7 @@ export function useColorBox(props: Args) {
   const [color, setColor] = React.useState(props.color);
   const [error, setError] = React.useState();
   const editColor = api.palettes.editColor.useMutation();
+  const removeColor = api.palettes.removeColor.useMutation();
 
   function pickColor() {
     open()
@@ -249,6 +255,20 @@ export function useColorBox(props: Args) {
     };
   }
 
+  async function remove() {
+    const [palette, error] = await removeColor.mutateAsync({
+      id: props.id,
+      color: color,
+      index: props.index,
+    });
+
+    if (error != null) {
+      console.log(error);
+    }
+
+    props.setPalette(palette);
+  }
+
   return {
     color,
     pickColor,
@@ -259,6 +279,7 @@ export function useColorBox(props: Args) {
       getRandomTransformOrigin,
       variants,
     },
+    removeColor: remove,
   };
 }
 

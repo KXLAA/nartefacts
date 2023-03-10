@@ -55,7 +55,12 @@ function Home(props: ImagePreviewProps) {
         {props?.palette?.palette && (
           <div className="grid w-full grid-cols-4 gap-1">
             {props.palette.palette.map((color, i) => (
-              <ColorBox key={color} index={i} color={color} {...props} />
+              <ColorBox
+                key={color ? color : i}
+                index={i}
+                color={color}
+                {...props}
+              />
             ))}
           </div>
         )}
@@ -147,9 +152,11 @@ type ColorBoxProps = CreateController & {
 };
 function ColorBox(props: ColorBoxProps) {
   const isValidHex = CH.isValidHexCode(props.color);
-  const { color, pickColor, animation } = useColorBox({
+  const { color, pickColor, animation, removeColor } = useColorBox({
     color: props.color,
     id: props.palette.id,
+    setPalette: props.setPalette,
+    index: props.index,
   });
 
   return isValidHex ? (
@@ -175,7 +182,11 @@ function ColorBox(props: ColorBoxProps) {
               <Edit className="w-3 text-silver-800" strokeWidth={1.44} />
             </button>
             <button className="flex items-center justify-center text-center transition-colors rounded-full w-7 aspect-square bg-cod-gray-500 hover:bg-cod-gray-400 shadow-border-shiny">
-              <Trash className="w-3 text-silver-800" strokeWidth={1.44} />
+              <Trash
+                className="w-3 text-silver-800"
+                strokeWidth={1.44}
+                onClick={removeColor}
+              />
             </button>
           </>
         ) : null}
@@ -190,7 +201,10 @@ function ColorBox(props: ColorBoxProps) {
       </motion.span>
     </motion.div>
   ) : (
-    <button className="flex items-center justify-center w-full transition-all border border-dashed rounded opacity-75 hover:opacity-100 aspect-square shadow-border-shin border-cod-gray-50 h-[120px]">
+    <button
+      className="flex items-center justify-center w-full transition-all border border-dashed rounded opacity-75 hover:opacity-100 aspect-square shadow-border-shin border-cod-gray-50 h-[120px]"
+      onClick={pickColor}
+    >
       <PlusCircle size={24} strokeWidth={1.22} />
     </button>
   );
