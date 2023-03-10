@@ -7,6 +7,7 @@ import { CH } from "@/lib/color-helpers";
 import { formatDate } from "@/lib/date";
 
 import type { CreateController } from "./controller";
+import { usePickColor } from "./controller";
 
 interface ImagePreviewProps extends CreateController {
   className?: string;
@@ -140,13 +141,16 @@ function Download(props: ImagePreviewProps) {
   );
 }
 
-function ColorBox(
-  props: {
-    color: string;
-    index: number;
-  } & CreateController
-) {
+type ColorBoxProps = CreateController & {
+  color: string;
+  index: number;
+};
+function ColorBox(props: ColorBoxProps) {
   const isValidHex = CH.isValidHexCode(props.color);
+  const { color, pickColor } = usePickColor({
+    color: props.color,
+    id: props.palette.id,
+  });
 
   return isValidHex ? (
     <motion.div
@@ -159,16 +163,19 @@ function ColorBox(
       animate={props.colors.animation.controls}
     >
       <div
-        className="flex items-start justify-between w-full h-20 text-[8px] font-bold transition-all rounded opacity-75 hover:opacity-100 shadow-border-shiny"
-        style={{ backgroundColor: props.color }}
+        className="flex items-center gap-1 justify-center w-full h-20 text-[8px] font-bold transition-all rounded opacity-75 hover:opacity-100 shadow-border-shiny"
+        style={{ backgroundColor: color }}
       >
         {props.editing.isEditing ? (
           <>
-            <button className="flex items-center justify-center w-full transition-colors rounded-full bg-cod-gray-500 hover:bg-cod-gray-400">
-              <Edit size={16} strokeWidth={1.22} />
+            <button
+              className="flex items-center justify-center text-center transition-colors rounded-full w-7 aspect-square bg-cod-gray-500 hover:bg-cod-gray-400 shadow-border-shiny"
+              onClick={pickColor}
+            >
+              <Edit className="w-3 text-silver-800" strokeWidth={1.44} />
             </button>
-            <button className="flex items-center justify-center w-full text-center transition-colors rounded-full bg-cod-gray-500 hover:bg-cod-gray-400">
-              <Trash size={16} strokeWidth={1.22} />
+            <button className="flex items-center justify-center text-center transition-colors rounded-full w-7 aspect-square bg-cod-gray-500 hover:bg-cod-gray-400 shadow-border-shiny">
+              <Trash className="w-3 text-silver-800" strokeWidth={1.44} />
             </button>
           </>
         ) : null}

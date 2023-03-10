@@ -3,6 +3,7 @@ import { useAnimation } from "framer-motion";
 import { useS3Upload } from "next-s3-upload";
 import React from "react";
 import { useDropzone } from "react-dropzone";
+import useEyeDropper from "use-eye-dropper";
 
 import { api } from "@/lib/api";
 import type { ColorsTuple } from "@/lib/color-helpers";
@@ -225,6 +226,44 @@ function useUpload() {
     isUploaded,
     error,
     isLoading,
+  };
+}
+
+type Args = {
+  color: string;
+  id: string;
+};
+
+export function usePickColor(props: Args) {
+  const { open, close, isSupported } = useEyeDropper();
+  const [color, setColor] = React.useState(props.color);
+  const [error, setError] = React.useState();
+  const editColor = api.palettes.editColor.useMutation();
+
+  function pickColor() {
+    open()
+      .then((color) => {
+        setColor(color.sRGBHex);
+        editColor.mutateAsync({
+          id: props.id,
+          color: color.sRGBHex,
+          newColor: color.sRGBHex,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        // Ensures component is still mounted
+        // before calling setState
+        if (!e.canceled) setError(e);
+      });
+  }
+
+  return {
+    color,
+    pickColor,
+    isSupported,
+    close,
+    error,
   };
 }
 

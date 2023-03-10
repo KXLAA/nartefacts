@@ -33,7 +33,7 @@ export function RecentlyCreated(props: CreateController) {
           exit={{ y: 20, opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="gap-2 columns-3">
+          <div className="relative gap-2 columns-3">
             {props?.savedPallettes?.list.slice(0, 4).map((pallette) => (
               <motion.div
                 className="flex flex-col gap-2 mb-2"
@@ -54,6 +54,11 @@ export function RecentlyCreated(props: CreateController) {
                 />
               </motion.div>
             ))}
+          </div>
+
+          <div className="absolute">
+            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-cod-gray-100 to-cod-gray-200"></div>
+            <p>VIEW ALL</p>
           </div>
         </Card>
       ) : null}

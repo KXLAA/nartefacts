@@ -45,6 +45,36 @@ export const pallettesRouter = createTRPCRouter({
       return handleNulls(updatedPalette);
     }),
 
+  editColor: publicProcedure
+    .input(
+      z.object({
+        color: z.string(),
+        id: z.string(),
+        newColor: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const { color, newColor } = input;
+      const palette = await ctx.prisma.palettes.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!palette) return handleNulls(null);
+
+      const colors = palette.palette.map((c) => (c === color ? newColor : c));
+      const updatedPalette = await ctx.prisma.palettes.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          palette: colors,
+        },
+      });
+
+      return handleNulls(updatedPalette);
+    }),
   generate: publicProcedure
     .input(z.object({ imageUrl: z.string() }))
     .mutation(async ({ input, ctx }) => {
