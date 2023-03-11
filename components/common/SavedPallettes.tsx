@@ -1,41 +1,39 @@
 import type { palettes } from "@prisma/client";
 import { AnimatePresence, motion } from "framer-motion";
+import { XCircle } from "lucide-react";
 import Image from "next/image";
 import NextLink from "next/link";
 
 import { Card } from "@/components/common/Card";
 import { GradientBar } from "@/components/home/GradientBar";
 import { Pallette } from "@/components/home/Pallette";
+import { useMouseOver } from "@/lib/hooks/use-mouse-over";
+import { useSavedPallettes } from "@/lib/hooks/use-saved-pallettes";
 
 export type SavedPalettes = palettes & {
   savedAt: Date;
 };
 
 type SavedPallettesProps = {
-  savedPallettes: SavedPalettes[];
   type: "recent" | "saved";
 };
 
 export function SavedPallettes(props: SavedPallettesProps) {
-  const isRecent = props.type === "recent";
-  const heading = isRecent ? "Recently Created" : "Saved Pallettes";
-  const description = isRecent
-    ? "Your recently created pallettes"
-    : "Your saved pallettes";
-  const palettes = isRecent
-    ? props?.savedPallettes?.slice(0, 4)
-    : props?.savedPallettes;
+  const controller = useSavedPalettes(props.type);
+  const palettes = controller.isRecent
+    ? controller?.palettes?.recent
+    : controller?.palettes?.saved;
 
   return (
     <AnimatePresence>
-      {props?.savedPallettes?.length ? (
+      {controller?.palettes?.saved?.length ? (
         <Card
           dotted
-          heading={heading}
-          description={description}
+          heading={controller.heading}
+          description={controller.description}
           key="saved-pallettes"
           addon={
-            isRecent && props?.savedPallettes?.length > 4 ? (
+            controller.isRecent && controller?.palettes?.saved?.length > 4 ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -60,7 +58,18 @@ export function SavedPallettes(props: SavedPallettesProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
+                ref={controller.hoverRef}
               >
+                <motion.button
+                  className="absolute right-0 z-10 flex gap-1 p-4 transition-colors hover:text-silver-700 text-silver-900"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => controller.palettes.remove(palette.id)}
+                >
+                  <XCircle className="w-5 h-5" strokeWidth={2} />
+                </motion.button>
+
                 <Image
                   src={palette?.imageUrl}
                   height={1000}
@@ -89,13 +98,47 @@ export function SavedPallettes(props: SavedPallettesProps) {
               </motion.div>
             ))}
           </div>
-
-          {/* <div className="absolute">
-                <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-cod-gray-100 to-cod-gray-200"></div>
-                <p>VIEW ALL</p>
-              </div> */}
         </Card>
       ) : null}
     </AnimatePresence>
   );
+}
+
+function useSavedPalettes(type: "recent" | "saved") {
+  const [hoverRef, isHovered] = useMouseOver<any>();
+  const [saved, setSaved] = useSavedPallettes();
+  const isRecent = type === "recent";
+  const heading = isRecent ? "Recently Created" : "Saved Pallettes";
+  const description = isRecent
+    ? "Your recently created pallettes"
+    : "Your saved pallettes";
+
+  function sortSavedPalettes() {
+    return saved.sort(
+      (a, b) => Number(new Date(b.savedAt)) - Number(new Date(a.savedAt))
+    );
+  }
+
+  function remove(id: string) {
+    setSaved(saved?.filter((p) => p.id !== id));
+  }
+
+  function add(palette: SavedPalettes) {
+    setSaved([palette, ...saved]);
+  }
+
+  return {
+    heading,
+    description,
+    isRecent,
+    hoverRef,
+    isHovered,
+    palettes: {
+      saved: sortSavedPalettes(),
+      recent: sortSavedPalettes().slice(0, 4),
+      set: setSaved,
+      remove,
+      add,
+    },
+  };
 }

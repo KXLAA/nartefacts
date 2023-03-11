@@ -16,10 +16,7 @@ export default function Create() {
     >
       <ImageUploader {...controller} />
       <ImagePreview {...controller} />
-      <SavedPallettes
-        savedPallettes={controller.savedPallettes.list}
-        type="recent"
-      />
+      <SavedPallettes type="recent" />
     </Layout>
   );
 }
