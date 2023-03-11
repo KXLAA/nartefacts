@@ -1,7 +1,7 @@
+import { SavedPallettes } from "@/components/common/SavedPallettes";
 import { useCreatePage } from "@/components/create/controller";
 import { ImagePreview } from "@/components/create/ImagePreview";
 import { ImageUploader } from "@/components/create/ImageUploader";
-import { RecentlyCreated } from "@/components/create/RecentlyCreated";
 import { Layout } from "@/components/layout/Layout";
 
 export default function Create() {
@@ -16,7 +16,10 @@ export default function Create() {
     >
       <ImageUploader {...controller} />
       <ImagePreview {...controller} />
-      <RecentlyCreated {...controller} />
+      <SavedPallettes
+        savedPallettes={controller.savedPallettes.list}
+        type="recent"
+      />
     </Layout>
   );
 }

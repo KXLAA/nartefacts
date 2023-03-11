@@ -19,7 +19,7 @@ export function Card(props: CardProps) {
   return (
     <motion.div
       className={cx(
-        "flex flex-col w-full gap-4 p-6 rounded-md shadow bg-cod-gray-800",
+        "flex flex-col w-full gap-4 p-4 md:p-6 rounded-md shadow bg-cod-gray-800",
         className
       )}
       {...rest}

@@ -53,7 +53,7 @@ export function Album(props: AlbumProps) {
         }}
       />
 
-      <Pallette colors={props.colors} />
+      <Pallette colors={props.colors} size="lg" />
 
       <div className="p-2 rounded bg-cod-gray-600 shadow-border-shiny">
         <h3 className="text-lg font-bold">{props.title} </h3>
