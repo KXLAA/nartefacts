@@ -32,7 +32,7 @@ export function useCreatePage() {
   async function exportAsCode() {
     //colors: ColorsTuple
     const [data, error] = await exportColors.mutateAsync({
-      colors: palette.palette as ColorsTuple,
+      colors: palette.item.palette as ColorsTuple,
       type: "code",
     });
 
@@ -44,7 +44,7 @@ export function useCreatePage() {
   async function exportAsCss() {
     //colors: ColorsTuple
     const [data, error] = await exportColors.mutateAsync({
-      colors: palette.palette as ColorsTuple,
+      colors: palette.item.palette as ColorsTuple,
       type: "css",
     });
 
@@ -194,7 +194,10 @@ function useUpload() {
   });
   return {
     dropzone,
-    palette,
+    palette: {
+      item: palette,
+      set: setPalette,
+    },
     isUploaded,
     error,
     isLoading,

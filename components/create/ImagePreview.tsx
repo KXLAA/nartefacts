@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Edit, PlusCircle, Trash } from "lucide-react";
 import Image from "next/image";
 
+import { FadeInOut } from "@/components/animation/FadeInOut";
+import { GradientBar } from "@/components/home/GradientBar";
 import { CH } from "@/lib/color-helpers";
 import { formatDate } from "@/lib/date";
 
@@ -24,51 +26,58 @@ export function ImagePreview(props: ImagePreviewProps) {
 }
 
 function Home(props: ImagePreviewProps) {
-  return props.palette?.imageUrl ? (
-    <motion.div
-      className="grid w-full h-full grid-cols-2 gap-2 p-6 rounded-md shadow bg-cod-gray-800"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+  return props.palette?.item?.imageUrl ? (
+    <FadeInOut className="grid w-full h-full grid-cols-2 gap-2 p-6 rounded-md shadow bg-cod-gray-800">
       <div className="relative flex flex-col items-center gap-4">
         <Image
-          src={props.palette?.imageUrl}
+          src={props.palette?.item.imageUrl}
           height={800}
           width={800}
           alt="user uploaded image"
           placeholder="blur"
-          blurDataURL={props.palette?.imageUrl}
+          blurDataURL={props.palette?.item.imageUrl}
           className="rounded"
         />
 
         <div className="absolute bottom-0 self-center w-full p-4 px-6 text-center rounded-b bg-cod-gray-500 shadow-border-shiny">
-          <p className="text-xl font-semibold">{props?.palette?.title}</p>
+          <p className="text-xl font-semibold">{props?.palette?.item.title}</p>
           <p className="text-xs text-silver-900 font-extralight">
             Generated on{" "}
-            {formatDate(props?.palette?.createdAt, "MMMM do, yyyy")}
+            {formatDate(props?.palette?.item.createdAt, "MMMM do, yyyy")}
           </p>
         </div>
       </div>
 
       <div className="flex flex-col justify-between w-full h-full gap-2">
-        {props?.palette?.palette && (
-          <div className="grid w-full grid-cols-4 gap-1">
-            {props.palette.palette.map((color, i) => (
-              <ColorBox
-                key={color ? color : i}
-                index={i}
-                color={color}
-                {...props}
-              />
-            ))}
-          </div>
-        )}
+        <div className="flex flex-col w-full gap-4">
+          {props?.palette?.item.palette && (
+            <div className="grid w-full grid-cols-4 gap-1">
+              {props.palette.item.palette.map((color, i) => (
+                <ColorBox
+                  key={color ? color : i}
+                  index={i}
+                  color={color}
+                  {...props}
+                />
+              ))}
+            </div>
+          )}
+
+          <GradientBar
+            css={{
+              $$gradient: `linear-gradient(147deg, ${props.palette.item.palette.join(
+                ", "
+              )})`,
+              height: 16,
+              borderRadius: 2,
+            }}
+          />
+        </div>
 
         <div className="flex items-center self-end justify-end w-full gap-2">
           <button
             className="w-full p-2 text-xl font-semibold rounded bg-cod-gray-500 shadow-border-shiny"
-            onClick={() => props.savedPallettes.add(props.palette)}
+            onClick={() => props.savedPallettes.add(props.palette.item)}
           >
             Save
           </button>
@@ -89,13 +98,13 @@ function Home(props: ImagePreviewProps) {
           </button>
         </div>
       </div>
-    </motion.div>
+    </FadeInOut>
   ) : null;
 }
 
 function Export(props: ImagePreviewProps) {
   return (
-    <div className="flex flex-col justify-between w-full h-full max-w-lg gap-4 p-6 rounded-md shadow bg-cod-gray-800">
+    <FadeInOut className="flex flex-col justify-between w-full h-full max-w-lg gap-4 p-6 rounded-md shadow bg-cod-gray-800">
       <div className="flex flex-col gap-1">
         <div className="flex justify-between my-1 border-b border-dashed border-silver-900">
           <p className="text-4xl font-bold">EXPORT</p>
@@ -108,9 +117,9 @@ function Export(props: ImagePreviewProps) {
         </p>
       </div>
 
-      {props?.palette?.palette && (
+      {props?.palette.item && (
         <div className="grid w-full grid-cols-4 gap-1">
-          {props.palette.palette.map((color, i) => (
+          {props.palette.item.palette.map((color, i) => (
             <ColorBox key={color} index={i} color={color} {...props} />
           ))}
         </div>
@@ -130,7 +139,7 @@ function Export(props: ImagePreviewProps) {
           CODE
         </button>
       </div>
-    </div>
+    </FadeInOut>
   );
 }
 
@@ -154,7 +163,7 @@ function ColorBox(props: ColorBoxProps) {
   const isValidHex = CH.isValidHexCode(props.color);
   const { color, pickColor, animation, removeColor } = useColorBox({
     color: props.color,
-    id: props.palette.id,
+    id: props.palette.item.id,
     setPalette: props.setPalette,
     index: props.index,
   });

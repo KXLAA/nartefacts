@@ -40,15 +40,16 @@ export function Album(props: AlbumProps) {
         src={props.albumArt}
         height={1000}
         width={1000}
-        alt={"album art"}
+        alt="album art"
         placeholder="blur"
-        blurDataURL={"/images/placeholder.png"}
+        blurDataURL="/images/placeholder.png"
         className="transition transform rounded brightness-90 hover:brightness-110"
       />
 
       <GradientBar
         css={{
           $$gradient: `linear-gradient(147deg, ${props.colors.join(", ")})`,
+          height: 4,
         }}
       />
 
