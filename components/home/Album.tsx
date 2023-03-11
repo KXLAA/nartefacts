@@ -1,6 +1,6 @@
 import copy from "copy-to-clipboard";
 import { motion } from "framer-motion";
-import { FileUp, Link } from "lucide-react";
+import { FileUp } from "lucide-react";
 import Image from "next/image";
 
 import { Tooltip } from "@/components/common/Tooltip";
