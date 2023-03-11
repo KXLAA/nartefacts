@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { Card } from "@/components/common/Card";
@@ -8,10 +8,13 @@ import { useSavedPallettes } from "@/lib/hooks/use-saved-pallettes";
 export default function Saved() {
   const [savedPallettes] = useSavedPallettes();
 
-  //This should be a masonry grid
-
   return (
-    <Layout className="relative flex flex-col items-center justify-between w-full max-w-5xl min-h-screen p-2 m-auto overflow-hidden">
+    <Layout
+      className="relative flex flex-col items-center justify-between w-full max-w-5xl min-h-screen p-2 m-auto overflow-hidden"
+      meta={{
+        title: `nartefacts | Saved`,
+      }}
+    >
       {savedPallettes?.length ? (
         <Card
           dotted
@@ -37,9 +40,9 @@ export default function Saved() {
                   src={pallette?.imageUrl}
                   height={1000}
                   width={1000}
-                  alt={"album art"}
+                  alt="album art"
                   placeholder="blur"
-                  blurDataURL={"/images/placeholder.png"}
+                  blurDataURL="/images/placeholder.png"
                   className="transition transform rounded brightness-90 hover:brightness-110"
                 />
               </motion.div>

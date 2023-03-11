@@ -21,7 +21,7 @@ export function NavigationMenu() {
           <Pocket className="w-5 h-5 text-silver-800" strokeWidth={1.44} />
           Saved
         </NavigationMenuItem>
-        <NavigationMenuItem href="https://github.com/KXLAA/kxlaa.com">
+        <NavigationMenuItem href="https://github.com/KXLAA/nartefacts">
           <Github className="w-5 h-5 text-silver-800" strokeWidth={1.44} />
           Github
         </NavigationMenuItem>
