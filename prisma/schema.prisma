@@ -43,3 +43,12 @@ model palettes {
     palette   String[]
     title     String
 }
+
+// model generated {
+//     id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//     v         Int      @map("__v")
+//     imageUrl  String
+//     createdAt DateTime @default(now())
+//     palette   String[]
+//     title     String
+// }

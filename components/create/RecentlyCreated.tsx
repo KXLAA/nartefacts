@@ -47,19 +47,19 @@ export function RecentlyCreated(props: CreateController) {
                   src={pallette?.imageUrl}
                   height={1000}
                   width={1000}
-                  alt={"album art"}
+                  alt="album art"
                   placeholder="blur"
-                  blurDataURL={"/images/placeholder.png"}
+                  blurDataURL="/images/placeholder.png"
                   className="transition transform rounded brightness-90 hover:brightness-110"
                 />
               </motion.div>
             ))}
           </div>
 
-          <div className="absolute">
+          {/* <div className="absolute">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-cod-gray-100 to-cod-gray-200"></div>
             <p>VIEW ALL</p>
-          </div>
+          </div> */}
         </Card>
       ) : null}
     </AnimatePresence>
