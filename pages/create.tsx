@@ -1,8 +1,8 @@
-import { SavedPallettes } from "@/components/common/SavedPallettes";
 import { useCreatePage } from "@/components/create/controller";
 import { ImagePreview } from "@/components/create/ImagePreview";
 import { ImageUploader } from "@/components/create/ImageUploader";
 import { Layout } from "@/components/layout/Layout";
+import { SavedPallettes } from "@/components/saved/SavedPallettes";
 
 export default function Create() {
   const controller = useCreatePage();

@@ -1,5 +1,5 @@
-import { SavedPallettes } from "@/components/common/SavedPallettes";
 import { Layout } from "@/components/layout/Layout";
+import { SavedPallettes } from "@/components/saved/SavedPallettes";
 
 export default function Saved() {
   return (
