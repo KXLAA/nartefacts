@@ -1,4 +1,6 @@
+import copy from "copy-to-clipboard";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 import { useMouseOver } from "@/lib/hooks/use-mouse-over";
 
@@ -17,7 +19,7 @@ function ColorBox({ color }: { color: string }) {
 
   return (
     <div
-      className="flex items-center justify-center w-full h-20 transition-all opacity-75 2xl:h-40 hover:opacity-100 aspect-square shadow-border-shiny"
+      className="flex items-center justify-center w-full transition-all opacity-75 h-28 hover:opacity-100 aspect-square shadow-border-shiny"
       style={{ backgroundColor: color }}
       ref={hoverRef}
     >
@@ -28,7 +30,16 @@ function ColorBox({ color }: { color: string }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          {color}
+          <motion.button
+            className="p-1.5 text-sm font-semibold rounded cursor-pointer text-silver bg-cod-gray-700"
+            onClick={() => {
+              copy(color);
+              toast.success(`Copied ${color.toUpperCase()} to clipboard.`);
+            }}
+            whileTap={{ scale: 0.95, color: color }}
+          >
+            {color.toUpperCase()}
+          </motion.button>
         </motion.div>
       )}
     </div>

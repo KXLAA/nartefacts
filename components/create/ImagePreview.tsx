@@ -201,13 +201,13 @@ function ColorBox(props: ColorBoxProps) {
         ) : null}
       </div>
 
-      <motion.span
+      <motion.button
         className="mt-1 text-sm font-semibold cursor-pointer text-silver"
         onClick={() => copy(color)}
         whileTap={{ scale: 0.95, color: color }}
       >
         {color}
-      </motion.span>
+      </motion.button>
     </motion.div>
   ) : (
     <button

@@ -86,12 +86,12 @@ function AnchorLink(props: AnchorLinkProps) {
 }
 
 const links = [
-  {
-    id: "copy-link",
-    icon: <Link className="w-4 h-4" />,
-    message: "Copy Link",
-    onClick: () => console.log("github"),
-  },
+  // {
+  //   id: "copy-link",
+  //   icon: <Link className="w-4 h-4" />,
+  //   message: "Copy Link",
+  //   onClick: () => console.log("github"),
+  // },
   {
     id: "export",
     icon: <FileUp className="w-4 h-4" />,

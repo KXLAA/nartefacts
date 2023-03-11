@@ -47,6 +47,7 @@ specifiers:
   react-intersection-observer: ^9.4.3
   react-use-measure: ^2.1.1
   simple-git-hooks: ^2.8.1
+  sonner: ^0.2.0
   superjson: ^1.12.2
   tailwind-merge: ^1.10.0
   tailwind-variants: ^0.0.30
@@ -86,6 +87,7 @@ dependencies:
   react-dropzone: 14.2.3_react@18.2.0
   react-intersection-observer: 9.4.3_react@18.2.0
   react-use-measure: 2.1.1_biqbaboplfbrettd7655fr4n2y
+  sonner: 0.2.0_biqbaboplfbrettd7655fr4n2y
   superjson: 1.12.2
   tailwind-merge: 1.10.0
   tailwind-variants: 0.0.30_tailwindcss@3.2.7
@@ -4648,6 +4650,16 @@ packages:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 4.0.0
     dev: true
+
+  /sonner/0.2.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-wxOkuIRoyF7nsXbz7JcpexGtSw58C9XZik6kVtKNxKpEEnfFsGyR08HQMabqEzAd0a8ARNuDH06UnEit4tvO+w==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}

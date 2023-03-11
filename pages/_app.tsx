@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
+import { Toaster } from "sonner";
 
 import { api } from "@/lib/api";
 import { DefaultSeo } from "@/lib/seo";
@@ -42,6 +43,12 @@ function App({ Component, pageProps }: AppProps) {
           --font-helios: ${helios.style.fontFamily};
         }
       `}</style>
+      <Toaster
+        theme="dark"
+        toastOptions={{
+          className: "!bg-cod-gray-700 !text-silver-700",
+        }}
+      />
       <Component {...pageProps} />
     </>
   );
