@@ -30,6 +30,7 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   eslint-plugin-react: ^7.31.8
   eslint-plugin-simple-import-sort: ^8.0.0
+  fp-ts: ^2.13.1
   framer-motion: ^10.0.1
   hex-color-to-color-name: ^1.0.2
   lint-staged: ^13.1.2
@@ -75,6 +76,7 @@ dependencies:
   colorthief: 2.4.0
   copy-to-clipboard: 3.3.3
   date-fns: 2.29.3
+  fp-ts: 2.13.1
   framer-motion: 10.0.1_biqbaboplfbrettd7655fr4n2y
   hex-color-to-color-name: 1.0.2
   lucide-react: 0.122.0_react@18.2.0
@@ -3123,6 +3125,10 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: false
+
+  /fp-ts/2.13.1:
+    resolution: {integrity: sha512-0eu5ULPS2c/jsa1lGFneEFFEdTbembJv8e4QKXeVJ3lm/5hyve06dlKZrpxmMwJt6rYen7sxmHHK2CLaXvWuWQ==}
     dev: false
 
   /fraction.js/4.2.0:
