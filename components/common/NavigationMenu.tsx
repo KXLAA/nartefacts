@@ -8,21 +8,21 @@ import { cx } from "@/lib/cx";
 export function NavigationMenu() {
   return (
     <NavigationMenuPrimitive.Root className="z-[1] flex justify-center fixed bottom-6">
-      <NavigationMenuPrimitive.List className="flex gap-1 p-2 m-0 list-none rounded-lg bg-cod-gray-800 shadow-border-shiny">
+      <NavigationMenuPrimitive.List className="flex gap-1 p-1 m-0 list-none rounded bg-cod-gray-800 shadow-border-shiny">
         <NavigationMenuItem href="/">
           <Home className="w-4 h-4 text-silver-800" strokeWidth={1.44} />
           Home
         </NavigationMenuItem>
         <NavigationMenuItem href="/create">
-          <ToyBrick className="w-5 h-5 text-silver-800" strokeWidth={1.44} />
+          <ToyBrick className="w-4 h-4 text-silver-800" strokeWidth={1.44} />
           Create
         </NavigationMenuItem>
         <NavigationMenuItem href="/saved">
-          <Pocket className="w-5 h-5 text-silver-800" strokeWidth={1.44} />
+          <Pocket className="w-4 h-4 text-silver-800" strokeWidth={1.44} />
           Saved
         </NavigationMenuItem>
         <NavigationMenuItem href="https://github.com/KXLAA/nartefacts">
-          <Github className="w-5 h-5 text-silver-800" strokeWidth={1.44} />
+          <Github className="w-4 h-4 text-silver-800" strokeWidth={1.44} />
           Github
         </NavigationMenuItem>
       </NavigationMenuPrimitive.List>
@@ -67,14 +67,14 @@ function NavigationMenuItem(props: NavigationMenuItemProps) {
     <NavigationMenuPrimitive.Item>
       {isClientSideLink ? (
         <Link
-          className="flex gap-1 items-center justify-center select-none rounded-[4px] p-4 text-xl  leading-none no-underline outline-none hover:bg-cod-gray-400 transition-colors hover:text-silver-700"
+          className="flex gap-1 items-center justify-center select-none rounded-[4px] p-2 text-base  leading-none no-underline outline-none hover:bg-cod-gray-400 transition-colors hover:text-silver-700"
           href={props.href}
         >
           {props.children}
         </Link>
       ) : (
         <NavigationMenuPrimitive.Link
-          className="flex gap-1 items-center justify-center select-none rounded-[4px] p-4 text-xl  leading-none no-underline outline-none hover:bg-cod-gray-400 transition-colors hover:text-silver-700"
+          className="flex gap-1 items-center justify-center select-none rounded-[4px] p-2 text-base leading-none no-underline outline-none hover:bg-cod-gray-400 transition-colors hover:text-silver-700"
           href={props.href}
           target="_blank"
           rel="noopener noreferrer"
