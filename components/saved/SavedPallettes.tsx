@@ -1,12 +1,13 @@
 import type { palettes } from "@prisma/client";
 import { AnimatePresence, motion } from "framer-motion";
-import { XCircle } from "lucide-react";
+import { BoxSelect, XCircle } from "lucide-react";
 import Image from "next/image";
 import NextLink from "next/link";
 
 import { Card } from "@/components/common/Card";
 import { GradientBar } from "@/components/home/GradientBar";
 import { Pallette } from "@/components/home/Pallette";
+import { cx } from "@/lib/cx";
 import { useMouseOver } from "@/lib/hooks/use-mouse-over";
 import { useSavedPallettes } from "@/lib/hooks/use-saved-pallettes";
 
@@ -99,7 +100,41 @@ export function SavedPallettes(props: SavedPallettesProps) {
             ))}
           </div>
         </Card>
-      ) : null}
+      ) : (
+        <Card
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 20, opacity: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          hidden={props.type === "recent"}
+        >
+          <div className="flex flex-col items-center justify-center gap-4">
+            <div className="grid grid-cols-4">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <BoxSelect
+                  key={i}
+                  className={cx(
+                    "w-16 h-16",
+                    i > 3 ? "text-silver-900" : "text-silver-700"
+                  )}
+                  strokeWidth={1}
+                />
+              ))}
+            </div>
+
+            <p className="text-xl font-semibold text-silver-600">
+              You have saved no pallettes yet
+            </p>
+
+            <NextLink
+              href="/create"
+              className="px-4 py-2 text-sm font-semibold text-center transition-colors rounded text-silver-600 bg-cod-gray-500 shadow-border-shiny hover:bg-cod-gray-600"
+            >
+              Create a Pallette
+            </NextLink>
+          </div>
+        </Card>
+      )}
     </AnimatePresence>
   );
 }

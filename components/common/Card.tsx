@@ -4,22 +4,33 @@ import { motion } from "framer-motion";
 import { cx } from "@/lib/cx";
 
 interface CardProps extends HTMLMotionProps<"div"> {
-  heading: string;
+  heading?: string;
   description?: string;
   dotted?: boolean;
   addon?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
+  hidden?: boolean;
 }
 
 export function Card(props: CardProps) {
-  const { className, dotted, description, addon, heading, children, ...rest } =
-    props;
+  const {
+    className,
+    dotted,
+    description,
+    addon,
+    heading,
+    children,
+    hidden,
+    ...rest
+  } = props;
 
   return (
     <motion.div
       className={cx(
-        "flex flex-col w-full gap-4 p-4 md:p-6 rounded-md shadow bg-cod-gray-800",
+        "flex flex-col w-full p-4 md:p-6 rounded-md shadow bg-cod-gray-800",
+        heading ? "gap-4" : "",
+        hidden ? "hidden" : "",
         className
       )}
       {...rest}
@@ -31,7 +42,9 @@ export function Card(props: CardProps) {
         )}
       >
         <div className={cx(dotted ? "mb-1" : "")}>
-          <h2 className="text-3xl font-semibold">{heading}</h2>
+          {heading ? (
+            <h2 className="text-3xl font-semibold">{heading}</h2>
+          ) : null}
           {description ? (
             <p className="text-sm font-light text-silver-900">{description}</p>
           ) : null}
