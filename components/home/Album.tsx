@@ -47,10 +47,8 @@ export function Album(props: AlbumProps) {
       />
 
       <GradientBar
-        css={{
-          $$gradient: `linear-gradient(147deg, ${props.colors.join(", ")})`,
-          height: 4,
-        }}
+        gradient={`linear-gradient(147deg, ${props.colors.join(", ")})`}
+        height={4}
       />
 
       <Pallette colors={props.colors} size="lg" />

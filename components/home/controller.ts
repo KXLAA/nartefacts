@@ -22,7 +22,12 @@ export function useHomePage() {
   return {
     ref,
     data: query.data,
-    albums: query.data?.pages.flatMap((page) => page.albums),
+    albums: query.data?.pages
+      .flatMap((page) => page.albums)
+      .map((a) => ({
+        ...a,
+        gradient: `linear-gradient(147deg, ${a.colors.join(", ")})`,
+      })),
     status: query.status,
     error: query.error,
     isLastPage: !query.hasNextPage && !query.isFetchingNextPage,
