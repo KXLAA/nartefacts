@@ -64,13 +64,11 @@ function Home(props: ImagePreviewProps) {
           )}
 
           <GradientBar
-            css={{
-              $$gradient: `linear-gradient(147deg, ${props.palette.item.palette.join(
-                ", "
-              )})`,
-              height: 16,
-              borderRadius: 2,
-            }}
+            gradient={`linear-gradient(147deg, ${props.palette.item.palette.join(
+              ", "
+            )})`}
+            height={16}
+            br={2}
           />
         </div>
 
