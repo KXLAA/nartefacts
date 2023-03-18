@@ -88,9 +88,9 @@ export function SavedPallettes(props: SavedPallettesProps) {
               <motion.div
                 className="relative flex flex-col w-full gap-2"
                 key={palette.id}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 ref={controller.hoverRef}
               >
@@ -114,16 +114,8 @@ export function SavedPallettes(props: SavedPallettesProps) {
                   className="w-full transition transform rounded brightness-90 hover:brightness-110"
                 />
 
-                <GradientBar
-                  css={{
-                    $$gradient: palette.gradient,
-                    height: 16,
-                    borderRadius: 2,
-                  }}
-                />
-
+                <GradientBar gradient={palette.gradient} height={16} br={2} />
                 <Pallette colors={palette.palette} size="sm" />
-
                 <div className="self-center w-full p-2 px-6 text-center rounded-b bg-cod-gray-500 shadow-border-shiny">
                   <p className="text-sm font-semibold">{palette.title}</p>
                 </div>
