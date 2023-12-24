@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Button /> should render <Button /> correctly with the default styles 1`] = `
-<button
-  class="nartefacts-c-hctSdv nartefacts-c-hctSdv-gHFwzb-size-lg nartefacts-c-hctSdv-eDnYwL-variant-light nartefacts-c-hctSdv-deuXAd-fullWidth-true nartefacts-c-hctSdv-iPJLV-css"
->
-  Button CTA
-</button>
-`;
