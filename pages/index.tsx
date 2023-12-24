@@ -7,7 +7,7 @@ import { HomePageLoader } from "@/components/home/HomePageLoader";
 import { Layout } from "@/components/layout/Layout";
 
 export default function Home() {
-  const controller = useHomePage();
+  const c = useHomePage();
 
   return (
     <>
@@ -21,7 +21,7 @@ export default function Home() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             key="home"
           >
-            {controller.isLoading ? (
+            {c.isLoading ? (
               <HomePageLoader />
             ) : (
               <>
@@ -31,7 +31,7 @@ export default function Home() {
                     Colors inspired by African music.
                   </p>
                 </div>
-                {controller?.albums?.map((album) => (
+                {c.albums?.map((album) => (
                   <Album key={album.id} {...album} />
                 ))}
               </>
@@ -39,13 +39,9 @@ export default function Home() {
           </motion.div>
         </AnimatePresence>
 
-        {controller.isFetchingNextPage && <Loader />}
+        <Loader visible={c.isFetchingNextPage} />
 
-        <div
-          style={{ height: "2rem" }}
-          ref={controller.ref}
-          aria-hidden="true"
-        />
+        <div style={{ height: "2rem" }} ref={c.ref} aria-hidden="true" />
       </Layout>
     </>
   );

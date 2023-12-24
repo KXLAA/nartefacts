@@ -5,7 +5,7 @@ import { Layout } from "@/components/layout/Layout";
 import { SavedPallettes } from "@/components/saved/SavedPallettes";
 
 export default function Create() {
-  const controller = useCreatePage();
+  const c = useCreatePage();
 
   return (
     <Layout
@@ -14,8 +14,8 @@ export default function Create() {
         title: `nartefacts | Create`,
       }}
     >
-      <ImageUploader {...controller} />
-      <ImagePreview {...controller} />
+      <ImageUploader {...c} />
+      <ImagePreview {...c} />
       <SavedPallettes type="recent" />
     </Layout>
   );

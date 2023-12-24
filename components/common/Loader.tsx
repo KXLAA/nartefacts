@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 
 type LoaderProps = {
   count?: number;
+  visible?: boolean;
 };
 
 export function Loader(props: LoaderProps) {
-  return (
+  return props.visible ? (
     <div className="flex flex-col w-full gap-2">
       {Array.from({ length: props?.count || 4 }).map((_, i) => (
         <motion.div
@@ -25,5 +26,5 @@ export function Loader(props: LoaderProps) {
         />
       ))}
     </div>
-  );
+  ) : null;
 }
